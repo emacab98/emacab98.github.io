@@ -1,5 +1,0 @@
-eval  $(ssh-agent  -s)
-
-
-git commit -am "commento"
-git push -u origin master 
