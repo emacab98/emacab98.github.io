@@ -1,10 +1,11 @@
 function checkForm(){     
 
   var request = new XMLHttpRequest();
+ 
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
   
-  //alert("Sending: " + data);
+  alert("Sending: " + username + " " +password);
   request.open('GET', 'https://pacific-stream-14038.herokuapp.com/user/'+ username+"/"+password , true)
   request.onload = function() {
   // Begin accessing JSON data here

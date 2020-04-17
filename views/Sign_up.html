@@ -99,7 +99,7 @@
                     <div class="form-group">
                       <label  class="text-uppercase" for="password2">Repeat your password</label>
                       <input type="password" class="form-control" placeholder="insert your password again" 
-                      name="password2" id="password2" onclick='checkPasswordBis();'>
+                      name="password2" id="password2" onkeyup='checkPasswordBis();'>
                       <p id='message'></p>
                      
                     </div>
@@ -108,7 +108,7 @@
                     <div class="form-check">
                         <button type="button" class="btn btn-login float-right" 
                         class = "form-control" 
-                        id="submit">Submit</button>
+                        id="submit" onclick="checkForm()">Submit</button>
                     </div>
   
           

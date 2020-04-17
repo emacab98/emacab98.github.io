@@ -129,6 +129,7 @@ function checkEmail(){
 
 function checkForm(){     
 
+  alert("Bottone cliccato")
   var request = new XMLHttpRequest();
   var username = document.getElementById("username").value;
   var email = document.getElementById("email").value;
@@ -136,7 +137,7 @@ function checkForm(){
   var obj = {nickname :  username , email :  email , password : password , profile_pic_path : null};
   var data = JSON.stringify(obj); 
   
-  //alert("Sending: " + data);
+  alert("Sending: " + data);
   request.open('POST', 'https://pacific-stream-14038.herokuapp.com/user' , true)
   request.onload = function() {
   // Begin accessing JSON data here
