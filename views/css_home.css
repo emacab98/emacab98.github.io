@@ -22,13 +22,12 @@ body{
     height: 300px;
     width: 600px;
     overflow: hidden;
-    
-
 }
 
 #welcome_msg{
     color: #F2E8C4;
     font-size: xx-large;
+    opacity: 1;
 }
 
 #welcome_desc{
