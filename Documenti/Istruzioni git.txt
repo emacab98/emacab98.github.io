@@ -1,8 +1,22 @@
+*************************
+Procedimento:
+
+ssh-keygen
+aggiungi chiave ssh (pubblica) su git
 eval  $(ssh-agent  -s)
+ssh-add *percorso chiave privata*
+ssh -vT git@github.com --> Hi anadasca
+git remote -v (per vedere le remote)
+git remote rm *nome remote* (origin)
 
+git remote add origin https://github.com/emacab98/perfect_frontend (login)
+ OPPURE git@github.com:emacab98/perfect_frontend.git
 
+git pull origin master
+git checkout --ours su file in conflitto
 git commit -am "commento"
-git push -u origin master 
+git push -u origin master
+
+*************************
 
 
-ssh -vT git@github.com
