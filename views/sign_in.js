@@ -10,7 +10,10 @@ function checkForm(){
   request.onload = function() {
   // Begin accessing JSON data here
   if (request.status >= 200 && request.status < 400) {
-      alert("OK");
+      var risposta = JSON.parse(this.response);
+        //memorizzazione
+        //memorizzazione
+        localStorage.setItem("username", risposta.nickname);
        //Reindirizzamento
         window.location.href = "./feed.html";
        } 

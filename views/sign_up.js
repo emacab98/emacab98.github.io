@@ -20,12 +20,6 @@ function checkPasswordBis() {
   var pass1=  document.getElementById('password').value;
   var pass2 = document.getElementById('password2').value;
 
-  if(pass2==""){
-    test_pass=false;
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'Please insert you password again ';
-
-}
     if (pass1 ==
             pass2) {
               document.getElementById('message').style.color = 'green';
@@ -64,7 +58,6 @@ function checkPassword(){
       document.getElementById('message_password').innerHTML = 'Please insert a password and respect the format';
   } 
 
-  test_pass=true;
   checkValidity();
 
 }
@@ -129,22 +122,32 @@ function checkEmail(){
 
 function checkForm(){     
 
-  alert("Bottone cliccato")
   var request = new XMLHttpRequest();
   var username = document.getElementById("username").value;
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+
+  if(username==""|| password==""||email==""){
+    alert("Please fill al the information!");
+    return;
+  }
+  
   var obj = {nickname :  username , email :  email , password : password , profile_pic_path : null};
   var data = JSON.stringify(obj); 
+
   
-  alert("Sending: " + data);
+  
   request.open('POST', 'https://pacific-stream-14038.herokuapp.com/user' , true)
   request.onload = function() {
   // Begin accessing JSON data here
   if (request.status >= 200 && request.status < 400) {
+      var risposta = JSON.parse(this.response);
       alert("Registrazione avvenuta con successo!");
+      //memorizzazione
+      localStorage.setItem("username", risposta.nickname);
        //Reindirizzamento
         window.location.href = "./profile.html";
+       
        } 
   else {
       

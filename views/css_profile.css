@@ -6,5 +6,91 @@ body{
     background-color: #424254;
     border-color: #424254 ;
     font-size: large;
+    margin-bottom: 0;
+    border-radius: 0;
 }
 
+#my_button, #my_button2{
+  margin-top: 5px;
+  background-color: #424254;
+  color: #9999A3;
+  border: none;
+  font-size: large;
+  font-family: 'Poppins' }
+
+#my_button2{
+  border-radius: 5px;
+  position: center;
+  margin-top: 200px;
+  margin-left: 300px;
+  padding: 15px 32px;
+}
+
+#my_a, #my_a2{
+  font-family: 'Poppins';
+  font-size: large;
+  text-decoration: none;
+  color: #424254;
+}
+
+#my_a2{
+  color: #9999A3;
+}
+
+
+#separatore{
+  border: 1px solid #424254
+}
+#my_img{
+  width: 180px;
+  margin-left:10px;
+}
+h1{
+  color: #424254;
+}
+#my_list_div{
+  margin-top: 50px;
+  margin-left:10px;
+  font-size: medium;
+  background-color: #F2E8C4;
+  width: 180px;
+  height: 300px;
+
+  text-decoration: none;
+  color: #424254;
+  text-align: start;
+}
+
+
+#center{
+  background-image: linear-gradient(#424254,#351330);
+  height: 600px;
+}
+
+#my_center{
+  background-color: #F2E8C4;
+  width: 900px;
+  height: 530px;
+
+}
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 600px}
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-image: linear-gradient(#424254,#351330);
+    height: 100%;
+  }
+  
+  
+  
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
