@@ -19,6 +19,7 @@ body{
 }
 #my_a:hover, #my_a2:hover, #my_a_pswd:hover, #my_a_delete:hover{
   color:#CC2A41;
+  cursor: pointer;
 }
 #submit{
   background: #424254; 
