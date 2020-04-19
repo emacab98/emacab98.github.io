@@ -58,6 +58,7 @@ background: #424254;
 color:#fff; 
 font-weight:600;
 font-size: large;}
+
 #surname,#name, #email, #password, #password2, #username{
 color: black;
 opacity:1;
