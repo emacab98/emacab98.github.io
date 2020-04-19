@@ -142,7 +142,7 @@ function checkForm(){
   // Begin accessing JSON data here
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
-      alert("Registrazione avvenuta con successo!");
+      alert("You have successfully signed up!");
       //memorizzazione
       localStorage.setItem("username", risposta.nickname);
        //Reindirizzamento

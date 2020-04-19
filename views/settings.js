@@ -5,6 +5,7 @@ $(document).ready(function(){
 
     document.getElementById("username_here").innerHTML = username+ "'s profile settings";
     $("#change_pswd").hide();
+    $("#delete_profile").hide();
      
     //sezione controllo form password
     $("#my_a_pswd").click(function(){
@@ -77,7 +78,7 @@ $(document).ready(function(){
             request.open('GET', path, true)
             request.onload = function() {
             if (request.status >= 200 && request.status < 400) {
-                alert("Dati corretti!");
+                alert("Correct password!");
                 var request2 = new XMLHttpRequest();
                 var obj = {nickname :  username ,  password : new_password };
                 var data = JSON.stringify(obj); 
@@ -86,11 +87,11 @@ $(document).ready(function(){
             request2.onload = function() {
                         
                 if (request2.status >= 200 && request2.status < 400) {
-                    alert("Cambio della password avvenuto con successo!");
+                    alert("Password updated succesfully!");
                     window.location.href = "./Settings.html"
                 } 
                 else {
-                    alert("Something went wrong!Messaggio: " + this.responseText);
+                    alert("Something went wrong!Message: " + this.responseText + "\nPlease retry.");
                     } 
                 }
                 request2.setRequestHeader("Content-type", "application/json");
@@ -98,7 +99,7 @@ $(document).ready(function(){
 
             }
             else {
-                alert("Dati non corretti!");
+                alert("Your password was not correct. Please try again!");
                 } 
             }
             request.send();   
@@ -109,12 +110,61 @@ $(document).ready(function(){
     }); 
     //fine sezione controllo form password
 
+    //inizio delete profile
+    $("#my_a_delete").click(function(){
+        //controllo password corretta
+        $("#delete_profile").show();
+        $("#div_button").hide();
+        $("#delete").click(function(){
+            var password = document.getElementById("pass").value;
+            if(password==""){
+                alert("Please insert your password");
+                return; 
+            }
+            var request = new XMLHttpRequest();
+            var path =  'https://pacific-stream-14038.herokuapp.com/user/'+username +'/' + password
+            request.open('GET', path, true)
+            request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                ///alert("Correct password!");
+                var request2 = new XMLHttpRequest();
+                
+                request2.open('DELETE', 'https://pacific-stream-14038.herokuapp.com/user/'+username+"/"+password , true)
+                
+                request2.onload = function() {
+                            
+                    if (request2.status >= 200 && request2.status < 400) {
+                        var result = confirm("Are you sure you want to delete your profile?You'll lose all your data");
+                        if (result) {
+                            alert("You successfully deleted your profile. Bye!");
+                            window.location.href = "./home.html";  
+                    }
+
+                    } 
+                    else {
+                        alert("Something went wrong!Message: " + this.responseText + "\nPlease retry.");
+                        } 
+                }
+                request2.setRequestHeader("Content-type", "application/json");
+                request2.send();
+
+            }
+            else {
+                alert("Your password was not correct. Please try again!");
+                } 
+            }
+            request.send();   
+        });
+
+
+
+    });
+    //fine delete profile
+
+
 
 });
 
-    
-
-  
 
 function logout(){
     var result = confirm("Are you sure you want to logout?");

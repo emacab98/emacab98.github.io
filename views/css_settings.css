@@ -7,7 +7,7 @@ body{
     border-color: #424254 ;
     font-size: large;
 }
-#change_pswd{
+#change_pswd, #delete_profile{
   margin-left: 250px;
   margin-top: 80px;
 }
@@ -27,6 +27,14 @@ body{
   color:#fff; 
   font-weight:600;
   font-size: large;}
+#delete{
+  background: red; 
+  border-radius: 5px;
+  color:#fff; 
+  font-weight:600;
+  font-size: large;
+}
+
 
 
 #my_button{
