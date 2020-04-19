@@ -69,6 +69,11 @@ $(document).ready(function(){
             var old_password = document.getElementById("old_pass").value;
             var new_password = document.getElementById("new_pass").value;
             var new_password_bis = document.getElementById("new_pass_bis").value;
+             //Funzione per controllare validità password
+             if(new_password==old_password){
+                 alert("Your new password shouldn't match your old password! Retry");
+                 return; 
+             }
             
             if(old_password==""|| new_password==""||new_password_bis==""){
                 alert("Please fill al the information!");
@@ -117,10 +122,13 @@ $(document).ready(function(){
         $("#div_button").hide();
         $("#delete").click(function(){
             var password = document.getElementById("pass").value;
+            //Funzione per controllare validità password
+           
             if(password==""){
                 alert("Please insert your password");
                 return; 
             }
+            
             var request = new XMLHttpRequest();
             var path =  'https://pacific-stream-14038.herokuapp.com/user/'+username +'/' + password
             request.open('GET', path, true)
