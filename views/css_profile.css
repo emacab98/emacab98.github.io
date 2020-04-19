@@ -5,18 +5,20 @@
   text-decoration: none;
   color: #424254;
 }
-
 #my_a2{
   color: #9999A3;
 }
+
+
 #my_night{
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
   color: #CC2A41;
 }
-#my_saved:hover, #my_favourite:hover, #my_a2:hover{
+#my_saved:hover, #my_favourite:hover, #my_a2:hover, #my_night{
   color: #CC2A41;
+  cursor: pointer;
 }
 
 
@@ -58,23 +60,6 @@ font-size: large;
 font-family: 'Poppins' 
 }
 
-#my_a, #my_a2{
-font-family: 'Poppins';
-font-size: large;
-text-decoration: none;
-color: #424254;
-}
-
-#my_a2{
-color: #9999A3;
-}
-
-#my_a:hover{
-color:#CC2A41;
-}
-#my_a2:hover{
-color: #CC2A41;
-}
 
 #message{
   font-size: 20px;
