@@ -9,6 +9,7 @@ $(document).ready(function(){
      
     //sezione controllo form password
     $("#my_a_pswd").click(function(){
+        $("#delete_profile").hide();
         var test_pass_bis = false;
         var test_pass=false;
         //Funzione che controlla che le due password sono uguali, se lo sono abilita il bottone di submit, altrimenti lo disabilita. 
@@ -18,6 +19,7 @@ $(document).ready(function(){
         }
   
         $("#change_pswd").show(); 
+
         $("#div_button").hide();
         $("#submit").prop("disabled",true);
         $("#new_pass").keyup(function(){
@@ -118,6 +120,7 @@ $(document).ready(function(){
     //inizio delete profile
     $("#my_a_delete").click(function(){
         //controllo password corretta
+        $("#change_pswd").hide(); 
         $("#delete_profile").show();
         $("#div_button").hide();
         $("#delete").click(function(){
