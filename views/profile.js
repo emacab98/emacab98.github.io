@@ -47,7 +47,7 @@ $(document).ready(function(){
       if (request.status >= 200 && request.status < 400) {
           var risposta = JSON.parse(this.response);
           if(risposta.length == 0){
-            document.getElementById('message').innerHTML = 'Your saved nights will appear here! Browse some night on the feed page!';
+            document.getElementById('message').innerHTML = 'Your saved nights will appear here! Browse some nights on the feed page!';
             $("#message").show();
           }
           else{
@@ -74,7 +74,7 @@ $(document).ready(function(){
       if (request.status >= 200 && request.status < 400) {
           var risposta = JSON.parse(this.response);
           if(risposta.length == 0){
-            document.getElementById('message').innerHTML = 'Your favourites nights will appear here! Browse some night on the feed page!';
+            document.getElementById('message').innerHTML = 'Your favourites nights will appear here! Browse some nights on the feed page!';
             $("#message").show();
           }
           else{
