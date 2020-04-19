@@ -43,7 +43,8 @@
             Cocktails
             <p id="header">
                 You can either choose your favourite cocktail if you already know what you want or you can
-                browse them and find the perfect one! You can add a cocktail if you don't find it!
+                browse them and find the perfect one! Try the "Surprise Cocktails" button if you don't have
+                any idea!
             </p>
         </h1>
 
@@ -54,7 +55,7 @@
                 </h2>
 
                 <div class="search-container">
-                    <form class="search-form" action="" method="post"></form>
+                    <!--form class="search-form" action="" method="post"></form-->
                         <div class="row">
                             <div class="col-25" name="sx">
                                 <input type="text" placeholder="Search.." id="search_cocktail_name">
@@ -64,8 +65,8 @@
                                 <button class="search-btn" type="button" onclick="SearchByName()"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
-                   
-                    </form>
+                        <p id="search_cocktail_name_msg"></p>
+                    <!--/form-->
                 </div>
 
                 <hr>
@@ -79,28 +80,46 @@
                 <div class="search-container">
                     <input type="radio" id="ingredients" name="ingredients_alcohol_grade" value="ingredients">
                     <label for="ingredients"> your ingredient</label><br>
-                    <input type="radio" id="alcohol_grade" name="ingredients_alcohol_grade" value="alcohol_grade">
-                    <label for="alcohol_grade">  alcohol grade</label><br>
+                    <input type="radio" id="category" name="ingredients_alcohol_grade" value="category">
+                    <label for="category">  category  </label><br>
 
-                    <form class="search-form" action="" method="post"></form>
-                        <div class="row">
-                            <div class="col-25" name="sx">
-                                <input type="text" placeholder="Search.." name="search_cocktail_name">
-                            </div>
-                            <div class="col-25" name="dx">
-        
-                                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-                            </div>
+                    <!--form class="search-form" action="" method="post"></form-->
+                    <div class="row">
+                        <div class="col-25" name="sx">
+                            <input type="text" placeholder="Search.." id="search_cocktail_radio">
                         </div>
-                   
-                    </form>
+                        <div class="col-25" name="dx">
+    
+                            <button class="search-btn" type="button" onclick="RadioCocktail()"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <small> AVAILABLE CATEGORIES: “Ordinary Drink”, “Cocktail”, “Shot”, “Homemade Liqueur”, “Beer”</small>
+                    </div>
+                    <div class="row">
+                        <p id="search_cocktail_radio_msg"></p>
+                    </div>
+                    <!--/form-->
                 </div>
 
-                <select size=1 id="menu_cocktail"> 
+                <div class="menu-container">
+                    <div class="row" >
+                        <div class="col-25">
+                            <select size=1 id="menu_cocktail"> 
+                                <option selected value=""> Choose your cocktail :) </option>
+                            </select>
+                        </div>
+                        <div class="col-25">
+                            <!--input class="select-btn" type="button" value="Surprise" id="surprise"-->
+                            <button type="button" class="btn btn-danger" id="surprise" onclick="RandomCocktail()">Surprise Cocktails!</button>
+                        </div>
+                    </div>
+                </div>
+                <!--select size=1 id="menu_cocktail"> 
                     <option selected value=""> Choose your cocktail :) </option>
-                    <!--option value="Buono"> buono</option-->
-                    <!-- bisogna riempire il menu -->
+                    < bisogna riempire il menu >
                 </select>
+                <button class="btn btn-primary" type="button" value="Surprise"></button-->
                 
                 <p id="select-p">
                     Press the button below if you have found the right one!

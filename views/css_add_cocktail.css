@@ -2,7 +2,11 @@ body{
     background-color: #351330;
     font-family: 'Poppins', sans-serif;
     color: rgb(197, 103, 221);
-  }
+}
+
+input, button{
+  outline: none;
+}
 
 #navbar{
   background-color: #424254;
@@ -34,7 +38,7 @@ h2, h3{
   margin-left: 15px;
 }
 
-#search_cocktail_name{
+#search_cocktail_name, #search_cocktail_radio{
   border-radius: 30px 0px 0px 30px;
   /*border-radius: Top-left, Top-right, Bottom-right, Bottom-left;*/
 }
@@ -60,9 +64,20 @@ input{
 
 #menu_cocktail{
   margin-top: 5%;
-  margin-left:0%;
+  margin-left:3%;
   font-size: large;
   text-align: center;
+  float: left;
+}
+
+#surprise{
+  margin-top: 5%;
+  margin-left:1%;
+  text-align: center;
+  font-size: small;
+  border-radius: 30px 30px 30px 30px;
+  padding: 5px 20px;
+  outline: none;
 }
 
 #select-btn {
@@ -129,4 +144,16 @@ h4{
 
 .col-25[name="dx"]{
   width:268px;
+}
+
+#search_cocktail_name_msg, #search_cocktail_radio_msg{
+  color: red;
+}
+
+table, td,th{
+  font-weight: normal;
+  width:39%;
+  border: 1px solid rgb(197, 103, 221);
+  border-collapse: collapse;
+  text-align: center;
 }
