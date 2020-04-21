@@ -34,7 +34,7 @@
                 <a class="navbar-brand" href="#">JustAPerfectNight</a>
               </div>
               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="addElement.html">Go back</a></li>
+                    <li><a href="javascript:history.go(-1)">Go back</a></li>
               </ul>
             </div>
         </nav>
@@ -124,7 +124,7 @@
                 <p id="select-p">
                     Press the button below if you have found the right one!
                 </p>
-                <input type="button" class="select-btn" id="select-btn" value="Select" onclick="SelectCocktail()">
+                <input type="button" class="select-btn" id="select-btn" value="Select" onclick="SelectCocktail();">
             </div>
 
             <div class="col-xs-6" id="right-column">
@@ -139,7 +139,7 @@
                     <p id="recipe"> Here the recipe of the cocktail.</p> 
                 </div>
 
-                <input type="button" class="select-btn" id="add-btn" value="Add my perfect cocktail">
+                <input type="button" class="select-btn" id="add-btn" value="Add my perfect cocktail" onclick="addCocktail();">
             </div>
             
         </div>

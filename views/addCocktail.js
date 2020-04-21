@@ -1,4 +1,5 @@
 var myObj;
+var selected_cocktail;
 
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
@@ -12,14 +13,17 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/${search_cocktail_name}/multiple/10`, true);
     request.onload = function() {
-    // Begin accessing JSON data here
         if (request.status >= 200 && request.status < 400){
+             // Begin accessing JSON data here
             document.getElementById("menu_cocktail").innerHTML="";
             myObj = JSON.parse(request.response);
+            var s;
             for(i=0; i< myObj.length; i++){
-                document.getElementById("menu_cocktail").innerHTML +=  `<option value=${myObj[i].name}> ${myObj[i].name}</option>`;
+                s = myObj[i].name;
+                if(s!= ""){
+                    document.getElementById("menu_cocktail").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                }
             }
-            //document.getElementById("menu_cocktail").innerHTML =  `<option value=${myObj.name}> ${myObj.name}</option>`;    
             $("#select-btn").prop("disabled",false);  
         }  
         else{
@@ -55,26 +59,12 @@ function SelectCocktail(){
                         document.getElementById("tab").innerHTML += `<tr><td>${ing[i]}</td><td>not specified</td></tr>`;
                     }
                 }
+                selected_cocktail = myObj[j];
+                $("#add-btn").prop("disabled",false);
+                break;
             }
         }
         $('#right-column').show(100);
-        /*if(myObj.name==item_selected.text){
-            document.getElementById("photo_cocktail").src= myObj.image;
-            document.getElementById("recipe").innerHTML= myObj.instructions;                
-            document.getElementById("description_list").innerHTML+= `<dt>Category</dt> <dd>- ${myObj.category}</dd>`;
-            document.getElementById("description_list").innerHTML+= `<dt>Composition:</dt> <dd><table id="tab" width=39%> </table></dd>`;
-            var ing = myObj.ingredients;
-            var qnt = myObj.quantities;
-            var i;
-            for(i=0; i<ing.length; i++){
-                if(typeof qnt[i] !== "undefined"){
-                    document.getElementById("tab").innerHTML += `<tr><td>${ing[i]}</td><td>${qnt[i]}</td></tr>`;
-                }
-                else{
-                    document.getElementById("tab").innerHTML += `<tr><td>${ing[i]}</td><td>not specified</td></tr>`;
-                }
-            }
-        }*/
     }
 }
 
@@ -86,10 +76,13 @@ function RandomCocktail(){
         if (request.status >= 200 && request.status < 400){
             document.getElementById("menu_cocktail").innerHTML="";
             myObj = JSON.parse(request.response);
+            var s;
             for(i=0; i< myObj.length; i++){
-                document.getElementById("menu_cocktail").innerHTML +=  `<option value=${myObj[i].name}> ${myObj[i].name}</option>`;
+                s = myObj[i].name;
+                if(s!= ""){
+                    document.getElementById("menu_cocktail").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                }
             }
-            //document.getElementById("menu_cocktail").innerHTML =  `<option value=${myObj.name}> ${myObj.name}</option>`;    
             $("#select-btn").prop("disabled",false);  
         }  
     }
@@ -103,12 +96,16 @@ function RadioCocktail(){
         var request = new XMLHttpRequest();
         request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/ingredient/10/${search_cocktail_ingredient}`, true);
         request.onload = function() {
-        // Begin accessing JSON data here
             if (request.status >= 200 && request.status < 400){
+                // Begin accessing JSON data here
                 document.getElementById("menu_cocktail").innerHTML="";
                 myObj = JSON.parse(request.response);
+                var s;
                 for(i=0; i< myObj.length; i++){
-                    document.getElementById("menu_cocktail").innerHTML +=  `<option value=${myObj[i].name}> ${myObj[i].name}</option>`;
+                    s = myObj[i].name;
+                    if(s!= ""){
+                        document.getElementById("menu_cocktail").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                    }
                 }  
                 $("#select-btn").prop("disabled",false);  
             }  
@@ -122,13 +119,17 @@ function RadioCocktail(){
         var search_cocktail_category =  document.getElementById('search_cocktail_radio').value;
         var request = new XMLHttpRequest();
         request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/byCategory/${search_cocktail_category}/10`, true);
-        request.onload = function() {
-        // Begin accessing JSON data here
+        request.onload = function() {        
             if (request.status >= 200 && request.status < 400){
+                // Begin accessing JSON data here
                 document.getElementById("menu_cocktail").innerHTML="";
                 myObj = JSON.parse(request.response);
+                var s;
                 for(i=0; i< myObj.length; i++){
-                    document.getElementById("menu_cocktail").innerHTML +=  `<option value=${myObj[i].name}> ${myObj[i].name}</option>`;
+                    s = myObj[i].name;
+                    if(s!= ""){
+                        document.getElementById("menu_cocktail").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                    }
                 }  
                 $("#select-btn").prop("disabled",false);  
             }  
@@ -141,4 +142,16 @@ function RadioCocktail(){
     else{
         document.getElementById("search_cocktail_radio_msg").innerHTML="Please select a selection criteria";
     }
+}
+
+
+function addCocktail(){
+    localStorage.cocktail=JSON.stringify(selected_cocktail);
+    
+    var perfect_night = JSON.parse(localStorage.perfect_night);
+    perfect_night.cocktail = selected_cocktail.id;
+    localStorage.perfect_night = JSON.stringify(perfect_night);
+
+
+    window.location.href='addElementSolo.html';
 }
