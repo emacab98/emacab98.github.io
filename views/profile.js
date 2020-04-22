@@ -2,7 +2,7 @@ var username = localStorage.getItem("username");
 
 
 $(document).ready(function(){
-  var changed = true;
+  var first = true;
 
     document.getElementById("username_here").innerHTML = username + "'s profile";
     $("#message").hide();
@@ -13,13 +13,12 @@ $(document).ready(function(){
     function findNights(){
       //$("#nights_section").html("");
       $("#nights_section").show();
-      if (!changed){
+      if (!first){
         $("#message").hide();
         return;
       }
       else{
-       
-        changed = false;
+      first = false;
       var request = new XMLHttpRequest();
      
       var path =  'https://pacific-stream-14038.herokuapp.com/created/'+username ;
