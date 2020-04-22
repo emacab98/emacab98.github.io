@@ -12,6 +12,11 @@ $(document).ready(function(){
         $("#delete_profile").hide();
         document.getElementById('my_a_pswd').style.color = '#CC2A41';
         document.getElementById('my_a_delete').style.color = '#424254';
+        document.getElementById('new_pass').value = "";
+        document.getElementById('old_pass').value = "";
+        document.getElementById('new_pass_bis').value = "";
+        document.getElementById("new_mess").innerHTML="";
+        document.getElementById('new_bis_mess').innerHTML = "";
         var test_pass_bis = false;
         var test_pass=false;
         //Funzione che controlla che le due password sono uguali, se lo sono abilita il bottone di submit, altrimenti lo disabilita. 
@@ -72,7 +77,6 @@ $(document).ready(function(){
             var old_password = document.getElementById("old_pass").value;
             var new_password = document.getElementById("new_pass").value;
             var new_password_bis = document.getElementById("new_pass_bis").value;
-            alert("Vecchia password: " + old_password + "\nNuova: " + new_password + "\nRipetuta: " + new_password_bis);
              //Funzione per controllare validità password
              if(new_password==old_password){
                  alert("Your new password shouldn't match your old password! Retry");
@@ -87,7 +91,6 @@ $(document).ready(function(){
             request.open('GET', path, true)
             request.onload = function() {
             if (request.status >= 200 && request.status < 400) {
-                alert("Correct password!");
                 var request2 = new XMLHttpRequest();
                 var obj = {nickname :  username ,  password : new_password };
                 var data = JSON.stringify(obj); 
@@ -123,6 +126,7 @@ $(document).ready(function(){
     $("#my_a_delete").click(function(){
         document.getElementById('my_a_delete').style.color = '#CC2A41';
         document.getElementById('my_a_pswd').style.color = '#424254';
+        document.getElementById('pass').value = "";
 
         //controllo password corretta
         $("#change_pswd").hide(); 

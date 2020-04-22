@@ -11,13 +11,13 @@ body{
   margin-left: 250px;
   margin-top: 80px;
 }
-#my_a, #my_a2, #my_a_pswd, #my_a_delete{
+.my_a, #my_a2, #my_a_pswd, #my_a_delete{
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
   color: #424254;
 }
-#my_a:hover, #my_a2:hover, #my_a_pswd:hover, #my_a_delete:hover{
+.my_a:hover, #my_a2:hover, #my_a_pswd:hover, #my_a_delete:hover{
   color:#CC2A41;
   cursor: pointer;
 }

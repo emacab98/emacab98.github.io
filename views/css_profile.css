@@ -1,5 +1,5 @@
 
-#my_saved, #my_favourite, #my_a2, #my_a{
+#my_saved, #my_favourite, #my_a2, .my_a{
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
@@ -9,7 +9,10 @@
   color: #9999A3;
 }
 
+.well{
+  background-color: #F2E8C4;
 
+}
 #my_night{
   font-family: 'Poppins';
   font-size: large;
@@ -24,12 +27,13 @@
 
 #username_here{
   font-family: 'Poppins';
-  color: #424254;
+  color: #F2E8C4;
   font-size: 40px;
 }
 body{ 
   background-color: #424254;
   font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(#424254,#351330);
 }
 #navbar{
   background-color: #424254;
@@ -59,6 +63,15 @@ border: none;
 font-size: large;
 font-family: 'Poppins' 
 }
+.post_button{
+border-radius: 5px;
+
+background-color: #424254;
+color: #9999A3;
+border: none;
+font-size: large;
+font-family: 'Poppins'
+}
 
 
 #message{
@@ -85,7 +98,7 @@ margin-left:10px;
 font-size: medium;
 background-color: #F2E8C4;
 width: 180px;
-height: 300px;
+height: auto;
 
 text-decoration: none;
 color: #424254;
@@ -94,12 +107,12 @@ text-align: start;
 
 
 #center{
-background-image: linear-gradient(#424254,#351330);
-height: 600px;
+background-image: none;
+height: auto;
 }
 
 #my_center{
-background-color: #F2E8C4;
+
 width: 1000px;
 height: auto;
 margin-top: 20px;
@@ -111,7 +124,7 @@ margin-top: 20px;
 /* Set gray background color and 100% height */
 .sidenav {
   padding-top: 20px;
-  background-image: linear-gradient(#424254,#351330);
+  background-image: none;
   height: 100%;
 }
 
