@@ -163,7 +163,7 @@ $(document).ready(function(){
               $("#message").show();
             }
             else{
-              alert("Ci sono delle notti!Codice da implementare")
+              
               var saved_section = document.getElementById("saved_section");
               var i;
               for(i=0; i<risposta.length; i++){
@@ -264,15 +264,14 @@ $(document).ready(function(){
 
     //funzione che carica le notti preferite dinamicamente
     function findFavouriteNights(){
-        $("#nights_section").hide();
-        $("#saved_section").hide();
-        $("#favourites_section").show();
-      if (!first_favourites){
+      $("#favourites_section").show();
+      $("#saved_section").hide();
+      $("#nights_section").hide();
+      if (!first_upvoted){
         $("#message").hide();
         return;
-      }
+        }
       else{
-      first_favourites = false;
         var request = new XMLHttpRequest();
         var path =  'https://pacific-stream-14038.herokuapp.com/upvoted/'+username ;
         request.open('GET', path, true)
@@ -280,11 +279,10 @@ $(document).ready(function(){
         if (request.status >= 200 && request.status < 400) {
             var risposta = JSON.parse(this.response);
             if(risposta.length == 0){
-              document.getElementById('message').innerHTML = 'Your favourite nights will appear here! Browse some nights on the feed page!';
+              document.getElementById('message').innerHTML = 'Your favourites nights will appear here! Browse some nights on the feed page!';
               $("#message").show();
             }
             else{
-              alert("Ci sono delle notti! Codice da implementare");
               var favourites_section = document.getElementById("favourites_section");
               var i;
               for(i=0; i<risposta.length; i++){
@@ -371,6 +369,7 @@ $(document).ready(function(){
 
               
               }
+
             }
         }
 
@@ -379,7 +378,7 @@ $(document).ready(function(){
             } 
         }
         request.send();   
-      }
+     } 
     }
 
     findNights();
