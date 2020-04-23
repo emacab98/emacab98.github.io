@@ -30,51 +30,66 @@
 <body>
 
 
-  <nav class="navbar navbar-inverse" id="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="Home.html">JustAPerfectNight</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a href="Home.html">Home</a></li>
-        <li class="active"><a href="Feed.html">Feed</a></li>
-        <li><a href="About_us.html">About us</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li >
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="glyphicon glyphicon-user"></span>
-              User
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="profile.html" id="my_a">
-                <span class="glyphicon glyphicon-home"></span>
-                My profile
-                
-              </a></li>
-              <li><a href="Settings.html" id="my_a">
-                <span class="glyphicon glyphicon-cog" ></span>
-                Settings
-                
-              </a></li>
-              <li><a href="#" onclick="logout()" id="my_a">
-                <span class="glyphicon glyphicon-log-out"></span>
-                Log-out
+    <nav class="navbar navbar-inverse" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="Home.html">JustAPerfectNight</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="Home.html">Home</a></li>
+          <li class="active"><a href="Feed.html">Feed</a></li>
+          <li><a href="About_us.html">About us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li >
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="glyphicon glyphicon-user"id ="user"></span>
+                User
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="profile.html" class="my_a">
+                  <span class="glyphicon glyphicon-home"></span>
+                  My profile
+                  
                 </a></li>
-            </ul>
-          </div>
+                <li><a href="Settings.html" class="my_a">
+                  <span class="glyphicon glyphicon-cog" ></span>
+                  Settings
+                  
+                </a></li>
+                <li><a href="#" onclick="logout()" class="my_a">
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Log-out
+                  </a></li>
+              </ul>
+            </div>
 
-        </li>
-          
-       
-      </ul>
+          </li>
+            
+        
+        </ul>
+      </div>
+    </nav>
+
     </div>
-  </nav>
+    <div class="col-sm-12 text-left" id="center"> 
+      <div id="my_center">
+        <label id="username_here"></label>
+        <button type="button" id="my_button2">
+          <a href="newNight.html" id="my_a2">
+          <span class="glyphicon glyphicon-plus-sign"></span>
+          Create a new perfect night!
+        </a>
+        </button>
+      </div>
+      <br>
+      <!--codice my nights qui-->
+      <div id="posts">
+      </div>
 
-    
-  
+    </div>
 
-</body>
+  </body>
 </html>
