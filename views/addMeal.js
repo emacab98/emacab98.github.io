@@ -16,6 +16,7 @@ function SearchByName(){
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_meal").innerHTML="";
+            $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
             myObj = JSON.parse(request.response);
             var s;
             for(i=0; i< myObj.length; i++){
@@ -24,7 +25,7 @@ function SearchByName(){
                     document.getElementById("menu_meal").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            $("#select-btn").prop("disabled",false);  
+            $("#select-btn").prop("disabled",false);
         }  
         else{
             document.getElementById("search_meal_name_msg").innerHTML = "Meal not found! Please try again";
@@ -42,12 +43,15 @@ function SelectMeal(){
     else{
         document.getElementById("description_list").innerHTML="";
         var j;
-        for(j=0; j< myObj.length; j++){               
-            if(myObj[j].name==item_selected.text){
-                document.getElementById("photo_meal").src= myObj[j].image;
-                document.getElementById("recipe").innerHTML= myObj[j].instructions;                
-                document.getElementById("description_list").innerHTML+= `<dt>Category</dt> <dd>- ${myObj[j].category}</dd>`;
-                document.getElementById("description_list").innerHTML+= `<dt>Composition:</dt> <dd><table id="tab" ><tr><th>Ingredients</th><th>Quantities</th></tr> </table></dd>`;
+        for(j=0; j< myObj.length; j++){        
+            if(myObj[j].title==item_selected.text){
+                selected_meal= myObj[j];
+                break;
+                /*document.getElementById("photo_meal").src= myObj[j].Image;
+                //document.getElementById("recipe").innerHTML= myObj[j].instructions;                
+                document.getElementById("description_list").innerHTML+= `<dt>Ready in minutes</dt> <dd>- ${myObj[j].readyInMinutes}</dd>`;
+                document.getElementById("description_list").innerHTML+= `<dt>Servings</dt> <dd>- ${myObj[j].servings}</dd>`;
+                //document.getElementById("description_list").innerHTML+= `<dt>Composition:</dt> <dd><table id="tab" ><tr><th>Ingredients</th><th>Quantities</th></tr> </table></dd>`;
                 var ing = myObj[j].ingredients;
                 var qnt = myObj[j].quantities;
                 var i;
@@ -61,9 +65,12 @@ function SelectMeal(){
                 }
                 selected_meal = myObj[j];
                 $("#add-btn").prop("disabled",false);
-                break;
+                break;*/
             }
         }
+        document.getElementById("photo_meal").src= selected_meal.image;
+        document.getElementById("description_list").innerHTML+= `<dt>Ready in minutes</dt> <dd>- ${selected_meal.readyInMinutes}</dd>`;
+        document.getElementById("description_list").innerHTML+= `<dt>Servings</dt> <dd>- ${selected_meal.servings}</dd>`;
         $('#right-column').show(100);
     }
 }

@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- icon of setting -->
        
         <!-- my css file-->
-        <link rel ="stylesheet" href = "css_add_meal.css">
+        <link rel ="stylesheet" href = "css_add_meal_2.css">
        
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,7 +24,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
         
         <!--My script-->
-        <script src="addMeal.js"></script>
+        <script src="addMeal_2.js"></script>
     </head>
     <body>      
         <!--navbar-->
@@ -43,19 +43,19 @@
             Meals
             <p id="header">
                 You can either choose your favourite meal if you already know what you want or you can
-                browse them and find the perfect one! Try the "Surprise Meals" button if you don't have
-                any idea!
+                browse them and find the perfect one!
             </p>
         </h1>
 
         <div class="container">
+            <!-- left column -->
             <div class="col-xs-6" id="left-column">
+                <!-- search by name -->
                 <h2>
                     Search by Name:
                 </h2>
 
                 <div class="search-container">
-                    <!--form class="search-form" action="" method="post"></form-->
                         <div class="row">
                             <div class="col-25" name="sx">
                                 <input type="text" placeholder="Search.." id="search_meal_name">
@@ -66,62 +66,110 @@
                             </div>
                         </div>
                         <p id="search_meal_name_msg"></p>
-                    <!--/form-->
                 </div>
-
+                <!-- end search by name -->
                 <hr>
-
+                <!-- advanced search -->
                 <h3>
-                    Find the perfect one:
-                    <p id="header_radio">
-                        Do you want to search your meal by:
-                    </p>
+                    Advanced search:
                 </h3>
+                <p id="p_advanced_search">
+                    Find the perfect one:
+                </p>
                 <div class="search-container">
-                    <input type="radio" id="ingredients" name="filter_search" value="ingredients">
-                    <label for="ingredients"> your ingredient</label><br>
-                    <input type="radio" id="category" name="filter_search" value="category">
-                    <label for="category">  category  </label><br>
-
-                    <!--form class="search-form" action="" method="post"></form-->
+                    <!-- cuisine -->
                     <div class="row">
-                        <div class="col-25" name="sx">
-                            <input type="text" placeholder="Search.." id="search_meal_radio">
-                        </div>
-                        <div class="col-25" name="dx">
-    
-                            <button class="search-btn" type="button" onclick="RadioMeal()"><i class="fa fa-search"></i></button>
-                        </div>
+                        <label for="menu_cuisine">Cuisine: </label>
+                        <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_cuisine"> 
+                            <option selected value=""> Choose cuisine </option>
+                            <option value="African"> African </option>
+                            <option value="American"> American </option>
+                            <option value="British"> British </option>
+                            <option value="Cajun"> Cajun </option>
+                            <option value="Caribbean"> Caribbean </option>
+                            <option value="Eastern European"> Eastern European </option>
+                            <option value="European"> European </option>
+                            <option value="French"> French </option>
+                            <option value="German"> German </option>
+                            <option value="Greek"> Greek </option>
+                            <option value="Indian"> Indian </option>
+                            <option value="Irish"> Irish </option>
+                            <option value="Italian"> Italian </option>
+                            <option value="Japanese"> Japanese </option>
+                            <option value="Jewish"> Jewish </option>
+                            <option value="Korean"> Korean </option>
+                            <option value="Latin American"> Latin American </option>
+                            <option value="Mediterranean"> Mediterranean </option>
+                            <option value="Mexican"> Mexican </option>
+                            <option value="Middle Eastern"> Middle Eastern </option>
+                            <option value="Nordic"> Nordic </option>
+                            <option value="Southern"> Southern </option>
+                            <option value="Spanish"> Spanish </option>
+                            <option value="Thai"> Thai </option>
+                            <option value="Vietnamese"> Vietnamese </option>
+                        </select>
                     </div>
+                    <!-- diet -->
                     <div class="row">
-                        <small> AVAILABLE CATEGORIES: “Ordinary Drink”, “Cocktail”, “Shot”, “Homemade Liqueur”, “Beer”</small>
-                    </div>
+                        <label for="menu_diet">Diet: </label>
+                        <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_diet"> 
+                            <option selected value=""> Choose diet </option>
+                            <option value="Gluten Free"> Gluten Free </option>
+                            <option value="Ketogenic"> Ketogenic </option>
+                            <option value="Vegetarian"> Vegetarian </option>
+                            <option value="Lacto-Vegetarian"> Lacto-Vegetarian </option>
+                            <option value="Ovo-Vegetarian"> Ovo-Vegetarian </option>
+                            <option value="Vegan"> Vegan </option>
+                            <option value="Pescetarian"> Pescetarian </option>
+                            <option value="Paleo"> Paleo </option>
+                            <option value="Primal"> Primal </option>
+                            <option value="Whole30"> Whole30 </option>
+                        </select>
+                    </div>   
+                    <!-- exclude ingredients -->
                     <div class="row">
-                        <p id="search_meal_radio_msg"></p>
+                        <label for="exclude_ingredients">Exclude ingredients: </label>
+                        <input type="text" placeholder="Type here!" id="exclude_ingredients"> <br/>
+                        <small>Note: write comma separated ingredients for a multiple request.</small>
+                    </div>  
+                    <!-- intolerances -->
+                    <div class="row">
+                        <label for="intolerances">Intolerances: </label>
+                        <input type="text" placeholder="Type here!" id="intolerances"> <br/>
+                        <small>Note: write comma separated intolerances for a multiple request.</small>
+                    </div> 
+                    <!-- meal name -->
+                    <div class="row">
+                        <label for="meal_name">Meal name: </label>
+                        <input type="text" placeholder="Search.." id="meal_name">
                     </div>
-                    <!--/form-->
+                    <!-- button advanced search --> 
+                    <div class="row">
+                        <button class="button" id="filters_button"><span>Search with filters <i class="fa fa-search"></i></span></button>
+                    </div>                  
                 </div>
+                <!-- end advanced search -->
 
+                <!-- menu meal -->
                 <div class="menu-container">
                     <div class="row" >
-                        <div class="col-25">
-                            <select size=1 id="menu_meal"> 
-                                <option selected value=""> Choose your meal :) </option>
-                            </select>
-                        </div>
-                        <div class="col-25">
-                            <!--input class="select-btn" type="button" value="Surprise" id="surprise"-->
-                            <button type="button" class="btn btn-danger" id="surprise" onclick="RandomMeal()">Surprise Meal!</button>
-                        </div>
+                        <select size=1 id="menu_meal"> 
+                            <option selected value=""> Choose your meal :) </option>
+                        </select>                        
+                    </div>
+                    <div class="row">
+                        <button class="button button1" id="surprise"><span>Short of ideas? Click me!</span></button>
                     </div>
                 </div>
-
+                <!-- end menu meal -->
                 <p id="select-p">
                     Press the button below if you have found the right one!
                 </p>
-                <input type="button" class="select-btn" id="select-btn" value="Select" onclick="SelectMeal();">
+                <button class="button" id="select-btn" onclick="SelectMeal();"><span>Select</span></button>
             </div>
+            <!-- end left column -->
 
+            <!-- right column -->
             <div class="col-xs-6" id="right-column">
                 <img src="recipe.jpg" alt="Meal" id="photo_meal" > 
                 <div class="container" id="info">                    
@@ -136,9 +184,8 @@
 
                 <input type="button" class="select-btn" id="add-btn" value="Add my perfect meal" onclick="addMeal();">
             </div>
+            <!-- right column -->
             
         </div>
-        
-
     </body>
 </html>

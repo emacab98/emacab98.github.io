@@ -1,11 +1,7 @@
 body{ 
-    background-color: #351330;
+    background-color: #F2E8C4;
     font-family: 'Poppins', sans-serif;
-    color: rgb(197, 103, 221);
-}
-
-input, button{
-  outline: none;
+    color: #424254;
 }
 
 #navbar{
@@ -16,7 +12,6 @@ input, button{
   
 h1{
   margin-left: 1%;
-  font-size: xx-large;
 }
 
 .container{
@@ -25,11 +20,7 @@ h1{
   height: 90%;
 }
 
-h2, h3{
-  font-size: x-large;
-}
-
-#header, #header_radio{
+#header{
   margin-top: 1%;
   font-size: large;
 }
@@ -38,14 +29,20 @@ h2, h3{
   margin-left: 15px;
 }
 
-#search_meal_name, #search_meal_radio{
+#search_meal_name{
   border-radius: 30px 0px 0px 30px;
   /*border-radius: Top-left, Top-right, Bottom-right, Bottom-left;*/
+}
+
+#p_advanced_search{
+    font-size: medium;
 }
 
 input{
   font-size: large;
   text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  outline-color: blueviolet;
 }
 .search-btn {
   border-radius: 0px 30px 30px 0px;
@@ -54,13 +51,21 @@ input{
  }
 
  hr { 
-  margin-top: 1.5rem;
-  margin-bottom: 0.5em;
-  margin-left: 1%;
-  margin-right: 50%;
-  border-width: 1px;
+    border-color: #424254;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5em;
+    margin-left: 1%;
+    margin-right: 50%;
+    border-width: 1px;
 } 
 
+.row{
+    margin-bottom: 10px;
+}
+
+select{
+    border-radius: 10px;
+}
 
 #menu_meal{
   margin-top: 5%;
@@ -71,22 +76,94 @@ input{
   max-width: 400px;
 }
 
-#surprise{
-  margin-top: 5%;
-  margin-left:1%;
-  text-align: center;
-  font-size: small;
-  border-radius: 30px 30px 30px 30px;
-  padding: 5px 20px;
-  outline: none;
+
+#filters_button{
+    border-radius: 20px;
+    text-align: center;
+    font-size: medium;
 }
+/**/
+.button1 {
+    background-color: #F2E8C4; 
+    color: #424254; 
+    border: 2px solid #424254;
+    margin-top: 3%;
+    margin-left:2.5%;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.button1:hover {
+    background-color: #424254;
+    color: #F2E8C4;
+}
+.button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button1 span:after {
+    content: '\02c6';
+    position: absolute;
+    opacity: 0;
+    top: -10px;
+    left: 0px;
+    transition: 0s;
+}
+
+.button1:hover span {
+    padding-top: 12px;
+}
+
+.button1:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+.button1:active {
+    opacity: 1;
+    background: #E8CAA4;
+    color: #424254;
+    transition: 0s;
+}
+/**/
+/**/
 
 #select-btn {
   margin-left:0%;
+  margin-bottom: 5px;
   font-size: large;
-  background-color: white;
+  background-color: #F2E8C4;
+  border: 2px solid #424254;
+  border-radius: 20px;
+  outline: none;
 }
 
+#select-btn:disabled {
+    background-color: #424254;
+    opacity: 0.5;
+    color: #F2E8C4;
+}
+#select-btn:hover {
+    background-color: #424254;
+    color: #F2E8C4;
+}
+#select-btn:active:enabled{
+    margin-left:0%;
+    font-size: large;
+    background-color: #F2E8C4;
+    border: 2px solid #424254;
+    border-radius: 20px;
+  }
+  
+/**/
 #select-p{
   margin-top: 5%;
   margin-left:0%;
@@ -96,6 +173,10 @@ input{
   margin-top: 2.5%;
   min-width: 50rem;
 }
+
+
+
+/* Left column*/
 
 #left-columm{
   /*min-width: 50rem;*/
@@ -119,7 +200,7 @@ h4{
   height: 38%;
 }
 
-#recipe_container{
+#meal_container{
   margin-left:-3%;
   margin-top:5%;
   width: auto;
@@ -147,7 +228,7 @@ h4{
   width:268px;
 }
 
-#search_meal_name_msg, #search_meal_radio_msg{
+#search_meal_name_msg{
   color: red;
 }
 
