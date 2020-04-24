@@ -153,5 +153,5 @@ function addCocktail(){
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
 
-    window.location.href='addElementSolo.html';
+    window.location.href='javascript:history.go(-1)';
 }
