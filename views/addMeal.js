@@ -156,7 +156,7 @@ function AdvancedSearch(){
     if(diet_selected.text!=""){
         filterObj.diet = diet_selected.text;
     }
-    var regex = new RegExp("([a-zA-Z\s]+,)*([a-zA-Z\s]){1}$");
+    var regex = new RegExp("(([a-zA-Z][\s]*\,[\s]*)*([a-zA-Z]){1}$");
     var exclude_ingredients = document.getElementById('exclude_ingredients').value;
     if(exclude_ingredients != ""){
         if(regex.test(exclude_ingredients)){
@@ -164,6 +164,7 @@ function AdvancedSearch(){
         }
         else{
             document.getElementById('exclude_ingredients_msg').innerHTML = 'Wrong format!';
+            return;
         }
     }
     
@@ -174,6 +175,7 @@ function AdvancedSearch(){
         }
         else{
             document.getElementById('intolerances_msg').innerHTML = 'Wrong format!';
+            return;
         }
     }
 
