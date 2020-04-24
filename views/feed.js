@@ -1,20 +1,6 @@
 $(document).ready(function(){
-  populatePost();
-
- }
-);
-
-function logout(){
-    var result = confirm("Are you sure you want to logout?");
-      if (result) {
-        alert("You are logging out! Bye!");
-        window.location.href = "./home.html";  
-  }
-  }
-
-  function populatePost(){
+    var nights = [];
     var request = new XMLHttpRequest();
-   
     var path =  'https://pacific-stream-14038.herokuapp.com/perfectnight/feed/fillRandom';
     request.open('GET', path, true)
     request.onload = function() {
@@ -23,19 +9,15 @@ function logout(){
         //var risposta_str = JSON.stringify(this.response);
 
         if(risposta.length == 0){
-          if(mode=="created") document.getElementById('message').innerHTML = 'Your nights will appear here! Start creating now!';
-          else if(mode =="saved")  document.getElementById('message').innerHTML = 'Your saved nights will appear here! Browse some on the feed page!';
-          else  document.getElementById('message').innerHTML = 'Your upvoted nights will appear here! Browse some on the feed page!';
+          if(mode=="created") document.getElementById('message').innerHTML = 'Created nights will appear here! Start creating now!';
           $("#message").show();
         }
         else{
-          //alert("Ci sono delle notti!Codice da implementare");
           $("#message").hide();
-          //alert("Risposta: " + risposta_str + "\nLunghezza: " + risposta.length);
           var nights_section = document.getElementById("posts");
           var i;
           for(i=0; i<risposta.length; i++){
-            //alert("Notte: " + i);
+            nights[i] = risposta[i];
             var div_row = document.createElement("div");
             div_row.className = "row";
             //alert("Row created");
@@ -43,10 +25,10 @@ function logout(){
             var div_col = document.createElement("div");
             div_col.className = "col-sm-11";
             //alert("Col created");
+            
 
             var div_well = document.createElement("div");
             div_well.className = "well";
-            //alert("Well created");
 
             var my_desc_title = document.createElement("p");
             my_desc_title.className = "my_title";
@@ -57,7 +39,6 @@ function logout(){
             my_desc_title.appendChild(my_desc);
           
             div_well.appendChild(my_desc_title);
-            //alert("My desc created");
 
             var my_tag_title = document.createElement("p");
             my_tag_title.className = "my_title";
@@ -67,31 +48,28 @@ function logout(){
             my_tag.innerHTML = risposta[i].tag_type;
             my_tag_title.appendChild(my_tag);
             div_well.appendChild(my_tag_title);
-            //alert("My tag created");
 
             var my_elements_title = document.createElement("p");
             my_elements_title.className="my_title";
             my_elements_title.innerHTML = "Elements: "
             div_well.appendChild(my_elements_title);
-            //alert("Elements created");
 
             var list = document.createElement("div");
             list.className = "my_list";
 
             if (risposta[i].board_game != null){
-              
+              var board_game =  risposta[i].board_game;
               var container1 = document.createElement("container");
               container1.className = "elem1";
               var my_board_game = document.createElement("span");
               my_board_game.className = "my_elem";
-              my_board_game.innerHTML = risposta[i].board_game.name;
+              my_board_game.innerHTML = board_game.name;
 
               var my_board_game_img = document.createElement("img");
               my_board_game_img.className = "img-thumbnail";
-              my_board_game_img.src = risposta[i].board_game.imageUrl;
+              my_board_game_img.src = board_game.imageUrl;
               
               var br = document.createElement("br");
-             
               container1.appendChild(my_board_game);
               container1.appendChild(br);
               container1.appendChild(my_board_game_img);
@@ -142,21 +120,28 @@ function logout(){
             div_well.appendChild(list);
 
             var bottone = document.createElement("button");
+            var br = document.createElement("br");
+
             bottone.type = "button";
-            bottone.className = "post_button";
+            bottone.className += "post_button";
+            bottone.name= risposta[i].id;
             bottone.innerHTML = "More infos"
+            bottone.onclick = reply_click;
+            
+            div_well.appendChild(br);
             div_well.appendChild(bottone); 
 
             
             div_col.appendChild(div_well);
-            //alert("Append 1 done");
-            div_row.appendChild(div_col);
-            //alert("Append 2 done");
-            nights_section.appendChild(div_row);
-            //alert("Append 3 done");
+              //alert("Append 1 done");
+              div_row.appendChild(div_col);
+              //alert("Append 2 done");
+              nights_section.appendChild(div_row);
+              //alert("Append 3 done");
+           
 
-          
           }
+          localStorage.setItem("nights", JSON.stringify(nights));
 
         }
      }
@@ -166,4 +151,24 @@ function logout(){
         } 
     }
     request.send();  
-  } 
+
+  });
+
+
+  function reply_click(){
+        window.localStorage.setItem('night_id', this.name)
+        //alert("id: " + this.name);
+        window.location.href = "./post.html";
+  }
+
+
+function logout(){
+    var result = confirm("Are you sure you want to logout?");
+      if (result) {
+        localStorage.clear;
+        alert("You are logging out! Bye!");
+        window.location.href = "./home.html";  
+  }
+  }
+
+  

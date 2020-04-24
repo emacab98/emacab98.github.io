@@ -13,7 +13,6 @@ $(document).ready(function(){
 
     //Funzione che carica le notti dinamicamente
     function findNights(){
-      //$("#nights_section").html("");
       $("#nights_section").show();
       $("#favourites_section").hide();
       $("#saved_section").hide();
@@ -28,8 +27,6 @@ $(document).ready(function(){
       }
     }
     
-
-    //funzione che carica le notti salvate dinamicamente
     function findSavedNights(){
         $("#nights_section").hide();
         $("#favourites_section").hide();
@@ -95,13 +92,22 @@ $(document).ready(function(){
 function logout(){
   var result = confirm("Are you sure you want to logout?");
     if (result) {
+       localStorage.clear;
       alert("You are logging out! Bye!");
       window.location.href = "./home.html";  
     }
 }
 
+
+function reply_click(){
+  window.localStorage.setItem('night_id', this.name)
+  //alert("id: " + this.name);
+  window.location.href = "./post_profile.html";
+}
+
 //funzione che carica i post dinamicamente
 function populatePost(section, mode){
+      var nights = [];
       var request = new XMLHttpRequest();
      
       var path =  'https://pacific-stream-14038.herokuapp.com/perfectnight/myProfile/'+username+ "/" + mode;
@@ -124,6 +130,7 @@ function populatePost(section, mode){
             var nights_section = document.getElementById(section);
             var i;
             for(i=0; i<risposta.length; i++){
+              nights[i] = risposta[i];
               //alert("Notte: " + i);
               var div_row = document.createElement("div");
               div_row.className = "row";
@@ -233,7 +240,10 @@ function populatePost(section, mode){
               var bottone = document.createElement("button");
               bottone.type = "button";
               bottone.className = "post_button";
-              bottone.innerHTML = "More infos"
+              bottone.innerHTML = "More infos";
+              bottone.name= risposta[i].id;
+              bottone.onclick = reply_click;
+
               div_well.appendChild(bottone); 
 
               
@@ -247,6 +257,7 @@ function populatePost(section, mode){
             
             }
 
+            localStorage.setItem("nights", JSON.stringify(nights));
           }
        }
 
