@@ -228,7 +228,7 @@ h4{
   width:268px;
 }
 
-#search_meal_name_msg{
+#search_meal_name_msg, #exclude_ingredients_msg, #intolerances_msg, #filters_msg{
   color: red;
 }
 

@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- icon of setting -->
        
         <!-- my css file-->
-        <link rel ="stylesheet" href = "css_add_meal_2.css">
+        <link rel ="stylesheet" href = "css_add_meal.css">
        
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,7 +24,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
         
         <!--My script-->
-        <script src="addMeal_2.js"></script>
+        <script src="addMeal.js"></script>
     </head>
     <body>      
         <!--navbar-->
@@ -62,10 +62,11 @@
                             </div>
                             <div class="col-25" name="dx">
         
-                                <button class="search-btn" type="button" onclick="SearchByName()"><i class="fa fa-search"></i></button>
+                                <button class="search-btn" type="button" onclick="SearchByName();"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                         <p id="search_meal_name_msg"></p>
+                        
                 </div>
                 <!-- end search by name -->
                 <hr>
@@ -130,13 +131,15 @@
                     <div class="row">
                         <label for="exclude_ingredients">Exclude ingredients: </label>
                         <input type="text" placeholder="Type here!" id="exclude_ingredients"> <br/>
-                        <small>Note: write comma separated ingredients for a multiple request.</small>
+                        <small>Note: write comma separated ingredients for a multiple request.</small><br/>
+                        <p id="exclude_ingredients_msg"></p>
                     </div>  
                     <!-- intolerances -->
                     <div class="row">
                         <label for="intolerances">Intolerances: </label>
                         <input type="text" placeholder="Type here!" id="intolerances"> <br/>
                         <small>Note: write comma separated intolerances for a multiple request.</small>
+                        <p id="intolerances_msg"></p>
                     </div> 
                     <!-- meal name -->
                     <div class="row">
@@ -145,20 +148,23 @@
                     </div>
                     <!-- button advanced search --> 
                     <div class="row">
-                        <button class="button" id="filters_button"><span>Search with filters <i class="fa fa-search"></i></span></button>
-                    </div>                  
+                        <button class="button" id="filters_button" onclick="AdvancedSearch();"><span>Search with filters <i class="fa fa-search"></i></span></button>
+                    </div>  
+                    <div class="row">
+                        <p id="filters_msg"></p>
+                    </div>                
                 </div>
                 <!-- end advanced search -->
 
                 <!-- menu meal -->
                 <div class="menu-container">
                     <div class="row" >
-                        <select size=1 id="menu_meal"> 
+                        <select size=1 id="menu_meal" onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;"> 
                             <option selected value=""> Choose your meal :) </option>
                         </select>                        
                     </div>
                     <div class="row">
-                        <button class="button button1" id="surprise"><span>Short of ideas? Click me!</span></button>
+                        <button class="button button1" id="surprise" onclick="RandomMeal();"><span>Short of ideas? Click me!</span></button>
                     </div>
                 </div>
                 <!-- end menu meal -->
@@ -177,7 +183,11 @@
                     <dl id="description_list"> </dl> 
                 </div>
 
-                <div class="container" id="meal_container">                    
+                <div class="container" id="meal_container">  
+                    <h4> Ingredients:</h4>
+                    <p id="ingredients"> Here the ingredients of the meal.</p>               
+                    <h4> Overview:</h4>
+                    <p id="overview"> Here the overview of the meal.</p> 
                     <h4> Recipe:</h4>
                     <p id="recipe"> Here the recipe of the meal.</p> 
                 </div>
