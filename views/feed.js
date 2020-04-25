@@ -158,7 +158,7 @@ $(document).ready(function(){
   function reply_click(){
         window.localStorage.setItem('night_id', this.name)
         //alert("id: " + this.name);
-        window.location.href = "./post.html";
+        window.location.href = "Post.html";
   }
 
 
@@ -167,7 +167,7 @@ function logout(){
       if (result) {
         localStorage.clear;
         alert("You are logging out! Bye!");
-        window.location.href = "./home.html";  
+        window.location.href = "Home.html";  
   }
   }
 
