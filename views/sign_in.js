@@ -18,7 +18,7 @@ function checkForm(){
         //memorizzazione
         localStorage.setItem("username", risposta.nickname);
        //Reindirizzamento
-        window.location.href = "./Feed.html";
+        window.location.href = "./feed.html";
        } 
   else {
       
