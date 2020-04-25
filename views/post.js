@@ -89,10 +89,22 @@ $(document).ready(function(){
 
     if(found_night.beer.name != undefined){
             $("#beer_container").show()
-            var img = document.createElement("img");
-            img.className = "img-thumbnail";
-            img.src = found_night.beer.image;
-            document.getElementById("col-sx-beer").appendChild(img);
+            
+            if(found_night.beer.image == "Sorry, no picture provided for this beer") {
+               
+                var my_beer_img = document.createElement("img");
+                my_beer_img.className = "img-thumbnail";
+                my_beer_img.src = "jedi.jpg";
+
+                
+              }
+              else {
+                  
+                var my_beer_img = document.createElement("img");
+                my_beer_img.className = "img-thumbnail";
+                my_beer_img.src = found_night.beer.image;; }
+            
+            document.getElementById("col-sx-beer").appendChild(my_beer_img);
 
             document.getElementById("beer_name").innerHTML = found_night.beer.name;
             document.getElementById("beer_category").innerHTML = found_night.beer.category;
