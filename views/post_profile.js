@@ -13,20 +13,17 @@ $(document).ready(function(){
     document.getElementById("desc").innerHTML += found_night.description;
     document.getElementById("tag").innerHTML += found_night.tag_type;
 
-    /*if(found_night.meal != null || found_night.meal != undefined ||found_night.meal != {} ){
         var img = document.createElement("img");
         img.className = "img-thumbnail";
         img.src = found_night.meal.imageUrl;
-        document.getElementById("col-sx-board_game").appendChild(img);
-
+        document.getElementById("col-sx-meal").appendChild(img);
         //document.getElementById("meal_img").src = found_night.meal.image;
-
         document.getElementById("meal_name").innerHTML = found_night.meal.name;
         document.getElementById("meal_ready").innerHTML = found_night.meal.readyInMinutes;
         document.getElementById("meal_servings").innerHTML = found_night.meal.servings; 
-    } */
+    
 
-    if(found_night.cocktail != null ||found_night.cocktail != {} ){
+   
         var img = document.createElement("img");
         img.className = "img-thumbnail";
         img.src = found_night.cocktail.image 
@@ -44,9 +41,9 @@ $(document).ready(function(){
             }
         }
         document.getElementById("cocktail_instructions").innerHTML ="<br>" + found_night.cocktail.instructions;
-   }
+   
     
-    if(found_night.board_game != null ||found_night.board_game != {} ){
+
         //$('#bg_img').attr('src', found_night.board_game.imageUrl);
         var img = document.createElement("img");
         img.className = "img-thumbnail";
@@ -61,8 +58,7 @@ $(document).ready(function(){
         document.getElementById("bg_mina").innerHTML = found_night.board_game.minAge;
         document.getElementById("bg_desc").innerHTML = found_night.board_game.description;
         document.getElementById("bg_rating").innerHTML = found_night.board_game.averageRating;
-    }
-
+  
 
   }); 
   
