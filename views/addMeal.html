@@ -83,75 +83,67 @@
                         <label for="menu_cuisine">Cuisine: </label>
                         <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_cuisine"> 
                             <option selected value=""> Choose cuisine </option>
-                            <option value="African"> African </option>
                             <option value="American"> American </option>
                             <option value="British"> British </option>
-                            <option value="Cajun"> Cajun </option>
-                            <option value="Caribbean"> Caribbean </option>
-                            <option value="Eastern European"> Eastern European </option>
-                            <option value="European"> European </option>
+                            <option value="Canadian"> Canadian </option>
+                            <option value="Chinese"> Chinese </option>
+                            <option value="Dutch"> Dutch </option>
+                            <option value="Egyptian"> Egyptian </option>
                             <option value="French"> French </option>
-                            <option value="German"> German </option>
                             <option value="Greek"> Greek </option>
                             <option value="Indian"> Indian </option>
                             <option value="Irish"> Irish </option>
                             <option value="Italian"> Italian </option>
+                            <option value="Jamaican"> Jamaican </option>
                             <option value="Japanese"> Japanese </option>
-                            <option value="Jewish"> Jewish </option>
-                            <option value="Korean"> Korean </option>
-                            <option value="Latin American"> Latin American </option>
-                            <option value="Mediterranean"> Mediterranean </option>
+                            <option value="Kenyan"> Kenyan </option>
+                            <option value="Malaysian"> Malaysian </option>
                             <option value="Mexican"> Mexican </option>
-                            <option value="Middle Eastern"> Middle Eastern </option>
-                            <option value="Nordic"> Nordic </option>
-                            <option value="Southern"> Southern </option>
+                            <option value="Moroccan"> Moroccan </option>
+                            <option value="Russian"> Russian </option>
                             <option value="Spanish"> Spanish </option>
                             <option value="Thai"> Thai </option>
+                            <option value="Tunisian"> Tunisian </option>
+                            <option value="Turkish"> Turkish </option>
                             <option value="Vietnamese"> Vietnamese </option>
+                            <option value="Unknown"> Other </option>
                         </select>
-                    </div>
-                    <!-- diet -->
-                    <div class="row">
-                        <label for="menu_diet">Diet: </label>
-                        <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_diet"> 
-                            <option selected value=""> Choose diet </option>
-                            <option value="Gluten Free"> Gluten Free </option>
-                            <option value="Ketogenic"> Ketogenic </option>
-                            <option value="Vegetarian"> Vegetarian </option>
-                            <option value="Lacto-Vegetarian"> Lacto-Vegetarian </option>
-                            <option value="Ovo-Vegetarian"> Ovo-Vegetarian </option>
-                            <option value="Vegan"> Vegan </option>
-                            <option value="Pescetarian"> Pescetarian </option>
-                            <option value="Paleo"> Paleo </option>
-                            <option value="Primal"> Primal </option>
-                            <option value="Whole30"> Whole30 </option>
-                        </select>
-                    </div>   
-                    <!-- exclude ingredients -->
-                    <div class="row">
-                        <label for="exclude_ingredients">Exclude ingredients: </label>
-                        <input type="text" placeholder="Type here!" id="exclude_ingredients"> <br/>
-                        <small>Note: write comma separated ingredients for a multiple request.</small><br/>
-                        <p id="exclude_ingredients_msg"></p>
-                    </div>  
-                    <!-- intolerances -->
-                    <div class="row">
-                        <label for="intolerances">Intolerances: </label>
-                        <input type="text" placeholder="Type here!" id="intolerances"> <br/>
-                        <small>Note: write comma separated intolerances for a multiple request.</small>
-                        <p id="intolerances_msg"></p>
-                    </div> 
-                    <!-- meal name -->
-                    <div class="row">
-                        <label for="meal_name">Meal name: </label>
-                        <input type="text" placeholder="Search.." id="meal_name">
                     </div>
                     <!-- button advanced search --> 
                     <div class="row">
-                        <button class="button" id="filters_button" onclick="AdvancedSearch();"><span>Search with filters <i class="fa fa-search"></i></span></button>
+                        <button class="button" id="filters_button_cuisine" onclick="AdvancedSearchCuisine();"><span>Search by cuisine <i class="fa fa-search"></i></span></button>
                     </div>  
                     <div class="row">
-                        <p id="filters_msg"></p>
+                        <p id="filters_msg_cuisine"></p>
+                    </div>  
+                    <!-- category -->
+                    <div class="row">
+                        <label for="menu_category">Category: </label>
+                        <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_category"> 
+                            <option selected value=""> Choose category </option>
+                            <option value="Beef"> Beef </option>
+                            <option value="Breakfast"> Breakfast </option>
+                            <option value="Chicken"> Chicken </option>
+                            <option value="Dessert"> Dessert </option>
+                            <option value="Goat"> Goat </option>
+                            <option value="Lamb"> Lamb </option>
+                            <option value="Miscellaneous"> Miscellaneous </option>
+                            <option value="Pasta"> Pasta </option>
+                            <option value="Pork"> Pork </option>
+                            <option value="Seafood"> Seafood </option>
+                            <option value="Side"> Side </option>
+                            <option value="Starter"> Starter </option>
+                            <option value="Vegan"> Vegan </option>
+                            <option value="Vegetarian"> Vegetarian </option>
+                        </select>
+                    </div>   
+                   
+                    <!-- button advanced search --> 
+                    <div class="row">
+                        <button class="button" id="filters_button_category" onclick="AdvancedSearchCategory();"><span>Search by category <i class="fa fa-search"></i></span></button>
+                    </div>  
+                    <div class="row">
+                        <p id="filters_msg_category"></p>
                     </div>                
                 </div>
                 <!-- end advanced search -->
@@ -183,13 +175,9 @@
                     <dl id="description_list"> </dl> 
                 </div>
 
-                <div class="container" id="meal_container">  
-                    <h4> Ingredients:</h4>
-                    <p id="ingredients"> Here the ingredients of the meal.</p>               
-                    <h4> Overview:</h4>
-                    <p id="overview"> Here the overview of the meal.</p> 
-                    <h4> Recipe:</h4>
-                    <p id="recipe"> Here the recipe of the meal.</p> 
+                <div class="container" id="meal_container">               
+                    <h4> Description:</h4>
+                    <p id="description"> Here the description of the meal.</p> 
                 </div>
 
                 <input type="button" class="select-btn" id="add-btn" value="Add my perfect meal" onclick="addMeal();">

@@ -68,7 +68,7 @@ select{
 }
 
 #menu_meal{
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left:3%;
   font-size: large;
   text-align: center;
@@ -77,7 +77,7 @@ select{
 }
 
 
-#filters_button{
+#filters_button_cuisine, #filters_button_category{
     border-radius: 20px;
     text-align: center;
     font-size: medium;
@@ -228,14 +228,14 @@ h4{
   width:268px;
 }
 
-#search_meal_name_msg, #exclude_ingredients_msg, #intolerances_msg, #filters_msg{
+#search_meal_name_msg, #filters_msg_cuisine, #filters_msg_category{
   color: red;
 }
 
-/*table, td,th{
+table, td,th{
   font-weight: normal;
   width:39%;
-  border: 1px solid rgb(197, 103, 221);
+  border: 1px solid #424254;
   border-collapse: collapse;
   text-align: center;
-}*/
+}
