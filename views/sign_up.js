@@ -146,7 +146,7 @@ function checkForm(){
       //memorizzazione
       localStorage.setItem("username", risposta.nickname);
        //Reindirizzamento
-        window.location.href = "./profile.html";
+        window.location.href = "profile.html";
        
        } 
   else {

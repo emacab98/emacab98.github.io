@@ -100,7 +100,7 @@ $(document).ready(function(){
                         
                 if (request2.status >= 200 && request2.status < 400) {
                     alert("Password updated succesfully!");
-                    window.location.href = "./Settings.html"
+                    window.location.href = "Settings.html"
                 } 
                 else {
                     alert("Something went wrong!Message: " + this.responseText + "\nPlease retry.");
@@ -157,7 +157,7 @@ $(document).ready(function(){
                         var result = confirm("Are you sure you want to delete your profile?You'll lose all your data");
                         if (result) {
                             alert("You successfully deleted your profile. Bye!");
-                            window.location.href = "./home.html";  
+                            window.location.href = "Home.html";  
                     }
 
                     } 
@@ -191,7 +191,7 @@ function logout(){
       if (result) {
         localStorage.clear;
         alert("You are logging out! Bye!");
-        window.location.href = "./home.html";  
+        window.location.href = "Home.html";  
   }
   }
 

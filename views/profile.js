@@ -94,7 +94,7 @@ function logout(){
     if (result) {
        localStorage.clear;
       alert("You are logging out! Bye!");
-      window.location.href = "./home.html";  
+      window.location.href = "Home.html";  
     }
 }
 
@@ -102,7 +102,7 @@ function logout(){
 function reply_click(){
   window.localStorage.setItem('night_id', this.name)
   //alert("id: " + this.name);
-  window.location.href = "./post_profile.html";
+  window.location.href = "Post_profile.html";
 }
 
 //funzione che carica i post dinamicamente
