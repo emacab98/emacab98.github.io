@@ -119,13 +119,18 @@ function RandomGame(){
 
 function AdvancedSearch(){
     var filterObj = {};
+    document.getElementById("filters_msg").innerHTML ="";
     var play_time = document.getElementById('play_time').value;
-    if(play_time.text!=""){
-        filterObj.play_time = play_time;
+    if(play_time!="" && parseInt(play_time)>= 0){
+        filterObj.play_time = parseInt(play_time);
     }
     var players_num = document.getElementById('players_num').value;
-    if(players_num.text!=""){
-        filterObj.players_num = players_num;
+    if(players_num!="" && parseInt(players_num)>= 0){
+        filterObj.players_num = parseInt(players_num);
+    }
+    if((play_time =="" && players_num=="")|| parseInt(play_time)<0 ||  parseInt(players_num)<0){
+        document.getElementById("filters_msg").innerHTML = "Please add a valid filter!";
+        return;
     }
     var data;
     var request = new XMLHttpRequest();
