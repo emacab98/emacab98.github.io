@@ -133,7 +133,7 @@ $(document).ready(function(){
               if(risposta[i].beer.image == "Sorry, no picture provided for this beer") {
                 var my_beer_img = document.createElement("img");
                 my_beer_img.className = "img-thumbnail";
-                my_beer_img.src = "jedi.png";
+                my_beer_img.src = "jedi.jpg";
 
                 
               }
