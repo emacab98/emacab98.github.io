@@ -58,6 +58,7 @@ $(document).ready(function(){
             list.className = "my_list";
 
             if (risposta[i].board_game != null){
+              
               var board_game =  risposta[i].board_game;
               var container1 = document.createElement("container");
               container1.className = "elem1";
@@ -77,19 +78,22 @@ $(document).ready(function(){
 
              
             }
-            if (risposta[i].meal != null){
+            
+
+            if (risposta[i].meal.id != undefined){
+              
               //alert("pasto trovato");
               var container2 = document.createElement("container");
               container2.className = "elem2";
 
               var my_meal = document.createElement("span");
               my_meal.className = "my_elem";
-              my_meal.innerHTML = risposta[i].meal.title;
+              my_meal.innerHTML = risposta[i].meal.name;
 
               var br = document.createElement("br");
               var my_meal_img = document.createElement("img");
               my_meal_img.className = "img-thumbnail";
-              my_meal_img.src = risposta[i].meal.image
+              my_meal_img.src = risposta[i].meal.image;
              
               container2.appendChild(my_meal);
               container2.appendChild(br);
@@ -98,7 +102,10 @@ $(document).ready(function(){
               //alert("Pasto aggiunto");
             }
             
-            if (risposta[i].cocktail!= null){
+           
+
+            if (risposta[i].cocktail.id != undefined){
+             
               var container3 = document.createElement("container");
               container3.className = "elem3";
               var my_cocktail = document.createElement("span");
@@ -116,8 +123,37 @@ $(document).ready(function(){
               container3.appendChild(my_cocktail_img);
               list.appendChild(container3);
             } 
+            if (risposta[i].beer.name != undefined){
+              var container4 = document.createElement("container");
+              container4.className = "elem4";
+              var my_beer = document.createElement("span");
+              my_beer.className = "my_elem";
+              my_beer.innerHTML = risposta[i].beer.name;
+
+              if(risposta[i].beer.image == "Sorry, no picture provided for this beer") {
+                var my_beer_img = document.createElement("img");
+                my_beer_img.className = "img-thumbnail";
+                my_beer_img.src = "jedi.PNG";
+
+                
+              }
+              else {
+                var my_beer_img = document.createElement("img");
+                my_beer_img.className = "img-thumbnail";
+                my_beer_img.src = risposta[i].beer.image; }
+              
+              
+              var br = document.createElement("br");
+             
+              container4.appendChild(my_beer);
+              container4.appendChild(br);
+              container4.appendChild(my_beer_img);
+              list.appendChild(container4);
+            }
+           
 
             div_well.appendChild(list);
+           
 
             var bottone = document.createElement("button");
             var br = document.createElement("br");
@@ -127,17 +163,41 @@ $(document).ready(function(){
             bottone.name= risposta[i].id;
             bottone.innerHTML = "More infos"
             bottone.onclick = reply_click;
+
+            
+            
+            var link = document.createElement("a");
+            link.className = "my_link";
+            link.onclick = upvote_function ;
+            var span = document.createElement("span");
+            span.className = "glyphicon glyphicon-arrow-up";
+            span.innerHTML = "Upvote";
+            
+
+            var link2 = document.createElement("a");
+            link2.className = "my_link";
+            link2.onclick = save_function ;
+            var span2 = document.createElement("span");
+            span2.className = "glyphicon glyphicon-download-alt";
+            span2.innerHTML = "Save";
+            
+            
             
             div_well.appendChild(br);
+            
+            link.appendChild(span);
+            div_well.appendChild(link);
+            link2.appendChild(span2);
+            div_well.appendChild(link2);
             div_well.appendChild(bottone); 
 
             
             div_col.appendChild(div_well);
-              //alert("Append 1 done");
-              div_row.appendChild(div_col);
-              //alert("Append 2 done");
-              nights_section.appendChild(div_row);
-              //alert("Append 3 done");
+              
+            div_row.appendChild(div_col);
+              
+            nights_section.appendChild(div_row);
+              
            
 
           }
@@ -169,6 +229,14 @@ function logout(){
         alert("You are logging out! Bye!");
         window.location.href = "Home.html";  
   }
+  }
+
+  function upvote_function(){
+
+  }
+
+  function save_function(){
+
   }
 
   

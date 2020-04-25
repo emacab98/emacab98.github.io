@@ -202,7 +202,7 @@ function populatePost(section, mode){
 
                 var my_meal = document.createElement("span");
                 my_meal.className = "my_elem";
-                my_meal.innerHTML = risposta[i].meal.title;
+                my_meal.innerHTML = risposta[i].meal.name;
 
                 var br = document.createElement("br");
                 var my_meal_img = document.createElement("img");
@@ -233,6 +233,35 @@ function populatePost(section, mode){
                 container3.appendChild(br);
                 container3.appendChild(my_cocktail_img);
                 list.appendChild(container3);
+              } 
+
+              
+              if (risposta[i].beer.name != undefined){
+                var container4 = document.createElement("container");
+                container4.className = "elem4";
+                var my_beer = document.createElement("span");
+                my_beer.className = "my_elem";
+                my_beer.innerHTML = risposta[i].beer.name;
+
+                if(risposta[i].beer.image == "Sorry, no picture provided for this beer") {
+                  var my_beer_img = document.createElement("img");
+                  my_beer_img.className = "img-thumbnail";
+                  my_beer_img.src = "jedi.PNG";
+
+                  
+                }
+                else {
+                  var my_beer_img = document.createElement("img");
+                  my_beer_img.className = "img-thumbnail";
+                  my_beer_img.src = risposta[i].beer.image; }
+                
+                
+                var br = document.createElement("br");
+               
+                container4.appendChild(my_beer);
+                container4.appendChild(br);
+                container4.appendChild(my_beer_img);
+                list.appendChild(container4);
               } 
 
               div_well.appendChild(list);

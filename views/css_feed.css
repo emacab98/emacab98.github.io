@@ -1,4 +1,4 @@
-#my_a2, .my_a{
+#my_a2, .my_a, .my_link{
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
@@ -8,6 +8,10 @@
   color: #9999A3;
 }
 
+.my_link{
+  cursor: pointer;
+  margin-right: 10px;
+}
 .well{
   background-color: #F2E8C4;
 
@@ -53,6 +57,10 @@ font-family: 'Poppins'
 }
 #my_button:hover, #my_a2:hover{
   color: white;
+}
+
+.my_link:hover{
+  color: #CC2A41;
 }
 .post_button{
 border-radius: 5px;
@@ -110,7 +118,12 @@ margin-left: 1050px;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-
+.elem4{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
 
 #center{
 background-image: none;
