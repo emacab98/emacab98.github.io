@@ -14,7 +14,7 @@ function SearchByName(){
         return;
     }
     var request = new XMLHttpRequest();
-    request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/${search_meal_name}/multiple/30`, true);
+    //request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/${search_meal_name}/multiple/30`, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
@@ -92,7 +92,7 @@ function SelectMeal(){
 
 function RandomMeal(){
     var request = new XMLHttpRequest();
-    request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/surprise/20`, true);
+    //request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/surprise/20`, true);
     request.onload = function() {
     // Begin accessing JSON data here
         if (request.status >= 200 && request.status < 400){
@@ -152,7 +152,7 @@ function AdvancedSearchCategory(){
     }
 
     var request = new XMLHttpRequest();
-    request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/category/${search_meal_name}/30`, true);
+    //request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/category/${search_meal_name}/30`, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
