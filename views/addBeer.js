@@ -94,7 +94,7 @@ function SelectBeer(){
 
 function RandomBeer(){
     var request = new XMLHttpRequest();
-    request.open('GET', `https://pacific-stream-14038.herokuapp.com/beer/byRandom/20`, true);
+    request.open('GET', `https://pacific-stream-14038.herokuapp.com/beer/byRandom/9`, true);
     request.onload = function() {
     // Begin accessing JSON data here
         if (request.status >= 200 && request.status < 400){
