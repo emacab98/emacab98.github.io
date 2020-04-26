@@ -7,11 +7,19 @@
 #my_a2{
   color: #9999A3;
 }
+.upvotedAndSaved, .upvotedAndSaved:hover{
+  color: green;
+  font-family: 'Poppins';
+  font-size: large;
+  text-decoration: none;
 
+}
 .my_link{
   cursor: pointer;
   margin-right: 10px;
 }
+
+
 .well{
   background-color: #F2E8C4;
 
@@ -62,6 +70,7 @@ font-family: 'Poppins'
 .my_link:hover{
   color: #CC2A41;
 }
+
 .post_button{
 border-radius: 5px;
 background-color: #424254;
