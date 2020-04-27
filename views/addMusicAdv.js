@@ -198,7 +198,7 @@ function RandomMusic(){
    
     alert("Access token: " + access_token);
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://pacific-stream-14038.herokuapp.com/savedTracks/' + access_token, true);
+    request.open('GET', 'https://pacific-stream-14038.herokuapp.com/music/savedTracks/' + access_token, true);
     request.onload = function() {
     // Begin accessing JSON data here
         if (request.status >= 200 && request.status < 400){
@@ -213,5 +213,3 @@ function RandomMusic(){
     request.send();
 }
 //ana
-
-
