@@ -3,12 +3,12 @@ var selected_cocktail;
 
 //Aggiunta funzione ana 
 function sendData(){
- alert("Sending data");
- var params = (new URL(document.location)).searchParams;
- let code = params.get('code'); 
- let state=  params.get('state'); 
- alert("Code: " + code);
- alert("State: "+ state);
+    alert("Sending data");
+    var params = (new URL(document.location)).searchParams;
+    let code = params.get('code'); 
+    let state=  params.get('state'); 
+    alert("Code: " + code);
+    alert("State: "+ state);
 
    
   var request = new XMLHttpRequest();
@@ -37,7 +37,7 @@ $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $('#right-column').hide();
-    
+
 });
 
 function SearchByName(){
@@ -189,3 +189,22 @@ function addCocktail(){
     window.location.href='javascript:history.go(-1)';
 }
 
+
+
+function RandomMusic(){
+    var my_access_token = localStorage.acces_token;
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://pacific-stream-14038.herokuapp.com/savedTrack/' + my_access_token, true);
+    request.onload = function() {
+    // Begin accessing JSON data here
+        if (request.status >= 200 && request.status < 400){
+            var risposta = JSON.parse(this.response);
+
+            alert("Risposta: " + JSON.stringify(risposta));
+        }  
+        else{
+            alert("Something went wrong");
+        }
+    }
+    request.send();
+}
