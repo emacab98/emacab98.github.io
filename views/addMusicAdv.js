@@ -6,7 +6,7 @@ var access_token = "";
 
 //Aggiunta funzione ana 
 function sendData(){
-    alert("Sending data");
+    //alert("Sending data");
     var params = (new URL(document.location)).searchParams;
     let code = params.get('code'); 
     let state=  params.get('state'); 
@@ -16,7 +16,7 @@ function sendData(){
    //alert("CIAO MAUUUUUUUUU :)")
   var request = new XMLHttpRequest();
   var path = 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + '&state=' + state
-  alert("Path: " + path);
+  //alert("Path: " + path);
   request.open('GET', path, true)
   request.onload = function() {
  
@@ -204,7 +204,7 @@ function RandomMusic(){
         if (request.status >= 200 && request.status < 400){
             var risposta = JSON.parse(this.response);
 
-            //alert("Risposta: " + JSON.stringify(risposta));
+            alert("Risposta: " + JSON.stringify(risposta));
         }  
         else{
             alert("Something went wrong");
