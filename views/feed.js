@@ -30,10 +30,7 @@ $(document).ready(async function(){
           var risposta_len = risposta.length;
 
           for(index=0; index<risposta_len; index++){
-<<<<<<< HEAD
             var elementi  = 0;
-=======
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
             //alert("Index: " + index);
             var checked_saved = false;
             var checked_upvoted = false;
@@ -85,10 +82,7 @@ $(document).ready(async function(){
             var my_desc = document.createElement("span");
             my_desc.className = "my_elem";
             my_desc.innerHTML = risposta[index].description;
-<<<<<<< HEAD
             alert("My desc: " + risposta[index].description);
-=======
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
             my_desc_title.appendChild(my_desc);
           
             div_well.appendChild(my_desc_title);
@@ -111,18 +105,11 @@ $(document).ready(async function(){
             list.className = "my_list";
 
             if (risposta[index].board_game != null){
-<<<<<<< HEAD
               elementi +=1;
               
               var board_game =  risposta[index].board_game;
               var container1 = document.createElement("container");
               container1.className = "elem" + elementi;
-=======
-              
-              var board_game =  risposta[index].board_game;
-              var container1 = document.createElement("container");
-              container1.className = "elem1";
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
               var my_board_game = document.createElement("span");
               my_board_game.className = "my_elem";
               my_board_game.innerHTML = board_game.name;
@@ -142,17 +129,10 @@ $(document).ready(async function(){
             
 
             if (risposta[index].meal.id != undefined){
-<<<<<<< HEAD
               elementi += 1;
               //alert("pasto trovato");
               var container2 = document.createElement("container");
               container2.className = "elem" + elementi;
-=======
-              
-              //alert("pasto trovato");
-              var container2 = document.createElement("container");
-              container2.className = "elem2";
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
 
               var my_meal = document.createElement("span");
               my_meal.className = "my_elem";
@@ -174,14 +154,9 @@ $(document).ready(async function(){
 
             if (risposta[index].cocktail.id != undefined){
              
-<<<<<<< HEAD
               elementi += 1;
               var container3 = document.createElement("container");
               container3.className = "elem" + elementi;
-=======
-              var container3 = document.createElement("container");
-              container3.className = "elem3";
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
               var my_cocktail = document.createElement("span");
               my_cocktail.className = "my_elem";
               my_cocktail.innerHTML = risposta[index].cocktail.name;
@@ -198,14 +173,9 @@ $(document).ready(async function(){
               list.appendChild(container3);
             } 
             if (risposta[index].beer.name != undefined){
-<<<<<<< HEAD
               elementi +=1;
               var container4 = document.createElement("container");
               container4.className = "elem" + elementi;
-=======
-              var container4 = document.createElement("container");
-              container4.className = "elem4";
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
               var my_beer = document.createElement("span");
               my_beer.className = "my_elem";
               my_beer.innerHTML = risposta[index].beer.name;
@@ -230,7 +200,6 @@ $(document).ready(async function(){
               container4.appendChild(my_beer_img);
               list.appendChild(container4);
             }
-<<<<<<< HEAD
             
             if (risposta[index].artist.id != undefined){
               elementi +=1;
@@ -294,9 +263,6 @@ $(document).ready(async function(){
               container5.appendChild(my_artist_img);
               list.appendChild(container5);
             } 
-=======
-           
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
 
             div_well.appendChild(list);
            

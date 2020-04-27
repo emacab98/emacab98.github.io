@@ -263,7 +263,6 @@ function populatePost(section, mode){
                 container4.appendChild(my_beer_img);
                 list.appendChild(container4);
               } 
-<<<<<<< HEAD
             
              
               if (risposta[i].artist.id != undefined){
@@ -329,8 +328,6 @@ function populatePost(section, mode){
                 container5.appendChild(my_artist_img);
                 list.appendChild(container5);
             }
-=======
->>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
 
               div_well.appendChild(list);
 
