@@ -185,3 +185,8 @@ function addMeal(){
 
     window.location.href='javascript:history.go(-1)';
 }
+
+function spotifyLogin(){
+    window.location.href='https://pacific-stream-14038.herokuapp.com/music/auth';
+  
+}

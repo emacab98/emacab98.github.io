@@ -1,10 +1,39 @@
 var myObj;
 var selected_cocktail;
 
+//Aggiunta funzione ana 
+function sendData(){
+ alert("Sending data");
+ var params = (new URL(document.location)).searchParams;
+ let code = params.get('code'); 
+ let state=  params.get('state'); 
+
+   
+  var request = new XMLHttpRequest();
+  request.open('GET', 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + "&state=" + state, true)
+  request.onload = function() {
+  // Begin accessing JSON data here
+  if (request.status >= 200 && request.status < 400) {
+      var risposta = JSON.parse(this.response);
+      localStorage.setItem("access_token", risposta.acces_token);
+      alert("Acces token: " + risposta.access_token)
+       } 
+  else {
+      
+      alert("Something went wrong!");
+      } 
+}
+
+request.send();
+}
+//fine
+
 $(document).ready(function(){
+    sendData();
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $('#right-column').hide();
+    
 });
 
 function SearchByName(){
@@ -155,3 +184,4 @@ function addCocktail(){
 
     window.location.href='javascript:history.go(-1)';
 }
+
