@@ -7,10 +7,14 @@ function sendData(){
  var params = (new URL(document.location)).searchParams;
  let code = params.get('code'); 
  let state=  params.get('state'); 
+ alert("Code: " + code);
+ alert("State: "+ state);
 
    
   var request = new XMLHttpRequest();
-  request.open('GET', 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + "&state=" + state, true)
+  var path = 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + '&state=' + state
+  alert("Path: " + path);
+  request.open('GET', path, true)
   request.onload = function() {
   // Begin accessing JSON data here
   if (request.status >= 200 && request.status < 400) {
