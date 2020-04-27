@@ -20,7 +20,7 @@ function sendData(){
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
       localStorage.setItem("access_token", risposta.acces_token);
-      alert("Acces token: " + risposta.access_token)
+      alert("Access token: " + risposta.access_token)
        } 
   else {
       
@@ -192,7 +192,8 @@ function addCocktail(){
 
 
 function RandomMusic(){
-    var my_access_token = localStorage.acces_token;
+    var my_access_token = localStorage.getItem("acces_token");
+    alert("Acces token: " + my_access_token);
     var request = new XMLHttpRequest();
     request.open('GET', 'https://pacific-stream-14038.herokuapp.com/savedTrack/' + my_access_token, true);
     request.onload = function() {
