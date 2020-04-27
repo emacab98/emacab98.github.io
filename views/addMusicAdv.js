@@ -19,7 +19,7 @@ function sendData(){
   // Begin accessing JSON data here
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
-      localStorage.setItem("access_token", risposta.acces_token);
+      localStorage.setItem("access_token", risposta.access_token);
       alert("Access token nella rispsota: " + risposta.access_token);
       alert("Access token nello storage: " + localStorage.getItem("access_token"));
        } 
