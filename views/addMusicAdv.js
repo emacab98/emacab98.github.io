@@ -10,21 +10,21 @@ function sendData(){
     var params = (new URL(document.location)).searchParams;
     let code = params.get('code'); 
     let state=  params.get('state'); 
-    alert("Code: " + code);
-    alert("State: "+ state);
+    //alert("Code: " + code);
+    //alert("State: "+ state);
 
-   alert("CIAO MAUUUUUUUUU :)")
+   //alert("CIAO MAUUUUUUUUU :)")
   var request = new XMLHttpRequest();
   var path = 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + '&state=' + state
   alert("Path: " + path);
   request.open('GET', path, true)
   request.onload = function() {
-  // Begin accessing JSON data here
+ 
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
       access_token = risposta.access_token;
-      alert("Access token nella risposta: " + risposta.access_token);
-      alert("Access token nella variabile: " + access_token);
+      //alert("Access token nella risposta: " + risposta.access_token);
+      //alert("Access token nella variabile: " + access_token);
        } 
   else {
       alert("Something went wrong!");
@@ -204,7 +204,7 @@ function RandomMusic(){
         if (request.status >= 200 && request.status < 400){
             var risposta = JSON.parse(this.response);
 
-            alert("Risposta: " + JSON.stringify(risposta));
+            //alert("Risposta: " + JSON.stringify(risposta));
         }  
         else{
             alert("Something went wrong");
@@ -213,3 +213,5 @@ function RandomMusic(){
     request.send();
 }
 //ana
+
+
