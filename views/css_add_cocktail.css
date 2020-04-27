@@ -1,0 +1,159 @@
+body{ 
+    background-color: #351330;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(197, 103, 221);
+}
+
+input, button{
+  outline: none;
+}
+
+#navbar{
+  background-color: #424254;
+  border-color: #424254 ;
+  font-size: large;  
+}
+  
+h1{
+  margin-left: 1%;
+  font-size: xx-large;
+}
+
+.container{
+  margin-left:1%;
+  width: 90%;
+  height: 90%;
+}
+
+h2, h3{
+  font-size: x-large;
+}
+
+#header, #header_radio{
+  margin-top: 1%;
+  font-size: large;
+}
+
+.search-container {
+  margin-left: 15px;
+}
+
+#search_cocktail_name, #search_cocktail_radio{
+  border-radius: 30px 0px 0px 30px;
+  /*border-radius: Top-left, Top-right, Bottom-right, Bottom-left;*/
+}
+
+input{
+  font-size: large;
+  text-align: center;
+}
+.search-btn {
+  border-radius: 0px 30px 30px 0px;
+  font-size: large;
+  background-color: white;
+ }
+
+ hr { 
+  margin-top: 1.5rem;
+  margin-bottom: 0.5em;
+  margin-left: 1%;
+  margin-right: 50%;
+  border-width: 1px;
+} 
+
+
+#menu_cocktail{
+  margin-top: 5%;
+  margin-left:3%;
+  font-size: large;
+  text-align: center;
+  float: left;
+}
+
+#surprise{
+  margin-top: 5%;
+  margin-left:1%;
+  text-align: center;
+  font-size: small;
+  border-radius: 30px 30px 30px 30px;
+  padding: 5px 20px;
+  outline: none;
+}
+
+#select-btn {
+  margin-left:0%;
+  font-size: large;
+  background-color: white;
+}
+
+#select-p{
+  margin-top: 5%;
+  margin-left:0%;
+}
+
+#right-column{  
+  margin-top: 2.5%;
+  min-width: 50rem;
+}
+
+#left-columm{
+  /*min-width: 50rem;*/
+  width:auto;
+}
+
+#photo_cocktail{
+  width: 40%;
+  height: 40%;
+  float: left;
+  margin-right: 20%;
+}
+
+h4{
+  margin-top:0%;
+  font-size: large;
+}
+
+#info{
+  width: auto;
+  height: 38%;
+}
+
+#recipe_container{
+  margin-left:-3%;
+  margin-top:5%;
+  width: auto;
+  height: 40;
+}
+
+#add-btn{
+  position: absolute;
+  left: 80%;
+  top: 110%;
+  margin-bottom: 2%;
+}
+
+#add-btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.col-25[name="sx"]{
+  float:left;
+  width:235px;
+}
+
+.col-25[name="dx"]{
+  width:268px;
+}
+
+#search_cocktail_name_msg, #search_cocktail_radio_msg{
+  color: red;
+}
+
+table, td,th{
+  font-weight: normal;
+  width:39%;
+  border: 1px solid rgb(197, 103, 221);
+  border-collapse: collapse;
+  text-align: center;
+}

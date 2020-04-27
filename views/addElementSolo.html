@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Just a perfect night - Add Element</title>
+        
+        <!--Poppins font-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- my css file-->
+        <link rel ="stylesheet" href = "css_cards.css">
+       
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+        
+        <!-- My script-->
+        <script src="addElementSolo.js"></script>
+    </head>
+    <body onload="CheckStorage();">      
+        <!--navbar-->
+        <nav class="navbar navbar-inverse" id="navbar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">JustAPerfectNight</a>
+              </div>
+              
+              <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li><a href="Feed.html">Feed</a></li>
+                    <li><a href="About_us.html">About us</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Sign_in.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              </ul>
+            </div>
+        </nav>
+        <!--end navbar-->
+
+      
+        
+        <!-- cards -->
+        <div class="container-fluid" id="deck">
+                <div class="col-sm-4">      
+                    <div class="card" id="cocktail_card"> 
+                        <a href="addCocktail.html">
+                            <h1 class="card-title">Add a Cocktail</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="book_card"> 
+                        <a href="Home.html">
+                            <h1 class="card-title">Add a Book</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="movie_card"> 
+                        <a href="Home.html">
+                            <h1 class="card-title">Add a Movie</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="beer_card"> 
+                        <a href="Home.html">
+                            <h1 class="card-title">Add a Beer</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="recipe_card"> 
+                        <a href="addMeal.html">
+                            <h1 class="card-title">Add a Recipe</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="music_card"> 
+                        <a href="addMusic.html">
+                            <h1 class="card-title">Add some Music</h1>
+                        </a>
+                    </div> 
+                </div>
+        </div> 
+        <!-- end deck-->
+        <div class="container">
+            <div class="row">
+              <button class="button button1" disabled onclick="window.location.href='addCategory.html';"><span>Proceed </span></button>
+            </div>
+          </div>
+    </body>
+</html>
+<!--onclick="window.location.href='addElementSolo.html'"-->
