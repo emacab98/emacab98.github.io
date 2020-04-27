@@ -82,7 +82,7 @@ $(document).ready(async function(){
             var my_desc = document.createElement("span");
             my_desc.className = "my_elem";
             my_desc.innerHTML = risposta[index].description;
-            alert("My desc: " + risposta[index].description);
+            //alert("My desc: " + risposta[index].description);
             my_desc_title.appendChild(my_desc);
           
             div_well.appendChild(my_desc_title);
@@ -203,7 +203,7 @@ $(document).ready(async function(){
             
             if (risposta[index].artist.id != undefined){
               elementi +=1;
-              alert("Artista: " + JSON.stringify(risposta[index].artist ));
+              //alert("Artista: " + JSON.stringify(risposta[index].artist ));
              
               var container5 = document.createElement("container");
               container5.className = "elem" + elementi;
