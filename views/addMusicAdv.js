@@ -13,7 +13,7 @@ function sendData(){
     alert("Code: " + code);
     alert("State: "+ state);
 
-   
+   alert("CIAO MAUUUUUUUUU :)")
   var request = new XMLHttpRequest();
   var path = 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + '&state=' + state
   alert("Path: " + path);
@@ -23,7 +23,7 @@ function sendData(){
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
       access_token = risposta.access_token;
-      alert("Access token nella rispsota: " + risposta.access_token);
+      alert("Access token nella risposta: " + risposta.access_token);
       alert("Access token nella variabile: " + access_token);
        } 
   else {
