@@ -196,7 +196,7 @@ function addCocktail(){
 
 function RandomMusic(){
    
-    alert("Acces token: " + my_access_token);
+    alert("Acces token: " + access_token);
     var request = new XMLHttpRequest();
     request.open('GET', 'https://pacific-stream-14038.herokuapp.com/savedTrack/' + access_token, true);
     request.onload = function() {
