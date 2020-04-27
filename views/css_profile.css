@@ -125,12 +125,15 @@ margin-left: 860px;
   grid-row-start: 2;
   grid-row-end: 2;
 }
+<<<<<<< HEAD
 .elem5{
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 2;
 }
+=======
+>>>>>>> 28bd672568ea6e3a3b85dd3a9ebf5ef47adc9b97
 
 #message{
   font-size: 20px;
