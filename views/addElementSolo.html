@@ -20,9 +20,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+        
+        <!-- My script-->
+        <script src="addElementSolo.js"></script>
     </head>
-    <body>      
+    <body onload="CheckStorage();">      
         <!--navbar-->
         <nav class="navbar navbar-inverse" id="navbar">
             <div class="container-fluid">
@@ -69,7 +72,7 @@
                 </div>
                 <div class="col-sm-4">      
                     <div class="card" id="beer_card"> 
-                        <a href="addBeer.html">
+                        <a href="Home.html">
                             <h1 class="card-title">Add a Beer</h1>
                         </a>
                     </div> 
@@ -90,5 +93,11 @@
                 </div>
         </div> 
         <!-- end deck-->
+        <div class="container">
+            <div class="row">
+              <button class="button button1" disabled onclick="window.location.href='addCategory.html';"><span>Proceed </span></button>
+            </div>
+          </div>
     </body>
 </html>
+<!--onclick="window.location.href='addElementSolo.html'"-->
