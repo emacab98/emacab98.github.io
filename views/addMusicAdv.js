@@ -21,7 +21,7 @@ function sendData(){
       var risposta = JSON.parse(this.response);
       localStorage.setItem("access_token", risposta.acces_token);
       alert("Access token nella rispsota: " + risposta.access_token);
-      alert("Access token nello storage: " + localStorage.getItem("access_token");
+      alert("Access token nello storage: " + localStorage.getItem("access_token"));
        } 
   else {
       
