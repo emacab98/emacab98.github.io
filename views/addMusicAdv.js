@@ -1,6 +1,9 @@
 var myObj;
 var selected_cocktail;
 
+//ANA
+var access_token = "";
+
 //Aggiunta funzione ana 
 function sendData(){
     alert("Sending data");
@@ -19,9 +22,9 @@ function sendData(){
   // Begin accessing JSON data here
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
-      localStorage.setItem("access_token", JSON.stringify(risposta.access_token));
+      access_token = risposta.access_token;
       alert("Access token nella rispsota: " + risposta.access_token);
-      alert("Access token nello storage: " + localStorage.getItem("access_token"));
+      alert("Access token nella variabile: " + access_token);
        } 
   else {
       alert("Something went wrong!");
@@ -192,10 +195,10 @@ function addCocktail(){
 
 
 function RandomMusic(){
-    var my_access_token = localStorage.getItem("acces_token");
+   
     alert("Acces token: " + my_access_token);
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://pacific-stream-14038.herokuapp.com/savedTrack/' + my_access_token, true);
+    request.open('GET', 'https://pacific-stream-14038.herokuapp.com/savedTrack/' + access_token, true);
     request.onload = function() {
     // Begin accessing JSON data here
         if (request.status >= 200 && request.status < 400){
