@@ -2,6 +2,7 @@ var username = localStorage.getItem("username");
 
 
 $(document).ready(async function(){
+
   await Promise.all([
     findUpvotedNights().catch(()=>{alert("Could not load upvoted nights!"); return}),
      findSavedNights().catch(()=>{alert("Could not load saved nights!"); return})

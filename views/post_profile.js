@@ -116,6 +116,74 @@ $(document).ready(function(){
     else{
         $("#beer_container").hide();
     }
+
+    if(found_night.artist.id != undefined){
+        $("#music_container").show()
+        var my_music_img = document.createElement("img");
+        my_music_img.className = "img-thumbnail";
+        my_music_img.src = found_night.artist.album_image; 
+        document.getElementById("col-sx-music").appendChild(my_music_img);
+        //alert("Ho inserito l'immagine" +  found_night.artist.album_image);
+
+        document.getElementById("music_name").innerHTML = found_night.artist.name;
+        //alert("Ho inserito il nome: " + found_night.artist.name);
+        var my_artists = found_night.artist.artists;
+        if(my_artists.length ==1) document.getElementById("music_artist").innerHTML = found_night.artist.artists[0];
+        else{
+          var t=0;
+          var len = my_artists.length;
+          for(t=0; t<len; t++){
+            if(t==len-1){
+                document.getElementById("music_artist").innerHTML+= found_night.artist.artists[t];
+            }
+            else{
+                document.getElementById("music_artist").innerHTML += found_night.artist.artists[t] + " & " ;
+            }
+          }
+        }
+
+        document.getElementById("music_popularity").innerHTML = found_night.artist.popularity;
+       
+        document.getElementById("music_date").innerHTML = found_night.artist.release_date;
+        
+       
+
+        if(found_night.artist.tracks != undefined){
+            //alert("E' un album!")
+            //alert("Nome: " + found_night.artist.name);
+            $("#album_tracks").show();
+            $("#album_label").show()
+            var my_artists = found_night.artist.tracks;
+            if(my_artists.length ==1) document.getElementById("music_tracks").innerHTML = found_night.artist.tracks[0];
+            else{
+              var t=0;
+              var len = my_artists.length;
+              for(t=0; t<len; t++){
+                if(t==len-1){
+                    document.getElementById("music_tracks").innerHTML+= found_night.artist.tracks[t];
+                }
+                else{
+                    document.getElementById("music_tracks").innerHTML += found_night.artist.tracks[t] + " <br>" ;
+                }
+              }
+            }
+            document.getElementById("music_label").innerHTML = found_night.artist.label;
+        }
+
+        else{
+            
+            $("#album_tracks").hide();
+            
+            $("#album_label").hide();
+           
+            }
+
+        
+    }
+    else{
+    //alert("Nascondo la sezione")
+       $("#music_container").hide()
+    }
   
   }); 
   
