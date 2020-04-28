@@ -1,5 +1,5 @@
 var myObj;
-var selected_meal;
+var selected_music;
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
@@ -7,81 +7,90 @@ $(document).ready(function(){
 });
 
 function SearchByName(){
-    document.getElementById("search_meal_name_msg").innerHTML = "";
-    var search_meal_name =  document.getElementById('search_meal_name').value;
-    if(search_meal_name == ""){
-        document.getElementById("search_meal_name_msg").innerHTML = "Please write a meal name!";
+    document.getElementById("search_music_name_msg").innerHTML = "";
+    var search_music_name =  document.getElementById('search_music_name').value;
+    if(search_music_name == ""){
+        document.getElementById("search_music_name_msg").innerHTML = "Please write a music name!";
         return;
     }
     var request = new XMLHttpRequest();
-    //request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/${search_meal_name}/multiple/30`, true);
+    request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/byTitle/${search_music_name}`, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
-            document.getElementById("menu_meal").innerHTML="";
+            document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
                 if(s!= ""){
-                    document.getElementById("menu_meal").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                    document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
             $("#select-btn").prop("disabled",false);
         }  
         else{
-            document.getElementById("search_meal_name_msg").innerHTML = "Meal not found! Please try again";
+            document.getElementById("search_music_name_msg").innerHTML = "Music not found! Please try again";
         }
     }
     request.send();
 }
 
-function SelectMeal(){
-    var idx = document.getElementById("menu_meal").options.selectedIndex;
-    var item_selected = document.getElementById("menu_meal").options.item(idx);
+function SelectMusic(){
+    var idx = document.getElementById("menu_music").options.selectedIndex;
+    var item_selected = document.getElementById("menu_music").options.item(idx);
     //alert(item_selected.text);
     if(item_selected.text==""){
-        alert("Please select a meal in the menu!");
+        alert("Please select a music in the menu!");
     }
     else{
         var description_list = document.getElementById("description_list");
+        var music_container = document.getElementById("music_container");
+        music_container.innerHTML="";
         description_list.innerHTML="";
         var j;
         for(j=0; j< myObj.length; j++){ 
             //alert(myObj[j].name);     
             if(myObj[j].name==item_selected.text){
-                selected_meal= myObj[j];
+                selected_music= myObj[j];
                 $("#add-btn").prop("disabled",false);
                 break;
             }
         }
-        //alert(JSON.stringify(selected_meal));
-        document.getElementById("photo_meal").src= selected_meal.image;
-        description_list.innerHTML+= `<dt>Name</dt> <dd>- ${selected_meal.name}</dd>`;
-        description_list.innerHTML+= `<dt>Category</dt> <dd>- ${selected_meal.category}</dd>`;
-        description_list.innerHTML+= `<dt>Cuisine</dt> <dd>- ${selected_meal.cuisine}</dd>`;
-        
-        description_list.innerHTML+= `<dt>Composition:</dt> <dd><table id="tab" ><tr><th>Ingredients</th><th>Quantities</th></tr> </table></dd>`;
-
-        var tab = document.getElementById("tab");
-        var ing = selected_meal.ingredients;
-        var qnt = selected_meal.quantities;
-        var i;
-        for(i=0; i<ing.length; i++){
-            if(typeof qnt[i] !== "undefined"){
-                document.getElementById("tab").innerHTML += `<tr><td>${ing[i]}</td><td>${qnt[i]}</td></tr>`;
+        //alert(JSON.stringify(selected_music));
+        document.getElementById("photo_music").src= selected_music.album_image;
+        var artist = selected_music.artists;
+        description_list.innerHTML+= `<dt>Artist:</dt> <dd> `;
+        for(j=0; j< artist.length; j++){
+            if(j == artist.length-1){
+                description_list.innerHTML+= `${artist[j]}</dd>`;
             }
             else{
-                document.getElementById("tab").innerHTML += `<tr><td>${ing[i]}</td><td>not specified</td></tr>`;
+                description_list.innerHTML+= `${artist[j]}, `;
             }
         }
-        
-        //alert(selected_meal.instructions);
-        if(typeof selected_meal.instructions !== "undefined"){
-            document.getElementById("description").innerHTML= selected_meal.instructions;
+        description_list.innerHTML+= `<dt>Name</dt> <dd> ${selected_music.name}</dd>`;
+        description_list.innerHTML+= `<dt>Release date</dt> <dd> ${selected_music.release_date}</dd>`;
+        description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
+
+        //alert(selected_music.id);
+        if(typeof(selected_music.tracks) !== "undefined"){
+            //this is an album
+            music_container.innerHTML += "<h4>Other info: </h4>";
+            music_container.innerHTML += `<dl><dt>Label</dt> <dd> ${selected_music.label}</dd>`;
+            var tracks = selected_music.tracks;
+            music_container.innerHTML += `<dt>Tracks</dt>`;
+            for(j=0; j< tracks.length; j++){
+                music_container.innerHTML += `<dd>${tracks[j]}</dd>`;
+            }
+            music_container.innerHTML += `</dl>`;
         }
         else{
-            document.getElementById("description").innerHTML= "Description not available.";
+            //this is a song
+            music_container.innerHTML += "<h4>Song preview: </h4>";
+            music_container.innerHTML += `<audio controls controlsList="nodownload"><source src="${selected_music.preview_url}" type="audio/mpeg">
+            Your browser does not support the audio element.</audio>`;
+
         }
         
         
@@ -90,96 +99,111 @@ function SelectMeal(){
     }
 }
 
-function RandomMeal(){
-    var request = new XMLHttpRequest();
-    //request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/surprise/20`, true);
-    request.onload = function() {
-    // Begin accessing JSON data here
-        if (request.status >= 200 && request.status < 400){
-            document.getElementById("menu_meal").innerHTML="";
-            myObj = JSON.parse(request.response);
-            var s;
-            for(var i=0; i< myObj.length; i++){
-                s = myObj[i].name;
-                if(s!= ""){
-                    document.getElementById("menu_meal").innerHTML +=  `<option value=${s}> ${s}</option>`;
-                }
-            }
-            $("#select-btn").prop("disabled",false);  
-        }  
-    }
-    request.send();
-}
 
-function AdvancedSearchCuisine(){
-    document.getElementById("filters_msg_cuisine").innerHTML = "";
-    var search_meal_name =  document.getElementById('menu_cuisine').value;
-    if(search_meal_name == ""){
-        document.getElementById("filters_msg_cuisine").innerHTML = "Please select a cuisine!";
+function AdvancedSearchAlbum(){
+    document.getElementById("filters_msg_album").innerHTML = "";
+    var search_music_name =  document.getElementById('album').value;
+    if(search_music_name == ""){
+        document.getElementById("filters_msg_album").innerHTML = "Please type an album!";
         return;
     }
 
     var request = new XMLHttpRequest();
-    request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/cuisine/${search_meal_name}/30`, true);
+    request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/album/byName/${search_music_name}`, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
-            document.getElementById("menu_meal").innerHTML="";
+            document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
                 if(s!= ""){
-                    document.getElementById("menu_meal").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                    document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
             $("#select-btn").prop("disabled",false);
         }  
         else{
-            document.getElementById("filters_msg_cuisine").innerHTML = "Cuisine temporarily unavailable.";
+            document.getElementById("filters_msg_album").innerHTML = "Album temporarily unavailable.";
         }
     }
 
     request.send();
 }
 
-function AdvancedSearchCategory(){
-    document.getElementById("filters_msg_category").innerHTML = "";
-    var search_meal_name =  document.getElementById('menu_category').value;
-    if(search_meal_name == ""){
-        document.getElementById("filters_msg_category").innerHTML = "Please select a category!";
+function AdvancedSearchAlbumsArtist(){
+    document.getElementById("filters_msg_album").innerHTML = "";
+    var search_music_name =  document.getElementById('artist').value;
+    if(search_music_name == ""){
+        document.getElementById("filters_msg_album").innerHTML = "Please type an artist!";
         return;
     }
 
     var request = new XMLHttpRequest();
-    //request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/category/${search_meal_name}/30`, true);
+    request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/album/byArtist/${search_music_name}`, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
-            document.getElementById("menu_meal").innerHTML="";
+            document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
                 if(s!= ""){
-                    document.getElementById("menu_meal").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                    document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
             $("#select-btn").prop("disabled",false);
         }  
         else{
-            document.getElementById("filters_msg_category").innerHTML = "Category temporarily unavailable.";
+            document.getElementById("filters_msg_album").innerHTML = "Albums temporarily unavailable.";
         }
     }
 
     request.send();
 }
 
-function addMeal(){
-    localStorage.meal=JSON.stringify(selected_meal);
+
+function AdvancedSearchSongsArtist(){
+    document.getElementById("filters_msg_album").innerHTML = "";
+    var search_music_name =  document.getElementById('artist').value;
+    if(search_music_name == ""){
+        document.getElementById("filters_msg_album").innerHTML = "Please type an artist!";
+        return;
+    }
+
+    var request = new XMLHttpRequest();
+    request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/byArtist/${search_music_name}`, true);
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400){
+             // Begin accessing JSON data here
+            document.getElementById("menu_music").innerHTML="";
+            myObj = JSON.parse(request.response);
+            var s;
+            for(var i=0; i< myObj.length; i++){
+                s = myObj[i].name;
+                if(s!= ""){
+                    document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                }
+            }
+            $("#select-btn").prop("disabled",false);
+        }  
+        else{
+            document.getElementById("filters_msg_album").innerHTML = "Songs temporarily unavailable.";
+        }
+    }
+
+    request.send();
+}
+
+
+
+function addMusic(){
+    localStorage.music=JSON.stringify(selected_music);
     
     var perfect_night = JSON.parse(localStorage.perfect_night);
-    perfect_night.meal = selected_meal.id;
+    perfect_night.music = selected_music.id;
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
 

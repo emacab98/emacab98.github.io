@@ -76,6 +76,10 @@ float: left;
 max-width: 400px;
 }
 
+/**/
+#filters_button_songs_artist, #filters_button_albums_artist, #filters_button_album{
+  border-radius: 20px;
+}
 
 #spotify_login_button{
   border-radius: 20px;
@@ -83,58 +87,7 @@ max-width: 400px;
   font-size: medium;
   background-color: #98D9B6;
 }
-/**/
-.button1 {
-  background-color: #F2E8C4; 
-  color: #424254; 
-  border: 2px solid #424254;
-  margin-top: 3%;
-  margin-left:2.5%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 20px;
-  outline: none;
-  padding: 10px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-.button1:hover {
-  background-color: #424254;
-  color: #F2E8C4;
-}
-.button1 span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-.button1 span:after {
-  content: '\02c6';
-  position: absolute;
-  opacity: 0;
-  top: -10px;
-  left: 0px;
-  transition: 0s;
-}
-
-.button1:hover span {
-  padding-top: 12px;
-}
-
-.button1:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-.button1:active {
-  opacity: 1;
-  background: #E8CAA4;
-  color: #424254;
-  transition: 0s;
-}
-/**/
 /**/
 
 #select-btn {
@@ -229,14 +182,6 @@ width:235px;
 width:268px;
 }
 
-#search_music_name_msg, #filters_msg_cuisine, #filters_msg_category{
+#search_music_name_msg, #filters_msg_artist, #filters_msg_album{
 color: red;
-}
-
-table, td,th{
-font-weight: normal;
-width:39%;
-border: 1px solid #424254;
-border-collapse: collapse;
-text-align: center;
 }
