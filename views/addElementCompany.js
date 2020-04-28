@@ -1,11 +1,11 @@
-localStorage.removeItem("cocktail");
+/*localStorage.removeItem("cocktail");
 localStorage.removeItem("book");
 localStorage.removeItem("movie");
 localStorage.removeItem("beer");
 localStorage.removeItem("recipe");
 localStorage.removeItem("music");
 localStorage.removeItem("game");
-localStorage.removeItem("perfect_night");
+localStorage.removeItem("perfect_night");*/
 
 function CheckStorage(){
     if(typeof(localStorage.cocktail) != "undefined" || typeof(localStorage.game) != "undefined" ||
