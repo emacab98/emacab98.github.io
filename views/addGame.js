@@ -134,7 +134,7 @@ function AdvancedSearch(){
     }
     var data;
     var request = new XMLHttpRequest();
-    request.open('GET', `https://pacific-stream-14038.herokuapp.com/boardgame/byFilters/10`, true);
+    request.open('POST', `https://pacific-stream-14038.herokuapp.com/boardgame/byFilters/10`, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
