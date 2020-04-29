@@ -12,8 +12,11 @@ function sendData(){
   request.onload = function() {
  
   if (request.status >= 200 && request.status < 400) {
-     
-      alert("Accesso avvenuto con successo");
+        var risposta = JSON.parse(this.response);
+        localStorage.setItem("username", risposta.nickname);
+        alert("Nickname: " + risposta.nickname);
+        alert("Nickname nello storage: " + localStorage.getItem("username") );
+        alert("Accesso avvenuto con successo");
        } 
   else {
       alert("Something went wrong!");
@@ -26,4 +29,5 @@ request.send();
 
 $(document).ready(function(){
     sendData();
+   
 });
