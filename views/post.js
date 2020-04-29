@@ -102,7 +102,7 @@ $(document).ready(function(){
                   
                 var my_beer_img = document.createElement("img");
                 my_beer_img.className = "img-thumbnail";
-                my_beer_img.src = found_night.beer.image;; }
+                my_beer_img.src = found_night.beer.image; }
             
             document.getElementById("col-sx-beer").appendChild(my_beer_img);
 
@@ -185,6 +185,80 @@ $(document).ready(function(){
            $("#music_container").hide()
         }
 
+
+        if(found_night.book.volume_id != undefined){
+            $("#book_container").show();
+
+
+            if(found_night.book.image == "Sorry, no picture for this book!") {
+               
+                var my_book_img = document.createElement("img");
+                my_book_img.className = "img-thumbnail";
+                my_book_img.src = "jedi.jpg";
+                
+              }
+            else {
+                  
+                var my_book_img = document.createElement("img");
+                my_book_img.className = "img-thumbnail";
+                my_book_img.src = found_night.book.image; 
+            }
+            
+            document.getElementById("col-sx-book").appendChild(my_book_img);
+            
+            document.getElementById("book_title").innerHTML = found_night.book.title;
+            //alert("Ho inserito il nome: " + found_night.artist.name);
+            var my_authors = found_night.book.authors;
+            if(my_authors.length ==1) document.getElementById("book_authors").innerHTML = found_night.book.authors[0];
+            else{
+              var t=0;
+              var len = my_authors.length;
+              for(t=0; t<len; t++){
+                if(t==len-1){
+                    document.getElementById("book_authors").innerHTML+= found_night.book.authors[t];
+                }
+                else{
+                    document.getElementById("book_authors").innerHTML += found_night.book.authors[t] + " & " ;
+                }
+              }
+            }
+            document.getElementById("book_plot").innerHTML = found_night.book.description;
+        
+            
+            if(typeof(found_night.book.categoryList)!= "string"){
+                var category = found_night.book.categoryList;
+                //alert("Category: " + found_night.book.categoryList);
+                //alert("Category len:" + category.length )
+                if (category.length == 1) {
+                
+                    document.getElementById("book_category").innerHTML = found_night.book.categoryList[0];
+
+                }
+                else{
+                    var t=0;
+                    var len = category.length;
+                    for(t=0; t<len; t++){
+                        if(t==len-1){
+                            document.getElementById("book_category").innerHTML+= found_night.book.categoryList[t];
+                        }
+                        else{
+                            document.getElementById("book_category").innerHTML += found_night.book.categoryList[t] + " & " ;
+                        }
+                    }
+
+                }
+            }
+            else{
+                document.getElementById("book_category").innerHTML = found_night.book.categoryList;
+
+            }
+            
+        }
+        else{
+            //alert("Nascondo la sezione")
+           $("#book_container").hide()
+        }
+        
 
         
 

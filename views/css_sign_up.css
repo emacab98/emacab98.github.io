@@ -59,11 +59,34 @@ color:#fff;
 font-weight:600;
 font-size: large;}
 
-#surname,#name, #email, #password, #password2, #username{
+#surname,#name, #email, #password, #password2, #username, #google_p{
 color: black;
 opacity:1;
 font-weight: bold;
+}
 
+#google_p{
+  font-size: large;
+}
+
+#google{
+  background-image: url("btn_google_dark_normal_ios.svg");
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding: 3px;
+  background-color: #4285F4;
+
+}
+span{
+  margin-left: 50px;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  
+}
+hr{
+  border-top: 3px solid white;
+  border-radius: 1px;
 }
 
 #passwordHelpBlock{

@@ -68,6 +68,26 @@ font-weight: bold;
 }
 
 
+#google_p{
+  font-size: large;
+}
+
+#google{
+  background-image: url("btn_google_dark_normal_ios.svg");
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding: 3px;
+  background-color: #4285F4;
+
+}
+span{
+  margin-left: 50px;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  
+}
+
 
 
 

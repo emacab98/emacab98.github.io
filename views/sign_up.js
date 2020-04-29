@@ -64,42 +64,6 @@ function checkPassword(){
 
 
 
-function checkName(){
-    var regex = new RegExp("^[^0-9]+$");
-    var name = document.getElementById("name").value;
-    if(regex.test(name) ){
-      document.getElementById('message_name').style.color = 'green';
-      document.getElementById('message_name').innerHTML = 'Looks good!';
-      test_name=true;
-
-    }
-     else {
-        test_name=false;
-        document.getElementById('message_name').style.color = 'red';
-        document.getElementById('message_name').innerHTML = 'The name must not contain numbers';
-    }
-    checkValidity();
-}
-
-
-
-function checkSurname(){
-  var regex = new RegExp("^[^0-9]+$");
-  var surname = document.getElementById("surname").value;
-  if(regex.test(surname) ){
-    document.getElementById('message_surname').style.color = 'green';
-    document.getElementById('message_surname').innerHTML = 'Looks good!';
-    test_surname=true;
-
-  }
-   else {
-      test_surname=false;
-      document.getElementById('message_surname').style.color = 'red';
-      document.getElementById('message_surname').innerHTML = 'The surname must not contain numbers';
-  }
-  checkValidity();
-}
-
 
 
 function checkEmail(){

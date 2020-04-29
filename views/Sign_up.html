@@ -6,9 +6,17 @@
 
 
         <title>Just a perfect night - Sign-up</title>
+
+
+
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         
         <!--Poppins font-->
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+        <!--Roboto font-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
        
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -59,23 +67,7 @@
                       name = "username" id = "username">
                      
                     </div>
-                    <div class="form-group">
-                      <label class="text-uppercase" for="name">Name</label>
-                      <input type="text" class="form-control" placeholder="Insert your name" 
-                      name = "name" id = "name" onkeyup="checkName()">
-                      <p id="message_name"></p>
-                      
-                      
-                    </div>
-
-                    <div class="form-group">
-                      <label class="text-uppercase" for="surname" >Surname</label>
-                      <input type="text" class="form-control" placeholder="Insert your surname" 
-                      name="surname" id="surname" onkeyup="checkSurname()""> 
-                      <p id="message_surname"></p>
-                      
-                     
-                    </div>
+                    
                     <div class="form-group">
                       <label class="text-uppercase" for="email" >Email</label>
                       <input type="text" class="form-control" placeholder="insert your email" 
@@ -113,13 +105,16 @@
   
           
                   </form>
+                  <hr>
+                  <div>
+                    <p id="google_p">Or sign up with Google:</p>
+                    <button type="button" class="btn float-right" id="google" onclick="googleSignUp()">
+                      <span>Sign in with Google!</span>
+                    </button>
+                    
+                  </div>
                 </div>
-                <hr>
-                <div>
-                  <p>Or sign up with Google:</p>
-                  <button id="google" onclick="googleSignUp()">Sign up</button>
-
-                </div>
+                
                   
                 <div class="col-md-7 banner-sec">
                   
