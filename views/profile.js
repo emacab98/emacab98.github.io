@@ -116,10 +116,10 @@ function populatePost(section, mode){
       if (request.status >= 200 && request.status < 400) {
           var risposta = JSON.parse(this.response);
           var risposta_str = JSON.stringify(this.response);
-          alert("Risposta: " + risposta);
+          //alert("Risposta: " + risposta);
 
           if(risposta.length == 0){
-            alert("Non ci sono notti!")
+            //alert("Non ci sono notti!")
             if(mode=="created") document.getElementById('message').innerHTML = 'Your nights will appear here! Start creating now!';
             else if(mode =="saved")  document.getElementById('message').innerHTML = 'Your saved nights will appear here! Browse some on the feed page!';
             else  document.getElementById('message').innerHTML = 'Your upvoted nights will appear here! Browse some on the feed page!';
@@ -127,7 +127,7 @@ function populatePost(section, mode){
           }
           else{
 
-            alert("Ci sono delle notti!Codice da implementare");
+            //alert("Ci sono delle notti!Codice da implementare");
             $("#message").hide();
             var nights_section = document.getElementById(section);
             var index = 0;
