@@ -31,3 +31,7 @@ function checkForm(){
 request.send();
  }
 
+ function googleSignIn(){
+  window.location.href='https://pacific-stream-14038.herokuapp.com/auth/begin';
+
+}

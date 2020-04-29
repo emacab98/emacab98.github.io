@@ -159,3 +159,7 @@ request.setRequestHeader("Content-type", "application/json");
 request.send(data);
  }
 
+ function googleSignUp(){
+  window.location.href='https://pacific-stream-14038.herokuapp.com/auth/begin';
+
+}
