@@ -75,18 +75,41 @@
                     Advanced search:
                 </h3>
                 <p id="p_advanced_search">
-                    You need to login to your Spotify account for the advanced search:
+                    Find the perfect one:
                 </p>
                 <div class="search-container">
-                    
+                    <!-- artist -->
+                    <div class="row">
+                        <label for="artist">Artist: </label>
+                        <input type="text" placeholder="Search by artist.." id="artist">
+                    </div>
+                    <!-- button advanced search authors --> 
+                    <div class="row">
+                        <button class="button" id="filters_button_songs_artist" onclick="AdvancedSearchSongsArtist();"><span>Search songs by artist <i class="fa fa-search"></i></span></button>
+                        <button class="button" id="filters_button_albums_artist" onclick="AdvancedSearchAlbumsArtist();"><span>Search albums by artist <i class="fa fa-search"></i></span></button>
+                    </div>  
+                    <div class="row">
+                        <p id="filters_msg_artist"></p>
+                    </div>  
+                    <!-- album -->
+                    <div class="row">
+                        <label for="album">Album: </label>
+                        <input type="text" placeholder="Search album.." id="album">
+                    </div>   
                    
                     <!-- button advanced search --> 
                     <div class="row">
-                        <button class="button" id="spotify_login_button" onclick="spotifyLogin()"><span>Spotify login <i class="fa fa-login"></i></span></button>
+                        <button class="button" id="filters_button_album" onclick="AdvancedSearchAlbum();"><span>Search album <i class="fa fa-search"></i></span></button>
                     </div>  
-                    <!--div class="row">
-                        <p id="filters_msg_category"></p>
-                    </div-->                
+                    <div class="row">
+                        <p id="filters_msg_album"></p>
+                    </div>            
+                   
+                    <!-- button login spotify --> 
+                    <div class="row">
+                        <p> You need to login to your Spotify account for more advanced search:</p>
+                        <button class="button" id="spotify_login_button" onclick="spotifyLogin()"><span>Spotify login <i class="fa fa-login"></i></span></button>
+                    </div>                 
                 </div>
                 <!-- end advanced search -->
 
@@ -96,9 +119,6 @@
                         <select size=1 id="menu_music" onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;"> 
                             <option selected value=""> Choose your music :) </option>
                         </select>                        
-                    </div>
-                    <div class="row">
-                        <button class="button button1" id="surprise" onclick="RandomMusic();"><span>Short of ideas? Click me!</span></button>
                     </div>
                 </div>
                 <!-- end menu music -->
@@ -118,8 +138,6 @@
                 </div>
 
                 <div class="container" id="music_container">               
-                    <h4> Description:</h4>
-                    <p id="description"> Here the description of the music.</p> 
                 </div>
 
                 <input type="button" class="select-btn" id="add-btn" value="Add my perfect music" onclick="addMusic();">
