@@ -15,12 +15,13 @@ function sendData(){
         
         var risposta = JSON.parse(this.response);
         localStorage.setItem("username", risposta.nickname);
-        alert("Accesso avvenuto con successo");
-       } 
-       
+        alert("You have successfully signed in with Google!");
+  } 
+
   else {
-      alert("Something went wrong!");
-      } 
+      alert("Something went wrong! Try again!\nMessage: " + this.responseText);
+      window.location.href = "Home.html";
+  } 
 }
 
 request.send();

@@ -184,6 +184,11 @@ $(document).ready(function(){
             //alert("Nascondo la sezione")
            $("#music_container").hide()
         }
+
+
+        
+
+
     
   }); 
   

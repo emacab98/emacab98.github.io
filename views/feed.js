@@ -105,7 +105,7 @@ $(document).ready(async function(){
             var list = document.createElement("div");
             list.className = "my_list";
 
-            if (risposta[index].board_game != null){
+            if (risposta[index].board_game.id != undefined){
               elementi +=1;
               
               var board_game =  risposta[index].board_game;
@@ -213,7 +213,7 @@ $(document).ready(async function(){
               if(risposta[index].artist.tracks != undefined){
                 //alert("E' un album!")
                 //alert("Nome: " + risposta[index].artist.name);
-                var string = "Album: " + risposta[index].artist.name + " by: ";
+                var string = "Album: " + risposta[index].artist.name + " by: <br>";
                 var my_artists = risposta[index].artist.artists;
                 if(my_artists.length ==1) string+=  risposta[index].artist.artists[0];
                 else{
@@ -224,7 +224,7 @@ $(document).ready(async function(){
                       string += risposta[index].artist.artists[t];
                     }
                     else{
-                      string += risposta[index].artist.artists[t] + "& " ;
+                      string += risposta[index].artist.artists[t] + " & " ;
                     }
                   }
                 }
@@ -234,7 +234,7 @@ $(document).ready(async function(){
               } 
               else{
                 //alert("E' una canzone!");
-                 var string = "Song: " + risposta[index].artist.name + " by: " ;
+                 var string = "Song: " + risposta[index].artist.name + " by: <br>" ;
                  //alert("String:" + risposta[index].artist.artists.length);
                  //alert("Nome: " + risposta[index].artist.name);
                  var my_artists = risposta[index].artist.artists;
@@ -248,7 +248,7 @@ $(document).ready(async function(){
                        string += risposta[index].artist.artists[t];
                      }
                      else{
-                       string += risposta[index].artist.artists[t] + "& " ;
+                       string += risposta[index].artist.artists[t] + " & " ;
                      }
                    }
                  } 
@@ -273,13 +273,43 @@ $(document).ready(async function(){
 
               var my_book = document.createElement("span");
               my_book.className = "my_elem";
-              my_book.innerHTML = risposta[index].book.title;
+              var string = risposta[index].book.title + " by: <br> ";
+              var my_authors= risposta[index].book.authors;
+              if(my_authors.length ==1) string +=  risposta[index].book.authors[0];
+              else{
+                var t=0;
+                var len = my_authors.length;
+                for(t=0; t<len; t++){
+                  if(t==len-1){
+                    string += risposta[index].book.authors[t];
+                  }
+                  else{
+                    string += risposta[index].book.authors[t] + " & " ;
+                  }
+                }
+              }
+              my_book.innerHTML = string;
 
+
+             
               var br = document.createElement("br");
-              var my_book_img = document.createElement("img");
+            
+
+              if(risposta[index].book.image == "Sorry, no picture for this book!") {
+                var my_book_img = document.createElement("img");
+                my_book_img.className = "img-thumbnail";
+                my_book_img.src = "jedi.jpg";
+
+              }
+              else {
+                var my_book_img = document.createElement("img");
               my_book_img.className = "img-thumbnail";
               my_book_img.src = risposta[index].book.image;
+             }
+
              
+
+              
               container6.appendChild(my_book);
               container6.appendChild(br);
               container6.appendChild(my_book_img);

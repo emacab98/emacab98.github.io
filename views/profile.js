@@ -173,7 +173,7 @@ function populatePost(section, mode){
               var list = document.createElement("div");
               list.className = "my_list";
   
-              if (risposta[index].board_game != null){
+              if (risposta[index].board_game.id != undefined){
                 elementi +=1;
                 
                 var board_game =  risposta[index].board_game;
@@ -332,6 +332,58 @@ function populatePost(section, mode){
                 container5.appendChild(my_artist_img);
                 list.appendChild(container5);
               } 
+
+              if (risposta[index].book.volume_id != undefined){
+                elementi += 1;
+                //alert("Libro trovato");
+                var container6 = document.createElement("container");
+                container6.className = "elem" + elementi;
+  
+                var my_book = document.createElement("span");
+                my_book.className = "my_elem";
+                var string = risposta[index].book.title + " by: <br> ";
+                var my_authors= risposta[index].book.authors;
+                if(my_authors.length ==1) string +=  risposta[index].book.authors[0];
+                else{
+                  var t=0;
+                  var len = my_authors.length;
+                  for(t=0; t<len; t++){
+                    if(t==len-1){
+                      string += risposta[index].book.authors[t];
+                    }
+                    else{
+                      string += risposta[index].book.authors[t] + " & " ;
+                    }
+                  }
+                }
+                my_book.innerHTML = string;
+  
+  
+               
+                var br = document.createElement("br");
+              
+  
+                if(risposta[index].book.image == "Sorry, no picture for this book!") {
+                  var my_book_img = document.createElement("img");
+                  my_book_img.className = "img-thumbnail";
+                  my_book_img.src = "jedi.jpg";
+  
+                }
+                else {
+                  var my_book_img = document.createElement("img");
+                my_book_img.className = "img-thumbnail";
+                my_book_img.src = risposta[index].book.image;
+               }
+  
+               
+  
+                
+                container6.appendChild(my_book);
+                container6.appendChild(br);
+                container6.appendChild(my_book_img);
+                list.appendChild(container6);
+                //alert("Libro aggiunto");
+              }
   
               div_well.appendChild(list);
              

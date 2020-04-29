@@ -152,7 +152,7 @@ function checkForm(){
        } 
   else {
       
-      alert("Dati già in uso!");
+      alert("This combination of nickname and email seems to be already in use! Please try again");
       } 
 }
 request.setRequestHeader("Content-type", "application/json");
