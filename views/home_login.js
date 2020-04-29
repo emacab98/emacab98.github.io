@@ -13,8 +13,8 @@ function sendData(){
  
   if (request.status >= 200 && request.status < 400) {
         var risposta = JSON.parse(this.response);
-        localStorage.setItem("username", JSON.stringify(risposta.nickname));
-        alert("Nickname: " + risposta.nickname);
+        localStorage.setItem("username", risposta.nickname);
+        alert("Nickname: " + JSON.stringify(risposta.nickname));
         alert("Nickname nello storage: " + localStorage.getItem("username") );
         alert("Accesso avvenuto con successo");
        } 
