@@ -265,6 +265,27 @@ $(document).ready(async function(){
               list.appendChild(container5);
             } 
 
+            if (risposta[index].book.volume_id != undefined){
+              elementi += 1;
+              //alert("pasto trovato");
+              var container6 = document.createElement("container");
+              container6.className = "elem" + elementi;
+
+              var my_book = document.createElement("span");
+              my_book.className = "my_elem";
+              my_book.innerHTML = risposta[index].book.title;
+
+              var br = document.createElement("br");
+              var my_book_img = document.createElement("img");
+              my_book_img.className = "img-thumbnail";
+              my_book_img.src = risposta[index].book.image;
+             
+              container6.appendChild(my_book);
+              container6.appendChild(br);
+              container6.appendChild(my_book_img);
+              list.appendChild(container6);
+              //alert("Pasto aggiunto");
+            }
             div_well.appendChild(list);
            
 

@@ -1,13 +1,13 @@
 function sendData(){
-    //alert("Sending data");
+    alert("Sending data");
     var params = (new URL(document.location)).searchParams;
-    let code = params.get('code'); 
+    var code = params.get('code'); 
    
-    //alert("Code: " + code);
+    alert("Code: " + code);
     
   var request = new XMLHttpRequest();
-  var path = 'https://pacific-stream-14038.herokuapp.com/auth/callback?code=' + code 
-  //alert("Path: " + path);
+  var path = 'https://pacific-stream-14038.herokuapp.com/auth/callback?code=' + code ;
+  alert("Path: " + path);
   request.open('GET', path, true)
   request.onload = function() {
  
