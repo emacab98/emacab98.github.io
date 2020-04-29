@@ -118,13 +118,15 @@ function populatePost(section, mode){
           //var risposta_str = JSON.stringify(this.response);
 
           if(risposta.length == 0){
+            alert("Non ci sono notti!")
             if(mode=="created") document.getElementById('message').innerHTML = 'Your nights will appear here! Start creating now!';
             else if(mode =="saved")  document.getElementById('message').innerHTML = 'Your saved nights will appear here! Browse some on the feed page!';
             else  document.getElementById('message').innerHTML = 'Your upvoted nights will appear here! Browse some on the feed page!';
             $("#message").show();
           }
           else{
-            //alert("Ci sono delle notti!Codice da implementare");
+
+            alert("Ci sono delle notti!Codice da implementare");
             $("#message").hide();
             var nights_section = document.getElementById(section);
             var index = 0;
