@@ -30,7 +30,7 @@ function SearchByName(){
             $("#select-btn").prop("disabled",false);
         }  
         else{
-            document.getElementById("search_book_name_msg").innerHTML = "book not found! Please try again";
+            document.getElementById("search_book_name_msg").innerHTML = "Book not found! Please try again";
         }
     }
     request.send();
