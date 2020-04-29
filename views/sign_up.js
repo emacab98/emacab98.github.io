@@ -1,5 +1,5 @@
 //variabili globali che controllano validità di ogni singolo controllo
-var test_pass,test_name,test_surname,test_email,test_pass_bis = false;
+var test_pass,test_email,test_pass_bis = false;
 
 
 //all'inizio il bottone è disabilitato
@@ -10,7 +10,7 @@ $(document).ready(function(){
 //Funzione che controlla che tutti i requisiti siano soddisfatti, se lo sono abilita il bottone di submit,
 //altrimenti lo disabilita. 
 function checkValidity(){
-  if(test_pass && test_name && test_surname && test_email && test_pass_bis) $("#submit").attr("disabled",false);
+  if(test_pass && test_email && test_pass_bis) $("#submit").attr("disabled",false);
   else $("#submit").attr("disabled",true)
 }
 

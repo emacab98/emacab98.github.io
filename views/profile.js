@@ -115,7 +115,8 @@ function populatePost(section, mode){
       request.onload = function() {
       if (request.status >= 200 && request.status < 400) {
           var risposta = JSON.parse(this.response);
-          //var risposta_str = JSON.stringify(this.response);
+          var risposta_str = JSON.stringify(this.response);
+          alert("Risposta: " + risposta);
 
           if(risposta.length == 0){
             alert("Non ci sono notti!")
