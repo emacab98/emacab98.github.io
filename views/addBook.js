@@ -56,11 +56,23 @@ function SelectBook(){
             }
         }
         //alert(JSON.stringify(selected_book));
-        document.getElementById("photo_book").src= selected_book.image;
+        //alert(selected_book.image);
+        if(selected_book.image == "Sorry, no picture for this book!"){       
+            document.getElementById("photo_book_msg").innerHTML= selected_book.image;
+            $('#photo_book').hide();
+            $('#photo_book_msg').show();
+        }
+        else {
+            document.getElementById("photo_book").src= selected_book.image;
+            $('#photo_book_msg').hide();
+            $('#photo_book').show();
+        }
+            
         description_list.innerHTML+= `<dt>Authors</dt> <dd> ${selected_book.authors}</dd>`; 
         description_list.innerHTML+= `<dt>Title</dt> <dd> ${selected_book.title}</dd>`;
         description_list.innerHTML+= `<dt>Category</dt> <dd> ${selected_book.categoryList}</dd>`;              
-        document.getElementById("link").innerHTML = `<a href= "${selected_book.link}">${selected_book.link}</a>`
+        document.getElementById("description").innerHTML = `${selected_book.description}`;
+        document.getElementById("link").innerHTML = `<a href= "${selected_book.link}" target="_blank">${selected_book.link}</a>`;
         $('#right-column').show(100);    
         
     }

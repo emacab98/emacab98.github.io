@@ -196,6 +196,7 @@ h4{
 }
 
 #info{
+  margin-left: -14px;
   width: auto;
   height: 38%;
 }

@@ -18,13 +18,13 @@ function SearchByName(){
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
-            document.getElementById("menu_game").innerHTML="";
-            $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
                 document.getElementById("search_game_name_msg").innerHTML = "Game not found! Please try again";
                 return;
-            }
+            }            
+            document.getElementById("menu_game").innerHTML="";
+            $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -120,14 +120,15 @@ function RandomGame(){
 function AdvancedSearch(){
     var filterObj = {};
     document.getElementById("filters_msg").innerHTML ="";
-    var play_time = document.getElementById('play_time').value;
-    if(play_time!="" && parseInt(play_time)>= 0){
-        filterObj.play_time = parseInt(play_time);
-    }
     var players_num = document.getElementById('players_num').value;
     if(players_num!="" && parseInt(players_num)>= 0){
-        filterObj.players_num = parseInt(players_num);
+        filterObj.playersNum = parseInt(players_num);
     }
+    var play_time = document.getElementById('play_time').value;
+    if(play_time!="" && parseInt(play_time)>= 0){
+        filterObj.playTime = parseInt(play_time);
+    }
+    
     if((play_time =="" && players_num=="")|| parseInt(play_time)<0 ||  parseInt(players_num)<0){
         document.getElementById("filters_msg").innerHTML = "Please add a valid filter!";
         return;
@@ -138,9 +139,13 @@ function AdvancedSearch(){
     request.onload = function() {
         if (request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
+            myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg").innerHTML = "Game not found! Please try again";
+                return;
+            }  
             document.getElementById("menu_game").innerHTML="";
             $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
-            myObj = JSON.parse(request.response);
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -155,7 +160,8 @@ function AdvancedSearch(){
         }
     }
 
-    data = JSON.stringify(filterObj);    
+    data = JSON.stringify(filterObj); 
+    //alert(data); 
     request.setRequestHeader("Content-type", "application/json");
     request.send(data);
 }

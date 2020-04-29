@@ -85,7 +85,7 @@
                     </div>
                     <!-- button advanced search authors --> 
                     <div class="row">
-                        <button class="button" id="filters_button_authors" onclick="AdvancedSearchAuthors();"><span>Search by authors <i class="fa fa-search"></i></span></button>
+                        <button class="button" id="filters_button_authors" onclick="AdvancedSearchAuthors();"><span>Search by author <i class="fa fa-search"></i></span></button>
                     </div>  
                     <div class="row">
                         <p id="filters_msg_authors"></p>
@@ -128,12 +128,15 @@
             <!-- right column -->
             <div class="col-xs-6" id="right-column">
                 <img src="book.jpg" alt="book" id="photo_book" > 
+                <p id="photo_book_msg"></p>
                 <div class="container" id="info">                    
                     <h4> Info:</h4>
                     <dl id="description_list"> </dl> 
                 </div>
 
-                <div class="container" id="book_container">               
+                <div class="container" id="book_container">    
+                    <h4> Description:</h4>
+                    <p id="description"> Here the description of the book.</p>           
                     <h4> Link:</h4>
                     <p id="link"> Here the link of the book.</p> 
                 </div>
