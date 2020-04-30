@@ -212,4 +212,5 @@ function addMusic(){
 
 function spotifyLogin(){
     window.location.href='https://pacific-stream-14038.herokuapp.com/music/auth';
+  
 }

@@ -78,73 +78,32 @@
                     Find the perfect one:
                 </p>
                 <div class="search-container">
-                    <!-- cuisine -->
+                    <!-- artist -->
                     <div class="row">
-                        <label for="menu_cuisine">Cuisine: </label>
-                        <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_cuisine"> 
-                            <option selected value=""> Choose cuisine </option>
-                            <option value="American"> American </option>
-                            <option value="British"> British </option>
-                            <option value="Canadian"> Canadian </option>
-                            <option value="Chinese"> Chinese </option>
-                            <option value="Dutch"> Dutch </option>
-                            <option value="Egyptian"> Egyptian </option>
-                            <option value="French"> French </option>
-                            <option value="Greek"> Greek </option>
-                            <option value="Indian"> Indian </option>
-                            <option value="Irish"> Irish </option>
-                            <option value="Italian"> Italian </option>
-                            <option value="Jamaican"> Jamaican </option>
-                            <option value="Japanese"> Japanese </option>
-                            <option value="Kenyan"> Kenyan </option>
-                            <option value="Malaysian"> Malaysian </option>
-                            <option value="Mexican"> Mexican </option>
-                            <option value="Moroccan"> Moroccan </option>
-                            <option value="Russian"> Russian </option>
-                            <option value="Spanish"> Spanish </option>
-                            <option value="Thai"> Thai </option>
-                            <option value="Tunisian"> Tunisian </option>
-                            <option value="Turkish"> Turkish </option>
-                            <option value="Vietnamese"> Vietnamese </option>
-                            <option value="Unknown"> Other </option>
-                        </select>
+                        <label for="artist">Artist: </label>
+                        <input type="text" placeholder="Search by artist.." id="artist">
                     </div>
-                    <!-- button advanced search --> 
+                    <!-- button advanced search authors --> 
                     <div class="row">
-                        <button class="button" id="filters_button_cuisine" onclick="AdvancedSearchCuisine();"><span>Search by cuisine <i class="fa fa-search"></i></span></button>
+                        <button class="button" id="filters_button_songs_artist" onclick="AdvancedSearchSongsArtist();"><span>Search songs by artist <i class="fa fa-search"></i></span></button>
+                        <button class="button" id="filters_button_albums_artist" onclick="AdvancedSearchAlbumsArtist();"><span>Search albums by artist <i class="fa fa-search"></i></span></button>
                     </div>  
                     <div class="row">
-                        <p id="filters_msg_cuisine"></p>
+                        <p id="filters_msg_artist"></p>
                     </div>  
-                    <!-- category -->
+                    <!-- album -->
                     <div class="row">
-                        <label for="menu_category">Category: </label>
-                        <select onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="menu_category"> 
-                            <option selected value=""> Choose category </option>
-                            <option value="Beef"> Beef </option>
-                            <option value="Breakfast"> Breakfast </option>
-                            <option value="Chicken"> Chicken </option>
-                            <option value="Dessert"> Dessert </option>
-                            <option value="Goat"> Goat </option>
-                            <option value="Lamb"> Lamb </option>
-                            <option value="Miscellaneous"> Miscellaneous </option>
-                            <option value="Pasta"> Pasta </option>
-                            <option value="Pork"> Pork </option>
-                            <option value="Seafood"> Seafood </option>
-                            <option value="Side"> Side </option>
-                            <option value="Starter"> Starter </option>
-                            <option value="Vegan"> Vegan </option>
-                            <option value="Vegetarian"> Vegetarian </option>
-                        </select>
+                        <label for="album">Album: </label>
+                        <input type="text" placeholder="Search album.." id="album">
                     </div>   
                    
                     <!-- button advanced search --> 
                     <div class="row">
-                        <button class="button" id="filters_button_category" onclick="AdvancedSearchCategory();"><span>Search by category <i class="fa fa-search"></i></span></button>
+                        <button class="button" id="filters_button_album" onclick="AdvancedSearchAlbum();"><span>Search album <i class="fa fa-search"></i></span></button>
                     </div>  
                     <div class="row">
-                        <p id="filters_msg_category"></p>
-                    </div>                
+                        <p id="filters_msg_album"></p>
+                    </div>                 
                 </div>
                 <!-- end advanced search -->
 
@@ -156,14 +115,19 @@
                         </select>                        
                     </div>
                     <div class="row">
-                        <button class="button button1" id="surprise" onclick="RandomMusic();"><span>Short of ideas? Click me!</span></button>
+                        <button class="button button1" id="surprise" onclick="GetSavedMusic();"><span>Short of ideas? Click me!</span></button>
                     </div>
                 </div>
                 <!-- end menu music -->
                 <p id="select-p">
-                    Press the button below if you have found the right one!
+                    Press the button below if you have found the right one! <br/>
+                    The "Save song" button will save your selected music in your Spotify account.
                 </p>
-                <button class="button" id="select-btn" onclick="SelectMusic();"><span>Select</span></button>
+                <div class="row">
+                    <button class="button" id="select-btn" onclick="SelectMusic();"><span>Select</span></button>
+                    <button class="button" id="save_song_btn" onclick="SaveMusic();"><span>Save song</span></button>
+                </div>
+                
             </div>
             <!-- end left column -->
 
@@ -176,8 +140,6 @@
                 </div>
 
                 <div class="container" id="music_container">               
-                    <h4> Description:</h4>
-                    <p id="description"> Here the description of the music.</p> 
                 </div>
 
                 <input type="button" class="select-btn" id="add-btn" value="Add my perfect music" onclick="addMusic();">
