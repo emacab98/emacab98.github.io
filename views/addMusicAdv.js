@@ -142,13 +142,14 @@ function SelectMusic(){
         }
         description_list.innerHTML+= `<dt>Name</dt> <dd> ${selected_music.name}</dd>`;
         description_list.innerHTML+= `<dt>Release date</dt> <dd> ${selected_music.release_date}</dd>`;
-        description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
+        //description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
 
         //alert(selected_music.id);
         if(typeof(selected_music.tracks) !== "undefined"){
             //this is an album
             music_container.innerHTML += "<h4>Other info: </h4>";
             music_container.innerHTML += `<dl><dt>Label</dt> <dd> ${selected_music.label}</dd>`;
+            music_container.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}%</dd>`;
             var tracks = selected_music.tracks;
             music_container.innerHTML += `<dt>Tracks</dt>`;
             for(j=0; j< tracks.length; j++){
@@ -161,9 +162,7 @@ function SelectMusic(){
             music_container.innerHTML += "<h4>Song preview: </h4>";
             music_container.innerHTML += `<audio controls controlsList="nodownload"><source src="${selected_music.preview_url}" type="audio/mpeg">
             Your browser does not support the audio element.</audio>`;
-
-        }
-        
+        }       
         
         $('#right-column').show(100);    
         
