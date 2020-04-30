@@ -370,7 +370,7 @@ function SaveMusic(){
             }
             description_list.innerHTML+= `<dt>Name</dt> <dd> ${selected_music.name}</dd>`;
             description_list.innerHTML+= `<dt>Release date</dt> <dd> ${selected_music.release_date}</dd>`;
-            description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
+            //description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
 
             //alert(selected_music.id);
             /*if(typeof(selected_music.tracks) !== "undefined"){
