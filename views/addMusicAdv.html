@@ -56,17 +56,16 @@
                 </h2>
 
                 <div class="search-container">
-                        <div class="row">
-                            <div class="col-25" name="sx">
-                                <input type="text" placeholder="Search.." id="search_music_name">
-                            </div>
-                            <div class="col-25" name="dx">
-        
-                                <button class="search-btn" type="button" onclick="SearchByName();"><i class="fa fa-search"></i></button>
-                            </div>
+                    <div class="row">
+                        <div class="col-25" name="sx">
+                            <input type="text" placeholder="Search.." id="search_music_name">
                         </div>
-                        <p id="search_music_name_msg"></p>
-                        
+                        <div class="col-25" name="dx">
+    
+                            <button class="search-btn" type="button" onclick="SearchByName();"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <p id="search_music_name_msg"></p>                        
                 </div>
                 <!-- end search by name -->
                 <hr>
@@ -126,6 +125,9 @@
                 <div class="row">
                     <button class="button" id="select-btn" onclick="SelectMusic();"><span>Select</span></button>
                     <button class="button" id="save_song_btn" onclick="SaveMusic();"><span>Save song</span></button>
+                </div>
+                <div class="row">
+                    <p id="save_song_msg"></p>
                 </div>
                 
             </div>
