@@ -35,7 +35,7 @@ request.send();
 //end sendData()
 
 $(document).ready(function(){
-    //sendData(); /*add comment on develop*/ 
+    sendData(); /*add comment on develop*/ 
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $("#save_song_btn").prop("disabled",true);
