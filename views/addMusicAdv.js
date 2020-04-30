@@ -320,25 +320,16 @@ function SaveMusic(){
 
         /** SERVER */
         var request = new XMLHttpRequest();
-        request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/savedTracks/${access_token}/${selected_music.id}`, true);
+        alert(access_token);
+        alert(selected_music.id);
+        request.open('POST', `https://pacific-stream-14038.herokuapp.com/music/savedTracks/${access_token}/${selected_music.id}`, true);
         request.onload = function() {
             // Begin accessing JSON data here
             if (request.status >= 200 && request.status < 400){
-                // Begin accessing JSON data here*/
-            document.getElementById("menu_music").innerHTML="";
-            myObj = JSON.parse(request.response);
-            var s;
-            for(var i=0; i< myObj.length; i++){
-                s = myObj[i].name;
-                if(s!= ""){
-                    document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
-                }
-            }
-            $("#select-btn").prop("disabled",false);
-            $("#save_song_btn").prop("disabled",false);
+                alert("Tutto okay");
             }  
             else{
-                document.getElementById("search_music_name_msg").innerHTML = "Music not found! Please try again";
+                alert("errore");
             }
             
         }
