@@ -71,13 +71,15 @@ function SelectMusic(){
         }
         description_list.innerHTML+= `<dt>Name</dt> <dd> ${selected_music.name}</dd>`;
         description_list.innerHTML+= `<dt>Release date</dt> <dd> ${selected_music.release_date}</dd>`;
-        description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
+        //description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
 
         //alert(selected_music.id);
         if(typeof(selected_music.tracks) !== "undefined"){
             //this is an album
             music_container.innerHTML += "<h4>Other info: </h4>";
-            music_container.innerHTML += `<dl><dt>Label</dt> <dd> ${selected_music.label}</dd>`;
+            music_container.innerHTML += `<dl>`;
+            music_container.innerHTML += `<dt>Label</dt> <dd> ${selected_music.label}</dd>`;
+            music_container.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
             var tracks = selected_music.tracks;
             music_container.innerHTML += `<dt>Tracks</dt>`;
             for(j=0; j< tracks.length; j++){
@@ -133,10 +135,10 @@ function AdvancedSearchAlbum(){
 }
 
 function AdvancedSearchAlbumsArtist(){
-    document.getElementById("filters_msg_album").innerHTML = "";
+    document.getElementById("filters_msg_artist").innerHTML = "";
     var search_music_name =  document.getElementById('artist').value;
     if(search_music_name == ""){
-        document.getElementById("filters_msg_album").innerHTML = "Please type an artist!";
+        document.getElementById("filters_msg_artist").innerHTML = "Please type an artist!";
         return;
     }
 
@@ -157,7 +159,7 @@ function AdvancedSearchAlbumsArtist(){
             $("#select-btn").prop("disabled",false);
         }  
         else{
-            document.getElementById("filters_msg_album").innerHTML = "Albums temporarily unavailable.";
+            document.getElementById("filters_msg_artist").innerHTML = "Albums temporarily unavailable.";
         }
     }
 
@@ -166,10 +168,10 @@ function AdvancedSearchAlbumsArtist(){
 
 
 function AdvancedSearchSongsArtist(){
-    document.getElementById("filters_msg_album").innerHTML = "";
+    document.getElementById("filters_msg_artist").innerHTML = "";
     var search_music_name =  document.getElementById('artist').value;
     if(search_music_name == ""){
-        document.getElementById("filters_msg_album").innerHTML = "Please type an artist!";
+        document.getElementById("filters_msg_artist").innerHTML = "Please type an artist!";
         return;
     }
 
@@ -190,7 +192,7 @@ function AdvancedSearchSongsArtist(){
             $("#select-btn").prop("disabled",false);
         }  
         else{
-            document.getElementById("filters_msg_album").innerHTML = "Songs temporarily unavailable.";
+            document.getElementById("filters_msg_artist").innerHTML = "Songs temporarily unavailable.";
         }
     }
 
