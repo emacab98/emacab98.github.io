@@ -82,18 +82,10 @@ max-width: 400px;
 }
 
 #spotify_login_button{
-  /*border-radius: 20px;
+  border-radius: 20px;
   text-align: center;
   font-size: medium;
-  /*background-color: #98D9B6;*/
-
-  background-image: url("Spotify_Logo_RGB_Green.png");
-  background-size: 100px 30px;
-  width: 130px;
-  height: 60px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: white;
+  background-color: #98D9B6;
 }
 
 /**/

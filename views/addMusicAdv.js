@@ -408,7 +408,7 @@ function addMusic(){
     localStorage.music=JSON.stringify(selected_music);
     
     var perfect_night = JSON.parse(localStorage.perfect_night);
-    perfect_night.music = selected_music.id;
+    perfect_night.artist = selected_music.id;
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
 

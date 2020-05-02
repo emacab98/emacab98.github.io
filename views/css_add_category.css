@@ -1,0 +1,73 @@
+
+body{ 
+    background-color: #424254;
+    font-family: 'Poppins', sans-serif;
+}
+#navbar{
+    background-color: #424254;
+    border-color: #424254 ;
+    font-size: large;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.create-block{
+    padding : 50px 0;
+    margin-left: auto;
+}
+
+.container{
+    background-image: linear-gradient(#F2E8C4, #E8CAA4 );
+    border-radius: 10px;
+    box-shadow:15px 20px 0px rgba(0,0,0,0.1);
+    width: 50%;
+    text-align: center;
+}
+
+/*#category{
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 400px;
+    margin-top:10px;
+    margin-bottom: 100px;
+}*/
+#category{
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    padding: 2%;
+    width: 45%;
+    margin-top:2%;
+    margin-bottom: 5%;
+}
+
+textarea{
+    resize: none;
+    border-radius: 5px;
+    margin-bottom: 4%;
+    width:65%;
+}
+
+#recap-btn {
+    margin-left:0%;
+    margin-bottom: 5%;
+    font-size: large;
+    background-color: #F2E8C4;
+    border: 2px solid #424254;
+    border-radius: 20px;
+    outline: none;
+  }
+  
+  #recap-btn:hover {
+      background-color: #424254;
+      color: #F2E8C4;
+  }
+  #recap-btn:active{
+      margin-left:0%;
+      font-size: large;
+      background-color: #F2E8C4;
+      border: 2px solid #424254;
+      border-radius: 20px;
+    }

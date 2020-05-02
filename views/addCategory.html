@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+      <title>Just a perfect night - Add Element</title>
+      
+      <!--Poppins font-->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <!-- my css file-->
+      <link rel ="stylesheet" href = "css_add_category.css">
+      
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+      
+      <!--My script-->
+      <script src="addCategory.js"></script>
+  </head>
+
+  <body>
+    <!--navbar-->
+    <nav class="navbar navbar-inverse" id="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">JustAPerfectNight</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:history.go(-1)">Go back</a></li>
+          </ul>
+        </div>
+    </nav>
+    <!-- end navbar -->
+
+
+    <section class="create-block">
+      <div class="container">
+        <div class="row">
+            <h1>Creating your Perfect Night...</h1>
+            <!--h3>...add a category and a description! </h3-->
+        </div>
+        <div class="row">
+            <h3>Select a category or add a new one:</h3>
+        </div>
+        <div class="row">
+            <input type="text" id="category" list="menu_category" placeholder="Type or select a category">
+            <datalist id="menu_category">
+                <option value="romantic night"></option>
+                <option value="horror night"></option>
+                <option value="italian night"></option>
+                <option value="american night"></option>
+                <option value="mexican night"></option>
+                <option value="girls night"></option>
+                <option value="guys night"></option>
+                <option value="relax night"></option>
+                <option value="wild night"></option>
+                <option value="chill night"></option>
+                <option value="nerd night"></option>
+                <option value="sports night"></option>
+                <option value="sad night"></option>
+                <option value="fantasy night"></option>
+                <option value="science-fiction night"></option>
+                <option value="cheat-day night"></option>
+                <option value="90s night"></option>
+                <option value="80s night"></option>
+                <option value="70s night"></option>
+                <option value="60s night"></option>
+                <option value="pop-culture night"></option>
+                <option value="feels night"></option>
+                <option value="SNAFU night"></option>
+                <option value="FUBAR night"></option>
+                <option value="TARFU night"></option>
+            </datalist>
+        </div>
+        <div class="row">
+            <h3>Add a description to your PerfectNight:</h3>            
+        </div>
+        <div class="row">
+            <textarea rows="4" maxlength="180" id="description" placeholder="Write a description here..."></textarea>
+        </div>
+        <div class="row">
+            <button class="button" id="recap-btn" onclick="GoToRecap();"><span>Recap</span></button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -30,16 +30,39 @@
         <nav class="navbar navbar-inverse" id="navbar">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">JustAPerfectNight</a>
+                <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
               </div>
-              
               <ul class="nav navbar-nav">
-                    <li class="active"><a href="Home.html">Home</a></li>
-                    <li><a href="Feed.html">Feed</a></li>
-                    <li><a href="About_us.html">About us</a></li>
+                <li><a href="Home_login.html">Home</a></li>
+                <li><a href="Feed.html">Feed</a></li>
+                <li><a href="About_us.html">About us</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Sign_in.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                <li class="active">
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <span class="glyphicon glyphicon-user"></span>
+                      User
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="active"><a href="Profile.html" class="my_a">
+                        <span class="glyphicon glyphicon-home"></span>
+                        My profile
+                        
+                      </a></li>
+                      <li><a href="Settings.html" class="my_a">
+                        <span class="glyphicon glyphicon-cog" ></span>
+                        Settings
+                        
+                      </a></li>
+                      <li><a href="#" onclick="logout()" class="my_a">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        Log-out
+                        </a></li>
+                    </ul>
+                  </div>
+                </li>         
               </ul>
             </div>
         </nav>
@@ -72,7 +95,7 @@
                 </div>
                 <div class="col-sm-4">      
                     <div class="card" id="beer_card"> 
-                        <a href="Home.html">
+                        <a href="addBeer.html">
                             <h1 class="card-title">Add a Beer</h1>
                         </a>
                     </div> 
