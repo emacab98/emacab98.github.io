@@ -167,10 +167,10 @@ function AdvancedSearch(){
 }
 
 function addGame(){
-    localStorage.game=JSON.stringify(selected_game);
+    localStorage.board_game=JSON.stringify(selected_game);
     
     var perfect_night = JSON.parse(localStorage.perfect_night);
-    perfect_night.game = selected_game.id;
+    perfect_night.board_game = selected_game.id;
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
 
