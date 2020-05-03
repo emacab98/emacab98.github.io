@@ -275,55 +275,49 @@ function populatePost(section, mode){
               
               if (risposta[index].artist.id != undefined){
                 elementi +=1;
-                //alert("Artista: " + JSON.stringify(risposta[index].artist ));
+                
                
                 var container5 = document.createElement("container");
                 container5.className = "elem" + elementi;
                 var my_artist = document.createElement("span");
                 my_artist.className = "my_elem";
                 if(risposta[index].artist.tracks != undefined){
-                  //alert("E' un album!")
-                  //alert("Nome: " + risposta[index].artist.name);
                   var string = "Album: " + risposta[index].artist.name + " by: ";
                   var my_artists = risposta[index].artist.artists;
-                  if(my_artists.length ==1) string+=  risposta[index].artist.artists[0];
-                  else{
+                  
                     var t=0;
                     var len = my_artists.length;
                     for(t=0; t<len; t++){
                       if(t==len-1){
-                        string += risposta[index].artist.artists[t];
+                        string += my_artists[t];
                       }
                       else{
-                        string += risposta[index].artist.artists[t] + "& " ;
+                        string += my_artists[t] + "& " ;
                       }
                     }
-                  }
+                  
                   my_artist.innerHTML = string;
   
   
                 } 
                 else{
-                  //alert("E' una canzone!");
+                  
                    var string = "Song: " + risposta[index].artist.name + " by: " ;
-                   //alert("String:" + risposta[index].artist.artists.length);
-                   //alert("Nome: " + risposta[index].artist.name);
                    var my_artists = risposta[index].artist.artists;
-                   //alert("Aristi: " +  risposta[index].artist.artists);
-                   if(my_artists.length == 1) string+=  risposta[index].artist.artists[0];
-                   else{
+                   
                      var t=0;
                      var len = my_artists.length;
                      for(t=0; t<len; t++){
-                       if(t==my_artist.length-1){
-                         string += risposta[index].artist.artists[t];
+                       if(t==len-1){
+                         string += my_artists[t];
                        }
                        else{
-                         string += risposta[index].artist.artists[t] + "& " ;
+                         string += my_artists + "&  " ;
                        }
-                     }
-                   } 
-                my_artist.innerHTML = string; }
+                     } 
+                  my_artist.innerHTML = string;
+                }
+
                 var my_artist_img = document.createElement("img");
                 my_artist_img.className = "img-thumbnail";
                 my_artist_img.src = risposta[index].artist.album_image
@@ -338,7 +332,7 @@ function populatePost(section, mode){
 
               if (risposta[index].book.volume_id != undefined){
                 elementi += 1;
-                //alert("Libro trovato");
+               
                 var container6 = document.createElement("container");
                 container6.className = "elem" + elementi;
   
@@ -346,18 +340,17 @@ function populatePost(section, mode){
                 my_book.className = "my_elem";
                 var string = risposta[index].book.title + " by: <br> ";
                 var my_authors= risposta[index].book.authors;
-                if(my_authors.length ==1) string +=  risposta[index].book.authors[0];
-                else{
+                
                   var t=0;
                   var len = my_authors.length;
                   for(t=0; t<len; t++){
                     if(t==len-1){
-                      string += risposta[index].book.authors[t];
+                      string += my_authors[t];
                     }
                     else{
-                      string += risposta[index].book.authors[t] + " & " ;
+                      string += my_authors[t] + " & " ;
                     }
-                  }
+                  
                 }
                 my_book.innerHTML = string;
   
@@ -387,6 +380,47 @@ function populatePost(section, mode){
                 list.appendChild(container6);
                 //alert("Libro aggiunto");
               }
+
+              
+            //Movie_tv_show
+          
+            if (risposta[index].movie.id != undefined){
+              //alert("Risposta: " + JSON.stringify(risposta[index].movie))
+              elementi += 1;
+              
+              var container7 = document.createElement("container");
+              container7.className = "elem" + elementi;
+
+              var my_film = document.createElement("span");
+              my_film.className = "my_elem";
+              my_film.innerHTML = risposta[index].movie.title;
+
+
+              var br = document.createElement("br");
+            
+
+              if(risposta[index].movie.playbill == null) {
+                var my_film_img = document.createElement("img");
+                my_film_img.className = "img-thumbnail";
+                my_film_img.src = "jedi.jpg";
+
+              }
+              else {
+                var my_film_img = document.createElement("img");
+              my_film_img.className = "img-thumbnail";
+              my_film_img.src = risposta[index].movie.playbill;
+             }
+
+             
+
+              
+              container7.appendChild(my_film);
+              container7.appendChild(br);
+              container7.appendChild(my_film_img);
+              list.appendChild(container7);
+            }
+
+
   
               div_well.appendChild(list);
              

@@ -128,18 +128,17 @@ $(document).ready(function(){
             document.getElementById("music_name").innerHTML = found_night.artist.name;
             //alert("Ho inserito il nome: " + found_night.artist.name);
             var my_artists = found_night.artist.artists;
-            if(my_artists.length ==1) document.getElementById("music_artist").innerHTML = found_night.artist.artists[0];
-            else{
+            
               var t=0;
               var len = my_artists.length;
               for(t=0; t<len; t++){
                 if(t==len-1){
-                    document.getElementById("music_artist").innerHTML+= found_night.artist.artists[t];
+                    document.getElementById("music_artist").innerHTML+= my_artists[t];
                 }
                 else{
-                    document.getElementById("music_artist").innerHTML += found_night.artist.artists[t] + " & " ;
+                    document.getElementById("music_artist").innerHTML += my_artists[t] + " & " ;
                 }
-              }
+              
             }
 
             document.getElementById("music_popularity").innerHTML = found_night.artist.popularity;
@@ -149,23 +148,21 @@ $(document).ready(function(){
            
 
             if(found_night.artist.tracks != undefined){
-                ///alert("E' un album!")
-                //alert("Nome: " + found_night.artist.name);
+                
                 $("#album_tracks").show();
                 $("#album_label").show()
                 var my_artists = found_night.artist.tracks;
-                if(my_artists.length ==1) document.getElementById("music_tracks").innerHTML = found_night.artist.tracks[0];
-                else{
+               
                   var t=0;
                   var len = my_artists.length;
                   for(t=0; t<len; t++){
                     if(t==len-1){
-                        document.getElementById("music_tracks").innerHTML+= found_night.artist.tracks[t];
+                        document.getElementById("music_tracks").innerHTML+= my_artists[t];
                     }
                     else{
-                        document.getElementById("music_tracks").innerHTML += found_night.artist.tracks[t] + " <br>" ;
+                        document.getElementById("music_tracks").innerHTML += my_artists[t] + " <br>" ;
                     }
-                  }
+                  
                 }
                 document.getElementById("music_label").innerHTML = found_night.artist.label;
             }
@@ -209,44 +206,36 @@ $(document).ready(function(){
             document.getElementById("book_title").innerHTML = found_night.book.title;
             //alert("Ho inserito il nome: " + found_night.artist.name);
             var my_authors = found_night.book.authors;
-            if(my_authors.length ==1) document.getElementById("book_authors").innerHTML = found_night.book.authors[0];
-            else{
+            
               var t=0;
               var len = my_authors.length;
               for(t=0; t<len; t++){
                 if(t==len-1){
-                    document.getElementById("book_authors").innerHTML+= found_night.book.authors[t];
+                    document.getElementById("book_authors").innerHTML+= my_authors[t];
                 }
                 else{
-                    document.getElementById("book_authors").innerHTML += found_night.book.authors[t] + " & " ;
+                    document.getElementById("book_authors").innerHTML += my_authors[t] + " & " ;
                 }
-              }
+              
             }
             document.getElementById("book_plot").innerHTML = found_night.book.description;
         
             
             if(typeof(found_night.book.categoryList)!= "string"){
                 var category = found_night.book.categoryList;
-                //alert("Category: " + found_night.book.categoryList);
-                //alert("Category len:" + category.length )
-                if (category.length == 1) {
-                
-                    document.getElementById("book_category").innerHTML = found_night.book.categoryList[0];
-
-                }
-                else{
+               
                     var t=0;
                     var len = category.length;
                     for(t=0; t<len; t++){
                         if(t==len-1){
-                            document.getElementById("book_category").innerHTML+= found_night.book.categoryList[t];
+                            document.getElementById("book_category").innerHTML+= category[t];
                         }
                         else{
-                            document.getElementById("book_category").innerHTML += found_night.book.categoryList[t] + " & " ;
+                            document.getElementById("book_category").innerHTML += category[t] + " & " ;
                         }
                     }
 
-                }
+                
             }
             else{
                 document.getElementById("book_category").innerHTML = found_night.book.categoryList;
@@ -258,8 +247,210 @@ $(document).ready(function(){
             //alert("Nascondo la sezione")
            $("#book_container").hide()
         }
+
+        //film
+        
+        if(found_night.movie.year!= undefined){
+            $("#film_container").show();
+
+            //alert("Movie: " +  JSON.stringify(found_night.movie));
+            if(found_night.movie.playbill == null) {
+                alert("Foto uguale a null")
+               
+                var my_film_img = document.createElement("img");
+                my_film_img.className = "img-thumbnail";
+                my_film_img.src = "jedi.jpg";
+                
+              }
+            else {
+                  //alert("Foto diversa da null")
+                var my_film_img = document.createElement("img");
+                my_film_img.className = "img-thumbnail";
+                
+                my_film_img.src = found_night.movie.playbill; 
+            }
+            
+            document.getElementById("col-sx-movie").appendChild(my_film_img);
+            
+            document.getElementById("movie_title").innerHTML = found_night.movie.title;
+            document.getElementById("movie_date").innerHTML = found_night.movie.year;
+            document.getElementById("movie_plot").innerHTML = found_night.movie.plot;
+            if(found_night.movie.genres != null || found_night.movie.genres.length>0){
+                var genres = found_night.movie.genres;
+                    var t=0;
+                    var len = genres.length;
+                    for(t=0; t<len; t++){
+                        if(t==len-1){
+                            document.getElementById("movie_genres").innerHTML+= genres[t];
+                        }
+                        else{
+                            document.getElementById("movie_genres").innerHTML += genres[t] + " <br> " ;
+                        }
+                    }
+
+                
+            }
+            else{
+                document.getElementById("movie_genres").innerHTML = "No genres available";
+
+            }
+
+            document.getElementById("movie_popularity").innerHTML = found_night.movie.popularity;
+            document.getElementById("movie_average").innerHTML = found_night.movie.voteAverage;
+
+            if(found_night.movie.director != null && found_night.movie.director.length>0){
+                var my_authors = found_night.movie.director;
+                
+                var t=0;
+                var len = my_authors.length;
+                for(t=0; t<len; t++){
+                    if(t==len-1){
+                        document.getElementById("movie_dir").innerHTML+= my_authors[t];
+                    }
+                    else{
+                        document.getElementById("movie_dir").innerHTML += my_authors[t] + " <br> " ;
+                    }
+                
+                }
+             }
+             else{
+                document.getElementById("movie_dir").innerHTML = "No directors available";
+
+            }
+             if(found_night.movie.cast != null && found_night.movie.cast.length>0){
+                var my_cast = found_night.movie.cast;
+                var t=0;
+                var len = my_cast.length;
+                for(t=0; t<len; t++){
+                    if(t==len-1){
+                        document.getElementById("movie_cast").innerHTML+= my_cast[t];
+                    }
+                    else{
+                        document.getElementById("movie_cast").innerHTML += my_cast[t] + " <br> " ;
+                    }
+                
+                }
+            }
+            else{
+                document.getElementById("movie_cast").innerHTML = "No cast available";
+
+            }
+            
+        }
+
+        else{
+            //alert("Nascondo la sezione")
+           $("#movie_container").hide()
+        }
         
 
+        //serie tv
+        if(found_night.movie.firstAirDate != undefined){
+            //alert("Not undefined");
+            $("#tv_container").show();
+
+
+            if(found_night.movie.playbill == null) {
+               
+                var my_tv_img = document.createElement("img");
+                my_tv_img.className = "img-thumbnail";
+                my_tv_img.src = "jedi.jpg";
+                
+              }
+            else {
+                  
+                var my_tv_img = document.createElement("img");
+                my_tv_img.className = "img-thumbnail";
+                my_tv_img.src = found_night.movie.playbill; 
+            }
+            
+            document.getElementById("col-sx-tv").appendChild(my_tv_img);
+            
+            document.getElementById("tv_title").innerHTML = found_night.movie.title;
+            document.getElementById("tv_date").innerHTML = found_night.movie.firstAirDate;
+            document.getElementById("tv_plot").innerHTML = found_night.movie.plot;
+            if(found_night.movie.genres != null && found_night.movie.genres.length>0){
+                var genres = found_night.movie.genres;
+                    var t=0;
+                    var len = genres.length;
+                    for(t=0; t<len; t++){
+                        if(t==len-1){
+                            document.getElementById("tv_genres").innerHTML+= genres[t];
+                        }
+                        else{
+                            document.getElementById("tv_genres").innerHTML += genres[t] + " <br> " ;
+                        }
+                    }
+
+                
+            }
+            else{
+                document.getElementById("tv_genres").innerHTML = "No genres available";
+
+            }
+            document.getElementById("tv_popularity").innerHTML = found_night.movie.popularity;
+            document.getElementById("tv_average").innerHTML = found_night.movie.voteAverage;
+
+            if(found_night.movie.creators != null && found_night.movie.creators.length>0){
+                var my_authors = found_night.movie.creators;
+                
+                var t=0;
+                var len = my_authors.length;
+                for(t=0; t<len; t++){
+                    if(t==len-1){
+                        document.getElementById("tv_creators").innerHTML+= my_authors[t];
+                    }
+                    else{
+                        document.getElementById("tv_creators").innerHTML += my_authors[t] + " <br> " ;
+                    }
+                
+                }
+             }
+             else{
+                 document.getElementById("tv_creators").innerHTML = "Sorry no creators available"
+             }
+
+             if(found_night.movie.writers != undefined && found_night.movie.writers != null && found_night.movie.writers.length>0 ){
+                var my_authors = found_night.movie.writers;
+                
+                var t=0;
+                var len = my_authors.length;
+                for(t=0; t<len; t++){
+                    if(t==len-1){
+                        document.getElementById("tv_writers").innerHTML+= my_authors[t];
+                    }
+                    else{
+                        document.getElementById("tv_writers").innerHTML += my_authors[t] + " <br> " ;
+                    }
+                
+                }
+             }
+             else{
+                 document.getElementById("tv_writers").innerHTML = "Sorry no writers available"
+             }
+             if(found_night.movie.cast != null || found_night.movie.cast.length>0){
+                var my_cast = found_night.movie.cast;
+                
+                var t=0;
+                var len = my_cast.length;
+                for(t=0; t<len; t++){
+                    if(t==len-1){
+                        document.getElementById("tv_cast").innerHTML+= my_cast[t];
+                    }
+                    else{
+                        document.getElementById("tv_cast").innerHTML += my_cast[t] + " <br> " ;
+                    }
+                
+                }
+            }
+            
+        }
+        else{
+            //alert("Nascondo la sezione")
+
+           $("#tv_container").hide()
+        }
+        
         
 
 
