@@ -79,7 +79,7 @@ function CreateNight(){
     delete perfect_night.bool_issolo;
     var data;
     var request = new XMLHttpRequest();
-    request.open('POST', `https://pacific-stream-14038.herokuapp.com/perfectnight/dami`, true);
+    request.open('POST', `https://pacific-stream-14038.herokuapp.com/perfectnight/${localStorage.username}`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             // Begin accessing JSON data here
