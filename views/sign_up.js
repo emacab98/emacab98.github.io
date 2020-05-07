@@ -110,7 +110,6 @@ function checkForm(){
       //memorizzazione
       localStorage.setItem("username", risposta.nickname);
        //Reindirizzamento
-
         window.location.href = "Profile.html";
        
        } 

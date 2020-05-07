@@ -468,7 +468,7 @@ $(document).ready(function () {
       found_night.movie.country_prod != null &&
       found_night.movie.country_prod.length > 0
     ) {
-      var my_country = found_night.movie.cast;
+      var my_country = found_night.movie.country_prod;
 
       var t = 0;
       var len = my_country.length;
