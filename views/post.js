@@ -325,7 +325,7 @@ $(document).ready(function () {
           document.getElementById("movie_lan").innerHTML += found_night.movie.languages;
     } else {
       document.getElementById("movie_lan").innerHTML =
-        "Sorry no languages avalilable";
+        "Sorry no languages available";
     }
 
     if (
@@ -346,7 +346,7 @@ $(document).ready(function () {
       }
     } else {
       document.getElementById("movie_prod").innerHTML =
-        "Sorry no country avalilable";
+        "Sorry no country available";
     }
   } else {
     //alert("Nascondo la sezione")
@@ -452,7 +452,7 @@ $(document).ready(function () {
         }
       }
     } else {
-      document.getElementById("tv_cast").innerHTML = "Sorry no cast avalilable";
+      document.getElementById("tv_cast").innerHTML = "Sorry no cast available";
     }
     if (
       found_night.movie.languages != null &&
