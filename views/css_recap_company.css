@@ -27,7 +27,7 @@ body{
   
 .card{
   
-  background-size: cover;
+  background-size: contain;
   background-position: center;	
   min-height: 280px;
   min-width:300px;
@@ -35,7 +35,9 @@ body{
   
   width: 300px;
   border-radius: 30px;  
+
   margin: auto;
+  /*border: 3px solid green;*/
 }
 
 .card h1{
@@ -52,11 +54,15 @@ body{
 }
 
 #cocktail_card{
-  background-image:url(cocktail.jpg) ;
-}  
+    background-image: url("cocktail.jpg");
+}
+/*#cocktail_card{
+  background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("cocktail.jpg");
+  opacity: .5;
+} */
 
-#book_card{
-  background-image:url(book.jpg) ;
+#game_card{
+  background-image:url(game.jpg) ;
 }  
 #movie_card{
   background-image:url(ciak.jpg) ;
@@ -73,7 +79,7 @@ body{
 
 
 .col-sm-4{
-  margin-top: -10px;
+  margin-top: 10px;
   min-width: 350px;
   height: auto;
 }
@@ -91,83 +97,87 @@ body{
 }
 
 /***351330*/
+
 .button {
-  border-radius: 20px;
-  background-color:#F2E8C4; /* #351330; /*#F2E8C4;*/
-  border: none;
-  color: #424254; /*#FFFFFF;*/
-  text-align: center;
-  font-size: 28px;
-  padding: 30px;
-  width: 300px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-bottom: 20px;
-  margin-top:70px;
-  outline: none;
-  /*margin-left: 40rem;*/
-  float: right;
+    border-radius: 20px;
+    background-color: #F2E8C4;
+    border: none;
+    color: #424254;
+    text-align: center;
+    font-size: 28px;
+    padding: 30px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top:70px;
+    outline: none;
 }
 
 .button1 {
-    background-color:#E8CAA4; /* #351330; /* #F2E8C4; */
-    color:#424254; /* #fff; /*#424254;*/ 
-    border: 2px solid #F2E8C4; /*#424254;*/
+    background-color: #F2E8C4; 
+    color: #424254; 
+    border: 2px solid #F2E8C4;
+    margin-bottom: 30px;
+    
+    float: left;
 }
   
 .button1:hover {
-    background-color: #424254; 
+    background-color: #424254;
+    color: white;
+}
+  
+.button2 {
+    background-color: #F2E8C4; 
+    color: #424254; 
+    border: 2px solid #F2E8C4;
+    margin-bottom: 30px;
+    
+    float: right;
+}
+  
+.button2:hover {
+    background-color: #424254;
     color: white;
 }
 
+
 .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0s;
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0s;
 }
 
 .button:hover span {
-  padding-right: 25px;
+    padding-right: 25px;
 }
 
 .button:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 0;
 }
-
 
 .button:active {
-  opacity: 1;
-  background: #E8CAA4;
-  color: #424254;
-  transition: 0s;
+    opacity: 1;
+    background: #E8CAA4;
+    color: #424254;
+    transition: 0s;
 }
 
-.button1:disabled {
-  background-color: #424254;
-  color: #fff; 
-  border: 2px solid #F2E8C4;
-  opacity: 30%;
-  cursor: not-allowed;
+.container{
+    text-align: center;
+    color: #F2E8C4;
 }
-
-.button:disabled span {
-  cursor: not-allowed;
-}
-.button:disabled span:after {
-  content: '';
-}
-
-.button:hover:disabled span {
-  padding-right: 0px;
+.container p{
+    font-size: large;
 }

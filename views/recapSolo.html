@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- my css file-->
-        <link rel ="stylesheet" href = "css_cards_company.css">
+        <link rel ="stylesheet" href = "css_recap_company.css">
        
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -23,7 +23,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
         
         <!-- My script-->
-        <script src="addElementCompany.js"></script>
+        <script src="recapCompany.js"></script>
     </head>
     <body onload="CheckStorage();">      
         <!--navbar-->
@@ -74,51 +74,63 @@
         <div class="container-fluid" id="deck">
                 <div class="col-sm-4">      
                     <div class="card" id="cocktail_card"> 
-                        <a href="addCocktail.html">
-                            <h1 class="card-title">Add a Cocktail</h1>
-                        </a>
+                        <!--a href="addCocktail.html"-->
+                            <h1 class="card-title" id="cocktail">Cocktail</h1>
+                        <!--/a-->
                     </div> 
                 </div>
                 <div class="col-sm-4">      
-                    <div class="card" id="game_card"> 
-                        <a href="addGame.html">
-                            <h1 class="card-title">Add a Boardgame</h1>
-                        </a>
+                    <div class="card" id="book_card"> 
+                        <!--a href="addBook.html"-->
+                            <h1 class="card-title" id="book">Book</h1>
+                        <!--/a-->
                     </div> 
                 </div>
                 <div class="col-sm-4">      
                     <div class="card" id="movie_card"> 
-                        <a href="addMovie.html">
-                            <h1 class="card-title">Add a Movie</h1>
-                        </a>
+                        <!--a href="addMovie.html"-->
+                            <h1 class="card-title" id="movie">Movie</h1>
+                        <!--/a-->
                     </div> 
                 </div>
                 <div class="col-sm-4">      
                     <div class="card" id="beer_card"> 
-                        <a href="addBeer.html">
-                            <h1 class="card-title">Add a Beer</h1>
-                        </a>
+                        <!--a href="addBeer.html"-->
+                            <h1 class="card-title" id="beer">Beer</h1>
+                        <!--/a-->
                     </div> 
                 </div>
                 <div class="col-sm-4">      
                     <div class="card" id="recipe_card"> 
-                        <a href="addMeal.html">
-                            <h1 class="card-title">Add a Recipe</h1>
-                        </a>
+                        <!--a href="addMeal.html"-->
+                            <h1 class="card-title" id="meal">Meal</h1>
+                        <!--/a-->
                     </div> 
                 </div>
                 <div class="col-sm-4">      
                     <div class="card" id="music_card"> 
-                        <a href="addMusic.html">
-                            <h1 class="card-title">Add some Music</h1>
-                        </a>
+                        <!--a href="addMusic.html"-->
+                            <h1 class="card-title" id="music">Music</h1>
+                        <!--/a-->
                     </div> 
                 </div>
         </div> 
         <!-- end deck-->
+        
         <div class="container">
             <div class="row">
-              <button class="button button1" disabled onclick="window.location.href='addCategory.html';"><span>Proceed </span></button>
+                <h3 class="category">Category:</h3>
+                <p class="paragraph_category">Here the category of the night.</p>
+                <h3 class="description">Description:</h3>
+                <p class="paragraph_description">Here the description of the night.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="button button1" onclick="window.location.href='addElementCompany.html';"><span>Change</span></button>
+                </div>
+                <div class="col-md-6">
+                    <button class="button button2" onclick="CreateNight();"><span>Create night! </span></button>
+                </div>
             </div>
         </div>
     </body>

@@ -21,13 +21,16 @@ function GoToRecap(){
         //alert(description);
         perfect_night.description = description;
     }
+    else{
+        perfect_night.description = "No description";
+    }
 
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
     if(bool_issolo){        
-        window.location.href='addElementSolo.html';
+        window.location.href='recapSolo.html';
     }
     else{        
-        window.location.href='addElementCompany.html';
+        window.location.href='recapCompany.html';
     }
 }

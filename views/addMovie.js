@@ -487,6 +487,7 @@ function addMovie(){
     localStorage.movie=JSON.stringify(selected_movie);
     
     var perfect_night = JSON.parse(localStorage.perfect_night);
+    var bool_issolo = perfect_night.bool_issolo;
     perfect_night.movie_tvSeries = `${selected_movie.id}`;
     if(ismovie) perfect_night.movie_tvSeries += `m`;
     else perfect_night.movie_tvSeries += `t`;
@@ -494,5 +495,10 @@ function addMovie(){
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
 
-    window.location.href='javascript:history.go(-1)';
+    if(bool_issolo){        
+        window.location.href='addElementSolo.html';
+    }
+    else{        
+        window.location.href='addElementCompany.html';
+    }
 }

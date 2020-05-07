@@ -7,6 +7,7 @@ function inizializzaStoragePerfectNight_Solo(){
         localStorage.removeItem("board_game");
         localStorage.removeItem("beer");
         localStorage.removeItem("cocktail");
+        localStorage.removeItem("movie");
     }
     var perfect_night = {};
     perfect_night.bool_issolo = 1;
@@ -24,6 +25,7 @@ function inizializzaStoragePerfectNight_Company(){
         localStorage.removeItem("board_game");
         localStorage.removeItem("beer");
         localStorage.removeItem("cocktail");
+        localStorage.removeItem("movie");
     }
     var perfect_night = {};
     perfect_night.bool_issolo = 0;
