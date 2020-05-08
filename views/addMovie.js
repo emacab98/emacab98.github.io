@@ -41,7 +41,7 @@ function SearchByNameMovie(){
                     document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            ismovie = true;
+            ismovie = 1;
             $("#select-btn").prop("disabled",false);
         }  
         else{
@@ -77,7 +77,7 @@ function SearchByNameTVShow(){
                     document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            ismovie = false;
+            ismovie = 0;
             $("#select-btn").prop("disabled",false);
         }  
         else{
@@ -112,6 +112,7 @@ function SelectMovie(){
             }
         }
         //alert(JSON.stringify(selected_movie));
+        //alert(selected_movie.playbill);
         if(selected_movie.playbill == null){
             $('#photo_movie').hide();
         }
@@ -155,8 +156,8 @@ function SelectMovie(){
             other_info.innerHTML+= `<dt>Link:</dt><dd><a href="${selected_movie.where}" target="_blank">
                                     ${selected_movie.where}</a></dd>`; 
         }            
-        if(ismovie){             
-            var director = selected_movie.director;
+        if(ismovie == 1){             
+            /*var director = selected_movie.director;
             if(director.length != 0){
                 other_info.innerHTML+= `<dt>Director :</dt>`;
                 var string_director ="";
@@ -169,10 +170,11 @@ function SelectMovie(){
                     }
                 }
                 other_info.innerHTML+= `<dd>${string_director}</dd>`;
-            }            
+            }*/
+            isMovie();         
         }
-        else{             
-            var creators = selected_movie.creators;
+        else if(ismovie == 0){             
+            /*var creators = selected_movie.creators;
             if(creators.length != 0){
                 other_info.innerHTML+= `<dt>Creators :</dt>`;
                 var string_creators ="";
@@ -200,8 +202,13 @@ function SelectMovie(){
                     }
                 }
                 other_info.innerHTML+= `<dd>${string_writers}</dd>`;
-            }            
+            }*/
+            isTvShow();       
         } 
+        else{
+            if(selected_movie.mediaType == "movie") isMovie();
+            else isTvShow();
+        }
         
         
         var cast = selected_movie.cast;
@@ -236,9 +243,60 @@ function SelectMovie(){
         }        
 
         $('#right-column').show(100);
-        $('#down_container').hide();
-        $('#up_container').show();    
+        //$('#down_container').hide();
+        //$('#up_container').show();    
         
+    }
+}
+
+function isMovie(){
+    var director = selected_movie.director;
+    var other_info = document.getElementById("other_info");
+    if(director.length != 0){
+        other_info.innerHTML+= `<dt>Director :</dt>`;
+        var string_director ="";
+        for(j=0; j< director.length; j++){
+            if(j == director.length -1){
+                string_director += `${director[j]}`;
+            }
+            else{
+                string_director += `${director[j]}, `;
+            }
+        }
+        other_info.innerHTML+= `<dd>${string_director}</dd>`;
+    } 
+}
+
+function isTvShow(){
+    var creators = selected_movie.creators;
+    var other_info = document.getElementById("other_info");
+    if(creators.length != 0){
+        other_info.innerHTML+= `<dt>Creators :</dt>`;
+        var string_creators ="";
+        for(j=0; j< creators.length; j++){
+            if(j == creators.length -1){
+                string_creators += `${creators[j]}`;
+            }
+            else{
+                string_creators += `${creators[j]}, `;
+            }
+        }
+        other_info.innerHTML+= `<dd>${string_creators}</dd>`;
+    }
+                
+    var writers = selected_movie.writers;
+    if(writers.length != 0){
+        other_info.innerHTML+= `<dt>Writers :</dt>`; 
+        var string_writers ="";
+        for(j=0; j< writers.length; j++){
+            if(j == writers.length -1){
+                string_writers += `${writers[j]}`;
+            }
+            else{
+                string_writers += `${writers[j]}, `;
+            }
+        }
+        other_info.innerHTML+= `<dd>${string_writers}</dd>`;
     }
 }
 /** END SELECT FUNCTION */
@@ -271,7 +329,7 @@ function AdvancedSearchCategoryMovie(){
                     document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            ismovie = true;
+            ismovie = 1;
             $("#select-btn").prop("disabled",false);
         }  
         else{
@@ -309,7 +367,7 @@ function AdvancedSearchCategoryTVShow(){
                     document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            ismovie = false;
+            ismovie = 0;
             $("#select-btn").prop("disabled",false);
         }  
         else{
@@ -350,7 +408,7 @@ function AdvancedSearchYearMovie(){
                     document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            ismovie = true;
+            ismovie = 1;
             $("#select-btn").prop("disabled",false);
         }  
         else{
@@ -389,7 +447,7 @@ function AdvancedSearchYearTVShow(){
                     document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
                 }
             }
-            ismovie = false;
+            ismovie = 0;
             $("#select-btn").prop("disabled",false);
         }  
         else{
@@ -422,8 +480,24 @@ function SearchByPerson(){
                 document.getElementById("search_artist_name_msg").innerHTML = "No result for this artist.";
                 return;
             }
-            $("#select-btn").prop("disabled",true);
-            $("#add-btn").prop("disabled",true);
+
+            myObj = artist.knownFor;
+            if(myObj.length == 0){
+                document.getElementById("search_artist_name_msg").innerHTML = "No result for this artist.";
+                return;
+            }
+            document.getElementById("menu_movie").innerHTML="";
+            var s;
+            for(var i=0; i< myObj.length; i++){
+                s = myObj[i].title;
+                if(s!= ""){
+                    document.getElementById("menu_movie").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                }
+            }
+            ismovie = 2;
+            $("#select-btn").prop("disabled",false);
+            /*$("#select-btn").prop("disabled",false);
+            //$("#add-btn").prop("disabled",true);
             $('#photo_movie').hide();
             document.getElementById("menu_movie").innerHTML =  `<option selected value=""> Choose your movie :) </option>`;
             
@@ -469,9 +543,9 @@ function SearchByPerson(){
                 }
             }
 
-            $('#right-column').show();
-            $('#up_container').hide();
-            $('#down_container').show();
+            //$('#right-column').show();
+            //$('#up_container').hide();
+            //$('#down_container').show();*/
         }  
         else{
             document.getElementById("search_artist_name_msg").innerHTML = "No result for this artist.";
