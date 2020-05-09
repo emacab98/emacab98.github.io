@@ -10,8 +10,8 @@ $(document).ready(function(){
     //sezione controllo form password
     $("#my_a_pswd").click(function(){
         $("#delete_profile").hide();
-        document.getElementById('my_a_pswd').style.color = '#CC2A41';
-        document.getElementById('my_a_delete').style.color = '#424254';
+        document.getElementById('my_a_pswd').style.color = 'white';
+        document.getElementById('my_a_delete').style.color = 'rgb(153, 153, 153)';
         document.getElementById('new_pass').value = "";
         document.getElementById('old_pass').value = "";
         document.getElementById('new_pass_bis').value = "";
@@ -35,14 +35,14 @@ $(document).ready(function(){
             var password = document.getElementById("new_pass").value;
             
             if(regex.test(password)){
-                document.getElementById("new_mess").style.color = 'green';
+                document.getElementById("new_mess").style.color = 'white';
                 document.getElementById('new_mess').innerHTML = 'Looks good!';
                 test_pass=true;
 
             } 
             else {
                 test_pass=false;
-                document.getElementById('new_mess').style.color = 'red';
+                document.getElementById('new_mess').style.color = 'black';
                 document.getElementById('new_mess').innerHTML = 'Please insert a password and respect the format';
             } 
 
@@ -56,13 +56,13 @@ $(document).ready(function(){
             var new_password_bis = document.getElementById("new_pass_bis").value;
             
             if (new_password == new_password_bis) {
-                document.getElementById('new_bis_mess').style.color = 'green';
+                document.getElementById('new_bis_mess').style.color = 'white';
                 document.getElementById('new_bis_mess').innerHTML = 'Matching';
                 test_pass_bis = true;
             } 
             else {
                 test_pass_bis=false;
-                document.getElementById('new_bis_mess').style.color = 'red';
+                document.getElementById('new_bis_mess').style.color = 'black';
                 document.getElementById('new_bis_mess').innerHTML = 'Not matching';
             }
 
@@ -124,8 +124,8 @@ $(document).ready(function(){
 
     //inizio delete profile
     $("#my_a_delete").click(function(){
-        document.getElementById('my_a_delete').style.color = '#CC2A41';
-        document.getElementById('my_a_pswd').style.color = '#424254';
+        document.getElementById('my_a_delete').style.color = 'white';
+        document.getElementById('my_a_pswd').style.color = 'rgb(153, 153, 153)';
         document.getElementById('pass').value = "";
 
         //controllo password corretta
