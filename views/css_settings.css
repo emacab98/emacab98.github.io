@@ -78,51 +78,54 @@ body{
   
 
   #delete{
-    background: red; 
-  border-radius: 5px;
-  color:#fff; 
-  font-weight:600;
-  font-size: large;
-  width: 300px;
-  border: none;
-  text-align: center;
-  padding: 10px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+    border-radius: 10px;
+    background-color: red;
+    width: 300px;
+    border: none;
+    color: #424254;
+    text-align: center;
+    font-weight:600;
+    font-size: 20px;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-size: large;
+    font-family: 'Poppins';
+    margin-top: 20px;
+    padding: 15px 32px;
+  
     
   }
   
-  #delete span {
+  #delete #my_span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
+   
     
   }
   
-  #delete span:after {
+  #delete #my_span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-    outline-color:#424254;
     color: white;
   }
   
-  #submit:hover span {
+  #delete:hover #my_span {
     padding-right: 25px;
-    outline-color:#424254;
     color: white;
    
   }
   
-  #delete:hover span:after {
+  #delete:hover #my_span:after {
     opacity: 1;
     right: 0;
-    outline-color:#424254;
     color: white;
   }
 
