@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     document.getElementById("username_here").innerHTML = username + "'s profile";
     $("#message").hide();
-    document.getElementById('my_night').style.color = '#CC2A41';
+    document.getElementById('my_night').style.color = 'white';
     document.getElementById('message').innerHTML = 'Your nights will appear here!Start creating now';
 
     //Funzione che carica le notti dinamicamente
@@ -63,27 +63,27 @@ $(document).ready(function(){
 
     $("#my_night").click(function(){
 
-      document.getElementById('my_night').style.color = '#CC2A41';
-      document.getElementById('my_saved').style.color = '#424254';
-      document.getElementById('my_favourite').style.color ='#424254';
+      document.getElementById('my_night').style.color = 'white';
+      document.getElementById('my_saved').style.color = 'rgb(153, 153, 153)';
+      document.getElementById('my_favourite').style.color ='rgb(153, 153, 153)';
       findNights();
     });
 
     //my_saved
     $("#my_saved").click(function(){
 
-      document.getElementById('my_saved').style.color = '#CC2A41';
-      document.getElementById('my_night').style.color = '#424254';
-      document.getElementById('my_favourite').style.color ='#424254';
+      document.getElementById('my_saved').style.color = 'white';
+      document.getElementById('my_night').style.color = 'rgb(153, 153, 153)';
+      document.getElementById('my_favourite').style.color ='rgb(153, 153, 153)';
       findSavedNights();
     });
    
     //my_favourites
     $("#my_favourite").click( function(){
 
-      document.getElementById('my_favourite').style.color = '#CC2A41';
-      document.getElementById('my_night').style.color = '#424254';
-      document.getElementById('my_saved').style.color = '#424254';
+      document.getElementById('my_favourite').style.color = 'white';
+      document.getElementById('my_night').style.color = 'rgb(153, 153, 153)';
+      document.getElementById('my_saved').style.color = 'rgb(153, 153, 153)';
       findFavouriteNights();
     });
 
@@ -431,8 +431,12 @@ function populatePost(section, mode){
               bottone.type = "button";
               bottone.className += "post_button";
               bottone.name= risposta[index].id;
-              bottone.innerHTML = "More infos"
+
+              var span = document.createElement("span");
+              span.innerHTML = "More infos" ; 
               bottone.onclick = reply_click;
+              bottone.appendChild(span);
+              
   
               
               div_well.appendChild(bottone); 

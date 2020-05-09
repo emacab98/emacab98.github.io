@@ -6,17 +6,9 @@
 
 
         <title>Just a perfect night - Sign-up</title>
-
-
-
-
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
         
         <!--Poppins font-->
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-        <!--Roboto font-->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
        
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -35,6 +27,7 @@
 
     </head>
     <body>
+      
         
         <nav class="navbar navbar-inverse" id="navbar">
             <div class="container-fluid">
@@ -43,18 +36,24 @@
               </div>
               <ul class="nav navbar-nav">
                 <li><a href="Home.html">Home</a></li>
-               
                 <li><a href="About_us.html">About us</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="Sign_up.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="Sign_in.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ><a href="Sign_up.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li class="active"><a href="Sign_in.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
               </ul>
             </div>
           </nav>
+          
+          <div id="e_background">
+            <div id="e_smallstars"></div>
+            <div id="e_moon"></div>
+
+          </div>
 
 
           <section class="login-block">
+            
             <div class="container">
               <div class="row">
                 <div class="col-md-5 login-sec">
@@ -100,30 +99,34 @@
                     <div class="form-check">
                         <button type="button" class="btn btn-login float-right" 
                         class = "form-control" 
-                        id="submit" onclick="checkForm()">Submit</button>
+                        id="submit" onclick="checkForm()"><span id="btn_span">Submit</span></button>
                     </div>
-  
-          
-                  </form>
-                  <hr>
-                  <div>
-                    <p id="google_p">Or sign up with Google:</p>
-                    <button type="button" class="btn float-right" id="google" onclick="googleSignUp()">
-                      <span id="google span">Sign in with Google!</span>
-                    </button>
-                    
-                  </div>
+
+                  
+                </form>
+                <hr>
+                <div>
+                  <p id="google_p">Or sign in with Google:</p>
+                  <button type="button" class="btn float-right" id="google" onclick = "googleSignIn()">
+                    <span id="google span">Sign in with Google!</span>
+                  </button>
+                  
                 </div>
+              </div>
                 
                   
                 <div class="col-md-7 banner-sec">
                   
                 </div>   
               </div>
-
+              
             </div>
           </div>
         </section>
+
+
+
+     
 
           
         

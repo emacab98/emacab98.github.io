@@ -3,24 +3,27 @@
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
-  color: #424254;
+  color: rgb(153, 153, 153);
 }
 #my_a2{
   color: #9999A3;
 }
 
 .well{
-  background-color: #F2E8C4;
+  background-color:#424254;
+  border: none;
+  background-image: linear-gradient( #424254, #40408b );
+  
 
 }
 #my_night{
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
-  color: #CC2A41;
+  color: white;
 }
-#my_saved:hover, #my_favourite:hover, #my_a2:hover, #my_night{
-  color: #CC2A41;
+#my_saved:hover, #my_favourite:hover, #my_a2:hover, #my_night:hover{
+  color:white;
   cursor: pointer;
 }
 
@@ -42,6 +45,7 @@ body{
   margin-bottom: 0;
   border-radius: 0;
 }
+
 #my_button{
 margin-top: 5px;
 background-color: black;
@@ -50,28 +54,115 @@ border: none;
 font-size: large;
 font-family: 'Poppins' }
 
-#my_button2{
-border-radius: 5px;
-float:right;
-margin-top: 20px;
-margin-right: 10px;
-padding: 15px 32px;
-margin-top: 5px;
-background-color: #424254;
-color: #9999A3;
-border: none;
-font-size: large;
-font-family: 'Poppins' 
-}
-.post_button{
-border-radius: 5px;
-background-color: #424254;
-color: #9999A3;
-border: none;
-font-size: medium;
-font-family: 'Poppins';
-margin-left: 860px;
 
+#my_button2{
+  border-radius: 10px;
+  background-color: #424254;
+  width: 400px;
+  border: none;
+  color: #424254;
+  text-align: center;
+  font-weight:600;
+  font-size: 20px;
+  padding: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  outline-color:#424254;
+  font-size: large;
+  font-family: 'Poppins';
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 15px 32px;
+  float:right;
+}
+
+#my_button2 a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  outline-color:#424254;
+}
+
+#my_button2 a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  outline-color:#424254;
+  color: white;
+}
+
+#my_button2:hover a {
+  padding-right: 25px;
+  outline-color:#424254;
+  color: white;
+ 
+}
+
+#my_button2:hover a:after {
+  opacity: 1;
+  right: 0;
+  outline-color:#424254;
+  color: white;
+}
+
+
+.post_button{
+  background-color: #424254;
+  width: 150px;
+  border: none;
+  color: rgb(153, 153, 153);
+  text-align: center;
+  font-weight:600;
+  font-size: 20px;
+  padding: 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  outline-color:#424254;
+  font-size: large;
+  font-family: 'Poppins';
+  margin-right: 10px;
+  border-radius: 5px;
+  margin-left: 780px;
+
+}
+
+.post_button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  outline-color:#424254;
+}
+
+.post_button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  outline-color:#424254;
+  color: white;
+}
+
+.post_button:hover span {
+  padding-right: 25px;
+  outline-color:#424254;
+  color: white;
+ 
+}
+
+.post_button:hover span:after {
+  opacity: 1;
+  right: 0;
+  outline-color:#424254;
+  color: white;
 }
 
 .img-thumbnail{
@@ -80,7 +171,7 @@ margin-left: 860px;
   float: bottom;
 }
 .my_title{
-  color: #CC2A41;
+  color: white;
   font-weight: bold;
   font-size: large;
 
@@ -165,7 +256,8 @@ margin-left:10px;
 margin-top: 30px;
 margin-left:10px;
 font-size: medium;
-background-color: #F2E8C4;
+
+background-image: linear-gradient( #424254, #40408b );
 width: 180px;
 height: auto;
 
@@ -208,3 +300,53 @@ margin-top: 20px;
   }
   .row.content {height:auto;} 
 }
+
+
+/*Background animation */
+
+body{position:relative}
+#e_background{
+  background:#000 url(sky.jpg) repeat 5% 5%;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:-100;
+  -webkit-animation:stars-anim 600s infinite linear;
+  -moz-animation:stars-anim 600s infinite linear;
+  -o-animation:stars-anim 600s infinite linear;
+  animation:stars-anim 600s infinite linear}
+
+    #e_moon{
+      background:url(e_moon.png) no-repeat 35% 35%;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      opacity:1;z-index:-25;
+      -webkit-animation:moon-anim 100s infinite linear;
+      -moz-animation:moon-anim 100s infinite linear;
+      -o-animation:moon-anim 100s infinite linear;
+      animation:moon-anim 100s infinite linear}
+      
+      @media only screen and (max-width:480px){
+        #e_moon{background:url(e_moon.png) no-repeat 35% 35%}}
+        
+        @media only screen and (min-width:481px) and (max-width:767px){
+          #e_moon{background:url(e_moon.png) no-repeat 35% 35%}
+        }
+
+        @-webkit-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-moz-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-o-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-webkit-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-moz-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-o-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-webkit-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @-moz-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @-o-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}

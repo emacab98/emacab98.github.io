@@ -24,12 +24,9 @@ border-radius: 0 10px 10px 0;
 padding:10px;
 
 }
-
-/*.container{
-
-background-image: linear-gradient(#F2E8C4, #E8CAA4 );
-border-radius: 10px;
-box-shadow:15px 20px 0px rgba(0,0,0,0.1);} */
+input{
+  color: black;
+}
 
 .container{
 
@@ -38,22 +35,28 @@ border-radius: 10px;
 } 
 
 
+hr {
+  border-top: 1px solid rgb(153, 153, 153);
+}
+
 .login-sec{
-padding: 50px 30px; 
+padding: 10px 30px; /* top-bottom & left-right*/
 position:left;
+color: rgb(153, 153, 153);
 }
 
 .login-sec h3{
-margin-bottom:30px;
+text-shadow: 1.2px 1.2px white;
+margin-bottom:30px; 
 font-weight:800; 
-font-size:x-large;
-color: #E8CAA4 ;}
+font-size:xx-large;
+color: rgb(153, 153, 153) ;}
 
 .login-sec h3:after{
 content:" ";
 width:100px;
 height:5px;
-background:#E8CAA4 ;
+background:rgb(153, 153, 153);
 display:block; 
 margin-top:20px; 
 border-radius:3px;
@@ -61,23 +64,67 @@ margin-left:auto;
 margin-right:auto}
 
 .btn-login{
-background:#E8CAA4 ; 
-color:#424254; 
-font-weight:600;
-font-size: large;}
+  border-radius: 10px;
+  background-color: rgb(153, 153, 153);
+  width: 180px;
+  border: none;
+  color: #424254;
+  text-align: center;
+  font-weight:600;
+  font-size: 20px;
+  padding: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  outline-color:#424254;
+}
+
+.btn-login span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  outline-color:#424254;
+}
+
+.btn-login span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  outline-color:#424254;
+  color: white;
+}
+
+.btn-login:hover span {
+  padding-right: 25px;
+  outline-color:#424254;
+  color: white;
+ 
+}
+
+.btn-login:hover span:after {
+  opacity: 1;
+  right: 0;
+  outline-color:#424254;
+  color: white;
+}
 
 #password, #username{
-color: #E8CAA4;
+color: black;
 opacity:1;
 font-weight: bold;
-
 }
 
 #google_p{
   font-size: large;
+   color: rgb(153, 153, 153);
 }
 
 #google{
+  border:none;
   background-image: url("btn_google_dark_normal_ios.jpg");
   background-size: 40px;
   height: 40px;
@@ -85,53 +132,18 @@ font-weight: bold;
   background-repeat: no-repeat;
   background-position: left;
   background-color: white;
+  color:black;
 
 }
 #google_span{
   font-family: 'Roboto', sans-serif;
   color:black;
+  opacity: 1;
  
   
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*Background animation */
 
 body{position:relative}
 #e_background{

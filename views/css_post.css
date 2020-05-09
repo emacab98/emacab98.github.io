@@ -2,7 +2,7 @@
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
-  color: #424254;
+  color: rgb(153, 153, 153);;
 }
 #book_link{
   font-size: medium;
@@ -19,16 +19,19 @@
 }
 
 .well{
-  background-color: #F2E8C4;
+  background-color:#424254;
+  background-image: linear-gradient( #424254, #40408b );
+  border: none;
+  margin-top : 10px;
+  display: inline-block;
 
 }
 
 
 body{ 
-  background-color: #424254;
-  font-family: 'Poppins', sans-serif;
-  background-image: linear-gradient(#424254,#351330);
-}
+ 
+  font-family: 'Poppins', sans-serif; }
+ 
 #navbar{
   background-color: #424254;
   border-color: #424254 ;
@@ -38,25 +41,62 @@ body{
 }
 #my_button{
 margin-top: 5px;
-background-color:#424254 ;
-color:  #9999A3;
+background-color:rgb(153, 153, 153); 
+color: #424254 ;
 border: none;
 font-size: large;
 font-family: 'Poppins' 
 }
 
 #my_button2{
-border-radius: 5px;
-margin-top: 20px;
-margin-right: 10px;
-padding: 15px 32px;
-margin-top: 5px;
-background-color: #424254;
-color: #9999A3;
-border: none;
-font-size: large;
-font-family: 'Poppins' 
+  margin-left : 30px;
+  border-radius: 10px;
+  background-color: #424254;
+  width: 300px;
+  border: none;
+  color: #424254;
+  text-align: center;
+  font-weight:600;
+  font-size: 20px;
+  padding: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  outline-color:#424254;
+  font-size: large;
+  font-family: 'Poppins';
+  margin-top: 10px;
+  padding: 15px 32px;
+ 
 }
+
+#my_button2 a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  outline-color:#424254;
+}
+
+#my_button2 a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+  outline-color:#424254;
+  color: white;
+}
+
+#my_button2:hover a {
+  padding-right: 25px;
+  outline-color:#424254;
+  color: white;
+ 
+}
+
+
 #my_button:hover, #my_a2:hover{
   color: white;
 }
@@ -76,16 +116,20 @@ margin-left: 1050px;
   width: 150px;
 }
 .my_title{
-  color: #CC2A41;
+  color:white;
   font-weight: bold;
   font-size: large;
-
+  
 }
 
 .my_elem, .my_elem_title{
-  color: #424254;
+  color: rgb(153, 153, 153);
   font-size: medium;
   font-weight: normal;
+}
+.my_elem_title{
+  color: white;
+  
 }
 
 .my_elem_title{
@@ -120,3 +164,52 @@ margin-top: 20px;
   }
   .row.content {height:auto;} 
 }
+
+/*Background animation */
+
+body{position:relative}
+#e_background{
+  background:#000 url(sky.jpg) repeat 5% 5%;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:-100;
+  -webkit-animation:stars-anim 600s infinite linear;
+  -moz-animation:stars-anim 600s infinite linear;
+  -o-animation:stars-anim 600s infinite linear;
+  animation:stars-anim 600s infinite linear}
+
+    #e_moon{
+      background:url(e_moon.png) no-repeat 35% 35%;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      opacity:1;z-index:-25;
+      -webkit-animation:moon-anim 100s infinite linear;
+      -moz-animation:moon-anim 100s infinite linear;
+      -o-animation:moon-anim 100s infinite linear;
+      animation:moon-anim 100s infinite linear}
+      
+      @media only screen and (max-width:480px){
+        #e_moon{background:url(e_moon.png) no-repeat 35% 35%}}
+        
+        @media only screen and (min-width:481px) and (max-width:767px){
+          #e_moon{background:url(e_moon.png) no-repeat 35% 35%}
+        }
+
+        @-webkit-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-moz-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-o-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-webkit-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-moz-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-o-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-webkit-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @-moz-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @-o-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}

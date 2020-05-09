@@ -321,8 +321,12 @@ $(document).ready(async function () {
           bottone.type = "button";
           bottone.className += "post_button";
           bottone.name = risposta[index].id;
-          bottone.innerHTML = "More infos";
+          //bottone.innerHTML = "More infos";
+          var span = document.createElement("span");
+          span.innerHTML = "More infos" ; 
           bottone.onclick = reply_click;
+          bottone.appendChild(span);
+
 
           var link = document.createElement("a");
           link.id = risposta[index].id + "upvote";
@@ -414,7 +418,7 @@ function upvote_function() {
     if (request.status >= 200 && request.status < 400) {
       //alert("You upvoted this night!")
       document.getElementById(id + "upvote").innerHTML = "Upvoted";
-      document.getElementById(id + "upvote").style.color = "green";
+      document.getElementById(id + "upvote").style.color = "white";
       document.getElementById(id + "upvote").style.cursor = "text";
       document.getElementById(id + "upvote").style.textDecoration = "none";
 
@@ -448,7 +452,7 @@ function save_function() {
     if (request.status >= 200 && request.status < 400) {
       //alert("You saved this night!");
       document.getElementById(id + "save").innerHTML = "Saved";
-      document.getElementById(id + "save").style.color = "green";
+      document.getElementById(id + "save").style.color = "white";
       document.getElementById(id + "save").style.cursor = "text";
       document.getElementById(id + "save").style.textDecoration = "none";
       document.getElementById(id + "save").onclick = function () {
