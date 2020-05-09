@@ -26,7 +26,7 @@ body{
 }
   
 .card{
-  
+  font-family: 'Baloo';
   background-size: contain;
   background-position: center;	
   min-height: 280px;

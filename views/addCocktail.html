@@ -31,7 +31,7 @@
         <nav class="navbar navbar-inverse" id="navbar">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">JustAPerfectNight</a>
+                <a class="navbar-brand" href="HomeLogin.html">JustAPerfectNight</a>
               </div>
               <ul class="nav navbar-nav navbar-right">
                     <li><a href="javascript:history.go(-1)">Go back</a></li>
@@ -43,8 +43,7 @@
             Cocktails
             <p id="header">
                 You can either choose your favourite cocktail if you already know what you want or you can
-                browse them and find the perfect one! Try the "Surprise Cocktails" button if you don't have
-                any idea!
+                browse them and find the perfect one!
             </p>
         </h1>
 
@@ -104,15 +103,18 @@
 
                 <div class="menu-container">
                     <div class="row" >
-                        <div class="col-25">
-                            <select size=1 id="menu_cocktail"> 
+                        <!--div class="col-25"-->
+                            <select size=1 id="menu_cocktail" onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;"> 
                                 <option selected value=""> Choose your cocktail :) </option>
                             </select>
-                        </div>
+                        <!--/div>
                         <div class="col-25">
-                            <!--input class="select-btn" type="button" value="Surprise" id="surprise"-->
+                            <input class="select-btn" type="button" value="Surprise" id="surprise">
                             <button type="button" class="btn btn-danger" id="surprise" onclick="RandomCocktail()">Surprise Cocktails!</button>
-                        </div>
+                        </div-->
+                    </div>
+                    <div class="row">
+                        <button class="button button1" id="surprise" onclick="RandomCocktail();"><span>Short of ideas? Click me!</span></button>
                     </div>
                 </div>
                 <!--select size=1 id="menu_cocktail"> 
@@ -124,7 +126,7 @@
                 <p id="select-p">
                     Press the button below if you have found the right one!
                 </p>
-                <input type="button" class="select-btn" id="select-btn" value="Select" onclick="SelectCocktail();">
+                <button class="button" id="select-btn" onclick="SelectCocktail();"><span>Select</span></button>
             </div>
 
             <div class="col-xs-6" id="right-column">

@@ -24,9 +24,15 @@ body{
   font-size: large;
   font-family: 'Poppins';
 }
-  
+
+#what{
+  font-size: 100px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Baloo';
+}
 .card{
-  
+  font-family: 'Baloo';
   background-size: cover;
   background-position: center;	
   min-height: 280px;

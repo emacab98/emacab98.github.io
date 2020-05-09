@@ -16,10 +16,14 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/byTitle/${search_music_name}`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("search_music_name_msg").innerHTML = "Music not found! Please try again";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -90,6 +94,7 @@ function SelectMusic(){
         else{
             //this is a song
             music_container.innerHTML += "<h4>Song preview: </h4>";
+            if(selected_music.preview_url == null) music_container.innerHTML += "<p >Sorry, preview not available for this song! </p>";
             music_container.innerHTML += `<audio controls controlsList="nodownload"><source src="${selected_music.preview_url}" type="audio/mpeg">
             Your browser does not support the audio element.</audio>`;
 
@@ -113,10 +118,14 @@ function AdvancedSearchAlbum(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/album/byName/${search_music_name}`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_album").innerHTML = "Album temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -145,10 +154,14 @@ function AdvancedSearchAlbumsArtist(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/album/byArtist/${search_music_name}`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_artist").innerHTML = "Albums temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -178,10 +191,14 @@ function AdvancedSearchSongsArtist(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/byArtist/${search_music_name}`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_artist").innerHTML = "Songs temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;

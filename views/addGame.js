@@ -16,7 +16,7 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/boardgame/byName/${search_game_name}/30`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -101,7 +101,7 @@ function RandomGame(){
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/boardgame/byRandom/20`, true);
     request.onload = function() {
     // Begin accessing JSON data here
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_game").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
@@ -137,7 +137,7 @@ function AdvancedSearch(){
     var request = new XMLHttpRequest();
     request.open('POST', `https://pacific-stream-14038.herokuapp.com/boardgame/byFilters/10`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){

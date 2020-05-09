@@ -34,3 +34,13 @@ function GoToRecap(){
         window.location.href='recapCompany.html';
     }
 }
+
+function CheckStorage(){
+    var perfect_night = JSON.parse(localStorage.perfect_night);
+    if(typeof(perfect_night.tag_type) != "undefined"){
+        document.getElementById("category").value = perfect_night.tag_type;
+    }
+    if(typeof(perfect_night.description) != "undefined"){
+        document.getElementById("description").value = perfect_night.description;
+    }
+}

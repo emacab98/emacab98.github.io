@@ -13,10 +13,14 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/${search_cocktail_name}/multiple/10`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_cocktail").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("search_cocktail_name_msg").innerHTML = "Cocktail not found! Please try again";
+                return;
+            }
             var s;
             for(i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -73,7 +77,7 @@ function RandomCocktail(){
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/surprise/10`, true);
     request.onload = function() {
     // Begin accessing JSON data here
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_cocktail").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
@@ -93,13 +97,21 @@ function RadioCocktail(){
     document.getElementById("search_cocktail_radio_msg").innerHTML="";
     if(document.getElementById('ingredients').checked){
         var search_cocktail_ingredient =  document.getElementById('search_cocktail_radio').value;
+        if(search_cocktail_ingredient == ""){
+            document.getElementById("search_cocktail_radio_msg").innerHTML = "Please type an ingredient!";
+            return;
+        }
         var request = new XMLHttpRequest();
         request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/ingredient/10/${search_cocktail_ingredient}`, true);
         request.onload = function() {
-            if (request.status >= 200 && request.status < 400){
+            if (request.readyState == 4 && request.status >= 200 && request.status < 400){
                 // Begin accessing JSON data here
                 document.getElementById("menu_cocktail").innerHTML="";
                 myObj = JSON.parse(request.response);
+                if(myObj.length == 0){
+                    document.getElementById("search_cocktail_radio_msg").innerHTML = "Ingredient not found! Please try again";
+                    return;
+                }
                 var s;
                 for(i=0; i< myObj.length; i++){
                     s = myObj[i].name;
@@ -117,13 +129,25 @@ function RadioCocktail(){
     }      
     else if(document.getElementById('category').checked){
         var search_cocktail_category =  document.getElementById('search_cocktail_radio').value;
+        var category = search_cocktail_category.toLowerCase();
+        if(category != "ordinary drink" && category != "ordinarydrink" && category != "cocktail" && 
+           category != "shot" && category != "homemade liqueur" && category != "homemadeliqueur" &&
+           category != "beer"){
+            //alert(category);
+            document.getElementById("search_cocktail_radio_msg").innerHTML = "Category not found! Please try again";
+            return;
+        }
         var request = new XMLHttpRequest();
-        request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/byCategory/${search_cocktail_category}/10`, true);
+        request.open('GET', `https://pacific-stream-14038.herokuapp.com/cocktail/byCategory/${category}/10`, true);
         request.onload = function() {        
-            if (request.status >= 200 && request.status < 400){
+            if (request.readyState == 4 && request.status >= 200 && request.status < 400){
                 // Begin accessing JSON data here
                 document.getElementById("menu_cocktail").innerHTML="";
                 myObj = JSON.parse(request.response);
+                if(myObj.length == 0){
+                    document.getElementById("search_cocktail_radio_msg").innerHTML = "Category not found! Please try again";
+                    return;
+                }
                 var s;
                 for(i=0; i< myObj.length; i++){
                     s = myObj[i].name;

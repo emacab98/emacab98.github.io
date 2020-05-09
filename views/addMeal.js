@@ -16,10 +16,14 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/${search_meal_name}/multiple/30`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
             document.getElementById("menu_meal").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("search_meal_name_msg").innerHTML = "Meal not found! Please try again";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -95,7 +99,7 @@ function RandomMeal(){
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/surprise/20`, true);
     request.onload = function() {
     // Begin accessing JSON data here
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_meal").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
@@ -122,10 +126,14 @@ function AdvancedSearchCuisine(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/cuisine/${search_meal_name}/30`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_meal").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_cuisine").innerHTML = "Cuisine temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -154,10 +162,14 @@ function AdvancedSearchCategory(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/category/${search_meal_name}/30`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_meal").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_category").innerHTML = "Category temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;

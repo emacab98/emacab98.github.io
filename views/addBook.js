@@ -16,10 +16,14 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/multiple/${search_book_name}/10`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
             document.getElementById("menu_book").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("search_book_name_msg").innerHTML = "Book not found! Please try again";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].title;
@@ -83,7 +87,7 @@ function RandomBook(){
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/surprise/20`, true);
     request.onload = function() {
     // Begin accessing JSON data here
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_book").innerHTML="";
             myObj = JSON.parse(request.response);
             var s;
@@ -110,10 +114,14 @@ function AdvancedSearchAuthors(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/byAuthor/${search_book_name}`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_book").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_authors").innerHTML = "Authors temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].title;
@@ -142,10 +150,14 @@ function AdvancedSearchCategory(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/category/${search_book_name}/10`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_book").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg_category").innerHTML = "Category temporarily unavailable.";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].title;

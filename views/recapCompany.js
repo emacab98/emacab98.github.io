@@ -35,7 +35,7 @@ function CheckStorage(){
     else{
         var movie= JSON.parse(localStorage.movie);
         //alert(movie.playbill);
-        document.getElementById('movie_card').style.backgroundImage = `url("${movie.playbill}")`;
+        if(movie.playbill != null) document.getElementById('movie_card').style.backgroundImage = `url("${movie.playbill}")`;
         document.getElementById('movie').innerHTML = `${movie.title}`;
     } 
 
@@ -45,7 +45,7 @@ function CheckStorage(){
     }
     else{
         var beer= JSON.parse(localStorage.beer);
-        document.getElementById('beer_card').style.backgroundImage = `url("${beer.image}")`;
+        if(beer.image != "Sorry, no picture provided for this beer") document.getElementById('beer_card').style.backgroundImage = `url("${beer.image}")`;
         document.getElementById('beer').innerHTML = `${beer.name}`;
     }
 
@@ -76,6 +76,7 @@ function CheckStorage(){
 }
 
 function CreateNight(){
+    $(".button2").prop("disabled",true);
     delete perfect_night.bool_issolo;
     var data;
     var request = new XMLHttpRequest();
@@ -83,11 +84,20 @@ function CreateNight(){
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             // Begin accessing JSON data here
+            localStorage.removeItem("perfect_night");
+            localStorage.removeItem("book");
+            localStorage.removeItem("artist");
+            localStorage.removeItem("meal");
+            localStorage.removeItem("board_game");
+            localStorage.removeItem("beer");
+            localStorage.removeItem("cocktail");
+            localStorage.removeItem("movie");
             alert("Perfect night created successfully");
             window.location.href='Feed.html';
         }  
         else{
             alert("Error creating night");
+            $(".button2").prop("disabled",false);
         }
     }
 

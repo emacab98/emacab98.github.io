@@ -16,10 +16,14 @@ function SearchByName(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/beer/byName/${search_beer_name}/20`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here*/
             document.getElementById("menu_beer").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("search_beer_name_msg").innerHTML = "Beer not found! Please try again";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -97,9 +101,10 @@ function RandomBeer(){
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/beer/byRandom/9`, true);
     request.onload = function() {
     // Begin accessing JSON data here
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_beer").innerHTML="";
             myObj = JSON.parse(request.response);
+            
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
@@ -127,10 +132,14 @@ function AdvancedSearch(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/beer/byFilters/${ibu}/${abv}/10`, true);
     request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
              // Begin accessing JSON data here
             document.getElementById("menu_beer").innerHTML="";
             myObj = JSON.parse(request.response);
+            if(myObj.length == 0){
+                document.getElementById("filters_msg").innerHTML = "Beer not found! Please try again";
+                return;
+            }
             var s;
             for(var i=0; i< myObj.length; i++){
                 s = myObj[i].name;
