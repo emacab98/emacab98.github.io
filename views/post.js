@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   var nights = JSON.parse(localStorage.getItem("nights"));
   var id = localStorage.getItem("night_id");
   //alert("Id: " + id)}
@@ -490,3 +491,4 @@ $(document).ready(function () {
     $("#tv_container").hide();
   }
 });
+
