@@ -15,7 +15,9 @@ function sendData(){
         
         var risposta = JSON.parse(this.response);
         localStorage.setItem("username", risposta.nickname);
-        alert("You have successfully signed in with Google!");
+
+        alert("You have successfully signed in with Google!\nPlease take notes of these credentials as you might need to use them:\nYour nickname: "+
+        risposta.nickname + "\nYour password: " + risposta.password);
   } 
 
   else {
@@ -33,7 +35,7 @@ $(document).ready(function(){
   
   var find = /\?/;
   if(find.test(String(url).toLowerCase()) == true){
-      alert("Tornato da google!")
+      //alert("Tornato da google!")
     sendData();
 
   }
