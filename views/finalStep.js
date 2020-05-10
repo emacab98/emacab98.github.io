@@ -30,7 +30,8 @@ function sendData() {
 
 $(document).ready(function () {
   var url = window.location.href ; 
-  var find = /?/;
+  
+  var find = /\?/;
   if(find.test(String(url).toLowerCase()) == true){
       alert("Tornato da twitter!")
     sendData();
