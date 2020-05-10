@@ -146,7 +146,10 @@ $(document).ready(function(){
             request.open('GET', path, true)
             request.onload = function() {
             if (request.status >= 200 && request.status < 400) {
-                ///alert("Correct password!");
+                //alert("Correct password!");
+                var result = confirm("Are you sure you want to delete your profile?You'll lose all your data");
+                if (result) {
+                
                 var request2 = new XMLHttpRequest();
                 
                 request2.open('DELETE', 'https://pacific-stream-14038.herokuapp.com/user/'+username+"/"+password , true)
@@ -154,11 +157,9 @@ $(document).ready(function(){
                 request2.onload = function() {
                             
                     if (request2.status >= 200 && request2.status < 400) {
-                        var result = confirm("Are you sure you want to delete your profile?You'll lose all your data");
-                        if (result) {
-                            alert("You successfully deleted your profile. Bye!");
-                            window.location.href = "Home.html";  
-                    }
+                        
+                        alert("You successfully deleted your profile. Bye!");
+                    window.location.href = "Home.html";
 
                     } 
                     else {
@@ -167,6 +168,8 @@ $(document).ready(function(){
                 }
                 request2.setRequestHeader("Content-type", "application/json");
                 request2.send();
+                }  
+               
 
             }
             else {
@@ -180,8 +183,6 @@ $(document).ready(function(){
 
     });
     //fine delete profile
-
-
 
 });
 

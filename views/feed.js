@@ -1,5 +1,17 @@
 var username = localStorage.getItem("username");
 
+
+function logout(){
+  var result = confirm("Are you sure you want to logout?");
+    if (result) {
+       localStorage.clear;
+      alert("You are logging out! Bye!");
+      window.location.href = "Home.html";  
+    }
+}
+
+
+
 $(document).ready(async function () {
   await Promise.all([
     findUpvotedNights().catch(() => {
