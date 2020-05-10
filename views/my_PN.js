@@ -1,6 +1,6 @@
 $(document).ready(function () {
   //alert("Sending data");
-  var params = new URL(document.location).searchParams;
+  
 
   var night_id = JSON.parse(localStorage.id_created_night);
   var request = new XMLHttpRequest();
