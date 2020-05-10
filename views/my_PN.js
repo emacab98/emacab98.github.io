@@ -7,12 +7,12 @@ $(document).ready(function () {
   var path =
     "https://pacific-stream-14038.herokuapp.com/perfectnight/showcase/" +
     night_id;
-  alert("Path: " + path);
+  //alert("Path: " + path);
   request.open("GET", path, true);
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
-      var risposta = JSON.parse(this.response);
-      var found_night = risposta;
+      var found_night = JSON.parse(this.response);
+      
       document.getElementById("desc").innerHTML += found_night.description;
       document.getElementById("tag").innerHTML += found_night.tag_type;
 

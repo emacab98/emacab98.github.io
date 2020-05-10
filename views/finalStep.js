@@ -3,7 +3,7 @@ function post_tweet() {
 }
 
 function sendData() {
-  alert("Sending data");
+  //alert("Sending data");
   var params = new URL(document.location).searchParams;
   var oauth_token = params.get("oauth_token");
   var oauth_verifier = params.get("oauth_verifier");
@@ -14,7 +14,7 @@ function sendData() {
     oauth_token +
     "&oauth_verifier=" +
     oauth_verifier + "&id=" + night_id;
-  alert("Path: " + path);
+  //alert("Path: " + path);
   request.open("GET", path, true);
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
