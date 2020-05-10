@@ -84,14 +84,16 @@ function CreateNight(){
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             // Begin accessing JSON data here
-            localStorage.removeItem("perfect_night");
+            /*localStorage.removeItem("perfect_night");
             localStorage.removeItem("book");
             localStorage.removeItem("artist");
             localStorage.removeItem("meal");
             localStorage.removeItem("board_game");
             localStorage.removeItem("beer");
             localStorage.removeItem("cocktail");
-            localStorage.removeItem("movie");
+            localStorage.removeItem("movie"); */
+            var risposta = JSON.parse(this.response);
+            localStorage.setItem("id_created_night", risposta.id); 
             alert("Perfect night created successfully");
             window.location.href='FinalStep.html';
         }  

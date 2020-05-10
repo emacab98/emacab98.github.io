@@ -7,12 +7,13 @@ function sendData() {
   var params = new URL(document.location).searchParams;
   var oauth_token = params.get("oauth_token");
   var oauth_verifier = params.get("oauth_verifier");
+  var night_id = JSON.parse(localStorage.id_created_night);
   var request = new XMLHttpRequest();
   var path =
     "https://pacific-stream-14038.herokuapp.com/twitter/callback?oauth_token=" +
     oauth_token +
     "&oauth_verifier=" +
-    oauth_verifier;
+    oauth_verifier + "&id=" + night_id;
   alert("Path: " + path);
   request.open("GET", path, true);
   request.onload = function () {
@@ -27,6 +28,21 @@ function sendData() {
   request.send();
 }
 //fine
+
+function backToFeed(){
+localStorage.removeItem("cocktail");
+localStorage.removeItem("book");
+localStorage.removeItem("board_game");
+localStorage.removeItem("movie");
+localStorage.removeItem("beer");
+localStorage.removeItem("recipe");
+localStorage.removeItem("music");
+localStorage.removeItem("game");
+localStorage.removeItem("perfect_night");
+window.location.href = "Feed.html"
+
+
+}
 
 $(document).ready(function () {
   var url = window.location.href ; 
