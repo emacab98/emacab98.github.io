@@ -29,6 +29,13 @@ request.send();
 //fine
 
 $(document).ready(function(){
+    var url = window.location.href ; 
+  
+  var find = /\?/;
+  if(find.test(String(url).toLowerCase()) == true){
+      alert("Tornato da google!")
     sendData();
+
+  }
    
 });

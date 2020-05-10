@@ -93,7 +93,7 @@ function CreateNight(){
             localStorage.removeItem("cocktail");
             localStorage.removeItem("movie");
             alert("Perfect night created successfully");
-            window.location.href='Feed.html';
+            window.location.href='FinalStep.html';
         }  
         else{
             alert("Error creating night");
