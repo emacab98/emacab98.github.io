@@ -11,7 +11,7 @@ function sendData() {
   var path =
     "https://pacific-stream-14038.herokuapp.com/twitter/callback?oauth_token=" +
     oauth_token +
-    "/oauth_verifier=" +
+    "&oauth_verifier=" +
     oauth_verifier;
   alert("Path: " + path);
   request.open("GET", path, true);
