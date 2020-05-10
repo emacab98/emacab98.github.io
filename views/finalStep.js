@@ -33,7 +33,7 @@ $(document).ready(function () {
   
   var find = /\?/;
   if(find.test(String(url).toLowerCase()) == true){
-      alert("Tornato da twitter!")
+      //alert("Tornato da twitter!")
     sendData();
 
   }

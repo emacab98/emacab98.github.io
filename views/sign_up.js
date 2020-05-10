@@ -22,7 +22,7 @@ function checkPasswordBis() {
 
     if (pass1 ==
             pass2) {
-              document.getElementById('message').style.color = 'green';
+              document.getElementById('message').style.color = 'white';
               document.getElementById('message').innerHTML = 'Matching';
              test_pass_bis = true;
              
@@ -30,7 +30,7 @@ function checkPasswordBis() {
     else {
         test_pass_bis=false;
     
-        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').style.color = 'black';
        document.getElementById('message').innerHTML = 'Not matching';
        
     }
@@ -47,14 +47,14 @@ function checkPassword(){
   var password = document.getElementById("password").value;
   
   if(regex.test(password)){
-    document.getElementById('message_password').style.color = 'green';
+    document.getElementById('message_password').style.color = 'white';
     document.getElementById('message_password').innerHTML = 'Looks good!';
     test_pass=true;
 
   } 
   else {
      test_pass=false;
-      document.getElementById('message_password').style.color = 'red';
+      document.getElementById('message_password').style.color = 'black';
       document.getElementById('message_password').innerHTML = 'Please insert a password and respect the format';
   } 
 
@@ -71,14 +71,14 @@ function checkEmail(){
   var regex = new RegExp("^[a-zA-Z0-9\.!#$%&'*+/=?^_`{|}~-]+.\@.[a-zA-Z0-9]+.\..[a-zA-Z]+$");
   var email = document.getElementById("email").value;
   if(regex.test(email) ){
-    document.getElementById('message_email').style.color = 'green';
+    document.getElementById('message_email').style.color = 'white';
     document.getElementById('message_email').innerHTML = 'Looks good!';
     test_email=true;
   }
    else {
      test_email=false;
       
-      document.getElementById('message_email').style.color = 'red';
+      document.getElementById('message_email').style.color = 'black';
       document.getElementById('message_email').innerHTML = 'Please insert a valid e-mail address';
   }
   checkValidity();
