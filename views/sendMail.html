@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Just a perfect night - Send mail</title>
+
+    <!--Poppins font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- my css file-->
+    <link rel="stylesheet" href="css_send_mail.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--My script-->
+    <script src="sendMail.js"></script>
+  </head>
+  <body>
+    <div id="e_background">
+      <div id="e_smallstars"></div>
+      <div id="e_moon"></div>
+    </div>
+
+    <div class="row">
+        <button type="button" class="button" id="back">
+          <a href="FinalStep.html" id="my_a2">
+              <span > Go back</span>
+              
+            </a>
+        </button>
+      </div>
+    <section class="create-block">
+      <div class="container">
+        <div class="row">
+            <h1>Send a mail to your friends!</h1>
+        </div>
+        <div class= "row">
+            <p>Insert the emails separated by commas, e.g email1@emai.com , email2@email.com</p>
+        </div>
+        <div class="row">
+            <textarea id="emails" placeholder="Insert the emails here"></textarea>
+
+        </div>
+
+        <div class= "row">
+            <p>Write a message: </p>
+        </div>
+        <div class="row">
+            <textarea id="message" placeholder="Insert your message here"></textarea>
+        </div>
+
+        <div class="row">
+            <button type="button" class="button" id="submit" onclick="sendEmails()">
+              
+                  <span > Send!</span>
+                  
+                
+            </button>
+          </div>
+
+        
+
+
+      </div>
+    </section>
+  </body>
+</html>
