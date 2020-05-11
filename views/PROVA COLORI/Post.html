@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Just a perfect night - Post</title>
+
+    <!--Poppins font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- my css file-->
+    <link rel="stylesheet" href="css_post.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--My script-->
+    <script src="post.js"></script>
+  </head>
+  <body>
+      
+    <div id="e_background">
+      <div id="e_smallstars"></div>
+     
+
+    </div>
+
+    <button type="button" id="my_button2">
+      <a href="Feed.html" id="my_a2">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        Back to the feed!
+      </a>
+    </button>
+   
+    <div class="col-sm-11 text-left" id="center">
+      <!--codice post qui-->
+      <div id="posts" class="well">
+        <p class="my_title">
+          Description :
+          <span id="desc" class="my_elem"></span>
+        </p>
+
+        <p class="my_title">
+          Tag :
+          <span id="tag" class="my_elem"></span>
+        </p>
+        
+        <p class="my_title">
+          Elements:
+          <span id="elements" class="my_elem"></span>
+        </p>
+
+        <div class="container" id="meal_container">
+          <p class="my_title">Meal :</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-meal">
+              <!--<img id = "meal_img "class="img-thumbnail"> </img> -->
+            </div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Name:
+                <span id="meal_name" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Category:
+                <span id="meal_category" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Description:
+                <span id="meal_description" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Ingredients:
+                <span id="meal_ingredients" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Instructions:
+                <span id="meal_recipe" class="my_elem"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="cocktail_container">
+          <p class="my_title">Cocktail :</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-cocktail"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Name:
+                <span id="cocktail_name" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Category:
+                <span id="cocktail_category" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Ingredients:
+                <span id="cocktail_ingredients" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Instructions:
+                <span id="cocktail_instructions" class="my_elem"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="board_game_container">
+          <p class="my_title">Boardgame :</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-board_game"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Name:
+                <span id="bg_name" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Min playtime:
+                <span id="bg_mint" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Max playtime:
+                <span id="bg_maxt" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Min players:
+                <span id="bg_minp" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Max players:
+                <span id="bg_maxp" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Min age:
+                <span id="bg_mina" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Description:
+                <span id="bg_desc" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Average rating:
+                <span id="bg_rating" class="my_elem"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="beer_container">
+          <p class="my_title">Beer :</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-beer"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Name:
+                <span id="beer_name" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Category:
+                <span id="beer_category" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Abv:
+                <span id="beer_abv" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Ibu:
+                <span id="beer_ibu" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Description:
+                <span id="beer_description" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Category description:
+                <span id="beer_category_description" class="my_elem"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="music_container">
+          <p class="my_title">Music :</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-music"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Name:
+                <span id="music_name" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Artist:
+                <span id="music_artist" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Release_date:
+                <span id="music_date" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Popularity:
+                <span id="music_popularity" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title" id="album_tracks">
+                Tracks:
+                <span id="music_tracks" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title" id="album_label">
+                Label:
+                <span id="music_label" class="my_elem"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="book_container">
+          <p class="my_title">Book :</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-book"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Title:
+                <span id="book_title" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Authors:
+                <span id="book_authors" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Plot:
+                <span id="book_plot" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Category:
+                <span id="book_category" class="my_elem"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="movie_container">
+          <p class="my_title">Movie:</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-movie"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Title:
+                <span id="movie_title" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Release date:
+                <span id="movie_date" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Plot:
+                <span id="movie_plot" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Genres:
+                <span id="movie_genres" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Popularity:
+                <span id="movie_popularity" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Votes average:
+                <span id="movie_average" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Director/s:
+                <span id="movie_dir" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Cast:
+                <span id="movie_cast" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Languages:
+                <span id="movie_lan" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Country:
+                <span id="movie_prod" class="my_elem"></span>
+              </p>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="tv_container">
+          <p class="my_title">Tv series:</p>
+
+          <div class="row">
+            <div class="col-md-5" id="col-sx-tv"></div>
+
+            <div class="col-md-5">
+              <p class="my_elem_title">
+                Title:
+                <span id="tv_title" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                First air:
+                <span id="tv_date" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Plot:
+                <span id="tv_plot" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Genres:
+                <span id="tv_genres" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Popularity:
+                <span id="tv_popularity" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Votes average:
+                <span id="tv_average" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Creators:
+                <span id="tv_creators" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Writers:
+                <span id="tv_writers" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Cast:
+                <span id="tv_cast" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Languages:
+                <span id="tv_lan" class="my_elem"></span>
+              </p>
+              <p class="my_elem_title">
+                Country:
+                <span id="tv_prod" class="my_elem"></span>
+              </p>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

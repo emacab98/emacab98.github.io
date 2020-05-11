@@ -1,161 +1,187 @@
-
-.banner-sec{
-background-image:url(https://media.giphy.com/media/l0ErBTXlQuex3T6NO/giphy.gif) ;
-background-position: center; 
-/*background-size:cover; */
-background-repeat: no-repeat;
-min-height:500px;
-border-radius: 0 10px 10px 0;
-padding:10px;
-margin-top: 150px;
-}
-
-#surname,#name, #email, #password, #password2, #username, #google_p{
-color: black;
-opacity:1;
-}
-
-
-#passwordHelpBlock{
-color: white;
-opacity:1;
-font-size: small;
-}
-
-
+.my_a{
+  font-family: 'Poppins';
+  font-size: large;
+  text-decoration: none;
+  color: #424254;
+}  
+  
 body{ 
   background-color: #424254;
   font-family: 'Poppins', sans-serif;
 }
-
 #navbar{
   background-color: #424254;
   border-color: #424254 ;
-  font-size: x-large;
+  font-size: large;
+  /*margin-bottom: 0;
+  border-radius: 0;*/
 }
-
-.login-block{
-padding : 50px 0;
-margin-left: auto;
-}
-
-input{
-  color: black;
-}
-
-.container{
-
-background-image: linear-gradient( #424254, #40408b );
-border-radius: 10px;
-} 
-
-
-hr {
-  border-top: 1px solid rgb(153, 153, 153);
-}
-
-.login-sec{
-padding: 10px 30px; /* top-bottom & left-right*/
-position:left;
-color: rgb(153, 153, 153);
-}
-
-.login-sec h3{
-text-shadow: 1.2px 1.2px white;
-margin-bottom:30px; 
-font-weight:800; 
-font-size:xx-large;
-color: rgb(153, 153, 153) ;}
-
-.login-sec h3:after{
-content:" ";
-width:100px;
-height:5px;
-background:rgb(153, 153, 153);
-display:block; 
-margin-top:20px; 
-border-radius:3px;
-margin-left:auto;
-margin-right:auto}
-
-.btn-login{
-  border-radius: 10px;
-  background-color: rgb(153, 153, 153);
-  width: 180px;
+#my_button{
+  margin-top: 5px;
+  background-color: black;
+  color: white;
   border: none;
-  color: #424254;
+  font-size: large;
+  font-family: 'Poppins';
+}
+
+#what{
+  font-size: 100px;
   text-align: center;
-  font-weight:600;
-  font-size: 20px;
-  padding: 10px;
+  font-family: 'Baloo';
+    margin-left: 1%;
+    text-shadow: 3px 3px  rgb(153, 153, 153) ;
+    margin-bottom:30px; 
+    color:  white; 
+}
+.card{
+  font-family: 'Baloo';
+  background-size: cover;
+  background-position: center;	
+  min-height: 280px;
+  min-width:300px;
+  height: 280px;
+  width: 300px;
+  border-radius: 30px;
+  margin: auto;  
+}
+ 
+  
+.card h1{
+  text-align: center;
+  font-size: 38;
+  padding: 40% 0;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
+}
+
+.card a{
+  text-decoration: none;
+}
+
+#cocktail_card{
+  background-image:url(cocktail.jpg) ;
+}  
+
+#game_card{
+  background-image:url(game.jpg) ;
+}  
+#movie_card{
+  background-image:url(ciak.jpg) ;
+}  
+#beer_card{
+  background-image:url(beer.jpg) ;
+}  
+#recipe_card{
+  background-image:url(recipe.jpg) ;
+}  
+#music_card{
+  background-image:url(music.jpg) ;
+}  
+
+
+.col-sm-4{
+  margin-top: -10px;
+  min-width: 350px;
+  height: auto;
+}
+
+#deck{
+  /*margin-top: -1%;
+  height: 90%;
+  width : 90%;*/
+
+  margin: auto;
+  width: 90%;
+  /*border: 3px solid green;*/
+  padding: 30px;
+ 
+ 
+    
+}
+
+/***351330*/
+.button {
+  border-radius: 20px;
+  background-color:#F2E8C4; /* #351330; /*#F2E8C4;*/
+  border: none;
+  color: #424254; /*#FFFFFF;*/
+  text-align: center;
+  font-size: 28px;
+  padding: 30px;
+  width: 300px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
-  outline-color:#424254;
+  margin-bottom: 20px;
+  margin-top:70px;
+  outline: none;
+  /*margin-left: 40rem;*/
+  float: right;
 }
 
-.btn-login span {
+.button1 {
+    background-color:#424254; ; /* #351330; /* #F2E8C4; */
+    color: rgb(153, 153, 153); /* #fff; /*#424254;*/ 
+    border: 2px solid rgb(153, 153, 153); /*#424254;*/
+}
+  
+.button1:hover {
+    color: #424254; 
+    background-color:rgb(153, 153, 153);
+    border: 2px solid  #424254;
+}
+
+.button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  outline-color:#424254;
 }
 
-.btn-login span:after {
+.button span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
   top: 0;
   right: -20px;
-  transition: 0.5s;
-  outline-color:#424254;
-  color: white;
+  transition: 0s;
 }
 
-.btn-login:hover span {
+.button:hover span {
   padding-right: 25px;
-  outline-color:#424254;
-  color: white;
- 
 }
 
-.btn-login:hover span:after {
+.button:hover span:after {
   opacity: 1;
   right: 0;
-  outline-color:#424254;
-  color: white;
 }
 
-#password, #username{
-color: black;
-opacity:1;
-font-weight: bold;
-}
 
-#google_p{
-  font-size: large;
-   color: rgb(153, 153, 153);
-}
-
-#google{
-  border:none;
-  background-image: url("btn_google_dark_normal_ios.jpg");
-  background-size: 40px;
-  height: 40px;
-  width: 220px;
-  background-repeat: no-repeat;
-  background-position: left;
-  background-color: white;
-  color:black;
-
-}
-#google_span{
-  font-family: 'Roboto', sans-serif;
-  color:black;
+.button:active {
   opacity: 1;
- 
-  
+  color: rgb(153, 153, 153);
+  background-color: #424254;
+  transition: 0s;
+}
+
+.button1:disabled {
+  background-color: #424254;
+  color: rgb(124, 50, 50); 
+  border: 2px solid rgb(153, 153, 153);
+  opacity: 30%;
+  cursor: not-allowed;
+}
+
+.button:disabled span {
+  cursor: not-allowed;
+}
+.button:disabled span:after {
+  content: '';
+}
+
+.button:hover:disabled span {
+  padding-right: 0px;
 }
 
 /*Background animation */

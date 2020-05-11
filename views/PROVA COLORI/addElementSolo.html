@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Just a perfect night - Add Element</title>
+        
+        <!--Poppins font-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+       
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- my css file-->
+        <link rel ="stylesheet" href = "css_cards.css">
+       
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+        
+        <!-- My script-->
+        <script src="addElementSolo.js"></script>
+    </head>
+    <body onload="CheckStorage();">      
+        <!--navbar-->
+        <nav class="navbar navbar-inverse" id="navbar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="HomeLogin.html">Home</a></li>
+                <li><a href="Feed.html">Feed</a></li>
+                <li><a href="About_us.html">About us</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <span class="glyphicon glyphicon-user"></span>
+                      User
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="active"><a href="Profile.html" class="my_a">
+                        <span class="glyphicon glyphicon-home"></span>
+                        My profile
+                        
+                      </a></li>
+                      <li><a href="Settings.html" class="my_a">
+                        <span class="glyphicon glyphicon-cog" ></span>
+                        Settings
+                        
+                      </a></li>
+                      <li><a href="#" onclick="logout()" class="my_a">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        Log-out
+                        </a></li>
+                    </ul>
+                  </div>
+                </li>         
+              </ul>
+            </div>
+        </nav>
+        <!--end navbar-->
+
+      
+        <div id="e_background">
+          <div id="e_smallstars"></div>
+          <div id="e_moon"></div>
+        </div>
+        <!-- cards -->
+        <h1 id="what"> What... </h1>
+        <div class="container-fluid" id="deck">
+                <div class="col-sm-4">      
+                    <div class="card" id="cocktail_card"> 
+                        <a href="addCocktail.html">
+                            <h1 class="card-title">cocktail are we drinking?</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="book_card"> 
+                        <a href="addBook.html">
+                            <h1 class="card-title">are we reading?</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="movie_card"> 
+                        <a href="addMovie.html">
+                            <h1 class="card-title">are we watching?</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="beer_card"> 
+                        <a href="addBeer.html">
+                            <h1 class="card-title">beer are we having?</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="recipe_card"> 
+                        <a href="addMeal.html">
+                            <h1 class="card-title">are we eating?</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-sm-4">      
+                    <div class="card" id="music_card"> 
+                        <a href="addMusic.html">
+                            <h1 class="card-title">are we listening to?</h1>
+                        </a>
+                    </div> 
+                </div>
+                <div class="row">
+                  <button class="button button1" disabled onclick="window.location.href='addCategory.html';"><span>Proceed </span></button>
+                </div>
+              </div>
+        </div> 
+        <!-- end deck-->
+       
+    </body>
+</html>
+<!--onclick="window.location.href='addElementSolo.html'"-->

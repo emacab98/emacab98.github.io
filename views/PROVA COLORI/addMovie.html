@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Just a perfect night - Add Movie</title>
+
+    <!--Poppins font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- icon of setting -->
+
+    <!-- my css file-->
+    <link rel="stylesheet" href="css_add_movie.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--My script-->
+    <script src="addMovie.js"></script>
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar navbar-inverse" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="javascript:history.go(-1)">Go back</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--end navbar-->
+
+    <div id="e_background">
+      <div id="e_smallstars"></div>
+      <div id="e_moon"></div>
+    </div>
+
+    <section class="create-block">
+      <div class="container" id="main">
+        <h1>
+          Movies
+          <p id="header">
+            You can either choose your favourite movie if you already know what
+            you want or you can browse them and find the perfect one!
+          </p>
+        </h1>
+
+        <div class="container">
+          <!-- left column -->
+          <div class="col-xs-6" id="left-column">
+            <!-- search movie-->
+            <div class="movie">
+              <h2>
+                Search a Movie!
+              </h2>
+              <!-- search by name -->
+              <h3>
+                Search by Name:
+              </h3>
+
+              <div class="search-container-main">
+                <div class="row">
+                  <div class="col-25" name="sx">
+                    <input
+                      type="text"
+                      placeholder="Search.."
+                      id="search_movie_name"
+                    />
+                  </div>
+                  <div class="col-25" name="dx">
+                    <button
+                      class="search-btn"
+                      type="button"
+                      onclick="SearchByNameMovie();"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <p id="search_movie_name_msg"></p>
+              </div>
+              <!-- end search by name -->
+              <!-- line break-->
+              <a href="#" class="line" id="movie_line"
+                ><div class="hr"></div
+              ></a>
+              <!-- end line -->
+              <!-- advanced search -->
+
+              <div class="search-container-adv" id="movie_container">
+                <h3>
+                  Advanced search:
+                </h3>
+                <p id="p_advanced_search_movie">
+                  Find the perfect one:
+                </p>
+                <!-- category -->
+                <div class="row">
+                  <label for="menu_category_movie">Category: </label>
+                  <select
+                    onmousedown="this.size=5;"
+                    onchange="this.size=0;"
+                    onblur="this.size=0;"
+                    id="menu_category_movie"
+                  >
+                    <option selected value=""> Choose category </option>
+                    <option value="Adventure"> Adventure </option>
+                    <option value="Fantasy"> Fantasy </option>
+                    <option value="Animation"> Animation </option>
+                    <option value="Drama"> Drama </option>
+                    <option value="Horror"> Horror </option>
+                    <option value="Action"> Action </option>
+                    <option value="Comedy"> Comedy </option>
+                    <option value="History"> History </option>
+                    <option value="Western"> Western </option>
+                    <option value="Thriller"> Thriller </option>
+                    <option value="Crime"> Crime </option>
+                    <option value="Documentary"> Documentary </option>
+                    <option value="Science Fiction"> Science Fiction </option>
+                    <option value="Mystery"> Mystery </option>
+                    <option value="Music"> Music </option>
+                    <option value="Romance"> Romance </option>
+                    <option value="Family"> Family </option>
+                    <option value="War"> War </option>
+                    <option value="TV Movie"> TV Movie </option>
+                  </select>
+                </div>
+
+                <!-- button advanced search -->
+                <div class="row">
+                  <button
+                    class="button"
+                    id="filters_button_category_movie"
+                    onclick="AdvancedSearchCategoryMovie();"
+                  >
+                    <span>Search by category <i class="fa fa-search"></i></span>
+                  </button>
+                </div>
+                <div class="row">
+                  <p id="filters_msg_category_movie"></p>
+                </div>
+                <div class="row">
+                  <label for="input_year_movie">Year: </label>
+                  <input
+                    type="number"
+                    min="1895"
+                    placeholder="Type a year.."
+                    id="input_year_movie"
+                  />
+                </div>
+                <!-- button advanced search -->
+                <div class="row">
+                  <button
+                    class="button"
+                    id="filters_button_year_movie"
+                    onclick="AdvancedSearchYearMovie();"
+                  >
+                    <span>Search by year <i class="fa fa-search"></i></span>
+                  </button>
+                </div>
+                <div class="row">
+                  <p id="filters_msg_year_movie"></p>
+                </div>
+              </div>
+              <!-- end advanced search -->
+            </div>
+            <!-- end search movie -->
+
+            <!-- search tvshow-->
+            <div class="tvshow">
+              <h2>
+                Search a TV Show!
+              </h2>
+              <!-- search by name -->
+              <h3>
+                Search by Name:
+              </h3>
+
+              <div class="search-container-main">
+                <div class="row">
+                  <div class="col-25" name="sx">
+                    <input
+                      type="text"
+                      placeholder="Search.."
+                      id="search_tvshow_name"
+                    />
+                  </div>
+                  <div class="col-25" name="dx">
+                    <button
+                      class="search-btn"
+                      type="button"
+                      onclick="SearchByNameTVShow();"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <p id="search_tvshow_name_msg"></p>
+              </div>
+              <!-- end search by name -->
+              <!-- line break-->
+              <a href="#" class="line" id="tvshow_line"
+                ><div class="hr"></div
+              ></a>
+              <!-- end line -->
+              <!-- advanced search -->
+
+              <div class="search-container-adv" id="tvshow_container">
+                <h3>
+                  Advanced search:
+                </h3>
+                <p id="p_advanced_search_tvshow">
+                  Find the perfect one:
+                </p>
+                <!-- category -->
+                <div class="row">
+                  <label for="menu_category_tvshow">Category: </label>
+                  <select
+                    onmousedown="this.size=5;"
+                    onchange="this.size=0;"
+                    onblur="this.size=0;"
+                    id="menu_category_tvshow"
+                  >
+                    <option selected value=""> Choose category </option>
+                    <option value="Animation"> Animation </option>
+                    <option value="Drama"> Drama </option>
+                    <option value="Comedy"> Comedy </option>
+                    <option value="Western"> Western </option>
+                    <option value="Crime"> Crime </option>
+                    <option value="Documentary"> Documentary </option>
+                    <option value="Mystery"> Mystery </option>
+                    <option value="Family"> Family </option>
+                    <option value="Action & Adventure">
+                      Action & Adventure</option
+                    >
+                    <option value="Kids"> Kids </option>
+                    <option value="News"> News </option>
+                    <option value="Reality"> Reality </option>
+                    <option value="Sci-Fi & Fantasy"> Sci-Fi & Fantasy </option>
+                    <option value="Soap"> Soap </option>
+                    <option value="Talk"> Talk </option>
+                    <option value="War & Politics"> War & Politics</option>
+                  </select>
+                </div>
+
+                <!-- button advanced search -->
+                <div class="row">
+                  <button
+                    class="button"
+                    id="filters_button_category_tvshow"
+                    onclick="AdvancedSearchCategoryTVShow();"
+                  >
+                    <span>Search by category <i class="fa fa-search"></i></span>
+                  </button>
+                </div>
+                <div class="row">
+                  <p id="filters_msg_category_tvshow"></p>
+                </div>
+                <div class="row">
+                  <label for="input_year_tvshow">Year: </label>
+                  <input
+                    type="number"
+                    min="1895"
+                    placeholder="Type a year.."
+                    id="input_year_tvshow"
+                  />
+                </div>
+                <!-- button advanced search -->
+                <div class="row">
+                  <button
+                    class="button"
+                    id="filters_button_year_tvshow"
+                    onclick="AdvancedSearchYearTVShow();"
+                  >
+                    <span>Search by year <i class="fa fa-search"></i></span>
+                  </button>
+                </div>
+                <div class="row">
+                  <p id="filters_msg_year_tvshow"></p>
+                </div>
+              </div>
+              <!-- end advanced search -->
+            </div>
+            <!-- end tvshow-->
+
+            <!-- search by actor -->
+            <div class="tvshow">
+              <h3>
+                Search actor and discover:
+              </h3>
+
+              <div class="search-container-main">
+                <div class="row">
+                  <div class="col-25" name="sx">
+                    <input
+                      type="text"
+                      placeholder="Search.."
+                      id="search_artist_name"
+                    />
+                  </div>
+                  <div class="col-25" name="dx">
+                    <button
+                      class="search-btn"
+                      type="button"
+                      onclick="SearchByPerson();"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <p id="search_artist_name_msg"></p>
+              </div>
+            </div>
+            <!-- search by actor-->
+
+            <!-- menu movie -->
+            <div class="menu-container">
+              <div class="row">
+                <select
+                  size="1"
+                  id="menu_movie"
+                  onmousedown="this.size=5;"
+                  onchange="this.size=0;"
+                  onblur="this.size=0;"
+                >
+                  <option selected value=""> Choose your movie :) </option>
+                </select>
+              </div>
+            </div>
+            <!-- end menu movie -->
+            <p id="select-p">
+              Press the button below if you have found the right one!
+            </p>
+            <button class="button" id="select-btn" onclick="SelectMovie();">
+              <span>Select</span>
+            </button>
+          </div>
+          <!-- end left column -->
+
+          <!-- right column -->
+          <div class="col-xs-6" id="right-column">
+            <img src="ciak.jpg" alt="movie" id="photo_movie" />
+            <div class="container" id="info">
+              <h4>Info:</h4>
+              <dl id="description_list"></dl>
+            </div>
+
+            <div class="container" id="up_container">
+              <h4>Plot:</h4>
+              <p id="plot">Here the plot of the movie.</p>
+              <h4>Other info:</h4>
+              <dl id="other_info"></dl>
+            </div>
+            <!--div class="container" id="down_container">               
+                    
+                </div-->
+
+            <input
+              type="button"
+              class="select-btn"
+              id="add-btn"
+              value="Add my perfect movie"
+              onclick="addMovie();"
+            />
+          </div>
+          <!-- right column -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

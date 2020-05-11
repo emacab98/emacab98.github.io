@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Just a perfect night - Feed</title>
+        
+        <!--Poppins font-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        
+        
+        <!-- my css file-->
+        <link rel ="stylesheet" href = "css_feed.css">
+       
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <!--My script-->
+        <script src="feed.js"></script>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-inverse" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="Home_login.html">Home</a></li>
+          <li class="active"><a href="Feed.html">Feed</a></li>
+          <li><a href="About_us.html">About us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li >
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="glyphicon glyphicon-user"id ="user"></span>
+                User
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="Profile.html" class="my_a">
+                  <span class="glyphicon glyphicon-home"></span>
+                  My profile
+                  
+                </a></li>
+                <li><a href="Settings.html" class="my_a">
+                  <span class="glyphicon glyphicon-cog" ></span>
+                  Settings
+                  
+                </a></li>
+                <li><a href="#" onclick="logout()" class="my_a">
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Log-out
+                  </a></li>
+              </ul>
+            </div>
+
+          </li>
+            
+        
+        </ul>
+      </div>
+    </nav>
+    <div id="e_background">
+      <div id="e_smallstars"></div>
+      <div id="e_moon"></div>
+
+    </div>
+
+
+    </div>
+    <div class="col-sm-11 text-left" id="center"> 
+      <div id="my_center">
+        <label id="username_here"></label>
+        <button type="button" id="my_button2">
+          <a href="newNight.html" id="my_a2">
+          <span class="glyphicon glyphicon-plus-sign"></span>
+          Create a new perfect night!
+        </a>
+        </button>
+      </div>
+      <br>
+      <!--codice my nights qui-->
+      <div id="posts">
+      </div>
+      <p id="message"></p>
+      
+
+
+    </div>
+
+  </body>
+</html>

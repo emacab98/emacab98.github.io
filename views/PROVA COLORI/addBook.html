@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Just a perfect night - Add Book</title>
+
+    <!--Poppins font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- icon of setting -->
+
+    <!-- my css file-->
+    <link rel="stylesheet" href="css_add_book.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--My script-->
+    <script src="addBook.js"></script>
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar navbar-inverse" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="javascript:history.go(-1)">Go back</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--end navbar-->
+    <div id="e_background">
+      <div id="e_smallstars"></div>
+      <div id="e_moon"></div>
+
+    </div>
+
+    <section class="create-block">
+      <div class="container" id="main">
+        <h1>
+          Books
+          <p id="header">
+            You can either choose your favourite book if you already know what
+            you want or you can browse them and find the perfect one!
+          </p>
+        </h1>
+
+        <!-- left column -->
+        <div class="col-xs-6" id="left-column">
+          <!-- search by name -->
+          <h2>
+            Search by Name:
+          </h2>
+
+          <div class="search-container">
+            <div class="row">
+              <div class="col-25" name="sx">
+                <input
+                  type="text"
+                  placeholder="Search.."
+                  id="search_book_name"
+                />
+              </div>
+              <div class="col-25" name="dx">
+                <button
+                  class="search-btn"
+                  type="button"
+                  onclick="SearchByName();"
+                >
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <p id="search_book_name_msg"></p>
+          </div>
+          <!-- end search by name -->
+          <hr />
+          <!-- advanced search -->
+          <h3>
+            Advanced search:
+          </h3>
+          <p id="p_advanced_search">
+            Find the perfect one:
+          </p>
+          <div class="search-container">
+            <!-- authors -->
+            <div class="row">
+              <label for="authors">Authors: </label>
+              <input
+                type="text"
+                placeholder="Search by authors.."
+                id="authors"
+              />
+            </div>
+            <!-- button advanced search authors -->
+            <div class="row">
+              <button
+                class="button"
+                id="filters_button_authors"
+                onclick="AdvancedSearchAuthors();"
+              >
+                <span>Search by author <i class="fa fa-search"></i></span>
+              </button>
+            </div>
+            <div class="row">
+              <p id="filters_msg_authors"></p>
+            </div>
+            <!-- category -->
+            <div class="row">
+              <label for="category">Category: </label>
+              <input
+                type="text"
+                placeholder="Search by category.."
+                id="category"
+              />
+            </div>
+
+            <!-- button advanced search -->
+            <div class="row">
+              <button
+                class="button"
+                id="filters_button_category"
+                onclick="AdvancedSearchCategory();"
+              >
+                <span>Search by category <i class="fa fa-search"></i></span>
+              </button>
+            </div>
+            <div class="row">
+              <p id="filters_msg_category"></p>
+            </div>
+          </div>
+          <!-- end advanced search -->
+
+          <!-- menu book -->
+          <div class="menu-container">
+            <div class="row">
+              <select
+                size="1"
+                id="menu_book"
+                onmousedown="this.size=5;"
+                onchange="this.size=0;"
+                onblur="this.size=0;"
+              >
+                <option selected value=""> Choose your book :) </option>
+              </select>
+            </div>
+            <!--div class="row">
+                        <button class="button button1" id="surprise" onclick="RandomBook();"><span>Short of ideas? Click me!</span></button>
+                    </div-->
+          </div>
+          <!-- end menu book -->
+          <p id="select-p">
+            Press the button below if you have found the right one!
+          </p>
+          <button class="button" id="select-btn" onclick="SelectBook();">
+            <span>Select</span>
+          </button>
+        </div>
+        <!-- end left column -->
+
+        <!-- right column -->
+        <div class="col-xs-6" id="right-column">
+          <img src="book.jpg" alt="book" id="photo_book" />
+          <p id="photo_book_msg"></p>
+          <div class="container" id="info">
+            <h4>Info:</h4>
+            <dl id="description_list"></dl>
+          </div>
+
+          <div class="container" id="book_container">
+            <h4>Description:</h4>
+            <p id="description">Here the description of the book.</p>
+            <h4>Link:</h4>
+            <p id="link">Here the link of the book.</p>
+          </div>
+
+          <input
+            type="button"
+            class="select-btn"
+            id="add-btn"
+            value="Add my perfect book"
+            onclick="addBook();"
+          />
+        </div>
+        <!-- right column -->
+      </div>
+    </section>
+  </body>
+</html>

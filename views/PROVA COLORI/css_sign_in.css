@@ -1,28 +1,3 @@
-
-.banner-sec{
-background-image:url(https://media.giphy.com/media/l0ErBTXlQuex3T6NO/giphy.gif) ;
-background-position: center; 
-/*background-size:cover; */
-background-repeat: no-repeat;
-min-height:500px;
-border-radius: 0 10px 10px 0;
-padding:10px;
-margin-top: 150px;
-}
-
-#surname,#name, #email, #password, #password2, #username, #google_p{
-color: black;
-opacity:1;
-}
-
-
-#passwordHelpBlock{
-color: white;
-opacity:1;
-font-size: small;
-}
-
-
 body{ 
   background-color: #424254;
   font-family: 'Poppins', sans-serif;
@@ -39,6 +14,16 @@ padding : 50px 0;
 margin-left: auto;
 }
 
+.banner-sec{
+background-image:url(https://media.giphy.com/media/l2YSDYQbXeo9M3Ize/giphy.gif) ;
+background-position: center; 
+background-size:cover; 
+background-repeat: no-repeat;
+min-height:500px;
+border-radius: 0 10px 10px 0;
+padding:10px;
+
+}
 input{
   color: black;
 }

@@ -1,87 +1,58 @@
+#my_a2, .my_a, #book_link{
+  font-family: 'Poppins';
+  font-size: large;
+  text-decoration: none;
+  color: rgb(153, 153, 153);;
+}
+#book_link{
+  font-size: medium;
+  font-weight: normal
+}
+#book_link:hover{
+  color: #9999A3;
+  cursor: pointer;
+  
 
-.banner-sec{
-background-image:url(https://media.giphy.com/media/l0ErBTXlQuex3T6NO/giphy.gif) ;
-background-position: center; 
-/*background-size:cover; */
-background-repeat: no-repeat;
-min-height:500px;
-border-radius: 0 10px 10px 0;
-padding:10px;
-margin-top: 150px;
+}
+#my_a2{
+  color: #9999A3;
 }
 
-#surname,#name, #email, #password, #password2, #username, #google_p{
-color: black;
-opacity:1;
-}
+.well{
+  background-color:#424254;
+  background-image: linear-gradient( #424254, #40408b );
+  border: none;
+  margin-top : 10px;
+  display: inline-block;
 
-
-#passwordHelpBlock{
-color: white;
-opacity:1;
-font-size: small;
 }
 
 
 body{ 
-  background-color: #424254;
-  font-family: 'Poppins', sans-serif;
-}
-
+ 
+  font-family: 'Poppins', sans-serif; }
+ 
 #navbar{
   background-color: #424254;
   border-color: #424254 ;
-  font-size: x-large;
+  font-size: large;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+#my_button{
+margin-top: 5px;
+background-color:rgb(153, 153, 153); 
+color: #424254 ;
+border: none;
+font-size: large;
+font-family: 'Poppins' 
 }
 
-.login-block{
-padding : 50px 0;
-margin-left: auto;
-}
-
-input{
-  color: black;
-}
-
-.container{
-
-background-image: linear-gradient( #424254, #40408b );
-border-radius: 10px;
-} 
-
-
-hr {
-  border-top: 1px solid rgb(153, 153, 153);
-}
-
-.login-sec{
-padding: 10px 30px; /* top-bottom & left-right*/
-position:left;
-color: rgb(153, 153, 153);
-}
-
-.login-sec h3{
-text-shadow: 1.2px 1.2px white;
-margin-bottom:30px; 
-font-weight:800; 
-font-size:xx-large;
-color: rgb(153, 153, 153) ;}
-
-.login-sec h3:after{
-content:" ";
-width:100px;
-height:5px;
-background:rgb(153, 153, 153);
-display:block; 
-margin-top:20px; 
-border-radius:3px;
-margin-left:auto;
-margin-right:auto}
-
-.btn-login{
+#my_button2{
+  margin-left : 30px;
   border-radius: 10px;
-  background-color: rgb(153, 153, 153);
-  width: 180px;
+  background-color: #424254;
+  width: 300px;
   border: none;
   color: #424254;
   text-align: center;
@@ -92,9 +63,14 @@ margin-right:auto}
   cursor: pointer;
   margin: 5px;
   outline-color:#424254;
+  font-size: large;
+  font-family: 'Poppins';
+  margin-top: 10px;
+  padding: 15px 32px;
+ 
 }
 
-.btn-login span {
+#my_button2 a {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -102,60 +78,91 @@ margin-right:auto}
   outline-color:#424254;
 }
 
-.btn-login span:after {
+#my_button2 a:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  left: -20px;
   transition: 0.5s;
   outline-color:#424254;
   color: white;
 }
 
-.btn-login:hover span {
+#my_button2:hover a {
   padding-right: 25px;
   outline-color:#424254;
   color: white;
  
 }
 
-.btn-login:hover span:after {
-  opacity: 1;
-  right: 0;
-  outline-color:#424254;
+
+#my_button:hover, #my_a2:hover{
   color: white;
 }
+.post_button{
+border-radius: 5px;
+background-color: #424254;
+color: #9999A3;
+border: none;
+font-size: medium;
+font-family: 'Poppins';
+margin-left: 1050px;
 
-#password, #username{
-color: black;
-opacity:1;
-font-weight: bold;
 }
 
-#google_p{
+.img-thumbnail{
+  height: 180px;
+  width: 150px;
+}
+.my_title{
+  color:white;
+  font-weight: bold;
   font-size: large;
-   color: rgb(153, 153, 153);
-}
-
-#google{
-  border:none;
-  background-image: url("btn_google_dark_normal_ios.jpg");
-  background-size: 40px;
-  height: 40px;
-  width: 220px;
-  background-repeat: no-repeat;
-  background-position: left;
-  background-color: white;
-  color:black;
-
-}
-#google_span{
-  font-family: 'Roboto', sans-serif;
-  color:black;
-  opacity: 1;
- 
   
+}
+
+.my_elem, .my_elem_title{
+  color: rgb(153, 153, 153);
+  font-size: medium;
+  font-weight: normal;
+}
+.my_elem_title{
+  color: white;
+  
+}
+
+.my_elem_title{
+  font-weight: bold;
+}
+
+
+
+#center{
+background-image: none;
+height: auto;
+margin-left: 50px;
+}
+
+#my_center{
+
+width: 1000px;
+height: auto;
+margin-top: 20px;
+
+
+
+}
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 600px}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;} 
 }
 
 /*Background animation */

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Just a perfect night - Profile</title>
+        
+        <!--Poppins font-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        
+        
+        <!-- my css file-->
+        <link rel ="stylesheet" href = "css_profile.css">
+       
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <!--My script-->
+        <script src="profile.js"></script>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-inverse" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="Home_login.html">Home</a></li>
+          <li><a href="Feed.html">Feed</a></li>
+          <li><a href="About_us.html">About us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="glyphicon glyphicon-user"></span>
+                User
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="Profile.html" class="my_a">
+                  <span class="glyphicon glyphicon-home"></span>
+                  My profile
+                  
+                </a></li>
+                <li><a href="Settings.html" class="my_a">
+                  <span class="glyphicon glyphicon-cog" ></span>
+                  Settings
+                  
+                </a></li>
+                <li><a href="#" onclick="logout()" class="my_a">
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Log-out
+                  </a></li>
+              </ul>
+            </div>
+
+          </li>
+            
+         
+        </ul>
+      </div>
+    </nav>
+    <div id="e_background">
+      <div id="e_smallstars"></div>
+      <div id="e_moon"></div>
+
+    </div>
+
+
+    
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <img id="my_img" src="https://picsum.photos/180">
+      <div id="my_list_div">
+       
+          <p class="active">
+            <a  id="my_night">
+              <span class="glyphicon glyphicon-glass"></span>
+              My nights
+            </a>
+          </p>
+          <p>
+            <a id="my_saved">
+              <span class="glyphicon glyphicon-download-alt">
+              </span>
+              My saved nights
+            </a>
+          </p>
+          <p>
+            <a id="my_favourite">
+            <span class="glyphicon glyphicon-star" id="my_span"></span>
+            My upvoted nights
+            </a>
+          </p>
+       
+      </div>
+      
+    </div>
+    <div class="col-sm-9 text-left" id="center"> 
+      <div id="my_center">
+        <label id="username_here"></label>
+        <button type="button" id="my_button2">
+          <a href="newNight.html" id="my_a2">
+          <span class="glyphicon glyphicon-plus-sign"></span>
+          Create a new perfect night!
+        </a>
+        </button>
+      </div>
+      <br>
+
+      <p id="message"></p>
+
+      <!--codice my nights qui-->
+      <div id="nights_section">
+      </div>
+
+      <!--codice my nights qui-->
+      <div id="saved_section">
+      </div>
+      <!--codice my nights qui-->
+      <div id="favourites_section">
+      </div>
+
+
+    </div>
+    <!--<div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div> 
+    </div> -->
+  </div>
+</div>
+</body>
+</html>
