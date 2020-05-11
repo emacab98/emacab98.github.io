@@ -1,4 +1,4 @@
-function sendMail(){
+function sendEmail(){
     
   var request = new XMLHttpRequest();
   var mails = document.getElementById("emails").value;
@@ -17,12 +17,11 @@ function sendMail(){
   
   request.open('POST', 'https://pacific-stream-14038.herokuapp.com/mail' , true)
   request.onload = function() {
-  // Begin accessing JSON data here
+  
   if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
       alert("We have successfully sent the mail to your friends!");
-      //memorizzazione
-       //Reindirizzamento
+      
         window.location.href = "FinalStep.html";
        
        } 
