@@ -15,16 +15,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- my css file-->
-        <link rel ="stylesheet" href = "css_cards.css">
+        <link rel ="stylesheet" href = "css_cards_company.css">
        
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
         
         <!-- My script-->
-        <script src="addElementSolo.js"></script>
+        <script src="addElementCompany.js"></script>
     </head>
     <body onload="CheckStorage();">      
         <!--navbar-->
@@ -34,7 +34,7 @@
                 <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="HomeLogin.html">Home</a></li>
+                <li><a href="Home_login.html">Home</a></li>
                 <li><a href="Feed.html">Feed</a></li>
                 <li><a href="About_us.html">About us</a></li>
               </ul>
@@ -70,13 +70,11 @@
         <!--end navbar-->
 
       
-        <div id="e_background">
-          <div id="e_smallstars"></div>
-          <div id="e_moon"></div>
-        </div>
+        
         <!-- cards -->
         <h1 id="what"> What... </h1>
         <div class="container-fluid" id="deck">
+                
                 <div class="col-sm-4">      
                     <div class="card" id="cocktail_card"> 
                         <a href="addCocktail.html">
@@ -85,9 +83,9 @@
                     </div> 
                 </div>
                 <div class="col-sm-4">      
-                    <div class="card" id="book_card"> 
-                        <a href="addBook.html">
-                            <h1 class="card-title">are we reading?</h1>
+                    <div class="card" id="game_card"> 
+                        <a href="addGame.html">
+                            <h1 class="card-title">are we playing?</h1>
                         </a>
                     </div> 
                 </div>
@@ -119,13 +117,12 @@
                         </a>
                     </div> 
                 </div>
-                <div class="row">
-                  <button class="button button1" disabled onclick="window.location.href='addCategory.html';"><span id="proceed_button">Proceed </span></button>
-                </div>
-              </div>
         </div> 
         <!-- end deck-->
-       
+        <div class="container">
+            <div class="row">
+              <button class="button button1" disabled onclick="window.location.href='addCategory.html';"><span>Proceed </span></button>
+            </div>
+        </div>
     </body>
 </html>
-<!--onclick="window.location.href='addElementSolo.html'"-->

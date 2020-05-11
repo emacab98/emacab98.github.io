@@ -4,7 +4,9 @@
   text-decoration: none;
   color: #424254;
 }  
-  
+#proceed_button{
+  color: rgb(153, 153, 153)
+}
 body{ 
   background-color: #424254;
   font-family: 'Poppins', sans-serif;
@@ -28,8 +30,11 @@ body{
 #what{
   font-size: 100px;
   text-align: center;
-  color: #fff;
   font-family: 'Baloo';
+    margin-left: 1%;
+    text-shadow: 3px 3px  rgb(153, 153, 153) ;
+    margin-bottom:30px; 
+    color:  white; 
 }
 .card{
   font-family: 'Baloo';
@@ -38,12 +43,12 @@ body{
   min-height: 280px;
   min-width:300px;
   height: 280px;
-  
   width: 300px;
   border-radius: 30px;
   margin: auto;  
 }
-
+ 
+  
 .card h1{
   text-align: center;
   font-size: 38;
@@ -93,6 +98,8 @@ body{
   width: 90%;
   /*border: 3px solid green;*/
   padding: 30px;
+ 
+ 
     
 }
 
@@ -116,14 +123,15 @@ body{
 }
 
 .button1 {
-    background-color:#E8CAA4; /* #351330; /* #F2E8C4; */
-    color:#424254; /* #fff; /*#424254;*/ 
-    border: 2px solid #F2E8C4; /*#424254;*/
+    background-color:#424254; ; /* #351330; /* #F2E8C4; */
+    color: rgb(153, 153, 153); /* #fff; /*#424254;*/ 
+    border: 2px solid rgb(153, 153, 153); /*#424254;*/
 }
   
 .button1:hover {
-    background-color: #424254; 
-    color: white;
+    color: #424254; 
+    background-color:rgb(153, 153, 153);
+    border: 2px solid  #424254;
 }
 
 .button span {
@@ -154,15 +162,15 @@ body{
 
 .button:active {
   opacity: 1;
-  background: #E8CAA4;
-  color: #424254;
+  color: rgb(153, 153, 153);
+  background-color: #424254;
   transition: 0s;
 }
 
 .button1:disabled {
   background-color: #424254;
-  color: #fff; 
-  border: 2px solid #F2E8C4;
+  color: rgb(124, 50, 50); 
+  border: 2px solid rgb(153, 153, 153);
   opacity: 30%;
   cursor: not-allowed;
 }
@@ -177,3 +185,52 @@ body{
 .button:hover:disabled span {
   padding-right: 0px;
 }
+
+/*Background animation */
+
+body{position:relative}
+#e_background{
+  background:#000 url(sky.jpg) repeat 5% 5%;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:-100;
+  -webkit-animation:stars-anim 600s infinite linear;
+  -moz-animation:stars-anim 600s infinite linear;
+  -o-animation:stars-anim 600s infinite linear;
+  animation:stars-anim 600s infinite linear}
+
+    #e_moon{
+      background:url(e_moon.png) no-repeat 35% 35%;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      opacity:1;z-index:-25;
+      -webkit-animation:moon-anim 100s infinite linear;
+      -moz-animation:moon-anim 100s infinite linear;
+      -o-animation:moon-anim 100s infinite linear;
+      animation:moon-anim 100s infinite linear}
+      
+      @media only screen and (max-width:480px){
+        #e_moon{background:url(e_moon.png) no-repeat 35% 35%}}
+        
+        @media only screen and (min-width:481px) and (max-width:767px){
+          #e_moon{background:url(e_moon.png) no-repeat 35% 35%}
+        }
+
+        @-webkit-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-moz-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-o-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
+        @-webkit-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-moz-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-o-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
+        @-webkit-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @-moz-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @-o-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
+        @keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}

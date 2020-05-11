@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Just a perfect night - Add Cocktail</title>
+        
+        <!--Poppins font-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- icon of setting -->
+       
+        <!-- my css file-->
+        <link rel ="stylesheet" href = "css_add_cocktail.css">
+       
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+        
+        <!--My script-->
+        <script src="addCocktail.js"></script>
+    </head>
+    <body>      
+        <!--navbar-->
+        <nav class="navbar navbar-inverse" id="navbar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="Home_login.html">JustAPerfectNight</a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:history.go(-1)">Go back</a></li>
+              </ul>
+            </div>
+        </nav>
+        <!--end navbar-->
+        <h1>
+            Cocktails
+            <p id="header">
+                You can either choose your favourite cocktail if you already know what you want or you can
+                browse them and find the perfect one!
+            </p>
+        </h1>
+
+        <div class="container">
+            <div class="col-xs-6" id="left-column">
+                <h2>
+                    Search by Name:
+                </h2>
+
+                <div class="search-container">
+                    <!--form class="search-form" action="" method="post"></form-->
+                        <div class="row">
+                            <div class="col-25" name="sx">
+                                <input type="text" placeholder="Search.." id="search_cocktail_name">
+                            </div>
+                            <div class="col-25" name="dx">
+        
+                                <button class="search-btn" type="button" onclick="SearchByName()"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <p id="search_cocktail_name_msg"></p>
+                    <!--/form-->
+                </div>
+
+                <hr>
+
+                <h3>
+                    Find the perfect one:
+                    <p id="header_radio">
+                        Do you want to search your cocktail by:
+                    </p>
+                </h3>
+                <div class="search-container">
+                    <input type="radio" id="ingredients" name="ingredients_alcohol_grade" value="ingredients">
+                    <label for="ingredients"> your ingredient</label><br>
+                    <input type="radio" id="category" name="ingredients_alcohol_grade" value="category">
+                    <label for="category">  category  </label><br>
+
+                    <!--form class="search-form" action="" method="post"></form-->
+                    <div class="row">
+                        <div class="col-25" name="sx">
+                            <input type="text" placeholder="Search.." id="search_cocktail_radio">
+                        </div>
+                        <div class="col-25" name="dx">
+    
+                            <button class="search-btn" type="button" onclick="RadioCocktail()"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <small> AVAILABLE CATEGORIES: “Ordinary Drink”, “Cocktail”, “Shot”, “Homemade Liqueur”, “Beer”</small>
+                    </div>
+                    <div class="row">
+                        <p id="search_cocktail_radio_msg"></p>
+                    </div>
+                    <!--/form-->
+                </div>
+
+                <div class="menu-container">
+                    <div class="row" >
+                        <!--div class="col-25"-->
+                            <select size=1 id="menu_cocktail" onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;"> 
+                                <option selected value=""> Choose your cocktail :) </option>
+                            </select>
+                        <!--/div>
+                        <div class="col-25">
+                            <input class="select-btn" type="button" value="Surprise" id="surprise">
+                            <button type="button" class="btn btn-danger" id="surprise" onclick="RandomCocktail()">Surprise Cocktails!</button>
+                        </div-->
+                    </div>
+                    <div class="row">
+                        <button class="button button1" id="surprise" onclick="RandomCocktail();"><span>Short of ideas? Click me!</span></button>
+                    </div>
+                </div>
+                <!--select size=1 id="menu_cocktail"> 
+                    <option selected value=""> Choose your cocktail :) </option>
+                    < bisogna riempire il menu >
+                </select>
+                <button class="btn btn-primary" type="button" value="Surprise"></button-->
+                
+                <p id="select-p">
+                    Press the button below if you have found the right one!
+                </p>
+                <button class="button" id="select-btn" onclick="SelectCocktail();"><span>Select</span></button>
+            </div>
+
+            <div class="col-xs-6" id="right-column">
+                <img src="cocktail.jpg" alt="Cocktail" id="photo_cocktail" > 
+                <div class="container" id="info">                    
+                    <h4> Info:</h4>
+                    <dl id="description_list"> </dl> 
+                </div>
+
+                <div class="container" id="recipe_container">                    
+                    <h4> Recipe:</h4>
+                    <p id="recipe"> Here the recipe of the cocktail.</p> 
+                </div>
+
+                <input type="button" class="select-btn" id="add-btn" value="Add my perfect cocktail" onclick="addCocktail();">
+            </div>
+            
+        </div>
+        
+
+    </body>
+</html>

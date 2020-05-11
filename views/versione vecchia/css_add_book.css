@@ -9,22 +9,10 @@ body{
   border-color: #424254 ;
   font-size: large;  
 }
-#main{
-
-  background-image: linear-gradient(white, gray);
-  border-radius: 10px;
-  margin-left: 50px;
-  margin-bottom: 50px;
-  } 
   
-
 h1{
   margin-left: 1%;
-  text-shadow: 1.4px 1.4px #64908A;
-  margin-bottom:30px; 
-  font-weight:800; 
-  font-size:xx-large;
-  color:#351330 ;}
+}
 
 .container{
   margin-left:1%;
@@ -35,8 +23,6 @@ h1{
 #header{
   margin-top: 1%;
   font-size: large;
-  color: #424254;
-  text-shadow: none;
 }
 
 .search-container {
@@ -63,7 +49,6 @@ input{
   font-size: large;
   background-color: white;
  }
-
 
  hr { 
     border-color: #424254;
@@ -155,29 +140,27 @@ select{
   margin-left:0%;
   margin-bottom: 5px;
   font-size: large;
-  background-color: #424254; 
-  border: 2px solid rgb(153, 153, 153);
+  background-color: #F2E8C4;
+  border: 2px solid #424254;
   border-radius: 20px;
   outline: none;
-  color: rgb(153, 153, 153); 
 }
 
 #select-btn:disabled {
-    background-color:  #424254 ;
+    background-color: #424254;
     opacity: 0.5;
-    color: rgb(153, 153, 153);
+    color: #F2E8C4;
 }
 #select-btn:hover {
-    background-color:rgb(153, 153, 153); ;
-    color:  #424254;
+    background-color: #424254;
+    color: #F2E8C4;
 }
 #select-btn:active:enabled{
     margin-left:0%;
     font-size: large;
-    background-color:   #424254;
-    border: 2px solid rgb(153, 153, 153);;
+    background-color: #F2E8C4;
+    border: 2px solid #424254;
     border-radius: 20px;
-    color: rgb(153, 153, 153);
   }
   
 /**/
@@ -226,24 +209,16 @@ h4{
 }
 
 #add-btn{
-  position: right;
+  position: absolute;
   left: 80%;
   top: 110%;
   margin-bottom: 2%;
-  color: rgb(153, 153, 153);
-  background-color: #424254;
 }
 
 #add-btn:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background-color: rgb(153, 153, 153);
-  color: #424254;
 }
 
-#add-btn:disabled{
-  opacity: 70%;
-  cursor: not-allowed;
-}
 
 .col-25[name="sx"]{
   float:left;
@@ -265,52 +240,3 @@ h4{
   border-collapse: collapse;
   text-align: center;
 }*/
-
-/*Background animation */
-
-body{position:relative}
-#e_background{
-  background:#000 url(sky.jpg) repeat 5% 5%;
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:-100;
-  -webkit-animation:stars-anim 600s infinite linear;
-  -moz-animation:stars-anim 600s infinite linear;
-  -o-animation:stars-anim 600s infinite linear;
-  animation:stars-anim 600s infinite linear}
-
-    #e_moon{
-      background:url(e_moon.png) no-repeat 35% 35%;
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      bottom:0;
-      opacity:1;z-index:-25;
-      -webkit-animation:moon-anim 100s infinite linear;
-      -moz-animation:moon-anim 100s infinite linear;
-      -o-animation:moon-anim 100s infinite linear;
-      animation:moon-anim 100s infinite linear}
-      
-      @media only screen and (max-width:480px){
-        #e_moon{background:url(e_moon.png) no-repeat 35% 35%}}
-        
-        @media only screen and (min-width:481px) and (max-width:767px){
-          #e_moon{background:url(e_moon.png) no-repeat 35% 35%}
-        }
-
-        @-webkit-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
-        @-moz-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
-        @-o-keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
-        @keyframes moon-anim{from{background-position:0 2%}to{background-position:110% 2%}}
-        @-webkit-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
-        @-moz-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
-        @-o-keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
-        @keyframes stars-anim{from{background-position:5% 600%}to{background-position:1300% 5%}}
-        @-webkit-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
-        @-moz-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
-        @-o-keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
-        @keyframes light{0%{opacity:.1}25%{opacity:.35}50%{opacity:.95}100%{opacity:.2}}
