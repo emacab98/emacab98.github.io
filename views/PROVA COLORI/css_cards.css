@@ -24,6 +24,9 @@ body{
   font-size: large;
   font-family: 'Poppins';
 }
+#proceed_button{
+  color: rgb(153, 153, 153)
+}
 
 #what{
   font-size: 100px;
