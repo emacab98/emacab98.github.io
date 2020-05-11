@@ -12,7 +12,12 @@ body{
     font-size: large;
     margin: 0px;
 }
-
+b{
+    text-shadow: 1.2px 1.2px white;
+    margin-bottom:30px; 
+    font-weight:800; 
+    font-size:xx-large;
+    color: rgb(153, 153, 153) ;}
 #welcome_container{
     background-color: #424254 ;
     border-color: #424254 ;
@@ -46,4 +51,51 @@ body{
     text-decoration: none;
 }
 
-
+#sign_in_btn{
+    border-radius: 10px;
+    background-color: rgb(153, 153, 153);
+    width: 180px;
+    border: none;
+    color: #424254;
+    text-align: center;
+    font-weight:600;
+    font-size: 20px;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    outline-color:#424254;
+  }
+  
+  #sign_in_btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    outline-color:#424254;
+  }
+  
+  #sign_in_btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    outline-color:#424254;
+    color: white;
+  }
+  
+  #sign_in_btn:hover span {
+    padding-right: 25px;
+    outline-color:#424254;
+    color: white;
+   
+  }
+  
+  #sign_in_btn:hover span:after {
+    opacity: 1;
+    right: 0;
+    outline-color:#424254;
+    color: white;
+  }
