@@ -39,7 +39,6 @@ function checkPasswordBis() {
 
 } 
 
-
 function checkPassword(){
  
   var regex = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\@\$\!\%\*\?\&]).{8,}$");
@@ -61,9 +60,6 @@ function checkPassword(){
   checkValidity();
 
 }
-
-
-
 
 
 function checkEmail(){

@@ -1,19 +1,15 @@
 $(document).ready(function () {
-  //alert("Sending data");
-  
-  var params = (new URL(document.location)).searchParams;
-  var night_id = params.get('id'); 
-  //var night_id = JSON.parse(localStorage.id_created_night);
+  var params = new URL(document.location).searchParams;
+  var night_id = params.get("id");
   var request = new XMLHttpRequest();
   var path =
     "https://pacific-stream-14038.herokuapp.com/perfectnight/showcase/" +
     night_id;
-  //alert("Path: " + path);
   request.open("GET", path, true);
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
       var found_night = JSON.parse(this.response);
-      
+
       document.getElementById("desc").innerHTML += found_night.description;
       document.getElementById("tag").innerHTML += found_night.tag_type;
 
@@ -23,7 +19,6 @@ $(document).ready(function () {
         img.className = "img-thumbnail";
         img.src = found_night.meal.image;
         document.getElementById("col-sx-meal").appendChild(img);
-        //document.getElementById("meal_img").src = found_night.meal.image;
         document.getElementById("meal_name").innerHTML = found_night.meal.name;
         document.getElementById("meal_category").innerHTML =
           found_night.meal.category;
@@ -52,7 +47,6 @@ $(document).ready(function () {
         img.className = "img-thumbnail";
         img.src = found_night.cocktail.image;
         document.getElementById("col-sx-cocktail").appendChild(img);
-        //$('#cocktail_img').attr('src', JSON.stringify(found_night.cocktail.image));
         document.getElementById("cocktail_name").innerHTML +=
           found_night.cocktail.name;
         document.getElementById("cocktail_category").innerHTML +=
@@ -75,7 +69,6 @@ $(document).ready(function () {
 
       if (found_night.board_game.name != undefined) {
         $("#board_game_container").show();
-        //$('#bg_img').attr('src', found_night.board_game.imageUrl);
         var img = document.createElement("img");
         img.className = "img-thumbnail";
         img.src = found_night.board_game.imageUrl;
@@ -137,11 +130,9 @@ $(document).ready(function () {
         my_music_img.className = "img-thumbnail";
         my_music_img.src = found_night.artist.album_image;
         document.getElementById("col-sx-music").appendChild(my_music_img);
-        //alert("Ho inserito l'immagine" +  found_night.artist.album_image);
 
         document.getElementById("music_name").innerHTML =
           found_night.artist.name;
-        //alert("Ho inserito il nome: " + found_night.artist.name);
         var my_artists = found_night.artist.artists;
 
         var t = 0;
@@ -185,7 +176,6 @@ $(document).ready(function () {
           $("#album_label").hide();
         }
       } else {
-        //alert("Nascondo la sezione")
         $("#music_container").hide();
       }
 
@@ -206,7 +196,6 @@ $(document).ready(function () {
 
         document.getElementById("book_title").innerHTML =
           found_night.book.title;
-        //alert("Ho inserito il nome: " + found_night.artist.name);
         var my_authors = found_night.book.authors;
 
         var t = 0;
@@ -240,27 +229,20 @@ $(document).ready(function () {
             found_night.book.categoryList;
         }
       } else {
-        //alert("Nascondo la sezione")
         $("#book_container").hide();
       }
-
-      //film
 
       if (found_night.movie.year != undefined) {
         $("#film_container").show();
 
-        //alert("Movie: " +  JSON.stringify(found_night.movie));
         if (found_night.movie.playbill == null) {
-          alert("Foto uguale a null");
 
           var my_film_img = document.createElement("img");
           my_film_img.className = "img-thumbnail";
           my_film_img.src = "jedi.jpg";
         } else {
-          //alert("Foto diversa da null")
           var my_film_img = document.createElement("img");
           my_film_img.className = "img-thumbnail";
-
           my_film_img.src = found_night.movie.playbill;
         }
 
@@ -368,13 +350,10 @@ $(document).ready(function () {
             "Sorry no country available";
         }
       } else {
-        //alert("Nascondo la sezione")
         $("#movie_container").hide();
       }
 
-      //serie tv
       if (found_night.movie.firstAirDate != undefined) {
-        //alert("Not undefined");
         $("#tv_container").show();
 
         if (found_night.movie.playbill == null) {
@@ -511,8 +490,6 @@ $(document).ready(function () {
             "Sorry no country available";
         }
       } else {
-        //alert("Nascondo la sezione")
-
         $("#tv_container").hide();
       }
     } else {

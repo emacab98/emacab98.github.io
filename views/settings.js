@@ -6,10 +6,12 @@ $(document).ready(function(){
     document.getElementById("username_here").innerHTML = username+ "'s profile settings";
     $("#change_pswd").hide();
     $("#delete_profile").hide();
+    $("#center").hide();
      
     //sezione controllo form password
     $("#my_a_pswd").click(function(){
         $("#delete_profile").hide();
+        $("#center").show();
         document.getElementById('my_a_pswd').style.color = 'white';
         document.getElementById('my_a_delete').style.color = 'rgb(153, 153, 153)';
         document.getElementById('new_pass').value = "";
@@ -26,8 +28,6 @@ $(document).ready(function(){
         }
   
         $("#change_pswd").show(); 
-
-        $("#div_button").hide();
         $("#submit").prop("disabled",true);
         $("#new_pass").keyup(function(){
             var regex = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\@\$\!\%\*\?\&]).{8,}$");
@@ -128,25 +128,23 @@ $(document).ready(function(){
         document.getElementById('my_a_pswd').style.color = 'rgb(153, 153, 153)';
         document.getElementById('pass').value = "";
 
-        //controllo password corretta
-        $("#change_pswd").hide(); 
+        $("#change_pswd").hide();
+        $("#center").show(); 
         $("#delete_profile").show();
-        $("#div_button").hide();
+       
         $("#delete").click(function(){
             var password = document.getElementById("pass").value;
-            //Funzione per controllare validità password
            
             if(password==""){
                 alert("Please insert your password");
                 return; 
             }
-            
+            //controllo password corretta
             var request = new XMLHttpRequest();
             var path =  'https://pacific-stream-14038.herokuapp.com/user/'+username +'/' + password
-            request.open('GET', path, true)
+            request.open('GET', path, true);
             request.onload = function() {
             if (request.status >= 200 && request.status < 400) {
-                //alert("Correct password!");
                 var result = confirm("Are you sure you want to delete your profile?You'll lose all your data");
                 if (result) {
                 
@@ -197,8 +195,6 @@ function logout(){
   }
 
 
-function changeImage(){
-    alert("Change Image");
-}
+
 
 

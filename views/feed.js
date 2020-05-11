@@ -1,6 +1,5 @@
 var username = localStorage.getItem("username");
 
-
 function logout(){
   var result = confirm("Are you sure you want to logout?");
     if (result) {
@@ -10,6 +9,99 @@ function logout(){
     }
 }
 
+//funzione che consente all'utente di mettere mi piace ad una notte;
+function upvote_function() {
+  var id = this.name;
+  var path =
+    "https://pacific-stream-14038.herokuapp.com/upvoted/" +
+    localStorage.username +
+    "/" +
+    id;
+  var request = new XMLHttpRequest();
+  request.open("POST", path, true);
+  request.onload = function () {
+    if (request.status >= 200 && request.status < 400) {
+      document.getElementById(id + "upvote").innerHTML = "Upvoted";
+      document.getElementById(id + "upvote").style.color = "white";
+      document.getElementById(id + "upvote").style.cursor = "text";
+      document.getElementById(id + "upvote").style.textDecoration = "none";
+      document.getElementById(id + "upvote").onclick = function () {
+        return false;
+      };
+    } else {
+      alert("Something went wrong, please try again!");
+    }
+  };
+
+  request.send();
+}
+
+//funzione che permette all'utente di salvare una notte
+function save_function() {
+  var id = this.name;
+  var path =
+    "https://pacific-stream-14038.herokuapp.com/saved/" +
+    localStorage.username +
+    "/" +
+    id;
+  var request = new XMLHttpRequest();
+  request.open("POST", path, true);
+  request.onload = function () {
+    if (request.status >= 200 && request.status < 400) {
+      
+      document.getElementById(id + "save").innerHTML = "Saved";
+      document.getElementById(id + "save").style.color = "white";
+      document.getElementById(id + "save").style.cursor = "text";
+      document.getElementById(id + "save").style.textDecoration = "none";
+      document.getElementById(id + "save").onclick = function () {
+        return false;
+      };
+    } else {
+      alert("Something went wrong, please try again!");
+    }
+  };
+  request.send();
+}
+
+//funzione che salva nel local storage le notti piaciute dall'utente
+function findUpvotedNights() {
+  return new Promise(function (resolve, reject) {
+    var request = new XMLHttpRequest();
+    var path = "https://pacific-stream-14038.herokuapp.com/upvoted/" + username;
+    request.open("GET", path, true);
+    request.onload = function () {
+      if (request.status >= 200 && request.status < 400) {
+        var risposta = JSON.parse(this.response);
+        localStorage.setItem("upvoted_nights", JSON.stringify(risposta));
+        resolve();
+      } else {
+        alert("Something went wrong. Message: " + this.responseText);
+        reject();
+      }
+    };
+    request.send();
+  });
+}
+
+//funzione che salva nel local storage le notti salvate dall'utente
+function findSavedNights() {
+  return new Promise(function (resolve, reject) {
+    var request = new XMLHttpRequest();
+    var path = "https://pacific-stream-14038.herokuapp.com/saved/" + username;
+    request.open("GET", path, true);
+    request.onload = function () {
+      if (request.status >= 200 && request.status < 400) {
+        var risposta = JSON.parse(this.response);
+        localStorage.setItem("saved_nights", JSON.stringify(risposta));
+        resolve();
+      } else {
+        alert("Something went wrong. Message: " + this.responseText);
+        reject();
+      }
+    };
+    request.send();
+  });
+}
 
 
 $(document).ready(async function () {
@@ -35,51 +127,48 @@ $(document).ready(async function () {
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
       var risposta = JSON.parse(this.response);
-      //var risposta_str = JSON.stringify(this.response);
-
       if (risposta.length == 0) {
-        if (mode == "created")
-          document.getElementById("message").innerHTML =
-            "Created nights will appear here! Start creating now!";
-        $("#message").show();
+        $("#message").show(); //se non ci sono notti, verrà mostrato un messaggio
       } else {
-        $("#message").hide();
+        $("#message").hide(); //altrimenti, il messaggio verrà nascosto e verranno caricati dinamicamente i vari post
+
         var nights_section = document.getElementById("posts");
-        var index = 0;
+        var index;
         var risposta_len = risposta.length;
 
         for (index = 0; index < risposta_len; index++) {
-          var elementi = 0;
+          var elementi = 0; 
 
           var checked_saved = false;
           var checked_upvoted = false;
           var saved_len = saved.length;
           var upvoted_len = upvoted.length;
 
+          //controllo se l'id della notte i-esima si trova tra quelle salvate, in tal caso, setto un flag a true.
           for (var j = 0; j < saved_len; j++) {
             if (saved[j].id == risposta[index].id) {
               checked_saved = true;
-
               break;
             }
           }
-
+          //controllo se l'id della notte i-esima si trova tra quelle piaciute, in tal caso, setto un flag a true.
           for (var j = 0; j < upvoted_len; j++) {
             if (upvoted[j].id == risposta[index].id) {
               checked_upvoted = true;
               break;
             }
           }
-          //alert("Upvoted: " + checked_upvoted);
-          //alert("controllato")
 
-          nights[index] = risposta[index];
+
+          
+
+          //Comincio la creazione dinamica dei post
           var div_row = document.createElement("div");
           div_row.className = "row";
 
           var div_col = document.createElement("div");
           div_col.className = "col-sm-11";
-          //alert("Col created");
+          
 
           var div_well = document.createElement("div");
           div_well.className = "well";
@@ -87,12 +176,13 @@ $(document).ready(async function () {
           var my_desc_title = document.createElement("p");
           my_desc_title.className = "my_title";
           my_desc_title.innerHTML = "Description: ";
+
+
           var my_desc = document.createElement("span");
           my_desc.className = "my_elem";
           my_desc.innerHTML = risposta[index].description;
-          //alert("My desc: " + risposta[index].description);
+          
           my_desc_title.appendChild(my_desc);
-
           div_well.appendChild(my_desc_title);
 
           var my_tag_title = document.createElement("p");
@@ -114,7 +204,6 @@ $(document).ready(async function () {
 
           if (risposta[index].board_game.id != undefined) {
             elementi += 1;
-
             var board_game = risposta[index].board_game;
             var container1 = document.createElement("container");
             container1.className = "elem" + elementi;
@@ -294,10 +383,9 @@ $(document).ready(async function () {
             list.appendChild(container6);
           }
 
-          //Movie_tv_show
+        
 
           if (risposta[index].movie.id != undefined) {
-            //alert("Risposta: " + JSON.stringify(risposta[index].movie))
             elementi += 1;
 
             var container7 = document.createElement("container");
@@ -333,7 +421,7 @@ $(document).ready(async function () {
           bottone.type = "button";
           bottone.className += "post_button";
           bottone.name = risposta[index].id;
-          //bottone.innerHTML = "More infos";
+          
           var span = document.createElement("span");
           span.innerHTML = "More infos" ; 
           bottone.onclick = reply_click;
@@ -343,16 +431,16 @@ $(document).ready(async function () {
           var link = document.createElement("a");
           link.id = risposta[index].id + "upvote";
           link.name = risposta[index].id;
-          //span.innerHTML = "Upvote";
+          
           if (checked_upvoted == false) {
-            //alert("Not upvoted!")
+            
             link.className = "my_link";
             link.innerHTML = "Upvote  ";
             link.onclick = upvote_function;
             var span = document.createElement("span");
             span.className = "glyphicon glyphicon-arrow-up";
           } else {
-            //alert("Upvoted!")
+            
             link.className = "upvotedAndSaved";
             link.innerHTML = "Upvoted  ";
           }
@@ -361,17 +449,17 @@ $(document).ready(async function () {
           link2.id = risposta[index].id + "save";
           link2.name = risposta[index].id;
 
-          //span2.innerHTML = "Save";
+          
 
           if (checked_saved == false) {
-            //alert("Not Saved!")
+            
             link2.className = "my_link";
             link2.innerHTML = "   Save";
             link2.onclick = save_function;
             var span2 = document.createElement("span");
             span2.className = "glyphicon glyphicon-download-alt";
           } else {
-            //alert("Saved!")
+           
             link2.className = "upvotedAndSaved";
             link2.innerHTML = "  Saved";
           }
@@ -400,123 +488,6 @@ $(document).ready(async function () {
 
 function reply_click() {
   window.localStorage.setItem("night_id", this.name);
-  //alert("id: " + this.name);
   window.location.href = "Post.html";
 }
 
-function logout() {
-  var result = confirm("Are you sure you want to logout?");
-  if (result) {
-    localStorage.clear;
-    alert("You are logging out! Bye!");
-    window.location.href = "Home.html";
-  }
-}
-
-function upvote_function() {
-  var id = this.name;
-
-  var path =
-    "https://pacific-stream-14038.herokuapp.com/upvoted/" +
-    localStorage.username +
-    "/" +
-    id;
-
-  var request = new XMLHttpRequest();
-
-  request.open("POST", path, true);
-
-  request.onload = function () {
-    if (request.status >= 200 && request.status < 400) {
-      //alert("You upvoted this night!")
-      document.getElementById(id + "upvote").innerHTML = "Upvoted";
-      document.getElementById(id + "upvote").style.color = "white";
-      document.getElementById(id + "upvote").style.cursor = "text";
-      document.getElementById(id + "upvote").style.textDecoration = "none";
-
-      document.getElementById(id + "upvote").onclick = function () {
-        return false;
-      };
-    } else {
-      alert("Something went wrong, please try again!");
-    }
-  };
-
-  request.send();
-}
-
-function save_function() {
-  var id = this.name;
-
-  var path =
-    "https://pacific-stream-14038.herokuapp.com/saved/" +
-    localStorage.username +
-    "/" +
-    id;
-
-  var request = new XMLHttpRequest();
-
-  request.open("POST", path, true);
-
-  request.onload = function () {
-    // Begin accessing JSON data here
-
-    if (request.status >= 200 && request.status < 400) {
-      //alert("You saved this night!");
-      document.getElementById(id + "save").innerHTML = "Saved";
-      document.getElementById(id + "save").style.color = "white";
-      document.getElementById(id + "save").style.cursor = "text";
-      document.getElementById(id + "save").style.textDecoration = "none";
-      document.getElementById(id + "save").onclick = function () {
-        return false;
-      };
-    } else {
-      alert("Something went wrong, please try again!");
-    }
-  };
-
-  request.send();
-}
-
-function findUpvotedNights() {
-  return new Promise(function (resolve, reject) {
-    var request = new XMLHttpRequest();
-
-    var path = "https://pacific-stream-14038.herokuapp.com/upvoted/" + username;
-    request.open("GET", path, true);
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        var risposta = JSON.parse(this.response);
-
-        localStorage.setItem("upvoted_nights", JSON.stringify(risposta));
-        resolve();
-      } else {
-        alert("Something went wrong. Message: " + this.responseText);
-        reject();
-      }
-    };
-
-    request.send();
-  });
-}
-
-function findSavedNights() {
-  return new Promise(function (resolve, reject) {
-    var request = new XMLHttpRequest();
-
-    var path = "https://pacific-stream-14038.herokuapp.com/saved/" + username;
-    request.open("GET", path, true);
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        var risposta = JSON.parse(this.response);
-
-        localStorage.setItem("saved_nights", JSON.stringify(risposta));
-        resolve();
-      } else {
-        alert("Something went wrong. Message: " + this.responseText);
-        reject();
-      }
-    };
-    request.send();
-  });
-}

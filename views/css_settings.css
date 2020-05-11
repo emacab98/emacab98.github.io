@@ -163,7 +163,9 @@ body{
     margin-left:10px;
   }
   h1{
-    color: #F2E8C4;
+    text-shadow: 1.2px 1.2px white;
+    color: rgb(153, 153, 153);
+    float: left;
   }
   #my_list_div{
     margin-top: 50px;
@@ -181,15 +183,10 @@ body{
   #center{
     background-image:  linear-gradient( #424254, #40408b );
     height: 600px;
+    border-radius: 10px;
   }
   
-  #my_center{
-    background-color: linear-gradient( #424254, #40408b );
-
-    width: 900px;
-    height: 530px;
-  
-  }
+ 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 600px}
     

@@ -37,45 +37,47 @@
     </div>
 
     <div class="row">
-        <button type="button" class="button" id="back">
-          <a href="FinalStep.html" id="my_a2">
-              <span > Go back</span>
-              
-            </a>
-        </button>
-      </div>
+      <button type="button" class="button" id="back">
+        <a href="FinalStep.html" id="my_a2">
+          <span> Go back</span>
+        </a>
+      </button>
+    </div>
     <section class="create-block">
       <div class="container">
         <div class="row">
-            <h1>Send a mail to your friends!</h1>
-        </div>
-        <div class= "row">
-            <p>Insert the emails separated by commas, e.g email1@emai.com , email2@email.com</p>
+          <h1>Send a mail to your friends!</h1>
         </div>
         <div class="row">
-            <textarea id="emails" placeholder="Insert the emails here"></textarea>
-
-        </div>
-
-        <div class= "row">
-            <p>Write a message: </p>
+          <p>
+            Insert the emails separated by commas, e.g email1@emai.com ,
+            email2@email.com
+          </p>
         </div>
         <div class="row">
-            <textarea id="message" placeholder="Insert your message here"></textarea>
+          <textarea id="emails" placeholder="Insert the emails here"></textarea>
         </div>
 
         <div class="row">
-            <button type="button" class="button" id="submit" onclick="sendEmail()">
-              
-                  <span > Send!</span>
-                  
-                
-            </button>
-          </div>
+          <p>Write a message:</p>
+        </div>
+        <div class="row">
+          <textarea
+            id="message"
+            placeholder="Insert your message here"
+          ></textarea>
+        </div>
 
-        
-
-
+        <div class="row">
+          <button
+            type="button"
+            class="button"
+            id="submit"
+            onclick="sendEmail()"
+          >
+            <span> Send!</span>
+          </button>
+        </div>
       </div>
     </section>
   </body>
