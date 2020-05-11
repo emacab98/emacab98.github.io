@@ -406,14 +406,10 @@ function SaveMusic(){
 
 /** ADD MUSIC */
 function addMusic(){
-    localStorage.music=JSON.stringify(selected_music);
-    alert(localStorage.music);
+    localStorage.artist=JSON.stringify(selected_music);
     var perfect_night = JSON.parse(localStorage.perfect_night);
     perfect_night.artist = selected_music.id;
     localStorage.perfect_night = JSON.stringify(perfect_night);
-    alert(localStorage.perfect_night);
-    alert(perfect_night.bool_issolo);
-    return;
     if(perfect_night.bool_issolo) window.location.href='addElementSolo.html';
     else window.location.href='addElementCompany.html';
 }
