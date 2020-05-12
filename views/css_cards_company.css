@@ -1,110 +1,10 @@
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-  margin-bottom: 30px;
-  font-family: 'Baloo';
-  
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 30px;
-
-  text-align: center;
-  font-size: 38;
-  padding: 40% 0;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
-  text-decoration: none;
-}
-
-.flip-card-front {
-  background-size: cover;
-  background-position: center;	
-  min-height: 280px;
-  min-width:300px;
-  height: 280px;
-  width: 300px;
-  margin: auto; 
-  font-size: 38;
-  padding: 40% 0;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
-
-}
-
-.flip-card-back {
-  background-color: #424254;
-  color: white;
-  transform: rotateY(180deg);
-  text-decoration: none;
-}
-.flip-card-back a{
-  color: white;
-  text-decoration: none;
-
-}
-
-
-/***********************************/
-#card{
-  font-family: 'Baloo';
-  background-size: cover;
-  background-position: center;	
-  min-height: 280px;
-  min-width:300px;
-  height: 280px;
-  width: 300px;
-  border-radius: 30px;
-  margin: auto;  
-}
- 
-  
-#card h1{
-  text-align: center;
-  font-size: 38;
-  padding: 40% 0;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
-}
-
-#card a{
-  text-decoration: none;
-}
-/**********************************/
 .my_a{
   font-family: 'Poppins';
   font-size: large;
   text-decoration: none;
   color: #424254;
 }  
-#proceed_button{
-  color: rgb(153, 153, 153)
-}
+  
 body{ 
   background-color: #424254;
   font-family: 'Poppins', sans-serif;
@@ -124,41 +24,154 @@ body{
   font-size: large;
   font-family: 'Poppins';
 }
+#proceed_button{
+  color: rgb(153, 153, 153)
+}
 
 #what{
   font-size: 100px;
   text-align: center;
   font-family: 'Baloo';
-    margin-left: 1%;
-    text-shadow: 3px 3px  rgb(153, 153, 153) ;
-    margin-bottom:30px; 
-    color:  white; 
+  /*margin-left: 1%;*/
+  text-shadow: 3px 3px  rgb(153, 153, 153) ;
+  margin-bottom:30px; 
+  color:  white; 
+  margin:auto;
 }
 
+/*.card{
+  font-family: 'Baloo';
+  background-size: cover;
+  background-position: center;	
+  min-height: 280px;
+  min-width:300px;
+  height: 280px;
+  
+  width: 300px;
+  border-radius: 30px;  
+  margin: auto;
+}
 
-#cocktail_card{
+.card h1{
+  text-align: center;
+  font-size: 38;
+  padding: 40% 0;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
+}
+
+.card a{
+  text-decoration: none;
+}*/
+
+
+/*******/
+.flip-card{
+  /*border: 3px solid green;*/
+  font-family: 'Baloo';
+  /*background-size: cover;
+  background-position: center;*/	
+  min-height: 280px;
+  min-width:300px;
+  height: 280px;  
+  width: 300px;
+  /*border-radius: 30px;*/
+  margin: auto;
+  perspective: 1000px;
+}
+/*.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}*/
+
+.flip-card-inner {
+  /*border: 3px solid green;*/
+  border-radius: 30px;
+  /*position: relative;*/ 
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+}
+
+.flip-card-front, .flip-card-back {
+  border-radius: 30px; 
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+}
+.flip-card-front h1{
+  text-align: center;
+  font-size: 38;
+  padding: 30% 0;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
+}
+.flip-card-back h1{
+  text-align: center;
+  font-size: 38;
+  padding: 25% 0;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
+}
+
+.flip-card-back {
+  background-color: #424254;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card:hover .flip-card-inner {
+  /*rotate right*/
+  transform: rotateY(180deg);
+}
+
+/********/
+
+/*******/
+#cocktail_card .flip-card-front{
   background-image:url(cocktail.jpg) ;
-}  
+} 
 
-#game_card{
+#game_card .flip-card-front{
   background-image:url(game.jpg) ;
-}  
-#movie_card{
+} 
+
+#movie_card .flip-card-front{
   background-image:url(ciak.jpg) ;
 }  
-#beer_card{
+
+#beer_card .flip-card-front{
   background-image:url(beer.jpg) ;
-}  
-#recipe_card{
+} 
+
+#recipe_card .flip-card-front{
   background-image:url(recipe.jpg) ;
-}  
-#music_card{
+} 
+
+#music_card .flip-card-front{
   background-image:url(music.jpg) ;
 }  
-
+/*******/
 
 .col-sm-4{
-  margin-top: -10px;
+  /*border: 3px solid green;*/
+  margin-top: 30px;
   min-width: 350px;
   height: auto;
 }
@@ -172,8 +185,6 @@ body{
   width: 90%;
   /*border: 3px solid green;*/
   padding: 30px;
- 
- 
     
 }
 
@@ -260,7 +271,6 @@ body{
   padding-right: 0px;
 }
 
-/*Background animation */
 
 body{position:relative}
 #e_background{
