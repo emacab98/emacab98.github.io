@@ -91,120 +91,143 @@
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
-    </div>
-
+    </div> 
+      
     <!-- cards -->
     <h1 id="what">What...</h1>
     <div class="container-fluid" id="deck">
-      <div class="col-sm-4">
-        <div class="flip-card">
+      <div class="col-sm-4">      
+        <div class="flip-card" id="cocktail_card"> 
           <div class="flip-card-inner">
-            <div class="flip-card-front" id="cocktail_card">
-              <h1 class="card-title" id="cocktail">cocktail are we drinking?</h1>
-            </div>
-            <div class="flip-card-back">
-              <a href="addCocktail.html">
-                <h1 class="card-title" id ="change_cocktail">
-                  Pick a cocktail and it will appear here!
-                </h1>
-              </a>
-            </div>
-          </div>
+            <a href="addCocktail.html">
+              <div class="flip-card-front">
+                <h1 class="card-title">cocktail are we drinking?</h1>
+              </div>
+              <div class="flip-card-back">
+                <h1 class="change-title">Pick a cocktail and it will appear here!</h1>
+              </div>
+            </a>
+          </div>                    
+        </div> 
+      </div>
+      <div class="col-sm-4">      
+        <div class="flip-card" id="game_card"> 
+          <div class="flip-card-inner">
+            <a href="addGame.html">
+              <div class="flip-card-front">
+                <h1 class="card-title">are we playing?</h1>
+              </div>
+              <div class="flip-card-back">
+                <h1 class="change-title">Pick a game and it will appear here!</h1>
+              </div>
+            </a>
+          </div>                    
+        </div> 
+      </div>
+      <div class="col-sm-4">      
+        <div class="flip-card" id="movie_card"> 
+          <div class="flip-card-inner">
+            <a href="addMovie.html">
+              <div class="flip-card-front">
+                <h1 class="card-title">are we watching?</h1>
+              </div>
+              <div class="flip-card-back">
+                <h1 class="change-title">Pick a movie or a tv show and it will appear here!</h1>
+              </div>
+            </a>
+          </div>                    
+        </div> 
+      </div>
+      <div class="col-sm-4">      
+        <div class="flip-card" id="beer_card"> 
+          <div class="flip-card-inner">
+            <a href="addBeer.html">
+              <div class="flip-card-front">
+                <h1 class="card-title">beer are we having?</h1>
+              </div>
+              <div class="flip-card-back">
+                <h1 class="change-title">Pick a beer and it will appear here!</h1>
+              </div>
+            </a>
+          </div>                    
+        </div> 
+      </div>
+      <div class="col-sm-4">      
+        <div class="flip-card" id="recipe_card"> 
+          <div class="flip-card-inner">
+            <a href="addMeal.html">
+              <div class="flip-card-front">
+                <h1 class="card-title">are we eating?</h1>
+              </div>
+              <div class="flip-card-back">
+                <h1 class="change-title">Pick a meal and it will appear here!</h1>
+              </div>
+            </a>
+          </div>                    
+        </div> 
+      </div>
+      <div class="col-sm-4">      
+        <div class="flip-card" id="music_card"> 
+          <div class="flip-card-inner">
+            <a href="addMusic.html">
+              <div class="flip-card-front">
+                <h1 class="card-title">are we listening to?</h1>
+              </div>
+              <div class="flip-card-back">
+                <h1 class="change-title">Pick a song or an album and it will appear here!</h1>
+              </div>
+            </a>
+          </div>                    
+        </div> 
+      </div>
+      <!--div class="col-sm-4">
+        <div class="card" id="cocktail_card">
+          <a href="addCocktail.html">
+            <h1 class="card-title">cocktail are we drinking?</h1>
+          </a>
         </div>
       </div>
-
       <div class="col-sm-4">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front" id="game_card">
-              <h1 class="card-title" id="boardgame">are we playing?</h1>
-            </div>
-            <div class="flip-card-back">
-              <a href="addGame.html">
-                <h1 class="card-title" id ="change_boardgame">
-                  Pick a game and it will appear here!
-                </h1>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front" id="movie_card">
-              <h1 class="card-title" id="movie">are we watching??</h1>
-            </div>
-            <div class="flip-card-back">
-              <a href="addMovie.html">
-                <h1 class="card-title" id ="change_media">
-                  Pick a movie or a tv show and it will appear here!
-                </h1>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front" id="beer_card">
-              <h1 class="card-title" id="beer">beer are we drinking?</h1>
-            </div>
-            <div class="flip-card-back">
-              <a href="addBeer.html">
-                <h1 class="card-title" id ="change_beer">
-                  Pick a beer and it will appear here!
-                </h1>
-              </a>
-            </div>
-          </div>
+        <div class="card" id="game_card">
+          <a href="addGame.html">
+            <h1 class="card-title">are we playing?</h1>
+          </a>
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front" id="recipe_card">
-              <h1 class="card-title"  id="meal">are we eating?</h1>
-            </div>
-            <div class="flip-card-back">
-              <a href="addMeal.html">
-                <h1 class="card-title" id ="change_meal">
-                  Pick a meal and it will appear here!
-                </h1>
-              </a>
-            </div>
-          </div>
+        <div class="card" id="movie_card">
+          <a href="addMovie.html">
+            <h1 class="card-title">are we watching?</h1>
+          </a>
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front" id="music_card">
-              <h1 class="card-title" id="music" >are we listening to?</h1>
-            </div>
-            <div class="flip-card-back">
-              <a href="addMusic.html" class="card-title">
-                <h1 class="card-title" id ="change_music">
-                  Pick a song or an album and it will appear here!
-                </h1>
-              </a>
-            </div>
-          </div>
+        <div class="card" id="beer_card">
+          <a href="addBeer.html">
+            <h1 class="card-title">beer are we having?</h1>
+          </a>
         </div>
       </div>
+      <div class="col-sm-4">
+        <div class="card" id="recipe_card">
+          <a href="addMeal.html">
+            <h1 class="card-title">are we eating?</h1>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card" id="music_card">
+          <a href="addMusic.html">
+            <h1 class="card-title">are we listening to?</h1>
+          </a>
+        </div>
+      </div-->
       <div class="row">
-        <button
-          class="button button1"
-          disabled
-          onclick="window.location.href='addCategory.html';"
-        >
+        <button class="button button1"  disabled onclick="window.location.href='addCategory.html';">
           <span id="proceed_button">Proceed </span>
         </button>
       </div>
     </div>
-    <!-- end deck-->
+    <!-- end deck-->      
   </body>
 </html>

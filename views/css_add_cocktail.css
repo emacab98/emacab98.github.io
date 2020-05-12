@@ -188,9 +188,10 @@ h4{
 }
 
 #add-btn{
-  position:absolute;
-  left: 60%;
-  top: 110%;
+  position:right;
+  /*left: 60%;
+  top: 110%;*/
+  margin-top: 2%;
   margin-bottom: 2%;
   background-color: #424254;
   color:  rgb(153, 153, 153);

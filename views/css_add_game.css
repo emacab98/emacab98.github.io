@@ -231,12 +231,13 @@ h4{
 }
 
 #add-btn{
-  position: right;
-  left: 80%;
-  top: 110%;
+  position:right;
+  /*left: 80%;
+  top: 110%;*/
+  margin-top: 2%;
   margin-bottom: 2%;
-  color: rgb(153, 153, 153);
   background-color: #424254;
+  color:  rgb(153, 153, 153);
 }
 
 #add-btn:hover {
