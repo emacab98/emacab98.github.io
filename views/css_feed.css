@@ -7,8 +7,7 @@
 
 .my_link{
   color: rgb(153, 153, 153);
-  cursor: pointer;
-  margin-right: 10px;
+  text-decoration: none;
 
 }
 
@@ -22,7 +21,10 @@
   text-decoration: none;
 
 }
-
+.my_link{
+  cursor: pointer;
+  margin-right: 10px;
+}
 
 
 .well{
@@ -261,12 +263,15 @@ margin-left: 50px;
 }
 
 #my_center{
+
 width: 1000px;
 height: auto;
 margin-top: 20px;
 
-}
 
+
+}
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {height: 600px}
 
 /* On small screens, set height to 'auto' for sidenav and grid */

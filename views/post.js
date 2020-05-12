@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   var nights = JSON.parse(localStorage.getItem("nights"));
+ 
   var id = localStorage.getItem("night_id");
   var index = 0;
   for (var i = 0; i < nights.length; i++) {
