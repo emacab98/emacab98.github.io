@@ -1,13 +1,9 @@
-/*localStorage.removeItem("cocktail");
-localStorage.removeItem("book");
-localStorage.removeItem("movie");
-localStorage.removeItem("beer");
-localStorage.removeItem("recipe");
-localStorage.removeItem("music");
-localStorage.removeItem("game");
-localStorage.removeItem("perfect_night");*/
 var perfect_night;
+
+//onload function
+//check if the user has choosen an element (and so if it is in the storage) to change cards
 function CheckStorage(){
+    //check element
     if(typeof(localStorage.cocktail) == "undefined"){
         document.getElementById('cocktail_card').style.backgroundImage = 'linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("cocktail.jpg")';
         document.getElementById('cocktail_card').style.opacity='.5';
@@ -18,7 +14,7 @@ function CheckStorage(){
         document.getElementById('cocktail').innerHTML = `${cocktail.name}`;
     }
 
-    
+    //check element
     if(typeof(localStorage.book) == "undefined"){
         document.getElementById('book_card').style.backgroundImage = 'linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("book.jpg")';
         document.getElementById('book_card').style.opacity='.5';
@@ -28,6 +24,8 @@ function CheckStorage(){
         if(book.image != "Sorry, no picture for this book!") document.getElementById('book_card').style.backgroundImage = `url("${book.image}")`;
         document.getElementById('book').innerHTML = `${book.title}`;
     }
+
+    //check element
     if(typeof(localStorage.movie) == "undefined"){
         document.getElementById('movie_card').style.backgroundImage = 'linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("ciak.jpg")';
         document.getElementById('movie_card').style.opacity='.5';
@@ -39,6 +37,7 @@ function CheckStorage(){
         document.getElementById('movie').innerHTML = `${movie.title}`;
     } 
 
+    //check element
     if(typeof(localStorage.beer) == "undefined" ){
         document.getElementById('beer_card').style.backgroundImage = 'linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("beer.jpg")';
         document.getElementById('beer_card').style.opacity='.5';
@@ -49,6 +48,7 @@ function CheckStorage(){
         document.getElementById('beer').innerHTML = `${beer.name}`;
     }
 
+    //check element
     if(typeof(localStorage.meal) == "undefined"){
         document.getElementById('recipe_card').style.backgroundImage = 'linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("recipe.jpg")';
         document.getElementById('recipe_card').style.opacity='.5';
@@ -59,6 +59,7 @@ function CheckStorage(){
         document.getElementById('meal').innerHTML = `${meal.name}`;
     }
 
+    //check element
     if(typeof(localStorage.artist) == "undefined"){
         document.getElementById('music_card').style.backgroundImage = 'linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("music.jpg")';
         document.getElementById('music_card').style.opacity='.5';
@@ -69,29 +70,26 @@ function CheckStorage(){
         document.getElementById('music').innerHTML = `${music.name}`;
     }
 
+    //initialize global variable perfect_night with the perfect_night object in the storage
     perfect_night = JSON.parse(localStorage.perfect_night);
+    //changing text in Category paragraph with the category choosen by user
     document.querySelector('.paragraph_category').innerHTML = `${perfect_night.tag_type}`;
+    //changing text in Description paragraph with the description written by user
     document.querySelector('.paragraph_description').innerHTML = `${perfect_night.description}`;
 
 }
 
+//onclick create night button
 function CreateNight(){
     $(".button2").prop("disabled",true);
     delete perfect_night.bool_issolo;
     var data;
+    // AJAX XMLHttpRequest 
     var request = new XMLHttpRequest();
     request.open('POST', `https://pacific-stream-14038.herokuapp.com/perfectnight/${localStorage.username}`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             // Begin accessing JSON data here
-            /*localStorage.removeItem("perfect_night");
-            localStorage.removeItem("book");
-            localStorage.removeItem("artist");
-            localStorage.removeItem("meal");
-            localStorage.removeItem("board_game");
-            localStorage.removeItem("beer");
-            localStorage.removeItem("cocktail");
-            localStorage.removeItem("movie"); */
             
             var risposta = JSON.parse(this.response);
             localStorage.setItem("id_created_night", risposta.id); 
@@ -104,6 +102,7 @@ function CreateNight(){
         }
     }
 
+    //serialize json object and send it to web server
     data = JSON.stringify(perfect_night); 
     request.setRequestHeader("Content-type", "application/json");
     request.send(data);

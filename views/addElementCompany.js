@@ -1,13 +1,6 @@
-/*localStorage.removeItem("cocktail");
-localStorage.removeItem("book");
-localStorage.removeItem("movie");
-localStorage.removeItem("beer");
-localStorage.removeItem("recipe");
-localStorage.removeItem("music");
-localStorage.removeItem("game");
-localStorage.removeItem("perfect_night");*/
-
+//onload function
 function CheckStorage(){
+    //proceed button is disabled if no item is added
     if(typeof(localStorage.cocktail) != "undefined" || typeof(localStorage.board_game) != "undefined" ||
        typeof(localStorage.movie) != "undefined" || typeof(localStorage.beer) != "undefined" ||
        typeof(localStorage.meal) != "undefined" || typeof(localStorage.artist) != "undefined"){
@@ -15,6 +8,7 @@ function CheckStorage(){
     }
     else $(".button").prop("disabled",true);
 
+    //checking if a specific element is added in the night to change the card
     if(typeof(localStorage.cocktail) != "undefined"){
         var cocktail = JSON.parse(localStorage.cocktail);
         document.querySelector("#cocktail_card .flip-card-front").style.backgroundImage = `url("${cocktail.image}")`;

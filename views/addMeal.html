@@ -7,21 +7,13 @@
     <title>Just a perfect night - Add Meal</title>
 
     <!--Poppins font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- icon of setting -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    
+    <!-- font-awesome icon set (fa fa-search) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!-- my css file-->
     <link rel="stylesheet" href="css_add_meal.css" />
@@ -48,12 +40,16 @@
       </div>
     </nav>
     <!--end navbar-->
+
+    <!-- container background moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
     </div>
 
+    <!-- creating section for search (formatting purpose) -->
     <section class="create-block">
+      <!-- creating container #main to wrap all the elements -->
       <div class="container" id="main">
         <h1>
           Meals
@@ -63,6 +59,7 @@
           </p>
         </h1>
 
+        <!-- creating container to wrap left and right column -->
         <div class="container">
           <!-- left column -->
           <div class="col-xs-6" id="left-column">
@@ -71,25 +68,22 @@
               Search by Name:
             </h2>
 
+            <!-- search-container for Search by Name -->
             <div class="search-container">
               <div class="row">
+                <!-- small column inside the row to contain input element for alignment purpose -->
                 <div class="col-25" name="sx">
-                  <input
-                    type="text"
-                    placeholder="Search.."
-                    id="search_meal_name"
-                  />
+                  <input type="text" placeholder="Search.." id="search_meal_name"/>
                 </div>
+                <!-- small column inside the row to contain button element for alignment purpose -->
                 <div class="col-25" name="dx">
-                  <button
-                    class="search-btn"
-                    type="button"
-                    onclick="SearchByName();"
-                  >
+                  <button class="search-btn" type="button" onclick="SearchByName();">
                     <i class="fa fa-search"></i>
                   </button>
                 </div>
               </div>
+              <!-- end row -->
+              <!-- control message in case of error -->
               <p id="search_meal_name_msg"></p>
             </div>
             <!-- end search by name -->
@@ -101,16 +95,13 @@
             <p id="p_advanced_search">
               Find the perfect one:
             </p>
+            <!-- search-container for advanced search -->
             <div class="search-container">
               <!-- cuisine -->
               <div class="row">
                 <label for="menu_cuisine">Cuisine: </label>
-                <select
-                  onmousedown="this.size=5;"
-                  onchange="this.size=0;"
-                  onblur="this.size=0;"
-                  id="menu_cuisine"
-                >
+                <!-- select element is used to create a drop-down list of cuisines -->
+                <select onmousedown="this.size=5;" onchange="this.size=0;" onblur="this.size=0;" id="menu_cuisine">
                   <option selected value=""> Choose cuisine </option>
                   <option value="American"> American </option>
                   <option value="British"> British </option>
@@ -140,11 +131,7 @@
               </div>
               <!-- button advanced search -->
               <div class="row">
-                <button
-                  class="button"
-                  id="filters_button_cuisine"
-                  onclick="AdvancedSearchCuisine();"
-                >
+                <button class="button" id="filters_button_cuisine" onclick="AdvancedSearchCuisine();">
                   <span>Search by cuisine <i class="fa fa-search"></i></span>
                 </button>
               </div>
@@ -154,12 +141,8 @@
               <!-- category -->
               <div class="row">
                 <label for="menu_category">Category: </label>
-                <select
-                  onmousedown="this.size=5;"
-                  onchange="this.size=0;"
-                  onblur="this.size=0;"
-                  id="menu_category"
-                >
+                 <!-- select element is used to create a drop-down list of categories -->
+                <select onmousedown="this.size=5;" onchange="this.size=0;" onblur="this.size=0;" id="menu_category">
                   <option selected value=""> Choose category </option>
                   <option value="Beef"> Beef </option>
                   <option value="Breakfast"> Breakfast </option>
@@ -180,11 +163,7 @@
 
               <!-- button advanced search -->
               <div class="row">
-                <button
-                  class="button"
-                  id="filters_button_category"
-                  onclick="AdvancedSearchCategory();"
-                >
+                <button class="button" id="filters_button_category" onclick="AdvancedSearchCategory();">
                   <span>Search by category <i class="fa fa-search"></i></span>
                 </button>
               </div>
@@ -197,22 +176,16 @@
             <!-- menu meal -->
             <div class="menu-container">
               <div class="row">
-                <select
-                  size="1"
-                  id="menu_meal"
+                <select size="1" id="menu_meal"
                   onmousedown="this.size=5;"
                   onchange="this.size=0;"
-                  onblur="this.size=0;"
-                >
+                  onblur="this.size=0;">
                   <option selected value=""> Choose your meal :) </option>
                 </select>
               </div>
+              <!-- random button -->
               <div class="row">
-                <button
-                  class="button button1"
-                  id="surprise"
-                  onclick="RandomMeal();"
-                >
+                <button class="button button1" id="surprise" onclick="RandomMeal();">
                   <span>Short of ideas? Click me!</span>
                 </button>
               </div>
@@ -221,6 +194,7 @@
             <p id="select-p">
               Press the button below if you have found the right one!
             </p>
+            <!-- select choosen element button -->
             <button class="button" id="select-btn" onclick="SelectMeal();">
               <span>Select</span>
             </button>
@@ -230,27 +204,25 @@
           <!-- right column -->
           <div class="col-xs-6" id="right-column">
             <img src="recipe.jpg" alt="Meal" id="photo_meal" />
+            <!-- container info on the left -->
             <div class="container" id="info">
               <h4>Info:</h4>
               <dl id="description_list"></dl>
             </div>
-
+            <!-- continer info below image -->
             <div class="container" id="meal_container">
               <h4>Description:</h4>
               <p id="description">Here the description of the meal.</p>
             </div>
-
-            <input
-              type="button"
-              class="select-btn"
-              id="add-btn"
-              value="Add my perfect meal"
-              onclick="addMeal();"
-            />
+            <!-- add button to add the selected element to the night -->
+            <input type="button" class="select-btn" id="add-btn" value="Add my perfect meal" onclick="addMeal();"/>
           </div>
-          <!-- right column -->
+          <!-- end right column -->
         </div>
+        <!-- end container -->
       </div>
+       <!-- end #main container -->
     </section>
+    <!-- end section -->
   </body>
 </html>

@@ -1,11 +1,13 @@
 var myObj;
 var selected_book;
+
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $('#right-column').hide();
 });
 
+//onclick search by name button
 function SearchByName(){
     document.getElementById("search_book_name_msg").innerHTML = "";
     var search_book_name =  document.getElementById('search_book_name').value;
@@ -13,6 +15,7 @@ function SearchByName(){
         document.getElementById("search_book_name_msg").innerHTML = "Please write a book name!";
         return;
     }
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/multiple/${search_book_name}/10`, true);
     request.onload = function() {
@@ -40,10 +43,10 @@ function SearchByName(){
     request.send();
 }
 
+//onclick select button
 function SelectBook(){
     var idx = document.getElementById("menu_book").options.selectedIndex;
     var item_selected = document.getElementById("menu_book").options.item(idx);
-    //alert(item_selected.text);
     if(item_selected.text==""){
         alert("Please select a book in the menu!");
     }
@@ -51,16 +54,14 @@ function SelectBook(){
         var description_list = document.getElementById("description_list");
         description_list.innerHTML="";
         var j;
-        for(j=0; j< myObj.length; j++){ 
-            //alert(myObj[j].name);     
+        for(j=0; j< myObj.length; j++){   
             if(myObj[j].title==item_selected.text){
                 selected_book= myObj[j];
                 $("#add-btn").prop("disabled",false);
                 break;
             }
         }
-        //alert(JSON.stringify(selected_book));
-        //alert(selected_book.image);
+
         if(selected_book.image == "Sorry, no picture for this book!"){       
             document.getElementById("photo_book_msg").innerHTML= selected_book.image;
             $('#photo_book').hide();
@@ -77,16 +78,19 @@ function SelectBook(){
         description_list.innerHTML+= `<dt>Category</dt> <dd> ${selected_book.categoryList}</dd>`;              
         document.getElementById("description").innerHTML = `${selected_book.description}`;
         document.getElementById("link").innerHTML = `<a href= "${selected_book.link}" target="_blank">${selected_book.link}</a>`;
+        
         $('#right-column').show(100);    
         
     }
 }
 
+//onclick random button
 function RandomBook(){
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/surprise/20`, true);
     request.onload = function() {
-    // Begin accessing JSON data here
+        // Begin accessing JSON data here
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_book").innerHTML="";
             myObj = JSON.parse(request.response);
@@ -103,6 +107,7 @@ function RandomBook(){
     request.send();
 }
 
+//onclick filters_button_authors
 function AdvancedSearchAuthors(){
     document.getElementById("filters_msg_authors").innerHTML = "";
     var search_book_name =  document.getElementById('authors').value;
@@ -111,6 +116,7 @@ function AdvancedSearchAuthors(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/byAuthor/${search_book_name}`, true);
     request.onload = function() {
@@ -139,6 +145,7 @@ function AdvancedSearchAuthors(){
     request.send();
 }
 
+//onclick filters_button_category
 function AdvancedSearchCategory(){
     document.getElementById("filters_msg_category").innerHTML = "";
     var search_book_name =  document.getElementById('category').value;
@@ -147,6 +154,7 @@ function AdvancedSearchCategory(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/book/category/${search_book_name}/10`, true);
     request.onload = function() {
@@ -175,6 +183,7 @@ function AdvancedSearchCategory(){
     request.send();
 }
 
+//onclick add button
 function addBook(){
     localStorage.book=JSON.stringify(selected_book);
     

@@ -1,7 +1,7 @@
 body{ 
-    background-color: #F2E8C4;
-    font-family: 'Poppins', sans-serif;
-    color: #424254;
+  background-color: #F2E8C4;
+  font-family: 'Poppins', sans-serif;
+  color: #424254;
 }
 
 #navbar{
@@ -11,34 +11,33 @@ body{
 }
   
 #main{
-
   background-image: linear-gradient(white, gray);
   border-radius: 10px;
   margin-left: 50px;
   margin-bottom: 50px;
-  } 
-
-
+} 
 
 .container{
   margin-left:1%;
   width: 90%;
   height: 90%;
 }
+
 h1{
   text-shadow: 1.4px 1.4px #64908A;
   margin-bottom:30px; 
   font-weight:800; 
   font-size:xx-large;
   color:#351330 ;
-  margin-left: 1%;}
+  margin-left: 1%;
+}
 
-  #header{
-    margin-top: 1%;
-    font-size: large;
-    color: #424254;
-    text-shadow: none;
-  }
+#header{
+  margin-top: 1%;
+  font-size: large;
+  color: #424254;
+  text-shadow: none;
+}
 
 .search-container {
   margin-left: 15px;
@@ -50,7 +49,7 @@ h1{
 }
 
 #p_advanced_search{
-    font-size: medium;
+  font-size: medium;
 }
 
 input{
@@ -59,27 +58,28 @@ input{
   border-radius: 30px 30px 30px 30px;
   outline-color: blueviolet;
 }
+
 .search-btn {
   border-radius: 0px 30px 30px 0px;
   font-size: large;
   background-color: white;
- }
+}
 
- hr { 
-    border-color: #424254;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5em;
-    margin-left: 1%;
-    margin-right: 50%;
-    border-width: 1px;
+hr { 
+  border-color: #424254;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5em;
+  margin-left: 1%;
+  margin-right: 50%;
+  border-width: 1px;
 } 
 
 .row{
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 select{
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 #menu_meal{
@@ -93,9 +93,9 @@ select{
 
 
 #filters_button_cuisine, #filters_button_category{
-    border-radius: 20px;
-    text-align: center;
-    font-size: medium;
+  border-radius: 20px;
+  text-align: center;
+  font-size: medium;
 }
 
 /**/
@@ -153,14 +153,14 @@ select{
 /**/
 
 #select-btn {
-margin-left:0%;
-margin-bottom: 5px;
-font-size: large;
-background-color: #424254; 
-border: 2px solid rgb(153, 153, 153);;
-border-radius: 20px;
-outline: none;
-color: rgb(153, 153, 153); 
+  margin-left:0%;
+  margin-bottom: 5px;
+  font-size: large;
+  background-color: #424254; 
+  border: 2px solid rgb(153, 153, 153);;
+  border-radius: 20px;
+  outline: none;
+  color: rgb(153, 153, 153); 
 }
 
 #select-btn:disabled {
@@ -193,12 +193,7 @@ color: rgb(153, 153, 153);
   min-width: 50rem;
 }
 
-
-
-/* Left column*/
-
 #left-columm{
-  /*min-width: 50rem;*/
   width:auto;
 }
 
@@ -228,8 +223,6 @@ h4{
 
 #add-btn{
   position:right;
-  /*left: 80%;
-  top: 110%;*/
   margin-top: 2%;
   margin-bottom: 2%;
   background-color: #424254;
@@ -241,11 +234,11 @@ h4{
   background-color: rgb(153, 153, 153);
   color: #424254;
 }
+
 #add-btn:disabled{
   opacity: 70%;
   cursor: not-allowed;
 }
-
 
 .col-25[name="sx"]{
   float:left;

@@ -11,34 +11,33 @@ font-size: large;
 }
 
 #main{
-
   background-image: linear-gradient(white, gray);
   border-radius: 10px;
   margin-left: 50px;
   margin-bottom: 50px;
-  } 
-
-
+} 
 
 .container{
   margin-left:1%;
   width: 90%;
   height: 90%;
 }
+
 h1{
   text-shadow: 1.4px 1.4px #64908A;
   margin-bottom:30px; 
   font-weight:800; 
   font-size:xx-large;
   color:#351330 ;
-  margin-left: 1%;}
+  margin-left: 1%;
+}
 
-  #header{
-    margin-top: 1%;
-    font-size: large;
-    color: #424254;
-    text-shadow: none;
-  }
+#header{
+  margin-top: 1%;
+  font-size: large;
+  color: #424254;
+  text-shadow: none;
+}
 
 .search-container {
 margin-left: 15px;
@@ -54,15 +53,15 @@ border-radius: 30px 0px 0px 30px;
 }
 
 input{
-font-size: large;
-text-align: center;
-border-radius: 30px 30px 30px 30px;
-outline-color: blueviolet;
+  font-size: large;
+  text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  outline-color: blueviolet;
 }
 .search-btn {
-border-radius: 0px 30px 30px 0px;
-font-size: large;
-background-color: white;
+  border-radius: 0px 30px 30px 0px;
+  font-size: large;
+  background-color: white;
 }
 
 hr { 
@@ -83,25 +82,19 @@ select{
 }
 
 #menu_music{
-margin-top: 2%;
-margin-left:3%;
-font-size: large;
-text-align: center;
-float: left;
-max-width: 400px;
+  margin-top: 2%;
+  margin-left:3%;
+  font-size: large;
+  text-align: center;
+  float: left;
+  max-width: 400px;
 }
 
-/**/
 #filters_button_songs_artist, #filters_button_albums_artist, #filters_button_album{
   border-radius: 20px;
 }
 
 #spotify_login_button{
-  /*border-radius: 20px;
-  text-align: center;
-  font-size: medium;
-  /*background-color: #98D9B6;*/
-
   background-image: url("Spotify_Logo_RGB_Green.jpg");
   background-size: 100px 30px;
   width: 130px;
@@ -112,7 +105,7 @@ max-width: 400px;
   border-radius: 8px;
 }
 
-/**/
+
 /**/
 
 #select-btn {
@@ -124,82 +117,73 @@ max-width: 400px;
   border-radius: 20px;
   outline: none;
   color: rgb(153, 153, 153); 
-  }
+}
   
-  #select-btn:disabled {
-    background-color:  #424254 ;
-    opacity: 0.5;
-    color: rgb(153, 153, 153);
-  }
-  #select-btn:hover {
-    background-color:rgb(153, 153, 153); ;
-    color:  #424254;
-  }
-  #select-btn:active:enabled{
-    margin-left:0%;
-    font-size: large;
-    background-color:   #424254;
-    border: 2px solid rgb(153, 153, 153);;
-    border-radius: 20px;
-    color: rgb(153, 153, 153);
-  }
-  
-  /**/
-  
+#select-btn:disabled {
+  background-color:  #424254 ;
+  opacity: 0.5;
+  color: rgb(153, 153, 153);
+}
+#select-btn:hover {
+  background-color:rgb(153, 153, 153); ;
+  color:  #424254;
+}
+#select-btn:active:enabled{
+  margin-left:0%;
+  font-size: large;
+  background-color:   #424254;
+  border: 2px solid rgb(153, 153, 153);;
+  border-radius: 20px;
+  color: rgb(153, 153, 153);
+}
 
 /**/
+  
 #select-p{
-margin-top: 5%;
-margin-left:0%;
+  margin-top: 5%;
+  margin-left:0%;
 }
 
 #right-column{  
-margin-top: 2.5%;
-min-width: 50rem;
+  margin-top: 2.5%;
+  min-width: 50rem;
 }
 
-
-
-/* Left column*/
-
 #left-columm{
-/*min-width: 50rem;*/
-width:auto;
+  width:auto;
 }
 
 #photo_music{
-width: 40%;
-height: 40%;
-float: left;
-margin-right: 20%;
+  width: 40%;
+  height: 40%;
+  float: left;
+  margin-right: 20%;
 }
 
 h4{
-margin-top:0%;
-font-size: large;
+  margin-top:0%;
+  font-size: large;
 }
 
 #info{
-width: auto;
-height: 38%;
+  width: auto;
+  height: 38%;
 }
 
 #music_container{
-margin-left:-3%;
-margin-top:5%;
-width: auto;
-height: 40;
+  margin-left:-3%;
+  margin-top:5%;
+  width: auto;
+  height: 40;
 }
 
 
 #add-btn{
   position:right;
-  /*left: 80%;
-  top: 110%;*/
   margin-top: 2%;
   margin-bottom: 2%;
   background-color: #424254;
-  color:  rgb(153, 153, 153);
+  color:rgb(153, 153, 153);
 }
 
 #add-btn:hover {
@@ -214,12 +198,12 @@ height: 40;
 
 
 .col-25[name="sx"]{
-float:left;
-width:235px;
+  float:left;
+  width:235px;
 }
 
 .col-25[name="dx"]{
-width:268px;
+  width:268px;
 }
 
 #search_music_name_msg, #filters_msg_artist, #filters_msg_album{

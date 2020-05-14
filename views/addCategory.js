@@ -1,24 +1,25 @@
+//onlick recap button
 function GoToRecap(){
+    //checking category input 
     var category = document.getElementById("category").value;
     if(category == ""){
         var answer = confirm("Are you sure you don't want to set a category for your night?");
         if(answer){
             category = "No category";
-            //alert(category);
         }
         else{
-            //alert("esco");
             return;
         }
     }
     var perfect_night = JSON.parse(localStorage.perfect_night);
     var bool_issolo = perfect_night.bool_issolo;
 
+    //adding tag_type ( = category) property to perfect night object in localStorage
     perfect_night.tag_type = category;
 
+    //adding description property to perfect night object in localStorage
     var description = document.getElementById("description").value;
     if(description != ""){
-        //alert(description);
         perfect_night.description = description;
     }
     else{
@@ -27,6 +28,7 @@ function GoToRecap(){
 
     localStorage.perfect_night = JSON.stringify(perfect_night);
 
+    //redirect browser
     if(bool_issolo){        
         window.location.href='recapSolo.html';
     }
@@ -35,8 +37,10 @@ function GoToRecap(){
     }
 }
 
+//onload function
 function CheckStorage(){
     var perfect_night = JSON.parse(localStorage.perfect_night);
+    //checking if tag_type & description are already in the perfect night object
     if(typeof(perfect_night.tag_type) != "undefined"){
         document.getElementById("category").value = perfect_night.tag_type;
     }

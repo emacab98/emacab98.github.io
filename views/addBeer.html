@@ -7,21 +7,13 @@
     <title>Just a perfect night - Add Beer</title>
 
     <!--Poppins font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- icon of setting -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    
+    <!-- font-awesome icon set (fa fa-search) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!-- my css file-->
     <link rel="stylesheet" href="css_add_beer.css" />
@@ -49,12 +41,15 @@
     </nav>
     <!--end navbar-->
     
+    <!-- container backgroud moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
     </div>
 
+    <!-- creating section for search (formatting purpose) -->
     <section class="create-block">
+      <!-- creating container #main to wrap all the elements -->
       <div class="container" id="main">
         <h1>
           Beer
@@ -71,25 +66,21 @@
             Search by Name:
           </h2>
 
+          <!-- search-container for Search by Name -->
           <div class="search-container">
             <div class="row">
+              <!-- small column inside the row to contain input element for alignment purpose -->
               <div class="col-25" name="sx">
-                <input
-                  type="text"
-                  placeholder="Search.."
-                  id="search_beer_name"
-                />
+                <input type="text" placeholder="Search.." id="search_beer_name"/>
               </div>
+              <!-- small column inside the row to contain button element for alignment purpose -->
               <div class="col-25" name="dx">
-                <button
-                  class="search-btn"
-                  type="button"
-                  onclick="SearchByName();"
-                >
+                <button class="search-btn" type="button" onclick="SearchByName();">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
             </div>
+            <!-- control message in case of error -->
             <p id="search_beer_name_msg"></p>
           </div>
           <!-- end search by name -->
@@ -101,6 +92,7 @@
           <p id="p_advanced_search">
             Find the perfect one:
           </p>
+          <!-- search-container for advanced search -->
           <div class="search-container">
             <!-- ibu  -->
             <div class="row">
@@ -116,11 +108,7 @@
             </div>
             <!-- button advanced search -->
             <div class="row">
-              <button
-                class="button"
-                id="filters_button"
-                onclick="AdvancedSearch();"
-              >
+              <button class="button" id="filters_button" onclick="AdvancedSearch();">
                 <span>Search with filters <i class="fa fa-search"></i></span>
               </button>
             </div>
@@ -133,22 +121,16 @@
           <!-- menu beer -->
           <div class="menu-container">
             <div class="row">
-              <select
-                size="1"
-                id="menu_beer"
+              <select size="1" id="menu_beer"
                 onmousedown="this.size=5;"
                 onchange="this.size=0;"
-                onblur="this.size=0;"
-              >
+                onblur="this.size=0;">
                 <option selected value=""> Choose your beer :) </option>
               </select>
             </div>
+            <!-- random button -->
             <div class="row">
-              <button
-                class="button button1"
-                id="surprise"
-                onclick="RandomBeer();"
-              >
+              <button class="button button1" id="surprise" onclick="RandomBeer();">
                 <span>Short of ideas? Click me!</span>
               </button>
             </div>
@@ -157,6 +139,7 @@
           <p id="select-p">
             Press the button below if you have found the right one!
           </p>
+          <!-- select choosen element button -->
           <button class="button" id="select-btn" onclick="SelectBeer();">
             <span>Select</span>
           </button>
@@ -165,13 +148,16 @@
 
         <!-- right column -->
         <div class="col-xs-6" id="right-column">
-          <img src="beer.jpg" alt="Beer" id="photo_beer" />
+          <img src="beer.jpg" alt="Beer" id="photo_beer"/>
+          <!-- dynamic paragraph in case image of element is null -->
           <p id="photo_beer_msg"></p>
+          <!-- container info on the left -->
           <div class="container" id="info">
             <h4>Info:</h4>
             <dl id="description_list"></dl>
           </div>
 
+          <!-- continer info below image -->
           <div class="container" id="beer_container">
             <h4>Description:</h4>
             <p id="description">Here the description of the beer.</p>
@@ -181,16 +167,13 @@
             </p>
           </div>
 
-          <input
-            type="button"
-            class="select-btn"
-            id="add-btn"
-            value="Add my perfect beer"
-            onclick="addBeer();"
-          />
+          <!-- add button to add the selected element to the night -->
+          <input type="button" class="select-btn" id="add-btn" value="Add my perfect beer" onclick="addBeer();"/>
         </div>
-        <!-- right column -->
+        <!-- end right column -->
       </div>
+      <!-- end #main container -->
     </section>
+    <!-- end section -->
   </body>
 </html>

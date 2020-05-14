@@ -7,21 +7,13 @@
     <title>Just a perfect night - Add Movie</title>
 
     <!--Poppins font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- icon of setting -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    
+    <!-- font-awesome icon set (fa fa-search) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!-- my css file-->
     <link rel="stylesheet" href="css_add_movie.css" />
@@ -49,12 +41,15 @@
     </nav>
     <!--end navbar-->
 
+    <!-- container backgroud moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
     </div>
 
+    <!-- creating section for search (formatting purpose) -->
     <section class="create-block">
+      <!-- creating container #main to wrap all the elements -->
       <div class="container" id="main">
         <h1>
           Movies
@@ -63,7 +58,7 @@
             you want or you can browse them and find the perfect one!
           </p>
         </h1>
-
+        <!-- creating container to wrap left and right column -->
         <div class="container">
           <!-- left column -->
           <div class="col-xs-6" id="left-column">
@@ -76,22 +71,14 @@
               <h3>
                 Search by Name:
               </h3>
-
+              <!--Movie search-container-main for Search by Name-->
               <div class="search-container-main">
                 <div class="row">
                   <div class="col-25" name="sx">
-                    <input
-                      type="text"
-                      placeholder="Search.."
-                      id="search_movie_name"
-                    />
+                    <input type="text" placeholder="Search.." id="search_movie_name"/>
                   </div>
                   <div class="col-25" name="dx">
-                    <button
-                      class="search-btn"
-                      type="button"
-                      onclick="SearchByNameMovie();"
-                    >
+                    <button class="search-btn" type="button" onclick="SearchByNameMovie();">
                       <i class="fa fa-search"></i>
                     </button>
                   </div>
@@ -99,13 +86,14 @@
                 <p id="search_movie_name_msg"></p>
               </div>
               <!-- end search by name -->
-              <!-- line break-->
-              <a href="#" class="line" id="movie_line"
-                ><div class="hr"></div
-              ></a>
-              <!-- end line -->
-              <!-- advanced search -->
 
+              <!-- line break: like the hr tag, but with toggle effect to hide/show advanced search-->
+              <a href="#" class="line" id="movie_line">
+                <div class="hr"></div>
+              </a>
+              <!-- end line -->
+
+              <!-- Movie advanced search -->
               <div class="search-container-adv" id="movie_container">
                 <h3>
                   Advanced search:
@@ -113,15 +101,10 @@
                 <p id="p_advanced_search_movie">
                   Find the perfect one:
                 </p>
-                <!-- category -->
+                <!-- search movie by categories -->
                 <div class="row">
                   <label for="menu_category_movie">Category: </label>
-                  <select
-                    onmousedown="this.size=5;"
-                    onchange="this.size=0;"
-                    onblur="this.size=0;"
-                    id="menu_category_movie"
-                  >
+                  <select onmousedown="this.size=5;" onchange="this.size=0;" onblur="this.size=0;" id="menu_category_movie">
                     <option selected value=""> Choose category </option>
                     <option value="Adventure"> Adventure </option>
                     <option value="Fantasy"> Fantasy </option>
@@ -145,47 +128,41 @@
                   </select>
                 </div>
 
-                <!-- button advanced search -->
+                <!-- button advanced search for movie category -->
                 <div class="row">
-                  <button
-                    class="button"
-                    id="filters_button_category_movie"
-                    onclick="AdvancedSearchCategoryMovie();"
-                  >
+                  <button class="button" id="filters_button_category_movie" onclick="AdvancedSearchCategoryMovie();">
                     <span>Search by category <i class="fa fa-search"></i></span>
                   </button>
                 </div>
                 <div class="row">
+                  <!-- control message in case of error -->
                   <p id="filters_msg_category_movie"></p>
                 </div>
+                <!-- end search movie by category -->
+
+                <!-- search movie by year -->
                 <div class="row">
                   <label for="input_year_movie">Year: </label>
-                  <input
-                    type="number"
-                    min="1895"
-                    placeholder="Type a year.."
-                    id="input_year_movie"
-                  />
+                  <!-- input for the year: minimum year acceptable is 1895 (birth of cinema) -->
+                  <input type="number" min="1895" placeholder="Type a year.." id="input_year_movie"/>
                 </div>
-                <!-- button advanced search -->
+                <!-- button advanced search for movie year-->
                 <div class="row">
-                  <button
-                    class="button"
-                    id="filters_button_year_movie"
-                    onclick="AdvancedSearchYearMovie();"
-                  >
+                  <button class="button" id="filters_button_year_movie" onclick="AdvancedSearchYearMovie();">
                     <span>Search by year <i class="fa fa-search"></i></span>
                   </button>
                 </div>
                 <div class="row">
+                  <!-- control message in case of error -->
                   <p id="filters_msg_year_movie"></p>
                 </div>
+                <!--  end search movie by year -->
               </div>
               <!-- end advanced search -->
             </div>
             <!-- end search movie -->
 
-            <!-- search tvshow-->
+            <!-- search TV Show-->
             <div class="tvshow">
               <h2>
                 Search a TV Show!
@@ -195,21 +172,16 @@
                 Search by Name:
               </h3>
 
+              <!--TV Show search-container-main for Search by Name-->
               <div class="search-container-main">
                 <div class="row">
+                  <!-- small column inside the row to contain input element for alignment purpose -->
                   <div class="col-25" name="sx">
-                    <input
-                      type="text"
-                      placeholder="Search.."
-                      id="search_tvshow_name"
-                    />
+                    <input type="text" placeholder="Search.." id="search_tvshow_name"/>
                   </div>
+                  <!-- small column inside the row to contain button element for alignment purpose -->
                   <div class="col-25" name="dx">
-                    <button
-                      class="search-btn"
-                      type="button"
-                      onclick="SearchByNameTVShow();"
-                    >
+                    <button class="search-btn" type="button" onclick="SearchByNameTVShow();">
                       <i class="fa fa-search"></i>
                     </button>
                   </div>
@@ -217,13 +189,14 @@
                 <p id="search_tvshow_name_msg"></p>
               </div>
               <!-- end search by name -->
+
               <!-- line break-->
               <a href="#" class="line" id="tvshow_line"
                 ><div class="hr"></div
               ></a>
               <!-- end line -->
-              <!-- advanced search -->
 
+              <!-- TV Show advanced search -->
               <div class="search-container-adv" id="tvshow_container">
                 <h3>
                   Advanced search:
@@ -231,15 +204,10 @@
                 <p id="p_advanced_search_tvshow">
                   Find the perfect one:
                 </p>
-                <!-- category -->
+                <!-- search TV Show by categories -->
                 <div class="row">
                   <label for="menu_category_tvshow">Category: </label>
-                  <select
-                    onmousedown="this.size=5;"
-                    onchange="this.size=0;"
-                    onblur="this.size=0;"
-                    id="menu_category_tvshow"
-                  >
+                  <select onmousedown="this.size=5;" onchange="this.size=0;" onblur="this.size=0;"id="menu_category_tvshow">
                     <option selected value=""> Choose category </option>
                     <option value="Animation"> Animation </option>
                     <option value="Drama"> Drama </option>
@@ -249,9 +217,7 @@
                     <option value="Documentary"> Documentary </option>
                     <option value="Mystery"> Mystery </option>
                     <option value="Family"> Family </option>
-                    <option value="Action & Adventure">
-                      Action & Adventure</option
-                    >
+                    <option value="Action & Adventure"> Action & Adventure</option>
                     <option value="Kids"> Kids </option>
                     <option value="News"> News </option>
                     <option value="Reality"> Reality </option>
@@ -262,86 +228,68 @@
                   </select>
                 </div>
 
-                <!-- button advanced search -->
+                <!-- button advanced search for TV Show category -->
                 <div class="row">
-                  <button
-                    class="button"
-                    id="filters_button_category_tvshow"
-                    onclick="AdvancedSearchCategoryTVShow();"
-                  >
+                  <button class="button" id="filters_button_category_tvshow" onclick="AdvancedSearchCategoryTVShow();">
                     <span>Search by category <i class="fa fa-search"></i></span>
                   </button>
                 </div>
                 <div class="row">
+                  <!-- control message in case of error -->
                   <p id="filters_msg_category_tvshow"></p>
                 </div>
+                <!-- end search TV Show by category -->
+                
+                <!-- search movie by year -->
                 <div class="row">
                   <label for="input_year_tvshow">Year: </label>
-                  <input
-                    type="number"
-                    min="1895"
-                    placeholder="Type a year.."
-                    id="input_year_tvshow"
-                  />
+                  <input type="number" min="1895" placeholder="Type a year.." id="input_year_tvshow"/>
                 </div>
-                <!-- button advanced search -->
+                <!-- button advanced search for TV Show year-->
                 <div class="row">
-                  <button
-                    class="button"
-                    id="filters_button_year_tvshow"
-                    onclick="AdvancedSearchYearTVShow();"
-                  >
+                  <button class="button" id="filters_button_year_tvshow" onclick="AdvancedSearchYearTVShow();">
                     <span>Search by year <i class="fa fa-search"></i></span>
                   </button>
                 </div>
                 <div class="row">
                   <p id="filters_msg_year_tvshow"></p>
                 </div>
+                <!--  end search TV Show by year -->
               </div>
               <!-- end advanced search -->
             </div>
-            <!-- end tvshow-->
+            <!-- end search tv show-->
 
-            <!-- search by actor -->
+            <!-- search movie/tvshow by actor -->
             <div class="tvshow">
               <h3>
                 Search actor and discover:
               </h3>
-
+              <!--search-container-main for Search by Actor-->
               <div class="search-container-main">
                 <div class="row">
                   <div class="col-25" name="sx">
-                    <input
-                      type="text"
-                      placeholder="Search.."
-                      id="search_artist_name"
-                    />
+                    <input type="text" placeholder="Search.." id="search_artist_name"/>
                   </div>
                   <div class="col-25" name="dx">
-                    <button
-                      class="search-btn"
-                      type="button"
-                      onclick="SearchByPerson();"
-                    >
+                    <button class="search-btn" type="button" onclick="SearchByPerson();">
                       <i class="fa fa-search"></i>
                     </button>
                   </div>
                 </div>
+                <!-- control message in case of error -->
                 <p id="search_artist_name_msg"></p>
               </div>
             </div>
-            <!-- search by actor-->
+            <!-- end search by actor-->
 
             <!-- menu movie -->
             <div class="menu-container">
               <div class="row">
-                <select
-                  size="1"
-                  id="menu_movie"
+                <select size="1" id="menu_movie"
                   onmousedown="this.size=5;"
                   onchange="this.size=0;"
-                  onblur="this.size=0;"
-                >
+                  onblur="this.size=0;">
                   <option selected value=""> Choose your movie :) </option>
                 </select>
               </div>
@@ -350,6 +298,7 @@
             <p id="select-p">
               Press the button below if you have found the right one!
             </p>
+            <!-- select choosen element button -->
             <button class="button" id="select-btn" onclick="SelectMovie();">
               <span>Select</span>
             </button>
@@ -358,33 +307,29 @@
 
           <!-- right column -->
           <div class="col-xs-6" id="right-column">
-            <img src="ciak.jpg" alt="movie" id="photo_movie" />
+            <img src="ciak.jpg" alt="movie" id="photo_movie"/>
+            <!-- container info on the left -->
             <div class="container" id="info">
               <h4>Info:</h4>
               <dl id="description_list"></dl>
             </div>
 
+            <!-- continer info below image -->
             <div class="container" id="up_container">
               <h4>Plot:</h4>
               <p id="plot">Here the plot of the movie.</p>
               <h4>Other info:</h4>
               <dl id="other_info"></dl>
             </div>
-            <!--div class="container" id="down_container">               
-                    
-                </div-->
-
-            <input
-              type="button"
-              class="select-btn"
-              id="add-btn"
-              value="Add my perfect movie"
-              onclick="addMovie();"
-            />
+            <!-- add button to add the selected element to the night -->
+            <input type="button" class="select-btn" id="add-btn" value="Add my perfect movie" onclick="addMovie();"/>
           </div>
-          <!-- right column -->
+          <!-- end right column -->
         </div>
+        <!-- end container -->
       </div>
+      <!-- end #main container -->
     </section>
+    <!-- end section -->
   </body>
 </html>

@@ -12,6 +12,7 @@
       
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
       <!-- my css file-->
       <link rel ="stylesheet" href = "css_add_category.css">
       
@@ -39,59 +40,69 @@
     </nav>
     <!-- end navbar -->
 
+    <!-- container background moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
     </div>
+
+    <!-- new section-->
     <section class="create-block">
+      <!-- container of rows -->
       <div class="container">
         <div class="row">
-            <h1>Creating your Perfect Night...</h1>
-            <!--h3>...add a category and a description! </h3-->
+          <h1>Creating your Perfect Night...</h1>
         </div>
         <div class="row">
-            <h3>Select a category or add a new one:</h3>
+          <h3>Select a category or add a new one:</h3>
         </div>
         <div class="row">
+          <!-- input text category -->
             <input type="text" id="category" list="menu_category" placeholder="Type or select a category">
+            <!-- datalist tag specifies a list of pre-defined options for category input -->
             <datalist id="menu_category">
-                <option value="romantic night"></option>
-                <option value="horror night"></option>
-                <option value="italian night"></option>
-                <option value="american night"></option>
-                <option value="mexican night"></option>
-                <option value="girls night"></option>
-                <option value="guys night"></option>
-                <option value="relax night"></option>
-                <option value="wild night"></option>
-                <option value="chill night"></option>
-                <option value="nerd night"></option>
-                <option value="sports night"></option>
-                <option value="sad night"></option>
-                <option value="fantasy night"></option>
-                <option value="science-fiction night"></option>
-                <option value="cheat-day night"></option>
-                <option value="90s night"></option>
-                <option value="80s night"></option>
-                <option value="70s night"></option>
-                <option value="60s night"></option>
-                <option value="pop-culture night"></option>
-                <option value="feels night"></option>
-                <option value="SNAFU night"></option>
-                <option value="FUBAR night"></option>
-                <option value="TARFU night"></option>
+              <option value="romantic night"></option>
+              <option value="horror night"></option>
+              <option value="italian night"></option>
+              <option value="american night"></option>
+              <option value="mexican night"></option>
+              <option value="girls night"></option>
+              <option value="guys night"></option>
+              <option value="relax night"></option>
+              <option value="wild night"></option>
+              <option value="chill night"></option>
+              <option value="nerd night"></option>
+              <option value="sports night"></option>
+              <option value="sad night"></option>
+              <option value="fantasy night"></option>
+              <option value="science-fiction night"></option>
+              <option value="cheat-day night"></option>
+              <option value="90s night"></option>
+              <option value="80s night"></option>
+              <option value="70s night"></option>
+              <option value="60s night"></option>
+              <option value="pop-culture night"></option>
+              <option value="feels night"></option>
+              <option value="SNAFU night"></option>
+              <option value="FUBAR night"></option>
+              <option value="TARFU night"></option>
             </datalist>
+            <!-- end datalist -->
         </div>
         <div class="row">
-            <h3>Add a description to your PerfectNight:</h3>            
+          <h3>Add a description to your PerfectNight:</h3>            
         </div>
         <div class="row">
-            <textarea rows="4" maxlength="180" id="description" placeholder="Write a description here..."></textarea>
+          <!-- text area for description -->
+          <textarea rows="4" maxlength="180" id="description" placeholder="Write a description here..."></textarea>
         </div>
         <div class="row">
-            <button class="button" id="recap-btn" onclick="GoToRecap();"><span>Recap</span></button>
+          <!-- button to save Category & Description and to go to Recap -->
+          <button class="button" id="recap-btn" onclick="GoToRecap();"><span>Recap</span></button>
         </div>
       </div>
+      <!-- end container -->
     </section>
+    <!-- end section -->
   </body>
 </html>

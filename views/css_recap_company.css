@@ -13,9 +13,8 @@ body{
   background-color: #424254;
   border-color: #424254 ;
   font-size: large;
-  /*margin-bottom: 0;
-  border-radius: 0;*/
 }
+
 #my_button{
   margin-top: 5px;
   background-color: black;
@@ -25,16 +24,16 @@ body{
   font-family: 'Poppins';
 }
 
-
 #what{
   font-size : 70px;
   text-align: center;
   font-family: 'Baloo';
-    margin-left: 1%;
-    text-shadow: 3px 3px  rgb(153, 153, 153) ;
-    margin-bottom:30px; 
-    color:  white; 
+  margin-left: 1%;
+  text-shadow: 3px 3px  rgb(153, 153, 153) ;
+  margin-bottom:30px; 
+  color:  white; 
 }
+
 .card{
   font-family: 'Baloo';
   background-size: contain;
@@ -42,12 +41,9 @@ body{
   min-height: 280px;
   min-width:300px;
   height: 280px;
-  
   width: 300px;
   border-radius: 30px;  
-
   margin: auto;
-  /*border: 3px solid green;*/
 }
 
 .card h1{
@@ -64,12 +60,8 @@ body{
 }
 
 #cocktail_card{
-    background-image: url("cocktail.jpg");
+  background-image: url("cocktail.jpg");
 }
-/*#cocktail_card{
-  background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("cocktail.jpg");
-  opacity: .5;
-} */
 
 #game_card{
   background-image:url(game.jpg) ;
@@ -87,7 +79,6 @@ body{
   background-image:url(music.jpg) ;
 }  
 
-
 .col-sm-4{
   margin-top: 10px;
   min-width: 350px;
@@ -95,35 +86,21 @@ body{
 }
 
 #deck{
-  /*margin-top: -1%;
-  height: 90%;
-  width : 90%;*/
-
   margin: auto;
   width: 90%;
-  /*border: 3px solid green;*/
   padding: 30px;
-    
 }
 
-/***351330*/
-
-
+/****/
 .button1 {
-    float: left;
-}
-  
-
-  
+  float: left;
+} 
 .button2 {
-    float: right;
+  float: right;
 }
   
 .button {
   border-radius: 20px;
- 
-  
- 
   text-align: center;
   font-size: 28px;
   padding: 30px;
@@ -133,18 +110,16 @@ body{
   margin-bottom: 20px;
   margin-top:70px;
   outline: none;
-  /*margin-left: 40rem;*/
-  background-color:#424254; ; /* #351330; /* #F2E8C4; */
-  color: rgb(153, 153, 153); /* #fff; /*#424254;*/ 
-  border: 2px solid rgb(153, 153, 153); /*#424254;*/
-  
+  background-color:#424254; 
+  color: rgb(153, 153, 153); 
+  border: 2px solid rgb(153, 153, 153); 
 }
 
   
 .button:hover {
-    color: #424254; 
-    background-color:rgb(153, 153, 153);
-    border: 2px solid  #424254;
+  color: #424254; 
+  background-color:rgb(153, 153, 153);
+  border: 2px solid  #424254;
 }
 
 .button span {
@@ -181,11 +156,11 @@ body{
 }
 
 .container{
-    text-align: center;
-    color: rgb(153, 153, 153);;
+  text-align: center;
+  color: rgb(153, 153, 153);
 }
 .container p{
-    font-size: large;
+  font-size: large;
 }
 
 /*Background animation */
