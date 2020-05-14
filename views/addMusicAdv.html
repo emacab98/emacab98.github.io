@@ -7,21 +7,13 @@
     <title>Just a perfect night - Add Music</title>
 
     <!--Poppins font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- icon of setting -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    
+    <!-- font-awesome icon set (fa fa-search) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!-- my css file-->
     <link rel="stylesheet" href="css_add_music_adv.css" />
@@ -49,12 +41,15 @@
     </nav>
     <!--end navbar-->
 
+    <!-- container background moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
     </div>
 
+    <!-- creating section for search (formatting purpose) -->
     <section class="create-block">
+      <!-- creating container #main to wrap all the elements -->
       <div class="container" id="main">
         <h1>
           Music
@@ -64,6 +59,7 @@
           </p>
         </h1>
 
+        <!-- creating container to wrap left and right column -->
         <div class="container">
           <!-- left column -->
           <div class="col-xs-6" id="left-column">
@@ -72,25 +68,21 @@
               Search by Name:
             </h2>
 
+            <!-- search-container for Search by Name -->
             <div class="search-container">
               <div class="row">
+                <!-- small column inside the row to contain input element for alignment purpose -->
                 <div class="col-25" name="sx">
-                  <input
-                    type="text"
-                    placeholder="Search.."
-                    id="search_music_name"
-                  />
+                  <input type="text" placeholder="Search.." id="search_music_name"/>
                 </div>
+                <!-- small column inside the row to contain button element for alignment purpose -->
                 <div class="col-25" name="dx">
-                  <button
-                    class="search-btn"
-                    type="button"
-                    onclick="SearchByName();"
-                  >
+                  <button class="search-btn" type="button" onclick="SearchByName();">
                     <i class="fa fa-search"></i>
                   </button>
                 </div>
               </div>
+              <!-- control message in case of error -->
               <p id="search_music_name_msg"></p>
             </div>
             <!-- end search by name -->
@@ -102,53 +94,37 @@
             <p id="p_advanced_search">
               Find the perfect one:
             </p>
+            <!-- search-container for advanced search -->
             <div class="search-container">
               <!-- artist -->
               <div class="row">
                 <label for="artist">Artist: </label>
-                <input
-                  type="text"
-                  placeholder="Search by artist.."
-                  id="artist"
-                />
+                <input type="text" placeholder="Search by artist.." id="artist"/>
               </div>
-              <!-- button advanced search authors -->
+              <!--new row for advanced search buttons (artist)-->
               <div class="row">
-                <button
-                  class="button"
-                  id="filters_button_songs_artist"
-                  onclick="AdvancedSearchSongsArtist();"
-                >
-                  <span
-                    >Search songs by artist <i class="fa fa-search"></i
-                  ></span>
+                <!-- button to search songs by artist -->
+                <button class="button" id="filters_button_songs_artist" onclick="AdvancedSearchSongsArtist();">
+                  <span>Search songs by artist <i class="fa fa-search"></i></span>
                 </button>
-                <button
-                  class="button"
-                  id="filters_button_albums_artist"
-                  onclick="AdvancedSearchAlbumsArtist();"
-                >
-                  <span
-                    >Search albums by artist <i class="fa fa-search"></i
-                  ></span>
+                <!-- button to search albums by artist -->
+                <button class="button" id="filters_button_albums_artist" onclick="AdvancedSearchAlbumsArtist();">
+                  <span>Search albums by artist <i class="fa fa-search"></i></span>
                 </button>
               </div>
               <div class="row">
                 <p id="filters_msg_artist"></p>
               </div>
+              <!-- end advanced search by artist -->
               <!-- album -->
               <div class="row">
                 <label for="album">Album: </label>
                 <input type="text" placeholder="Search album.." id="album" />
               </div>
 
-              <!-- button advanced search -->
+              <!-- button advanced search album-->
               <div class="row">
-                <button
-                  class="button"
-                  id="filters_button_album"
-                  onclick="AdvancedSearchAlbum();"
-                >
+                <button class="button" id="filters_button_album" onclick="AdvancedSearchAlbum();">
                   <span>Search album <i class="fa fa-search"></i></span>
                 </button>
               </div>
@@ -161,22 +137,16 @@
             <!-- menu music -->
             <div class="menu-container">
               <div class="row">
-                <select
-                  size="1"
-                  id="menu_music"
+                <select size="1" id="menu_music"
                   onmousedown="this.size=5;"
                   onchange="this.size=0;"
-                  onblur="this.size=0;"
-                >
+                  onblur="this.size=0;">
                   <option selected value=""> Choose your music :) </option>
                 </select>
               </div>
+              <!-- button to get saved song in spotify account -->
               <div class="row">
-                <button
-                  class="button button1"
-                  id="surprise"
-                  onclick="GetSavedMusic();"
-                >
+                <button class="button button1" id="surprise" onclick="GetSavedMusic();">
                   <span>Short of ideas? Click me!</span>
                 </button>
               </div>
@@ -188,9 +158,11 @@
               Spotify account.
             </p>
             <div class="row">
+              <!-- select choosen element button -->
               <button class="button" id="select-btn" onclick="SelectMusic();">
                 <span>Select</span>
               </button>
+              <!-- save choosen element button -->
               <button class="button" id="save_song_btn" onclick="SaveMusic();">
                 <span>Save song</span>
               </button>
@@ -203,25 +175,25 @@
 
           <!-- right column -->
           <div class="col-xs-6" id="right-column">
-            <img src="music.jpg" alt="music" id="photo_music" />
+            <img src="music.jpg" alt="music" id="photo_music"/>
+            <!-- container info on the left -->
             <div class="container" id="info">
               <h4>Info:</h4>
               <dl id="description_list"></dl>
             </div>
 
+            <!-- continer info below image: here audio tag will be added dynamically -->
             <div class="container" id="music_container"></div>
 
-            <input
-              type="button"
-              class="select-btn"
-              id="add-btn"
-              value="Add my perfect music"
-              onclick="addMusic();"
-            />
+            <!-- add button to add the selected element to the night -->
+            <input type="button" class="select-btn" id="add-btn" value="Add my perfect music" onclick="addMusic();"/>
           </div>
-          <!-- right column -->
+          <!-- end right column -->
         </div>
+        <!-- end container -->
       </div>
+      <!-- end #main container -->
     </section>
+    <!-- end section -->
   </body>
 </html>

@@ -4,38 +4,35 @@ var selected_music;
 //Token for adv search
 var access_token = "";
 
-//Aggiunta funzione ana 
+//onload function to take token for spotify adv search
 function sendData(){
-    //alert("Sending data");
+    //getting params from URL
+    //searchParams readonly property of the URL interface returns a URLSearchParams object 
+    //allowing access to the GET decoded query arguments contained in the URL
     var params = (new URL(document.location)).searchParams;
     let code = params.get('code'); 
     let state=  params.get('state'); 
-    //alert("Code: " + code);
-    //alert("State: "+ state);
-    
-    var request = new XMLHttpRequest();
-    var path = 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + '&state=' + state
-    //alert("Path: " + path);
-    request.open('GET', path, true)
-    request.onload = function() {
-    
-    if (request.readyState == 4 && request.status >= 200 && request.status < 400) {
-        var risposta = JSON.parse(this.response);
-        access_token = risposta.access_token;
-        //alert("Access token nella risposta: " + risposta.access_token);
-        //alert("Access token nella variabile: " + access_token);
-    } 
-    else {
-        alert("Something went wrong!");
-    } 
-}
 
-request.send();
+    // AJAX XMLHttpRequest
+    var request = new XMLHttpRequest();
+    var path = 'https://pacific-stream-14038.herokuapp.com/music/callback?code=' + code + '&state=' + state;
+    request.open('GET', path, true)
+    request.onload = function() {    
+        if (request.readyState == 4 && request.status >= 200 && request.status < 400) {
+            var risposta = JSON.parse(this.response);
+            access_token = risposta.access_token;
+        } 
+        else {
+            alert("Something went wrong!");
+        } 
+    }
+
+    request.send();
 }
 //end sendData()
 
 $(document).ready(function(){
-    sendData(); /*add comment on develop*/ 
+    sendData(); 
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $("#save_song_btn").prop("disabled",true);
@@ -43,34 +40,7 @@ $(document).ready(function(){
 
 });
 
-
-
-//ana
-/*function RandomMusic(){
-   
-    //alert("Access token: " + access_token);
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://pacific-stream-14038.herokuapp.com/music/savedTracks/' + access_token, true);
-    request.onload = function() {
-    // Begin accessing JSON data here
-        if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-            var risposta = JSON.parse(this.response);
-
-            alert("Risposta: " + JSON.stringify(risposta));
-        }  
-        else{
-            alert("Something went wrong");
-        }
-    }
-    request.send();
-}*/
-//ana
-
-
-
-/**********************************************************************/
-
-
+//onclick search by name button
 function SearchByName(){
     document.getElementById("search_music_name_msg").innerHTML = "";
     var search_music_name =  document.getElementById('search_music_name').value;
@@ -78,11 +48,12 @@ function SearchByName(){
         document.getElementById("search_music_name_msg").innerHTML = "Please write a music name!";
         return;
     }
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/byTitle/${search_music_name}`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here*/
+            // Begin accessing JSON data here*/
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -107,10 +78,10 @@ function SearchByName(){
 }
 
 /** SELECT MUSIC */
+//onclick select button
 function SelectMusic(){
     var idx = document.getElementById("menu_music").options.selectedIndex;
     var item_selected = document.getElementById("menu_music").options.item(idx);
-    //alert(item_selected.text);
     if(item_selected.text==""){
         alert("Please select a music in the menu!");
     }
@@ -120,15 +91,14 @@ function SelectMusic(){
         music_container.innerHTML="";
         description_list.innerHTML="";
         var j;
-        for(j=0; j< myObj.length; j++){ 
-            //alert(myObj[j].name);     
+        for(j=0; j< myObj.length; j++){   
             if(myObj[j].name==item_selected.text){
                 selected_music= myObj[j];
                 $("#add-btn").prop("disabled",false);
                 break;
             }
         }
-        //alert(JSON.stringify(selected_music));
+
         document.getElementById("photo_music").src= selected_music.album_image;
         var artist = selected_music.artists;
         description_list.innerHTML+= `<dt>Artist:</dt> <dd> `;
@@ -142,9 +112,6 @@ function SelectMusic(){
         }
         description_list.innerHTML+= `<dt>Name</dt> <dd> ${selected_music.name}</dd>`;
         description_list.innerHTML+= `<dt>Release date</dt> <dd> ${selected_music.release_date}</dd>`;
-        //description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
-
-        //alert(selected_music.id);
         if(typeof(selected_music.tracks) !== "undefined"){
             //this is an album
             music_container.innerHTML += "<h4>Other info: </h4>";
@@ -173,7 +140,8 @@ function SelectMusic(){
 /** END - SELECT MUSIC */
 
 
-/** ADV SEARCH*/
+/** ADVANCED SEARCH*/
+//search album
 function AdvancedSearchAlbum(){
     document.getElementById("filters_msg_album").innerHTML = "";
     var search_music_name =  document.getElementById('album').value;
@@ -182,6 +150,7 @@ function AdvancedSearchAlbum(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/album/byName/${search_music_name}`, true);
     request.onload = function() {
@@ -211,6 +180,7 @@ function AdvancedSearchAlbum(){
     request.send();
 }
 
+//search album by artist
 function AdvancedSearchAlbumsArtist(){
     document.getElementById("filters_msg_artist").innerHTML = "";
     var search_music_name =  document.getElementById('artist').value;
@@ -219,11 +189,12 @@ function AdvancedSearchAlbumsArtist(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/album/byArtist/${search_music_name}`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here
+            // Begin accessing JSON data here
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -248,7 +219,7 @@ function AdvancedSearchAlbumsArtist(){
     request.send();
 }
 
-
+//search songs by artist
 function AdvancedSearchSongsArtist(){
     document.getElementById("filters_msg_artist").innerHTML = "";
     var search_music_name =  document.getElementById('artist').value;
@@ -257,11 +228,12 @@ function AdvancedSearchSongsArtist(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/byArtist/${search_music_name}`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here
+            // Begin accessing JSON data here
             document.getElementById("menu_music").innerHTML="";
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -289,27 +261,27 @@ function AdvancedSearchSongsArtist(){
 
 /** GET SAVED MUSIC */
 function GetSavedMusic(){
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/music/savedTracks/${access_token}`, true);
     request.onload = function() {
-        // Begin accessing JSON data here
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             // Begin accessing JSON data here*/
-           document.getElementById("menu_music").innerHTML="";
-           myObj = JSON.parse(request.response);
+            document.getElementById("menu_music").innerHTML="";
+            myObj = JSON.parse(request.response);
             if(myObj.length == 0){
                 alert("You don't have saved music in your account!")
                 return;
             }
-           var s;
-           for(var i=0; i< myObj.length; i++){
-               s = myObj[i].name;
-               if(s!= ""){
-                   document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
-               }
-           }
-           $("#select-btn").prop("disabled",false);
-           $("#save_song_btn").prop("disabled",false);
+            var s;
+            for(var i=0; i< myObj.length; i++){
+                s = myObj[i].name;
+                if(s!= ""){
+                    document.getElementById("menu_music").innerHTML +=  `<option value=${s}> ${s}</option>`;
+                }
+            }
+            $("#select-btn").prop("disabled",false);
+            $("#save_song_btn").prop("disabled",false);
         }  
         else{
             alert("You don't have saved music in your account!")
@@ -341,6 +313,7 @@ function SaveMusic(){
             }
 
             /** SERVER */
+            // AJAX XMLHttpRequest
             var request = new XMLHttpRequest();
             request.open('POST', `https://pacific-stream-14038.herokuapp.com/music/savedTracks/${access_token}/${selected_music.id}`, true);
             request.onload = function() {
@@ -352,12 +325,12 @@ function SaveMusic(){
             request.send();
 
             /**DOCUMENT*/
+            //selecting saved item
             var description_list = document.getElementById("description_list");
             var music_container = document.getElementById("music_container");
             music_container.innerHTML="";
             description_list.innerHTML="";
             
-            //alert(JSON.stringify(selected_music));
             document.getElementById("photo_music").src= selected_music.album_image;
             var artist = selected_music.artists;
             description_list.innerHTML+= `<dt>Artist:</dt> <dd> `;
@@ -371,28 +344,9 @@ function SaveMusic(){
             }
             description_list.innerHTML+= `<dt>Name</dt> <dd> ${selected_music.name}</dd>`;
             description_list.innerHTML+= `<dt>Release date</dt> <dd> ${selected_music.release_date}</dd>`;
-            //description_list.innerHTML+= `<dt>Popularity</dt> <dd> ${selected_music.popularity}</dd>`;
-
-            //alert(selected_music.id);
-            /*if(typeof(selected_music.tracks) !== "undefined"){
-                //this is an album
-                music_container.innerHTML += "<h4>Other info: </h4>";
-                music_container.innerHTML += `<dl><dt>Label</dt> <dd> ${selected_music.label}</dd>`;
-                var tracks = selected_music.tracks;
-                music_container.innerHTML += `<dt>Tracks</dt>`;
-                for(j=0; j< tracks.length; j++){
-                    music_container.innerHTML += `<dd>${tracks[j]}</dd>`;
-                }
-                music_container.innerHTML += `</dl>`;
-            }
-            else{*/
-                //this is a song
             music_container.innerHTML += "<h4>Song preview: </h4>";
             music_container.innerHTML += `<audio controls controlsList="nodownload"><source src="${selected_music.preview_url}" type="audio/mpeg">
             Your browser does not support the audio element.</audio>`;
-
-            //}          
-            
             $('#right-column').show(100); 
         }
         else{
@@ -405,6 +359,7 @@ function SaveMusic(){
 
 
 /** ADD MUSIC */
+//onclick add button
 function addMusic(){
     localStorage.artist=JSON.stringify(selected_music);
     var perfect_night = JSON.parse(localStorage.perfect_night);

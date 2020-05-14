@@ -6,21 +6,12 @@
 
     <title>Just a perfect night - Add Element</title>
 
-    <!--Poppins font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Baloo"
-      rel="stylesheet"
-    />
+    <!--Poppins & Baloo fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
 
     <!-- my css file-->
     <link rel="stylesheet" href="css_recap_solo.css" />
@@ -34,6 +25,8 @@
     <!-- My script-->
     <script src="recapSolo.js"></script>
   </head>
+
+  <!-- onload attribute is used to execute a script once this web page has completely loaded all content -->
   <body onload="CheckStorage();">
     <!--navbar-->
     <nav class="navbar navbar-inverse" id="navbar">
@@ -88,82 +81,98 @@
     </nav>
     <!--end navbar-->
 
+    <!-- container background moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
     </div>
 
     <!-- cards -->
-    <h1 id="what">This is the night you created:</h1>
 
+    <!-- "What" string top/center page -->
+    <h1 id="what">This is the night you created:</h1>
+    <!-- div #deck to contain cards -->
     <div class="container-fluid" id="deck">
+      <!-- creating card -->
+      <!-- each cards is in its column col-sm-4 (bootstrap alignment formatting) -->
       <div class="col-sm-4">
-        <div class="card" id="cocktail_card">
-          <!--a href="addCocktail.html"-->
-          <h1 class="card-title" id="cocktail">Cocktail</h1>
-          <!--/a-->
+        <!-- card is the container of a specific card and has its own id -->
+        <div class="card" id="cocktail_card"> 
+          <!-- the card-title will be changed when the specific element is added -->
+          <h1 class="card-title" id="cocktail">Cocktail</h1> 
+        </div>
+        <!-- end card container -->
+      </div>
+      <!-- end card -->
+      <!-- new card -->
+      <div class="col-sm-4">
+        <div class="card" id="book_card"> 
+          <h1 class="card-title" id="book">Book</h1> 
         </div>
       </div>
+      <!-- end card -->
+      <!-- new card -->
       <div class="col-sm-4">
-        <div class="card" id="book_card">
-          <!--a href="addBook.html"-->
-          <h1 class="card-title" id="book">Book</h1>
-          <!--/a-->
+        <div class="card" id="movie_card"> 
+          <h1 class="card-title" id="movie">Movie</h1> 
         </div>
       </div>
+      <!-- end card -->
+      <!-- new card -->
       <div class="col-sm-4">
-        <div class="card" id="movie_card">
-          <!--a href="addMovie.html"-->
-          <h1 class="card-title" id="movie">Movie</h1>
-          <!--/a-->
+        <div class="card" id="beer_card"> 
+          <h1 class="card-title" id="beer">Beer</h1> 
         </div>
       </div>
+      <!-- end card -->
+      <!-- new card -->
       <div class="col-sm-4">
-        <div class="card" id="beer_card">
-          <!--a href="addBeer.html"-->
-          <h1 class="card-title" id="beer">Beer</h1>
-          <!--/a-->
+        <div class="card" id="recipe_card"> 
+          <h1 class="card-title" id="meal">Meal</h1> 
         </div>
       </div>
+      <!-- end card -->
+      <!-- new card -->
       <div class="col-sm-4">
-        <div class="card" id="recipe_card">
-          <!--a href="addMeal.html"-->
-          <h1 class="card-title" id="meal">Meal</h1>
-          <!--/a-->
+        <div class="card" id="music_card"> 
+          <h1 class="card-title" id="music">Music</h1> 
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="card" id="music_card">
-          <!--a href="addMusic.html"-->
-          <h1 class="card-title" id="music">Music</h1>
-          <!--/a-->
-        </div>
-      </div>
+      <!-- end card -->
     </div>
     <!-- end deck-->
 
+    <!-- container for elements below deck cards -->
     <div class="container">
+      <!-- new row -->
       <div class="row">
+        <!-- Category & Description change dynamically on load  -->
         <h3 class="category">Category:</h3>
         <p class="paragraph_category">Here the category of the night.</p>
         <h3 class="description">Description:</h3>
         <p class="paragraph_description">Here the description of the night.</p>
       </div>
+      <!-- end row -->
+
+      <!-- new row -->
       <div class="row">
+        <!-- each buttons is in its column col-md-6 (bootstrap alignment formatting) -->
         <div class="col-md-6">
-          <button
-            class="button button1"
-            onclick="window.location.href='addElementSolo.html';"
-          >
+          <!-- change night button -->
+          <button class="button button1" onclick="window.location.href='addElementSolo.html';">
             <span>Change</span>
           </button>
         </div>
+        <!-- each buttons is in its column col-md-6 (bootstrap alignment formatting) -->
         <div class="col-md-6">
+          <!-- create night button -->
           <button class="button button2" onclick="CreateNight();">
             <span>Create night! </span>
           </button>
         </div>
       </div>
+      <!-- end row -->
     </div>
+    <!-- end container -->
   </body>
 </html>

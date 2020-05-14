@@ -1,11 +1,13 @@
 var myObj;
 var selected_game;
+
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $('#right-column').hide();
 });
 
+//onclick search by name button
 function SearchByName(){
     document.getElementById("search_game_name_msg").innerHTML = "";
     var search_game_name =  document.getElementById('search_game_name').value;
@@ -13,6 +15,7 @@ function SearchByName(){
         document.getElementById("search_game_name_msg").innerHTML = "Please write a game name!";
         return;
     }
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/boardgame/byName/${search_game_name}/30`, true);
     request.onload = function() {
@@ -24,6 +27,7 @@ function SearchByName(){
                 return;
             }            
             document.getElementById("menu_game").innerHTML="";
+            //JQuery methods used to scrolling down the page 
             $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
             var s;
             for(var i=0; i< myObj.length; i++){
@@ -41,6 +45,7 @@ function SearchByName(){
     request.send();
 }
 
+//onclick select game
 function SelectGame(){
     var idx = document.getElementById("menu_game").options.selectedIndex;
     var item_selected = document.getElementById("menu_game").options.item(idx);
@@ -53,6 +58,7 @@ function SelectGame(){
         description_list.innerHTML="";
         characteristics.innerHTML="";
         var j;
+        //taking selected item
         for(j=0; j< myObj.length; j++){        
             if(myObj[j].name==item_selected.text){
                 selected_game= myObj[j];
@@ -60,7 +66,8 @@ function SelectGame(){
                 break;
             }
         }
-        ///
+
+        //filling info containers
         document.getElementById("photo_game").src= selected_game.imageUrl;
         
         description_list.innerHTML+= `<dt>Price</dt> <dd>- $${selected_game.price}</dd>`;
@@ -90,12 +97,12 @@ function SelectGame(){
         var description = new String(selected_game.description);
         if(description == "") document.getElementById("description").innerHTML= "No available description, sorry!";
         else document.getElementById("description").innerHTML= description;
-        $('#right-column').show(100); 
-        ///
         
+        $('#right-column').show(100); 
     }
 }
 
+//onclick random button
 function RandomGame(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/boardgame/byRandom/20`, true);
@@ -117,9 +124,11 @@ function RandomGame(){
     request.send();
 }
 
+//onclick advanced search button
 function AdvancedSearch(){
     var filterObj = {};
     document.getElementById("filters_msg").innerHTML ="";
+    //checking inputs and filling object to send to web server
     var players_num = document.getElementById('players_num').value;
     if(players_num!="" && parseInt(players_num)>= 0){
         filterObj.playersNum = parseInt(players_num);
@@ -134,6 +143,7 @@ function AdvancedSearch(){
         return;
     }
     var data;
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('POST', `https://pacific-stream-14038.herokuapp.com/boardgame/byFilters/10`, true);
     request.onload = function() {
@@ -161,11 +171,11 @@ function AdvancedSearch(){
     }
 
     data = JSON.stringify(filterObj); 
-    //alert(data); 
     request.setRequestHeader("Content-type", "application/json");
     request.send(data);
 }
 
+//onclick add button
 function addGame(){
     localStorage.board_game=JSON.stringify(selected_game);
     

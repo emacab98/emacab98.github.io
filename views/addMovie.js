@@ -1,10 +1,13 @@
 var myObj;
 var selected_movie;
 var ismovie;
+
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $('#right-column').hide();
+    //JQuery methods to make the toggle of the advanced search containers 
+    //on click of the horizontal line 
     $('#movie_line').click(function(){
         $('#movie_container').toggle();
     });
@@ -14,7 +17,7 @@ $(document).ready(function(){
 });
 
 /** SEARCH BY NAME FUNCTIONS */
-
+//onclick search by name movie button
 function SearchByNameMovie(){
     document.getElementById("search_movie_name_msg").innerHTML = "";
     var search_movie_name =  document.getElementById('search_movie_name').value;
@@ -22,6 +25,7 @@ function SearchByNameMovie(){
         document.getElementById("search_movie_name_msg").innerHTML = "Please write a movie name!";
         return;
     }
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/multiple/movie/${search_movie_name}/10`, true);
     request.onload = function() {
@@ -51,6 +55,7 @@ function SearchByNameMovie(){
     request.send();
 }
 
+//onclick search by name tv show button
 function SearchByNameTVShow(){
     document.getElementById("search_tvshow_name_msg").innerHTML = "";
     var search_movie_name =  document.getElementById('search_tvshow_name').value;
@@ -58,12 +63,12 @@ function SearchByNameTVShow(){
         document.getElementById("search_tvshow_name_msg").innerHTML = "Please write a TV Show name!";
         return;
     }
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/multiple/tv/${search_movie_name}/10`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here*/
-            
+            // Begin accessing JSON data here*/
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
                 document.getElementById("search_tvshow_name_msg").innerHTML = "TV Show not found! Please try again";
@@ -90,10 +95,10 @@ function SearchByNameTVShow(){
 /** END SEARCH BY NAME FUNCTIONS */
 
 /** SELECT FUNCTION */
+//onclick select button
 function SelectMovie(){
     var idx = document.getElementById("menu_movie").options.selectedIndex;
     var item_selected = document.getElementById("menu_movie").options.item(idx);
-    //alert(item_selected.text);
     if(item_selected.text==""){
         alert("Please select a movie in the menu!");
     }
@@ -103,16 +108,13 @@ function SelectMovie(){
         other_info.innerHTML="";
         description_list.innerHTML="";
         var j;
-        for(j=0; j< myObj.length; j++){ 
-            //alert(myObj[j].name);     
+        for(j=0; j< myObj.length; j++){  
             if(myObj[j].title==item_selected.text){
                 selected_movie= myObj[j];
                 $("#add-btn").prop("disabled",false);
                 break;
             }
         }
-        //alert(JSON.stringify(selected_movie));
-        //alert(selected_movie.playbill);
         if(selected_movie.playbill == null){
             $('#photo_movie').hide();
         }
@@ -140,12 +142,10 @@ function SelectMovie(){
         
 
         if(ismovie){
-            //if(selected_movie.year != "")
-                description_list.innerHTML+= `<dt>Release date:</dt> <dd>${selected_movie.year}</dd>`;
+            description_list.innerHTML+= `<dt>Release date:</dt> <dd>${selected_movie.year}</dd>`;
         } 
         else{
-            //if(selected_movie.firstAirDate != "")
-                description_list.innerHTML+= `<dt>Release date:</dt> <dd>${selected_movie.firstAirDate}</dd>`;
+            description_list.innerHTML+= `<dt>Release date:</dt> <dd>${selected_movie.firstAirDate}</dd>`;
         }        
         description_list.innerHTML+= `<dt>Popularity</dt> <dd>${selected_movie.popularity}</dd>`;
         description_list.innerHTML+= `<dt>Vote average</dt> <dd>${selected_movie.voteAverage}</dd>`;
@@ -156,53 +156,10 @@ function SelectMovie(){
             other_info.innerHTML+= `<dt>Link:</dt><dd><a href="${selected_movie.where}" target="_blank">
                                     ${selected_movie.where}</a></dd>`; 
         }            
-        if(ismovie == 1){             
-            /*var director = selected_movie.director;
-            if(director.length != 0){
-                other_info.innerHTML+= `<dt>Director :</dt>`;
-                var string_director ="";
-                for(j=0; j< director.length; j++){
-                    if(j == director.length -1){
-                        string_director += `${director[j]}`;
-                    }
-                    else{
-                        string_director += `${director[j]}, `;
-                    }
-                }
-                other_info.innerHTML+= `<dd>${string_director}</dd>`;
-            }*/
+        if(ismovie == 1){
             isMovie();         
         }
-        else if(ismovie == 0){             
-            /*var creators = selected_movie.creators;
-            if(creators.length != 0){
-                other_info.innerHTML+= `<dt>Creators :</dt>`;
-                var string_creators ="";
-                for(j=0; j< creators.length; j++){
-                    if(j == creators.length -1){
-                        string_creators += `${creators[j]}`;
-                    }
-                    else{
-                        string_creators += `${creators[j]}, `;
-                    }
-                }
-                other_info.innerHTML+= `<dd>${string_creators}</dd>`;
-            }
-                        
-            var writers = selected_movie.writers;
-            if(writers.length != 0){
-                other_info.innerHTML+= `<dt>Writers :</dt>`; 
-                var string_writers ="";
-                for(j=0; j< writers.length; j++){
-                    if(j == writers.length -1){
-                        string_writers += `${writers[j]}`;
-                    }
-                    else{
-                        string_writers += `${writers[j]}, `;
-                    }
-                }
-                other_info.innerHTML+= `<dd>${string_writers}</dd>`;
-            }*/
+        else if(ismovie == 0){
             isTvShow();       
         } 
         else{
@@ -242,9 +199,7 @@ function SelectMovie(){
             other_info.innerHTML+= `<dd>${string_country_prod}</dd>`; 
         }        
 
-        $('#right-column').show(100);
-        //$('#down_container').hide();
-        //$('#up_container').show();    
+        $('#right-column').show(100); 
         
     }
 }
@@ -302,6 +257,7 @@ function isTvShow(){
 /** END SELECT FUNCTION */
 
 /** AdvancedSearchCategory*/
+//Movie
 function AdvancedSearchCategoryMovie(){
     document.getElementById("filters_msg_category_movie").innerHTML = "";
     var category_name =  document.getElementById('menu_category_movie').value;
@@ -310,11 +266,12 @@ function AdvancedSearchCategoryMovie(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/movie/byCategory/${category_name}/19`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here
+            // Begin accessing JSON data here
             
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -339,7 +296,8 @@ function AdvancedSearchCategoryMovie(){
 
     request.send();
 }
-/*****/
+
+//TVShow
 function AdvancedSearchCategoryTVShow(){
     document.getElementById("filters_msg_category_tvshow").innerHTML = "";
     var category_name =  document.getElementById('menu_category_tvshow').value;
@@ -348,6 +306,7 @@ function AdvancedSearchCategoryTVShow(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/tv/byCategory/${category_name}/19`, true);
     request.onload = function() {
@@ -381,6 +340,7 @@ function AdvancedSearchCategoryTVShow(){
 /** END AdvancedSearchCategory*/
 
 /** AdvancedSearchYear*/
+//Movie
 function AdvancedSearchYearMovie(){
     document.getElementById("filters_msg_year_movie").innerHTML = "";
     var year =  document.getElementById('input_year_movie').value;
@@ -389,6 +349,7 @@ function AdvancedSearchYearMovie(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/movie/byYear/${year}/19`, true);
     request.onload = function() {
@@ -418,8 +379,9 @@ function AdvancedSearchYearMovie(){
 
     request.send();
 }
-/*****/
 
+
+//Tv Show
 function AdvancedSearchYearTVShow(){
     document.getElementById("filters_msg_year_tvshow").innerHTML = "";
     var year =  document.getElementById('input_year_tvshow').value;
@@ -428,11 +390,12 @@ function AdvancedSearchYearTVShow(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/tv/byYear/${year}/19`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here
+            // Begin accessing JSON data here
             
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -469,6 +432,7 @@ function SearchByPerson(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/media/byPerson/${artist_name}`, true);
     request.onload = function() {
@@ -496,56 +460,6 @@ function SearchByPerson(){
             }
             ismovie = 2;
             $("#select-btn").prop("disabled",false);
-            /*$("#select-btn").prop("disabled",false);
-            //$("#add-btn").prop("disabled",true);
-            $('#photo_movie').hide();
-            document.getElementById("menu_movie").innerHTML =  `<option selected value=""> Choose your movie :) </option>`;
-            
-            var description_list = document.getElementById("description_list");
-            description_list.innerHTML ="";
-            description_list.innerHTML+= `<dt>Name:</dt> <dd>${artist.name}</dd>`;
-            description_list.innerHTML+= `<dt>Role:</dt> <dd>${artist.knownForDepartment}</dd>`;
-            description_list.innerHTML+= `<dt>Popularity:</dt> <dd>${artist.popularity}</dd>`;
-            
-            var down_container = document.getElementById("down_container");
-            var works = artist.knownFor;
-            if(works.length == 0){
-                down_container.innerHTML = `<h4> Works:</h4><p>Sorry, there aren't works linked with this artist.</p>`;
-            }
-            else{
-                down_container.innerHTML = "";
-                for(var j=0; j<works.length; j++){
-                    var id= `inner${j}`;
-                    down_container.innerHTML += `
-                    <h4> Works:</h4>
-                    <dl id="${id}">
-                        <dt>Title:</dt><dd>${works[j].title}</dd>
-                        <dt>Type:</dt><dd>${works[j].mediaType}</dd>
-                        <dt>Plot:</dt><dd>${works[j].plot}</dd>
-                        <dt>Genres:</dt>
-                    </dl><hr style="border-top: 1px solid #424254;">`;
-
-                    //description_list.innerHTML+= `<dt>Genres</dt>`;
-                    var genres = works[j].genres;
-                    if(genres.length == 0) document.getElementById(id).innerHTML+= `<dd>Not specified </dd>`;
-                    else{
-                        var string_genres = "";
-                        for(var i=0; i< genres.length; i++){
-                            if(i == genres.length-1){
-                                string_genres += `${genres[i]}`;
-                            }
-                            else{
-                                string_genres += `${genres[i]}, `;
-                            }
-                        }
-                        document.getElementById(id).innerHTML+=`<dd>${string_genres}</dd>`;
-                    }
-                }
-            }
-
-            //$('#right-column').show();
-            //$('#up_container').hide();
-            //$('#down_container').show();*/
         }  
         else{
             document.getElementById("search_artist_name_msg").innerHTML = "No result for this artist.";
@@ -557,6 +471,7 @@ function SearchByPerson(){
 /***END SearchByPerson**/
 
 
+//onclick add button
 function addMovie(){
     localStorage.movie=JSON.stringify(selected_movie);
     

@@ -2,27 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <title>Just a perfect night - Add Book</title>
 
     <!--Poppins font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- icon of setting -->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+   
+    <!-- font-awesome icon set (fa fa-search) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
     <!-- my css file-->
     <link rel="stylesheet" href="css_add_book.css" />
 
@@ -48,13 +40,16 @@
       </div>
     </nav>
     <!--end navbar-->
+
+    <!-- container backgroud moon -->
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
-
     </div>
 
+    <!-- creating section for search (formatting purpose) -->
     <section class="create-block">
+      <!-- creating container #main to wrap all the elements -->
       <div class="container" id="main">
         <h1>
           Books
@@ -71,25 +66,21 @@
             Search by Name:
           </h2>
 
+          <!-- search-container for Search by Name -->
           <div class="search-container">
             <div class="row">
+              <!-- small column inside the row to contain input element for alignment purpose -->
               <div class="col-25" name="sx">
-                <input
-                  type="text"
-                  placeholder="Search.."
-                  id="search_book_name"
-                />
+                <input type="text" placeholder="Search.." id="search_book_name"/>
               </div>
+              <!-- small column inside the row to contain button element for alignment purpose -->
               <div class="col-25" name="dx">
-                <button
-                  class="search-btn"
-                  type="button"
-                  onclick="SearchByName();"
-                >
+                <button class="search-btn" type="button" onclick="SearchByName();">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
             </div>
+            <!-- control message in case of error -->
             <p id="search_book_name_msg"></p>
           </div>
           <!-- end search by name -->
@@ -101,23 +92,16 @@
           <p id="p_advanced_search">
             Find the perfect one:
           </p>
+          <!-- search-container for advanced search -->
           <div class="search-container">
             <!-- authors -->
             <div class="row">
               <label for="authors">Authors: </label>
-              <input
-                type="text"
-                placeholder="Search by authors.."
-                id="authors"
-              />
+              <input type="text" placeholder="Search by authors.." id="authors"/>
             </div>
             <!-- button advanced search authors -->
             <div class="row">
-              <button
-                class="button"
-                id="filters_button_authors"
-                onclick="AdvancedSearchAuthors();"
-              >
+              <button class="button" id="filters_button_authors" onclick="AdvancedSearchAuthors();">
                 <span>Search by author <i class="fa fa-search"></i></span>
               </button>
             </div>
@@ -127,20 +111,12 @@
             <!-- category -->
             <div class="row">
               <label for="category">Category: </label>
-              <input
-                type="text"
-                placeholder="Search by category.."
-                id="category"
-              />
+              <input type="text" placeholder="Search by category.." id="category"/>
             </div>
 
-            <!-- button advanced search -->
+            <!-- button advanced search category -->
             <div class="row">
-              <button
-                class="button"
-                id="filters_button_category"
-                onclick="AdvancedSearchCategory();"
-              >
+              <button class="button" id="filters_button_category" onclick="AdvancedSearchCategory();">
                 <span>Search by category <i class="fa fa-search"></i></span>
               </button>
             </div>
@@ -153,24 +129,19 @@
           <!-- menu book -->
           <div class="menu-container">
             <div class="row">
-              <select
-                size="1"
-                id="menu_book"
+              <select size="1" id="menu_book"
                 onmousedown="this.size=5;"
                 onchange="this.size=0;"
-                onblur="this.size=0;"
-              >
+                onblur="this.size=0;">
                 <option selected value=""> Choose your book :) </option>
               </select>
             </div>
-            <!--div class="row">
-                        <button class="button button1" id="surprise" onclick="RandomBook();"><span>Short of ideas? Click me!</span></button>
-                    </div-->
           </div>
           <!-- end menu book -->
           <p id="select-p">
             Press the button below if you have found the right one!
           </p>
+          <!-- select choosen element button -->
           <button class="button" id="select-btn" onclick="SelectBook();">
             <span>Select</span>
           </button>
@@ -179,13 +150,16 @@
 
         <!-- right column -->
         <div class="col-xs-6" id="right-column">
-          <img src="book.jpg" alt="book" id="photo_book" />
+          <img src="book.jpg" alt="book" id="photo_book"/>
+          <!-- dynamic paragraph in case image of element is null -->
           <p id="photo_book_msg"></p>
+          <!-- container info on the left -->
           <div class="container" id="info">
             <h4>Info:</h4>
             <dl id="description_list"></dl>
           </div>
 
+          <!-- continer info below image -->
           <div class="container" id="book_container">
             <h4>Description:</h4>
             <p id="description">Here the description of the book.</p>
@@ -193,16 +167,13 @@
             <p id="link">Here the link of the book.</p>
           </div>
 
-          <input
-            type="button"
-            class="select-btn"
-            id="add-btn"
-            value="Add my perfect book"
-            onclick="addBook();"
-          />
+          <!-- add button to add the selected element to the night -->
+          <input type="button" class="select-btn" id="add-btn" value="Add my perfect book" onclick="addBook();"/>
         </div>
-        <!-- right column -->
+        <!-- end right column -->
       </div>
+      <!-- end #main container -->
     </section>
+    <!-- end section -->
   </body>
 </html>

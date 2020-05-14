@@ -1,31 +1,19 @@
-/*body{ 
-    background-color: #351330;
-    font-family: 'Poppins', sans-serif;
-    color: rgb(197, 103, 221);
-}*/
 body{ 
   font-family: 'Poppins', sans-serif;
   color: #424254;
 }
 #main{
-
   background-image: linear-gradient(white, gray);
   border-radius: 10px;
   margin-left: 50px;
   margin-bottom: 50px;
-  } 
-  
-
-/*input, button{
-  outline: none;
-}*/
+} 
 
 #navbar{
   background-color: #424254;
   border-color: #424254 ;
   font-size: large;  
 }
-  
 
 h1{
   margin-left: 1%;
@@ -34,7 +22,8 @@ h1{
   margin-bottom:30px; 
   font-weight:800; 
   font-size:xx-large;
-  color:#351330 ;}
+  color:#351330 ;
+}
 
 
 #header{
@@ -78,9 +67,9 @@ input{
   border-radius: 0px 30px 30px 0px;
   font-size: large;
   background-color: white;
- }
+}
 
- hr { 
+hr { 
   border-color: #424254;
   margin-top: 1.5rem;
   margin-bottom: 0.5em;
@@ -101,21 +90,7 @@ select{
   float: left;
 }
 
-/*#surprise{
-  margin-top: 5%;
-  margin-left:1%;
-  text-align: center;
-  font-size: small;
-  border-radius: 30px 30px 30px 30px;
-  padding: 5px 20px;
-  outline: none;
-}*/
 
-/*#select-btn {
-  margin-left:0%;
-  font-size: large;
-  background-color: white;
-}*/
 /**/
 
 #select-btn {
@@ -130,21 +105,21 @@ select{
 }
 
 #select-btn:disabled {
-    background-color: #424254;
-    opacity: 0.5;
-    color:rgb(153, 153, 153);
+  background-color: #424254;
+  opacity: 0.5;
+  color:rgb(153, 153, 153);
 }
 #select-btn:hover {
-    background-color: rgb(153, 153, 153);
-    color:#424254;
+  background-color: rgb(153, 153, 153);
+  color:#424254;
 }
 #select-btn:active:enabled{
-    margin-left:0%;
-    font-size: large;
-    background-color: #424254;
-    border: 2px solid #424254;
-    border-radius: 20px;
-  }
+  margin-left:0%;
+  font-size: large;
+  background-color: #424254;
+  border: 2px solid #424254;
+  border-radius: 20px;
+}
   
 /**/
 
@@ -159,7 +134,6 @@ select{
 }
 
 #left-columm{
-  /*min-width: 50rem;*/
   width:auto;
 }
 
@@ -189,8 +163,6 @@ h4{
 
 #add-btn{
   position:right;
-  /*left: 60%;
-  top: 110%;*/
   margin-top: 2%;
   margin-bottom: 2%;
   background-color: #424254;
@@ -224,7 +196,7 @@ h4{
 table, td,th{
   font-weight: normal;
   width:39%;
-  border: 1px solid #424254; /*rgb(197, 103, 221);*/
+  border: 1px solid #424254;
   border-collapse: collapse;
   text-align: center;
 }

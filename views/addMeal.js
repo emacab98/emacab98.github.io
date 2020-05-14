@@ -1,11 +1,13 @@
 var myObj;
 var selected_meal;
+
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
     $('#right-column').hide();
 });
 
+//onclick search by name button
 function SearchByName(){
     document.getElementById("search_meal_name_msg").innerHTML = "";
     var search_meal_name =  document.getElementById('search_meal_name').value;
@@ -13,11 +15,12 @@ function SearchByName(){
         document.getElementById("search_meal_name_msg").innerHTML = "Please write a meal name!";
         return;
     }
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/${search_meal_name}/multiple/30`, true);
     request.onload = function() {
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
-             // Begin accessing JSON data here*/
+            // Begin accessing JSON data here
             document.getElementById("menu_meal").innerHTML="";
             myObj = JSON.parse(request.response);
             if(myObj.length == 0){
@@ -40,10 +43,10 @@ function SearchByName(){
     request.send();
 }
 
+//onclick select button
 function SelectMeal(){
     var idx = document.getElementById("menu_meal").options.selectedIndex;
     var item_selected = document.getElementById("menu_meal").options.item(idx);
-    //alert(item_selected.text);
     if(item_selected.text==""){
         alert("Please select a meal in the menu!");
     }
@@ -51,15 +54,13 @@ function SelectMeal(){
         var description_list = document.getElementById("description_list");
         description_list.innerHTML="";
         var j;
-        for(j=0; j< myObj.length; j++){ 
-            //alert(myObj[j].name);     
+        for(j=0; j< myObj.length; j++){     
             if(myObj[j].name==item_selected.text){
                 selected_meal= myObj[j];
                 $("#add-btn").prop("disabled",false);
                 break;
             }
         }
-        //alert(JSON.stringify(selected_meal));
         document.getElementById("photo_meal").src= selected_meal.image;
         description_list.innerHTML+= `<dt>Name</dt> <dd>- ${selected_meal.name}</dd>`;
         description_list.innerHTML+= `<dt>Category</dt> <dd>- ${selected_meal.category}</dd>`;
@@ -80,25 +81,23 @@ function SelectMeal(){
             }
         }
         
-        //alert(selected_meal.instructions);
         if(typeof selected_meal.instructions !== "undefined"){
             document.getElementById("description").innerHTML= selected_meal.instructions;
         }
         else{
             document.getElementById("description").innerHTML= "Description not available.";
         }
-        
-        
+         
         $('#right-column').show(100);    
-        
     }
 }
 
+//onclick random button
 function RandomMeal(){
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/surprise/20`, true);
     request.onload = function() {
-    // Begin accessing JSON data here
+        // Begin accessing JSON data here
         if (request.readyState == 4 && request.status >= 200 && request.status < 400){
             document.getElementById("menu_meal").innerHTML="";
             myObj = JSON.parse(request.response);
@@ -115,6 +114,7 @@ function RandomMeal(){
     request.send();
 }
 
+//onclick filters_button_cuisine
 function AdvancedSearchCuisine(){
     document.getElementById("filters_msg_cuisine").innerHTML = "";
     var search_meal_name =  document.getElementById('menu_cuisine').value;
@@ -123,6 +123,7 @@ function AdvancedSearchCuisine(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/cuisine/${search_meal_name}/30`, true);
     request.onload = function() {
@@ -151,6 +152,7 @@ function AdvancedSearchCuisine(){
     request.send();
 }
 
+//onclick filters_button_category
 function AdvancedSearchCategory(){
     document.getElementById("filters_msg_category").innerHTML = "";
     var search_meal_name =  document.getElementById('menu_category').value;
@@ -159,6 +161,7 @@ function AdvancedSearchCategory(){
         return;
     }
 
+    // AJAX XMLHttpRequest
     var request = new XMLHttpRequest();
     request.open('GET', `https://pacific-stream-14038.herokuapp.com/meal/category/${search_meal_name}/30`, true);
     request.onload = function() {
@@ -187,6 +190,7 @@ function AdvancedSearchCategory(){
     request.send();
 }
 
+//onclick add button
 function addMeal(){
     localStorage.meal=JSON.stringify(selected_meal);
     

@@ -9,13 +9,13 @@ body{
   background-color: #424254;
   font-family: 'Poppins', sans-serif;
 }
+
 #navbar{
   background-color: #424254;
   border-color: #424254 ;
   font-size: large;
-  /*margin-bottom: 0;
-  border-radius: 0;*/
 }
+
 #my_button{
   margin-top: 5px;
   background-color: black;
@@ -24,6 +24,7 @@ body{
   font-size: large;
   font-family: 'Poppins';
 }
+
 #proceed_button{
   color: rgb(153, 153, 153)
 }
@@ -32,71 +33,30 @@ body{
   font-size: 100px;
   text-align: center;
   font-family: 'Baloo';
-  /*margin-left: 1%;*/
   text-shadow: 3px 3px  rgb(153, 153, 153) ;
   margin-bottom:30px; 
   color:  white; 
   margin:auto;
 }
 
-/*.card{
-  font-family: 'Baloo';
-  background-size: cover;
-  background-position: center;	
-  min-height: 280px;
-  min-width:300px;
-  height: 280px;
-  
-  width: 300px;
-  border-radius: 30px;  
-  margin: auto;
-}
-
-.card h1{
-  text-align: center;
-  font-size: 38;
-  padding: 40% 0;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
-}
-
-.card a{
-  text-decoration: none;
-}*/
-
-
 /*******/
 .flip-card{
-  /*border: 3px solid green;*/
   font-family: 'Baloo';
-  /*background-size: cover;
-  background-position: center;*/	
   min-height: 280px;
   min-width:300px;
   height: 280px;  
   width: 300px;
-  /*border-radius: 30px;*/
   margin: auto;
   perspective: 1000px;
 }
-/*.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-}*/
 
 .flip-card-inner {
-  /*border: 3px solid green;*/
   border-radius: 30px;
-  /*position: relative;*/ 
   width: 100%;
   height: 100%;
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
 }
 
 .flip-card-front, .flip-card-back {
@@ -170,30 +130,24 @@ body{
 /*******/
 
 .col-sm-4{
-  /*border: 3px solid green;*/
   margin-top: 30px;
   min-width: 350px;
   height: auto;
 }
 
 #deck{
-  /*margin-top: -1%;
-  height: 90%;
-  width : 90%;*/
-
   margin: auto;
   width: 90%;
-  /*border: 3px solid green;*/
   padding: 30px;
     
 }
 
-/***351330*/
+/****/
 .button {
   border-radius: 20px;
-  background-color:#F2E8C4; /* #351330; /*#F2E8C4;*/
+  background-color:#F2E8C4; 
   border: none;
-  color: #424254; /*#FFFFFF;*/
+  color: #424254;
   text-align: center;
   font-size: 28px;
   padding: 30px;
@@ -203,20 +157,19 @@ body{
   margin-bottom: 20px;
   margin-top:70px;
   outline: none;
-  /*margin-left: 40rem;*/
   float: right;
 }
 
 .button1 {
-    background-color:#424254; ; /* #351330; /* #F2E8C4; */
-    color: rgb(153, 153, 153); /* #fff; /*#424254;*/ 
-    border: 2px solid rgb(153, 153, 153); /*#424254;*/
+  background-color:#424254; 
+  color: rgb(153, 153, 153); 
+  border: 2px solid rgb(153, 153, 153);
 }
   
 .button1:hover {
-    color: #424254; 
-    background-color:rgb(153, 153, 153);
-    border: 2px solid  #424254;
+  color: #424254; 
+  background-color:rgb(153, 153, 153);
+  border: 2px solid  #424254;
 }
 
 .button span {
