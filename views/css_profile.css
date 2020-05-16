@@ -235,11 +235,16 @@ font-family: 'Poppins' }
   grid-row-end: 3;
 }
 #message{
+  
   font-size: 20px;
   color: #9999A3;
-  position: center;
   margin-top: 200px ;
   margin-left: 200px;
+  
+  color: rgb(153, 153, 153);
+  text-decoration: none;
+ 
+
 }
 
 #separatore{

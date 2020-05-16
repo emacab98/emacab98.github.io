@@ -123,10 +123,11 @@ function populatePost(section, mode) {
             "Your upvoted nights will appear here! Browse some on the feed page!";
         $("#message").show();
       } else {
+        var risposta_len = risposta.length;
         $("#message").hide();
         var nights_section = document.getElementById(section);
         var index = 0;
-        var risposta_len = risposta.length;
+        
 
         for (index = 0; index < risposta_len; index++) {
           var elementi = 0;

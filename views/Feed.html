@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <title>Just a perfect night - Feed</title>
 
-        <title>Just a perfect night - Feed</title>
-        
-        <!--Poppins font-->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-       
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        
-        
-        <!-- my css file-->
-        <link rel ="stylesheet" href = "css_feed.css">
-       
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Poppins font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
 
-        <!--My script-->
-        <script src="feed.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
 
-</head>
-<body>
+    <!-- font-awesome icon set (fa fa-search) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
+    <!-- my css file-->
+    <link rel="stylesheet" href="css_feed.css" />
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--My script-->
+    <script src="feed.js"></script>
+  </head>
+  <body>
     <nav class="navbar navbar-inverse" id="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -41,64 +48,121 @@
           <li><a href="About_us.html">About us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li >
+          <li>
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle"  type="button" id="my_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="glyphicon glyphicon-user"id ="user"></span>
+              <button
+                class="btn btn-default dropdown-toggle"
+                type="button"
+                id="my_button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
+                <span class="glyphicon glyphicon-user" id="user"></span>
                 User
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="Profile.html" class="my_a">
-                  <span class="glyphicon glyphicon-home"></span>
-                  My profile
-                  
-                </a></li>
-                <li><a href="Settings.html" class="my_a">
-                  <span class="glyphicon glyphicon-cog" ></span>
-                  Settings
-                  
-                </a></li>
-                <li><a href="#" onclick="logout()" class="my_a">
-                  <span class="glyphicon glyphicon-log-out"></span>
-                  Log-out
-                  </a></li>
+                <li>
+                  <a href="Profile.html" class="my_a">
+                    <span class="glyphicon glyphicon-home"></span>
+                    My profile
+                  </a>
+                </li>
+                <li>
+                  <a href="Settings.html" class="my_a">
+                    <span class="glyphicon glyphicon-cog"></span>
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onclick="logout()" class="my_a">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Log-out
+                  </a>
+                </li>
               </ul>
             </div>
-
           </li>
-            
-        
         </ul>
       </div>
     </nav>
     <div id="e_background">
       <div id="e_smallstars"></div>
       <div id="e_moon"></div>
-
     </div>
 
-
-    </div>
-    <div class="col-sm-11 text-left" id="center"> 
-      <div id="my_center">
-        <label id="username_here"></label>
-        <button type="button" id="my_button2">
-          <a href="newNight.html" id="my_a2">
-          <span class="glyphicon glyphicon-plus-sign"></span>
-          Create a new perfect night!
-        </a>
-        </button>
+    <div class="col-sm-12" id="center">
+      <div class="row" id="my_center">
+        <div class="col-sm-9">
+          <!-- new row -->
+          <div class="row">
+            <!-- small column inside the row to contain input element for alignment purpose -->
+            <div class="col-sm-8">
+              <input
+                type="text"
+                id="tag"
+                list="menu_category"
+                placeholder="Type or select a category"
+              />
+              <!-- datalist tag specifies a list of pre-defined options for tag input -->
+              <datalist id="menu_category">
+                 <option value="All nights"></option>
+                <option value="romantic night"></option>
+                <option value="horror night"></option>
+                <option value="italian night"></option>
+                <option value="american night"></option>
+                <option value="mexican night"></option>
+                <option value="girls night"></option>
+                <option value="guys night"></option>
+                <option value="relax night"></option>
+                <option value="wild night"></option>
+                <option value="chill night"></option>
+                <option value="nerd night"></option>
+                <option value="sports night"></option>
+                <option value="sad night"></option>
+                <option value="fantasy night"></option>
+                <option value="science-fiction night"></option>
+                <option value="cheat-day night"></option>
+                <option value="90s night"></option>
+                <option value="80s night"></option>
+                <option value="70s night"></option>
+                <option value="60s night"></option>
+                <option value="pop-culture night"></option>
+                <option value="feels night"></option>
+                <option value="SNAFU night"></option>
+                <option value="FUBAR night"></option>
+                <option value="TARFU night"></option>
+              </datalist>
+            </div>
+            <!-- small column inside the row to contain button element for alignment purpose -->
+            <div class="col-sm-1">
+              <!-- the onclick event occurs when the user clicks on the button -->
+              <button class="search-btn" type="button" onclick="SearchByTag()">
+                <!-- icon of search (from font-awesome) -->
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+          <!-- end row -->
+          <!-- hide paragraph for control message in case of error -->
+          <p id="search_tag_name_msg"></p>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" id="my_button2">
+            <a href="newNight.html" id="my_a2">
+              <span class="glyphicon glyphicon-plus-sign"></span>
+              Create a new perfect night!
+            </a>
+          </button>
+        </div>
       </div>
-      <br>
+      <br />
       <!--codice my nights qui-->
-      <div id="posts">
-      </div>
+      <div id="posts"></div>
       <p id="message"></p>
+      <div id="tags"></div>
       
-
-
     </div>
-
   </body>
 </html>
