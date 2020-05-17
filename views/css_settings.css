@@ -74,7 +74,26 @@ body{
 
 
 
-
+#submit:disabled {
+  
+    border: 2px solid rgb(153, 153, 153);
+    opacity: 30%;
+    cursor: not-allowed;
+    background-color: rgb(153, 153, 153);
+    
+    color: #424254;
+  }
+  
+#submit:disabled span {
+    cursor: not-allowed;
+  }
+#submit:disabled span:after {
+    content: '';
+  }
+  
+  #submit:hover:disabled span {
+    padding-right: 0px;
+  }
   
 
   #delete{
