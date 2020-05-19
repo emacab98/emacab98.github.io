@@ -168,11 +168,12 @@ async function populateFeed(path, search_value) {
       //var risposta_str = JSON.stringify(this.response);
       //alert("Risposta: " + risposta_str)
 
-      if (risposta.length == 0 && search_value == "feed") {
+      if (risposta.length == 0 && (search_value == "feed" || search_value =="popularity_feed")) {
         document.getElementById("message").innerHTML =
           "Created nights will appear here! Start creating now!";
         $("#tags").hide();
         $("#posts").hide();
+        $("#popularity_feed").hide();
         $("#message").show();
       } else if (risposta.length == 0 && search_value == "tag") {
         
@@ -184,13 +185,28 @@ async function populateFeed(path, search_value) {
 
         if (search_value == "feed") {
           var nights_section = document.getElementById("posts");
+          $("#posts").empty();
           $("#tags").hide();
+          $("#popularity_feed").hide();
           $("#posts").show();
+          
+
         } else if (search_value == "tag") {
           var nights_section = document.getElementById("tags");
-
+          
+          $("#tags").empty();
           $("#posts").hide();
+          $("#popularity_feed").hide();
           $("#tags").show();
+          
+        }
+        else if(search_value =="popularity_feed"){
+          var nights_section = document.getElementById("popularity_feed");
+          $("#popularity_feed").empty();
+          $("#posts").hide();
+          $("#tags").hide();
+          $("#popularity_feed").show();
+          
         }
         var index = 0;
         var risposta_len = risposta.length;
@@ -532,4 +548,12 @@ async function populateFeed(path, search_value) {
     }
   };
   request.send();
+}
+
+
+function popularity_order(){
+ 
+  var path =
+      "https://pacific-stream-14038.herokuapp.com/perfectnight/feed/popularity";
+    populateFeed(path, "popularity_feed");
 }

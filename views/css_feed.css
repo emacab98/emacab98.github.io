@@ -54,7 +54,7 @@ select{border-radius: 10px;}
   font-weight: bold;
 
 }
-#my_a2{
+#my_a2, .my_a2{
   color: #9999A3;
 }
 .upvotedAndSaved, .upvotedAndSaved:hover{
@@ -99,7 +99,7 @@ font-size: large;
 font-family: 'Poppins' 
 }
 
-#my_button2{
+.my_button2{
   border-radius: 10px;
   background-color: #424254;
   width: 400px;
@@ -118,10 +118,9 @@ font-family: 'Poppins'
   padding: 15px 32px;
   margin-left: 25%;
 
-
 }
 
-#my_button2 a {
+.my_button2 a {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -129,7 +128,7 @@ font-family: 'Poppins'
   outline-color:#424254;
 }
 
-#my_button2 a:after {
+.my_button2 a:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -140,24 +139,29 @@ font-family: 'Poppins'
   color: white;
 }
 
-#my_button2:hover a {
+.my_button2:hover a {
   padding-right: 25px;
   outline-color:#424254;
   color: white;
  
 }
 
-#my_button2:hover a:after {
+.my_button2:hover a:after {
   opacity: 1;
   right: 0;
   outline-color:#424254;
   color: white;
 }
-#my_button:hover, #my_a2:hover{
+.my_button:hover, #my_a2:hover{
   color: white;
 }
 
-
+#pop_btn{
+  width: 250px;
+  height:50px;
+  font-size: small;
+  margin-left: 10px;
+}
 
 .post_button{
     background-color: #424254;
