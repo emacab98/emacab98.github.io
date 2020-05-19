@@ -488,13 +488,13 @@ async function populateFeed(path, search_value) {
 
           if (checked_upvoted == false) {
             link.className = "my_link";
-            link.innerHTML = "Upvote  ";
+            link.innerHTML = risposta[index].upvotes + "  Upvote  ";
             link.onclick = upvote_function;
             var span = document.createElement("span");
             span.className = "glyphicon glyphicon-arrow-up";
           } else {
             link.className = "upvotedAndSaved";
-            link.innerHTML = "Upvoted  ";
+            link.innerHTML = risposta[index].upvotes + "  Upvoted  ";
           }
 
           var link2 = document.createElement("a");
