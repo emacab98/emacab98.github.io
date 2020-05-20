@@ -166,7 +166,7 @@ select{
   opacity: 0.5;
   color: rgb(153, 153, 153);
 }
-#select-btn:hover {
+#select-btn:hover:enabled {
   background-color:rgb(153, 153, 153); ;
   color:  #424254;
 }
