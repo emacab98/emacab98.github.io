@@ -88,7 +88,7 @@ function checkForm(){
   var password = document.getElementById("password").value;
 
   if(username==""|| password==""||email==""){
-    alert("Please fill al the information!");
+    alert("Please fill all the information!");
     return;
   }
   
