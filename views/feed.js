@@ -184,8 +184,10 @@ async function populateFeed(path, search_value) {
         $("#message").hide();
 
         if (search_value == "feed") {
+          
           var nights_section = document.getElementById("posts");
           $("#posts").empty();
+          $("#pop_btn").show();
           $("#tags").hide();
           $("#popularity_feed").hide();
           $("#posts").show();
@@ -197,12 +199,14 @@ async function populateFeed(path, search_value) {
           $("#tags").empty();
           $("#posts").hide();
           $("#popularity_feed").hide();
+          $("#pop_btn").hide();
           $("#tags").show();
           
         }
         else if(search_value =="popularity_feed"){
           var nights_section = document.getElementById("popularity_feed");
           $("#popularity_feed").empty();
+           $("#pop_btn").show();
           $("#posts").hide();
           $("#tags").hide();
           $("#popularity_feed").show();

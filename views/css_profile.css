@@ -11,9 +11,12 @@
 
 .well{
   background-color:#424254;
-  border: none;
   background-image: linear-gradient( #424254, #40408b );
-  
+  border: none;
+  margin-top : 10px;
+  height: auto;
+  width: auto;
+  padding: 40px;
 
 }
 #my_night{
@@ -113,22 +116,20 @@ font-family: 'Poppins' }
 
 .post_button{
   background-color: #424254;
-  width: 150px;
-  border: none;
-  color: rgb(153, 153, 153);
-  text-align: center;
-  font-weight:600;
-  font-size: 20px;
-  padding: 5px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  outline-color:#424254;
-  font-size: large;
-  font-family: 'Poppins';
-  margin-right: 10px;
-  border-radius: 5px;
-  margin-left: 780px;
+    width: 150px;
+    border: none;
+    color: rgb(153, 153, 153);
+    text-align: center;
+    font-weight:600;
+    padding: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+    outline-color:#424254;
+    font-size: large;
+    font-family: 'Poppins';
+    border-radius: 5px;
+    float:right;
+    margin-bottom: 30px;
 
 }
 
@@ -165,10 +166,12 @@ font-family: 'Poppins' }
   color: white;
 }
 
-.img-thumbnail{
-  height: 180px;
-  width: 150px;
-  float: bottom;
+
+  .img-thumbnail{
+    height: 180px;
+    width: 150px;
+    float: bottom;
+  
 }
 .my_title{
   color: white;
@@ -178,9 +181,12 @@ font-family: 'Poppins' }
 }
 
 .my_elem{
-  color: #424254;
+ 
+
+  color: rgb(153, 153, 153);
   font-size: medium;
   font-weight: normal;
+
 
 }
 
