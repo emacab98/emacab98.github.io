@@ -31,7 +31,7 @@ $(document).ready(function () {
     $("#submit").prop("disabled", true);
     $("#new_pass").keyup(function () {
       var regex = new RegExp(
-        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@$!%*?&]).{8,}$"
+        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@$!%*&]).{8,}$"
       );
 
       var password = document.getElementById("new_pass").value;
