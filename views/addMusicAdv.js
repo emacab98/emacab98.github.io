@@ -7,8 +7,6 @@ var access_token = "";
 //onload function to take token for spotify adv search
 function sendData(){
     //getting params from URL
-    //searchParams readonly property of the URL interface returns a URLSearchParams object 
-    //allowing access to the GET decoded query arguments contained in the URL
     var params = (new URL(document.location)).searchParams;
     let code = params.get('code'); 
     let state=  params.get('state'); 

@@ -83,28 +83,19 @@
       <!-- div #deck to contain cards -->
       <div class="container-fluid" id="deck">
         <!-- creating card -->
-        <!-- each cards is in its column col-sm-4 (bootstrap alignment formatting) -->
         <div class="col-sm-4">
-          <!-- flip-card is the container of a specific card and has its own id -->
           <div class="flip-card" id="cocktail_card">
-            <!-- creating container flip-card-inner to wrap front and back of card -->
             <div class="flip-card-inner">
-              <!-- all the surface of the card is linked to the specific "addElement.html" page -->
               <a href="addCocktail.html">
-                <!-- flip-card-front is the front of the card -->
                 <div class="flip-card-front">
-                  <!-- the card-title will be changed when the specific element will be added -->
                   <h1 class="card-title">cocktail are we drinking?</h1>
                 </div>
-                <!-- flip-card-back is the back of the card -->
                 <div class="flip-card-back">
-                   <!-- the change-title will be changed when the specific element will be added -->
                   <h1 class="change-title">Pick a cocktail and it will appear here!</h1>
                 </div>
               </a>
             </div>
           </div>
-          <!-- end flip-card -->
         </div>
         <!-- end card -->
         <!-- new card -->
@@ -189,9 +180,7 @@
         <!-- end card -->
         <!-- new row to contain Proceed button -->
         <div class="row">
-          <!-- the object window.location with the property href is used to redirect the browser to a new page -->
           <button class="button button1" disabled onclick="window.location.href='addCategory.html';">
-            <!-- span is used to add dynamic string in the button -->
             <span id="proceed_button">Proceed </span>
           </button>
         </div>

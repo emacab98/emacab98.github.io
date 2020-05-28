@@ -2,7 +2,6 @@ var myObj;
 var selected_cocktail;
 
 //jQuery methods inside document ready event
-//to prevent any jQuery code from running before the document is finished loading
 $(document).ready(function(){
     $("#select-btn").prop("disabled",true);
     $("#add-btn").prop("disabled",true);
@@ -12,8 +11,6 @@ $(document).ready(function(){
 
 //onclick search by name button
 function SearchByName(){
-    //getElementById() DOM method returns the element that has the ID attribute with the specified value
-    //innerHTML DOM property sets the HTML content (inner HTML) of an element
     //reset control message
     document.getElementById("search_cocktail_name_msg").innerHTML = "";
 
@@ -55,10 +52,7 @@ function SearchByName(){
 
 //onclick select button
 function SelectCocktail(){
-    //options collection returns a collection of all <option> elements in a drop-down list
-    //selectedIndex property sets or returns the index of the selected option in a drop-down list
     var idx = document.getElementById("menu_cocktail").options.selectedIndex;
-    //item(index) method returns the <option> element from the collection with the specified index
     var item_selected = document.getElementById("menu_cocktail").options.item(idx);
     if(item_selected.text==""){
         alert("Please select a cocktail in the menu!")
@@ -69,11 +63,8 @@ function SelectCocktail(){
         for(j=0; j< myObj.length; j++){ 
             //filling info containers              
             if(myObj[j].name==item_selected.text){
-                // src property sets the value of the src attribute of the element image
                 document.getElementById("photo_cocktail").src= myObj[j].image;
-                document.getElementById("recipe").innerHTML= myObj[j].instructions; 
-                //<dt> tag defines a term in a description list       
-                //<dd> tag is used to describe a term in a description list    
+                document.getElementById("recipe").innerHTML= myObj[j].instructions;   
                 document.getElementById("description_list").innerHTML+= `<dt>Category</dt> <dd>- ${myObj[j].category}</dd>`;
                 //creating table for composition
                 document.getElementById("description_list").innerHTML+= `<dt>Composition:</dt> <dd><table id="tab" ><tr><th>Ingredients</th><th>Quantities</th></tr> </table></dd>`;

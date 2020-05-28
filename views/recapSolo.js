@@ -32,7 +32,6 @@ function CheckStorage(){
     }
     else{
         var movie= JSON.parse(localStorage.movie);
-        //alert(movie.playbill);
         if(movie.playbill != null) document.getElementById('movie_card').style.backgroundImage = `url("${movie.playbill}")`;
         document.getElementById('movie').innerHTML = `${movie.title}`;
     } 
